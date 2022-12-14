@@ -1,0 +1,15 @@
+// List of mixins can include any repeatable chunks of styles
+@use "vars" as v;
+
+@mixin inset-center($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
