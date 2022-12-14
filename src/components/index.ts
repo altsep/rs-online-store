@@ -1,8 +1,8 @@
-import products from './products';
-import cart from './cart';
-import checkout from './checkout';
-import description from './description';
-import header from './header';
-import notFound from './notFound';
+import renderProducts from './products';
+import renderCart from './cart';
+import renderCheckout from './checkout';
+import renderDetails from './details';
+import renderHeader from './header';
+import renderNotFound from './notFound';
 
-export { products, cart, checkout, description, header, notFound };
+export { renderProducts, renderCart, renderCheckout, renderDetails, renderHeader, renderNotFound };
