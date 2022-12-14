@@ -1,9 +1,8 @@
 import './index.scss';
-import { defaultState } from '../src/constants';
-import init from '../src/init';
+import { defaults } from '../src/constants';
+import type { State } from '../src/constants';
+import init from '../src';
 
-export interface State {}
-
-const state: State = { ...defaultState };
+const state: State = { ...defaults.state };
 
 init(state);

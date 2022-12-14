@@ -1,13 +1,16 @@
 // Global styles
 // Mobile first, media queries after, media queries could be separated into their own files
 
-@use "normalize";
-@use "mixins" as mx;
-@use "vars" as v;
+@use 'normalize';
+@use 'mixins' as mx;
+@use 'vars' as v;
 
 #root {
+  margin: 10px;
+}
+
+header {
   color: coral;
   font-style: italic;
   text-shadow: 4px 4px 0 lavender;
-  margin: 10px;
 }
