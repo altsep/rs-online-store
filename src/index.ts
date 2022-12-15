@@ -2,7 +2,7 @@ import { renderHeader } from './components';
 import { State, defaults } from './constants';
 import onNavigate from './functions/onNavigate';
 
-// Create and append main layout
+// Create main layout and append it to root
 function init(state: State /* pass the state down to components */): void {
   const root = document.querySelector<HTMLDivElement>('#root');
 

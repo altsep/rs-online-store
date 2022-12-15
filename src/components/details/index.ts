@@ -6,7 +6,7 @@ function renderDetails({ state, parentNodeName }: Props): void {
 
   const { pathname } = window.location;
 
-  const matchArr = pathname.match(/\d$/);
+  const matchArr = pathname.match(/\d+$/);
 
   if (matchArr) {
     const id = Number(matchArr[0]);

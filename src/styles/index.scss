@@ -1,5 +1,6 @@
 // Global styles
-// Mobile first, media queries after, media queries could be separated into their own files
+// Mobile first
+// Media queries are to be placed after main styles or queries could be separated into their own files
 
 @use 'normalize';
 @use 'mixins' as mx;
