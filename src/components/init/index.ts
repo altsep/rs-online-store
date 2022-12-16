@@ -1,7 +1,6 @@
 import { renderHeader } from '..';
 import type { Props } from '../../constants';
-import { handleHistory } from '../../functions';
-import onNavigate from '../../functions/onNavigate';
+import { handleHistory, onNavigate } from '../../utility';
 
 // Create main layout and append it to root
 function init(props: Props /* pass props down to components */): void {
