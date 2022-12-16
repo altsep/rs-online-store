@@ -1,8 +1,5 @@
 import './index.scss';
 import { defaults } from './constants';
-import type { State } from './constants';
-import init from './init';
+import init from './components/init';
 
-const state: State = { ...defaults.state };
-
-init(state);
+init(defaults);

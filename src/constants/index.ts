@@ -13,7 +13,7 @@ interface Props {
   state: State;
   isDefault?: boolean;
   parentNodeName: string;
-  page?: string;
+  path: string;
 }
 
 export type { State, Props };
@@ -24,7 +24,7 @@ const defaults: Props = {
   }, // Mutable properties go in state, it being the collection of initial values
   isDefault: false,
   parentNodeName: 'main',
-  page: 'products',
+  path: '/products',
 };
 
 export { defaults };

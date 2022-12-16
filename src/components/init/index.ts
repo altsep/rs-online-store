@@ -1,9 +1,10 @@
-import { renderHeader } from './components';
-import { State, defaults } from './constants';
-import onNavigate from './functions/onNavigate';
+import { renderHeader } from '..';
+import type { Props } from '../../constants';
+import { handleHistory } from '../../functions';
+import onNavigate from '../../functions/onNavigate';
 
 // Create main layout and append it to root
-function init(state: State /* pass the state down to components */): void {
+function init(props: Props /* pass props down to components */): void {
   const root = document.querySelector<HTMLDivElement>('#root');
 
   const headerNode = document.createElement('header');
@@ -20,9 +21,15 @@ function init(state: State /* pass the state down to components */): void {
     root.append(headerNode, mainNode, footerNode);
   }
 
-  onNavigate(defaults);
-
   renderHeader('header');
+
+  // Push default path to history if accessing root
+  if (window.location.pathname === '/') {
+    handleHistory(props.path, true);
+  }
+
+  // Render page matching the current path
+  onNavigate(props);
 }
 
 export default init;

@@ -1,5 +1,4 @@
 import { Props } from '../../constants';
-import { handleHistory } from '../../functions';
 
 function renderProducts({ state, parentNodeName }: Props): void {
   const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
@@ -13,8 +12,6 @@ function renderProducts({ state, parentNodeName }: Props): void {
 
     parentNode.append(productsNode);
   }
-
-  handleHistory('products', true);
 }
 
 export default renderProducts;
