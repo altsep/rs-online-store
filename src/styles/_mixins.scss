@@ -1,5 +1,5 @@
 // List of mixins can include any repeatable chunks of styles
-@use "vars" as v;
+@use 'vars' as v;
 
 @mixin inset-center($pos: absolute) {
   position: $pos;

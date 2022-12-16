@@ -1,6 +1,6 @@
 {
-  "name": "online-store",
-  "version": "0.1.0",
+  "name": "rsonline-store",
+  "version": "0.2.0",
   "author": "altsep <mx24xnpi4@mozmail.com> (https://altsep.vercel.app)",
   "contributors": [
     "altsep",
@@ -9,9 +9,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "vite serve root",
-    "build": "tsc && vite build root --emptyOutDir",    
-    "lint": "eslint . --ext .js,.ts"
+    "start": "webpack serve --mode=development",
+    "build": "tsc && webpack --mode=production",
+    "lint": "eslint . --ext .js,.ts",
+    "format": "prettier --write src"
   },
   "browserslist": {
     "production": [
@@ -38,8 +39,11 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
+    "@webpack-cli/generators": "^2.5.0",
     "autoprefixer": "^10.4.13",
     "babel-jest": "^29.3.1",
+    "css-loader": "^6.7.3",
+    "esbuild-loader": "^2.20.0",
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -48,15 +52,23 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
+    "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.20",
+    "postcss-loader": "^7.0.2",
     "prettier": "^2.8.1",
     "prettier-eslint": "^15.0.1",
     "sass": "^1.56.2",
+    "sass-loader": "^13.2.0",
     "tailwindcss": "^3.2.4",
+    "style-loader": "^3.3.1",
     "typescript": "^4.9.4",
-    "vite": "^4.0.1",
-    "vite-tsconfig-paths": "^4.0.2"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
   }
 }

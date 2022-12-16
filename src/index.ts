@@ -1,28 +1,8 @@
-import { renderHeader } from './components';
-import { State, defaults } from './constants';
-import onNavigate from './functions/onNavigate';
+import './index.scss';
+import { defaults } from './constants';
+import type { State } from './constants';
+import init from './init';
 
-// Create main layout and append it to root
-function init(state: State /* pass the state down to components */): void {
-  const root = document.querySelector<HTMLDivElement>('#root');
+const state: State = { ...defaults.state };
 
-  const headerNode = document.createElement('header');
-  headerNode.className = 'header';
-
-  const mainNode = document.createElement('main');
-  mainNode.className = 'main';
-
-  const footerNode = document.createElement('footer');
-  footerNode.className = 'footer';
-
-  if (root) {
-    root.textContent = 'Hello World';
-    root.append(headerNode, mainNode, footerNode);
-  }
-
-  onNavigate(defaults);
-
-  renderHeader('header');
-}
-
-export default init;
+init(state);
