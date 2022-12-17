@@ -5,7 +5,7 @@ function renderProducts({ state, parentNodeName }: Props): void {
 
   const productsNode = document.createElement('div');
   productsNode.className = 'products';
-  productsNode.textContent = state ? JSON.stringify(state.products) : 'Products';
+  // productsNode.textContent = state ? JSON.stringify(state.products) : 'Products';
 
   if (parentNode instanceof HTMLElement) {
     parentNode.innerHTML = '';
