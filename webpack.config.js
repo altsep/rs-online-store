@@ -3,8 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const config = {
+  context: __dirname,
   entry: './src/index.ts',
   output: {
     path: path.join(__dirname, 'dist'),
@@ -40,6 +42,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
   optimization: {
     minimizer: [
@@ -61,12 +64,15 @@ const config = {
       },
     },
   },
+  watchOptions: {
+    ignored: '**/node_modules',
+  },
 };
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
-  const filename = (ext) => (isProduction ? `[name].[hash].${ext}` : `[name].${ext}`);
+  const filename = (ext) => (isProduction ? `[name].[fullhash].${ext}` : `[name].${ext}`);
 
   if (isProduction) {
     config.plugins.push(new MiniCssExtractPlugin({ filename: filename('css') }));
