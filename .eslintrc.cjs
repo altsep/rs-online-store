@@ -32,7 +32,7 @@ module.exports = {
         'class-methods-use-this': 'off',
         'import/no-unresolved': 'error',
     },
-    ignorePatterns: ['dist', '*.cjs', '*.config.js', '*setup.js'],
+    ignorePatterns: ['dist', '*.config.js', '*setup.js'],
     settings: {
         'import/parsers': {
             '@typescript-eslint/parser': ['.ts', '.js'],
