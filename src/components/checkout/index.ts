@@ -3,7 +3,12 @@ import { Props } from '../../constants';
 function renderCheckout({ parentNodeName }: Props): void {
   const checkoutNode = document.createElement('div');
   checkoutNode.className = 'checkout';
-  checkoutNode.textContent = 'Checkout';
+
+  const headingNode = document.createElement<'h2'>('h2');
+  headingNode.className = 'checkout-heading heading';
+  headingNode.textContent = 'Checkout';
+
+  checkoutNode.append(headingNode);
 
   const parentNode = document.querySelector(parentNodeName || '');
 
