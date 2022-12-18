@@ -16,7 +16,6 @@ function init(props: Props /* pass props down to components */): void {
   footerNode.className = 'footer';
 
   if (root) {
-    root.textContent = 'Hello World';
     root.append(headerNode, mainNode, footerNode);
   }
 

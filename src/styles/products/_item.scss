@@ -1,0 +1,27 @@
+@use '../vars' as v;
+
+.products__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  max-width: 768px;
+  cursor: pointer;
+  height: 70px;
+
+  &:hover {
+    background-color: v.$light-gray;
+  }
+
+  &-text {
+    padding: 10px;
+    text-transform: capitalize;
+    max-width: 50%;
+  }
+
+  &-img {
+    height: 100%;
+    width: 100%;
+    max-width: 30%;
+    object-fit: cover;
+  }
+}

@@ -5,6 +5,12 @@ function renderNotFound({ parentNodeName }: Props): void {
   notFoundNode.className = 'not-found';
   notFoundNode.textContent = 'Not found';
 
+  const headingNode = document.createElement<'h2'>('h2');
+  headingNode.className = 'not-found-heading heading';
+  headingNode.textContent = 'Not Found';
+
+  notFoundNode.append(headingNode);
+
   const parentNode = document.querySelector(parentNodeName || '');
 
   if (parentNode) {

@@ -8,13 +8,20 @@ function renderDetails({ state, parentNodeName }: Props): void {
 
   const matchArr = pathname.match(/\d+$/);
 
+  const headingNode = document.createElement<'h2'>('h2');
+  headingNode.className = 'details-heading heading';
+
+  const textNode = document.createElement<'p'>('p');
+  textNode.className = 'details-text';
+
   if (matchArr) {
     const id = Number(matchArr[0]);
     const item = state.products[id - 1];
-    detailsNode.textContent = item
-      ? `Details for item ${id} ${item ? JSON.stringify(item) : ''}`
-      : 'No product found under such id';
+    headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
+    textNode.textContent = `${item ? JSON.stringify(item) : ''}`;
   }
+
+  detailsNode.append(headingNode, textNode);
 
   const parentNode = document.querySelector(parentNodeName || '');
 
