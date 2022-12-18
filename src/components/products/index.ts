@@ -1,7 +1,12 @@
 import { Props } from '../../constants';
 import createListItem from './createListItem';
 
-function renderProducts({ state: { products }, parentNodeName }: Props): void {
+function renderProducts(props: Props): void {
+  const {
+    state: { products },
+    parentNodeName,
+  } = props;
+
   const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
 
   const productsNode = document.createElement<'div'>('div');

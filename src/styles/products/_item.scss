@@ -8,6 +8,10 @@
   cursor: pointer;
   height: 70px;
 
+  * {
+    pointer-events: none;
+  }
+
   &:hover {
     background-color: v.$light-gray;
   }
