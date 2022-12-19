@@ -11,10 +11,11 @@ function renderHeader(state: State): void {
     const headerWrapper = parent.appendChild(document.createElement('div'));
     headerWrapper.className = 'wrapper';
 
+    const s = state;
     initHeadeBurger('.wrapper');
     initHeaderlogo('.wrapper');
-    initHeaderCartTotal('.wrapper', 100.50);
-    initHeaderCart('.wrapper', 3);
+    initHeaderCartTotal('.wrapper', s.totalSum);
+    initHeaderCart('.wrapper', s.itemsInCart);
   }
 }
 
