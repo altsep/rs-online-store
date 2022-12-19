@@ -40,7 +40,7 @@ const defaults: Props = {
     totalSum: 0,
   }, // Mutable properties go in state, it being the collection of initial values
   parentNodeName: 'main',
-  rootPath: '/products',
+  rootPath: '/products', // Readonly props are placed here
 };
 
 export { defaults };

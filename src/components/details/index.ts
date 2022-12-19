@@ -1,4 +1,4 @@
-import type { Props } from '../../constants';
+import type { Product, Props } from '../../constants';
 
 function renderDetails({ state, parentNodeName }: Props): void {
   const detailsNode = document.createElement('div');
@@ -16,7 +16,7 @@ function renderDetails({ state, parentNodeName }: Props): void {
 
   if (matchArr) {
     const id = Number(matchArr[0]);
-    const item = state.products[id - 1];
+    const item = state.products.find((pr: Product) => pr.id === id);
     headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
     textNode.textContent = `${item ? JSON.stringify(item) : ''}`;
   }
