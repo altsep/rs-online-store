@@ -8,6 +8,10 @@
 @use 'products';
 
 #root {
-  margin: 10px;
+  width: 100vw;
+  overflow-x: hidden; /*it is temporary solution to display the page correctly */
 }
-
+.main {
+  position: relative;
+  top: 60px;
+}
