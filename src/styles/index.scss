@@ -4,14 +4,10 @@
 @use 'normalize';
 @use 'mixins' as mx;
 @use 'vars' as v;
+@use 'header';
 @use 'products';
 
 #root {
   margin: 10px;
 }
 
-header {
-  color: coral;
-  font-style: italic;
-  text-shadow: 4px 4px 0 lavender;
-}

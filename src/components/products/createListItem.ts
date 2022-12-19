@@ -1,7 +1,8 @@
-import type { Product } from '../../constants';
+import type { Product, State } from '../../constants';
 import onProductClick from './onProductClick';
+import addToCartBtn from './addToCartBtn';
 
-export default function createListItem(item: Product) {
+export default function createListItem(state: State, item: Product) {
   const listItem = document.createElement<'div'>('div');
   listItem.className = 'products__item';
 
@@ -24,7 +25,9 @@ export default function createListItem(item: Product) {
 
     listItem.addEventListener('click', onProductClick);
 
-    listItem.append(textNode, thumbNode);
+    const btn = addToCartBtn(state, item);
+
+    listItem.append(textNode, thumbNode, btn);
   }
 
   return listItem;

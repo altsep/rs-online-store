@@ -21,7 +21,7 @@ function init(props: Props /* pass props down to components */): void {
     root.append(headerNode, mainNode, footerNode);
   }
 
-  renderHeader('header');
+  renderHeader(props.state);
 
   // Push default path to history if accessing root
   if (window.location.pathname === '/') {

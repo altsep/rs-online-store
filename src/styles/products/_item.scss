@@ -1,25 +1,34 @@
 @use '../vars' as v;
+@use '../mixins' as mx;
 
 .products__item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   max-width: 768px;
   cursor: pointer;
-  height: 70px;
-
-  * {
-    pointer-events: none;
-  }
+  height: 100px;
+  position: relative;
+  border-radius: 5px;
 
   &:hover {
     background-color: v.$light-gray;
   }
 
+  &-text,
+  &-img {
+    pointer-events: none;
+  }
+
   &-text {
     padding: 10px;
-    text-transform: capitalize;
     max-width: 50%;
+  }
+
+  &,
+  &-img {
+    border-left: none;
+    border-radius: 5px;
   }
 
   &-img {
@@ -27,5 +36,23 @@
     width: 100%;
     max-width: 30%;
     object-fit: cover;
+  }
+
+  &-icon {
+    $size: 30px;
+    $offset: 5px;
+    @include mx.icon($size, $offset);
+    z-index: 5;
+    position: absolute;
+    border-radius: 50%;
+    right: calc($size / -2);
+    bottom: calc($size / -2);
+
+    &:active {
+      $size: $size - $offset;
+      @include mx.icon($size, $offset);
+      right: calc($size / -2);
+      bottom: calc($size / -2);
+    }
   }
 }

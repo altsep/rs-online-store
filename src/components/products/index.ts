@@ -3,6 +3,7 @@ import createListItem from './createListItem';
 
 function renderProducts(props: Props): void {
   const {
+    state,
     state: { products },
     parentNodeName,
   } = props;
@@ -22,7 +23,7 @@ function renderProducts(props: Props): void {
   productsNode.append(headingNode, listNode);
 
   products.forEach((item) => {
-    const listItem = createListItem(item);
+    const listItem = createListItem(state, item);
     listNode.append(listItem);
   });
 

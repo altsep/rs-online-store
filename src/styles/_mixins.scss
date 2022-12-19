@@ -13,3 +13,16 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin icon($size, $offset) {
+  height: $size;
+  width: $size;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid v.$light-gray;
+  box-shadow: 1px 1px 3px v.$light-gray;
+
+  &:hover {
+    background-color: v.$light-gray;
+  }
+}

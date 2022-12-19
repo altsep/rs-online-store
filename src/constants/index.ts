@@ -1,6 +1,6 @@
 import { tempProductsData } from '../data';
 
-export interface Product {
+interface Product {
   id: number;
   title: string;
   description: string;
@@ -16,7 +16,7 @@ export interface Product {
 
 interface State {
   products: Product[];
-  cart: Product[];
+  cart: Cart;
   itemsInCart: number;
   totalSum: number;
 }
@@ -27,10 +27,14 @@ interface Props {
   readonly rootPath: string;
 }
 
-export type { State, Props };
+type CartItem = { amount: number } & Product;
 
-const cartItem = localStorage.getItem('aaaf-rs-os-cart');
-const cart = JSON.parse(cartItem || '[]') as Product[];
+type Cart = Record<string, CartItem>;
+
+export type { Product, State, Props };
+
+const cartStr = localStorage.getItem('aahh-rs-os-cart');
+const cart = JSON.parse(cartStr || '{}') as Cart;
 
 const defaults: Props = {
   state: {
