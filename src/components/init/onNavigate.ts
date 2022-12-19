@@ -1,4 +1,4 @@
-import { renderProducts, renderCart, renderDetails, renderNotFound, renderCheckout } from '../../components';
+import { renderProducts, renderCart, renderDetails, renderNotFound, renderCheckout } from '..';
 import type { Props } from '../../constants';
 
 interface Route {
@@ -21,7 +21,7 @@ function onNavigate(props: Props): void {
     { path: /\/products$/, fn: renderProducts },
     { path: /\/cart$/, fn: renderCart },
     { path: /\/checkout$/, fn: renderCheckout },
-    { path: /\/products\/\d+$/, fn: renderDetails }, // Looking for elegant solution to match variable route    
+    { path: /\/products\/\d+$/, fn: renderDetails }, // Looking for elegant solution to match variable route
     { path: /[^/]/, fn: renderNotFound }, // Match this route if nothing else does
   ];
 

@@ -25,7 +25,7 @@ function init(props: Props /* pass props down to components */): void {
 
   // Push default path to history if accessing root
   if (window.location.pathname === '/') {
-    handleHistory(props.path, true);
+    handleHistory(props.rootPath, true);
   }
 
   // Render page matching the current path

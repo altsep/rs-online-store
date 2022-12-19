@@ -1,4 +1,4 @@
-import type { Product, Props } from '../../constants';
+import type { Product } from '../../constants';
 import onProductClick from './onProductClick';
 
 export default function createListItem(item: Product) {
@@ -6,19 +6,23 @@ export default function createListItem(item: Product) {
   listItem.className = 'products__item';
 
   if (item) {
-    const { id, title, price, rating, stock, brand, thumbnail } = item;
+    const { id, title, price, stock, brand, thumbnail } = item;
 
     listItem.dataset.id = String(id);
 
     const textNode = document.createElement<'span'>('span');
     textNode.className = 'products__item-text';
-    textNode.textContent = `${brand} ${title} $${price} ${stock} ${rating}`;
+    textNode.textContent = `${brand} ${title} $${price}`;
 
     const thumbNode = document.createElement<'img'>('img');
     thumbNode.className = 'products__item-img img';
     thumbNode.src = thumbnail;
 
-    listItem.addEventListener('click', (e) => onProductClick(e));
+    if (stock === 0) {
+      textNode.classList.add('out-of-stock');
+    }
+
+    listItem.addEventListener('click', onProductClick);
 
     listItem.append(textNode, thumbNode);
   }
