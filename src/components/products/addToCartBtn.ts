@@ -1,5 +1,6 @@
 import plus from '../../assets/icons/plus.svg';
 import type { Product, State } from '../../constants';
+import { updateCartCount } from '../header/updateCartCount';
 
 export default function addToCartBtn(state: State, item: Product): HTMLImageElement {
   const { id, price } = item;
@@ -21,7 +22,10 @@ export default function addToCartBtn(state: State, item: Product): HTMLImageElem
       s.totalSum += price;
     } else {
       s.cart[id] = { ...item, amount: 1 };
+      s.itemsInCart += 1;
+      s.totalSum += price;
     }
+    updateCartCount(s);
   };
 
   icon.addEventListener('mousedown', handleClick);
