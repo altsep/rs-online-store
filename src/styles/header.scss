@@ -13,7 +13,6 @@ $font-header: 'Roboto', sans-serif;
   top: 0;
   height: 60px;
   background-color:lightgrey;
-  // color: coral;
   font-family: $font-header;
 }
 .header {
@@ -99,7 +98,7 @@ $font-header: 'Roboto', sans-serif;
     position:relative;
   }
   .header_logo:hover {
-    transition: scale(1.05);
+    scale: 1.05;
     cursor: pointer;
   }
   .header_logo {

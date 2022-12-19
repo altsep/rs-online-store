@@ -1,3 +1,5 @@
+import { tempProductsData } from '../../data';
+import { onNavigate } from '../../utility';
 import renderCart from '../cart';
 import cartLogoImg from './img/cart.svg'
 export function initHeaderCart(parentNodeName: string, count: number): void{
@@ -19,6 +21,15 @@ export function initHeaderCart(parentNodeName: string, count: number): void{
       cartCount.style.backgroundColor = 'rgb(192, 31, 58)';
       cartCount.textContent = `${count}`;
     }
-    // cartContainer.addEventListener('click', () => renderCart('main'));
+
+    // open cart
+    // todo: update renderCart param
+    cartContainer.addEventListener('click', () => renderCart({
+        state: {
+          products: tempProductsData.splice(0,3),
+        },
+        parentNodeName: 'main',
+        path: '/cart'
+    }));
   }
 }

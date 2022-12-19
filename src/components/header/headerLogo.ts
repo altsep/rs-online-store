@@ -12,5 +12,6 @@ export function initHeaderlogo(parentNodeName: string): void{
     const logoTitle = logoContainer.appendChild(document.createElement('h1'));
     logoTitle.textContent = 'OnlineStore';
 
+    logoContainer.addEventListener('click', () => {})
   }
 }
