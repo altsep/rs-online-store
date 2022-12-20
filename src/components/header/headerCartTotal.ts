@@ -1,4 +1,4 @@
-export function initHeaderCartTotal(parentNodeName: string): void {
+export default function initHeaderCartTotal(parentNodeName: string): void {
   const parentNode = document.querySelector(parentNodeName || '');
 
   if (parentNode) {
@@ -11,5 +11,3 @@ export function initHeaderCartTotal(parentNodeName: string): void {
     cartTotalSum.className = 'cart-total';
   }
 }
-
-export default initHeaderCartTotal;

@@ -1,7 +1,7 @@
 import { handleHistory } from '../../utility';
 import logoImg from './img/logo.svg';
 
-export function initHeaderlogo(parentNodeName: string): void {
+export default function initHeaderlogo(parentNodeName: string): void {
   const parentNode = document.querySelector(parentNodeName || '');
 
   if (parentNode) {
@@ -19,5 +19,3 @@ export function initHeaderlogo(parentNodeName: string): void {
     });
   }
 }
-
-export default initHeaderlogo;

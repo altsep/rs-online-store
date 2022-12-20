@@ -1,20 +1,13 @@
-$font-header: 'Roboto', sans-serif;
+@use '../vars' as v;
 
 .header {
   width: 100%;
   position: fixed;
   top: 0;
   height: 60px;
-  background-color:lightgrey;
-  font-family: $font-header;
+  background-color: v.$header-gray;
+  font-family: v.$font-header;
   z-index: 100;
-}
-
-.wrapper{
-  display: flex;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .header {

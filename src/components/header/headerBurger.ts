@@ -1,4 +1,4 @@
-export function initHeadeBurger(parentNodeName: string): void {
+export default function initHeadeBurger(parentNodeName: string): void {
   const parentNode = document.querySelector(parentNodeName || '');
 
   if (parentNode) {
@@ -13,5 +13,3 @@ export function initHeadeBurger(parentNodeName: string): void {
     });
   }
 }
-
-export default initHeadeBurger;

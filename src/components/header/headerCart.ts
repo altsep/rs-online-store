@@ -1,7 +1,7 @@
 import { handleHistory } from '../../utility';
 import cartLogoImg from './img/cart.svg';
 
-export function initHeaderCart(parentNodeName: string): void {
+export default function initHeaderCart(parentNodeName: string): void {
   const parentNode = document.querySelector(parentNodeName || '');
 
   if (parentNode) {
@@ -21,5 +21,3 @@ export function initHeaderCart(parentNodeName: string): void {
     });
   }
 }
-
-export default initHeaderCart;
