@@ -13,6 +13,7 @@
     "build": "webpack --mode=production",
     "test": "jest",
     "lint": "eslint src --ext .js,.ts",
+    "lint-fix": "tsc --noEmit && eslint src --ext .js,.ts --fix",
     "format": "prettier --write src"
   },
   "browserslist": {

@@ -11,7 +11,6 @@
 }
 
 .header {
-
   .wrapper {
     justify-content: space-between;
     align-items: center;
@@ -19,14 +18,15 @@
   }
 }
 
-.burger-button{
+.burger-button {
   display: flex;
   position: relative;
   height: 16px;
   width: 24px;
 }
 
-.burger-button::before, .burger-button::after{
+.burger-button::before,
+.burger-button::after {
   content: '';
   background-color: black;
   border-radius: 2px;
@@ -36,15 +36,15 @@
   right: 0;
 }
 
-.burger-button::before{
+.burger-button::before {
   top: 0;
 }
 
-.burger-button::after{
+.burger-button::after {
   bottom: 0;
 }
 
-.burger-button span{
+.burger-button span {
   background-color: black;
   position: absolute;
   width: 100%;
@@ -55,7 +55,7 @@
   transition: all 0s ease 0.1;
 }
 
-.burger-button:hover{
+.burger-button:hover {
   cursor: pointer;
 }
 
@@ -63,18 +63,18 @@
   display: none;
 }
 
-.cart-container{
+.cart-container {
   position: relative;
   width: 24px;
   height: 24px;
 }
 
-.cart-container:hover{
+.cart-container:hover {
   cursor: pointer;
   scale: 1.05;
 }
 
-.cart-count{
+.cart-count {
   position: absolute;
   width: 12px;
   height: 12px;
@@ -90,14 +90,13 @@
 }
 
 @media (min-width: 640px) {
-
-  .burger-button{
+  .burger-button {
     display: none;
   }
 
   .header_logo {
     display: flex;
-    position:relative;
+    position: relative;
   }
 
   .header_logo:hover {
@@ -106,7 +105,6 @@
   }
 
   .header_logo {
-
     a,
     a:hover,
     a:active {
