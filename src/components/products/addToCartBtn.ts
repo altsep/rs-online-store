@@ -4,7 +4,6 @@ import updateCartCount from '../header/updateCartCount';
 
 export default function addToCartBtn(state: State, item: Product): HTMLImageElement {
   const { id, price } = item;
-  const s = state; // Bypassing no-param-reassign rule
 
   const icon = document.createElement<'img'>('img');
   icon.className = 'products__item-icon icon';
@@ -13,18 +12,19 @@ export default function addToCartBtn(state: State, item: Product): HTMLImageElem
 
   const handleClick = (): void => {
     // https://eslint.org/docs/latest/rules/no-prototype-builtins
-    if (!Object.prototype.hasOwnProperty.call(s.cart, id)) {
-      s.cart[id] = { ...item, amount: 0 }; // Add cart item under the specified id if it doesn't exist, and add amount counter to it
+    if (!Object.prototype.hasOwnProperty.call(state.cart, id)) {
+      state.cart[id] = { ...item, amount: 0 }; // Add cart item under the specified id if it doesn't exist. Include counter for amount as its property
     }
 
-    const { amount, stock } = s.cart[id];
+    const { amount, stock } = state.cart[id];
 
     if (amount < stock) {
-      s.cart[id].amount += 1;
-      s.itemsInCart += 1;
-      s.totalSum += price;
+      state.cart[id].amount += 1;
+      state.itemsInCart += 1;
+      state.totalSum += price;
     }
-    updateCartCount(s);
+
+    updateCartCount(state);
   };
 
   icon.addEventListener('mousedown', handleClick);

@@ -27,10 +27,11 @@ module.exports = {
         node: true,
     },
     rules: {
-        'no-debugger': 'off',
+        'no-debugger': 0,
         'no-console': 0,
-        'class-methods-use-this': 'off',
-        'import/no-unresolved': 'error',
+        'class-methods-use-this': 0,
+        'import/no-unresolved': 2,
+        'no-param-reassign': 0,
     },
     ignorePatterns: ['dist', '*.config.js', '*setup.js'],
     settings: {
