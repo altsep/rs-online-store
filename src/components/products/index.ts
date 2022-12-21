@@ -10,14 +10,14 @@ function renderProducts(props: Props): void {
 
   const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
 
-  const productsNode = document.createElement<'div'>('div');
+  const productsNode = document.createElement('div');
   productsNode.className = 'products';
 
-  const headingNode = document.createElement<'h2'>('h2');
+  const headingNode = document.createElement('h2');
   headingNode.className = 'products-heading heading';
   headingNode.textContent = 'Products';
 
-  const listNode = document.createElement<'div'>('div');
+  const listNode = document.createElement('div');
   listNode.className = 'products-list';
 
   productsNode.append(headingNode, listNode);

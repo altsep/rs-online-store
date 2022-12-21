@@ -5,15 +5,15 @@ export default function initHeaderCart(parentNodeName: string): void {
   const parentNode = document.querySelector(parentNodeName || '');
 
   if (parentNode) {
-    const cartContainer = parentNode.appendChild(document.createElement<'div'>('div'));
+    const cartContainer = parentNode.appendChild(document.createElement('div'));
     cartContainer.className = 'cart-container';
 
-    const cartLogo = cartContainer.appendChild(document.createElement<'img'>('img'));
+    const cartLogo = cartContainer.appendChild(document.createElement('img'));
     cartLogo.className = 'cart-logo';
     cartLogo.src = cartLogoImg as string;
     cartLogo.alt = '';
 
-    const cartCount = cartContainer.appendChild(document.createElement<'div'>('div'));
+    const cartCount = cartContainer.appendChild(document.createElement('div'));
     cartCount.className = 'cart-count';
 
     cartContainer.addEventListener('click', () => {

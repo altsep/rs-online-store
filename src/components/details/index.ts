@@ -8,10 +8,10 @@ function renderDetails({ state, parentNodeName }: Props): void {
 
   const matchArr = pathname.match(/\d+$/);
 
-  const headingNode = document.createElement<'h2'>('h2');
+  const headingNode = document.createElement('h2');
   headingNode.className = 'details-heading heading';
 
-  const textNode = document.createElement<'p'>('p');
+  const textNode = document.createElement('p');
   textNode.className = 'details-text';
 
   if (matchArr) {

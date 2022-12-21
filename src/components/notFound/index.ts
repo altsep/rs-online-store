@@ -4,7 +4,7 @@ function renderNotFound({ parentNodeName }: Props): void {
   const notFoundNode = document.createElement('div');
   notFoundNode.className = 'not-found';
 
-  const headingNode = document.createElement<'h2'>('h2');
+  const headingNode = document.createElement('h2');
   headingNode.className = 'not-found-heading heading';
   headingNode.textContent = 'Not Found';
 
