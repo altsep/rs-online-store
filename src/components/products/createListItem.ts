@@ -2,8 +2,8 @@ import type { Product, State } from '../../constants';
 import onProductClick from './onProductClick';
 import addToCartBtn from './addToCartBtn';
 
-export default function createListItem(state: State, item: Product) {
-  const listItem = document.createElement<'div'>('div');
+export default function createListItem(state: State, item: Product): HTMLDivElement {
+  const listItem = document.createElement('div');
   listItem.className = 'products__item';
 
   if (item) {
@@ -11,11 +11,11 @@ export default function createListItem(state: State, item: Product) {
 
     listItem.dataset.id = String(id);
 
-    const textNode = document.createElement<'span'>('span');
+    const textNode = document.createElement('span');
     textNode.className = 'products__item-text';
     textNode.textContent = `${brand} ${title} $${price}`;
 
-    const thumbNode = document.createElement<'img'>('img');
+    const thumbNode = document.createElement('img');
     thumbNode.className = 'products__item-img img';
     thumbNode.src = thumbnail;
 

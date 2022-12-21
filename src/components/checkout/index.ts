@@ -4,7 +4,7 @@ function renderCheckout({ parentNodeName }: Props): void {
   const checkoutNode = document.createElement('div');
   checkoutNode.className = 'checkout';
 
-  const headingNode = document.createElement<'h2'>('h2');
+  const headingNode = document.createElement('h2');
   headingNode.className = 'checkout-heading heading';
   headingNode.textContent = 'Checkout';
 

@@ -7,13 +7,13 @@ import onNavigate from './onNavigate';
 function init(props: Props /* pass props down to components */): void {
   const root = document.querySelector<HTMLDivElement>('#root');
 
-  const headerNode = document.createElement<'header'>('header');
+  const headerNode = document.createElement('header');
   headerNode.className = 'header';
 
-  const mainNode = document.createElement<'main'>('main');
+  const mainNode = document.createElement('main');
   mainNode.className = 'main';
 
-  const footerNode = document.createElement<'footer'>('footer');
+  const footerNode = document.createElement('footer');
   footerNode.className = 'footer';
 
   if (root) {
