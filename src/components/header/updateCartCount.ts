@@ -6,9 +6,9 @@ export default function updateCartCount(state: State): void {
   const cartCount = document.querySelector<HTMLDivElement>('.cart-count');
   const cartTotalSum = document.querySelector<HTMLSpanElement>('.cart-total');
 
-  if (cartCount && itemsInCart > 0) {
-    cartCount.style.backgroundColor = 'rgb(192, 31, 58)';
-    cartCount.textContent = String(itemsInCart);
+  if (cartCount) {
+    cartCount.style.backgroundColor = itemsInCart > 0 ? 'rgb(192, 31, 58)' : '';
+    cartCount.textContent = itemsInCart > 0 ? String(itemsInCart) : '';
   }
 
   if (cartTotalSum) {
