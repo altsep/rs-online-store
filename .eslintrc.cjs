@@ -33,8 +33,9 @@ module.exports = {
     'import/no-unresolved': 2,
     'no-param-reassign': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
   },
-  ignorePatterns: ['dist', '*.config.js', '*setup.js'],
+  ignorePatterns: ['dist', '*.cjs', '*.config.js', '*setup.js'],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.js'],
@@ -50,6 +51,7 @@ module.exports = {
       files: ['*.ts', '*.mts', '*.cts', '*.tsx'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 2,
+        '@typescript-eslint/explicit-member-accessibility': 2,
       },
     },
   ],
