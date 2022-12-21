@@ -6,14 +6,12 @@ export default function updateCartCount(state: State): void {
   const cartCount = document.querySelector<HTMLDivElement>('.cart-count');
   const cartTotalSum = document.querySelector<HTMLSpanElement>('.cart-total');
 
-  if (cartCount && cartTotalSum) {
-    cartCount.textContent = '';
+  if (cartCount && itemsInCart > 0) {
+    cartCount.style.backgroundColor = 'rgb(192, 31, 58)';
+    cartCount.textContent = String(itemsInCart);
+  }
 
-    if (itemsInCart > 0) {
-      cartCount.style.backgroundColor = 'rgb(192, 31, 58)';
-      cartCount.textContent = `${itemsInCart}`;
-    }
-
-    cartTotalSum.textContent = `${totalSum}`;
+  if (cartTotalSum) {
+    cartTotalSum.textContent = String(totalSum);
   }
 }
