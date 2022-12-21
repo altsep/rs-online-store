@@ -2,7 +2,7 @@ import type { Product, State } from '../../constants';
 import onProductClick from './onProductClick';
 import addToCartBtn from './addToCartBtn';
 
-export default function createListItem(state: State, item: Product) {
+export default function createListItem(state: State, item: Product): HTMLDivElement {
   const listItem = document.createElement<'div'>('div');
   listItem.className = 'products__item';
 
