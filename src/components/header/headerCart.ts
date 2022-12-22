@@ -10,7 +10,7 @@ export default function initHeaderCart(parentNodeName: string): void {
 
     const cartLogo = cartContainer.appendChild(document.createElement('img'));
     cartLogo.className = 'cart-logo';
-    cartLogo.src = cartLogoImg as string;
+    cartLogo.src = cartLogoImg;
     cartLogo.alt = '';
 
     const cartCount = cartContainer.appendChild(document.createElement('div'));
