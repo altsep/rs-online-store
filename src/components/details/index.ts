@@ -1,6 +1,6 @@
 import type { Product, Props } from '../../constants';
 
-function renderDetails({ state, parentNodeName }: Props): void {
+function renderDetails({ state, styles, parentNodeName }: Props): void {
   const detailsNode = document.createElement('div');
   detailsNode.className = 'details';
 
@@ -13,7 +13,7 @@ function renderDetails({ state, parentNodeName }: Props): void {
 
   const textNode = document.createElement('p');
   textNode.className = 'details-text';
-  textNode.style.whiteSpace = 'pre-wrap';
+  Object.assign(textNode.style, styles.json);
 
   if (matchArr) {
     const id = Number(matchArr[0]);
