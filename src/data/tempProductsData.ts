@@ -1,3 +1,5 @@
+import placeholder from '../assets/images/placeholder.png';
+
 export default [
   {
     id: 1,
@@ -9,14 +11,8 @@ export default [
     stock: 94,
     brand: 'Apple',
     category: 'smartphones',
-    thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/1/1.jpg',
-      'https://i.dummyjson.com/data/products/1/2.jpg',
-      'https://i.dummyjson.com/data/products/1/3.jpg',
-      'https://i.dummyjson.com/data/products/1/4.jpg',
-      'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 2,
@@ -29,13 +25,8 @@ export default [
     stock: 34,
     brand: 'Apple',
     category: 'smartphones',
-    thumbnail: 'https://i.dummyjson.com/data/products/2/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/2/1.jpg',
-      'https://i.dummyjson.com/data/products/2/2.jpg',
-      'https://i.dummyjson.com/data/products/2/3.jpg',
-      'https://i.dummyjson.com/data/products/2/thumbnail.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 3,
@@ -47,8 +38,8 @@ export default [
     stock: 36,
     brand: 'Samsung',
     category: 'smartphones',
-    thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
-    images: ['https://i.dummyjson.com/data/products/3/1.jpg'],
+    thumbnail: placeholder,
+    images: [placeholder],
   },
   {
     id: 4,
@@ -60,14 +51,8 @@ export default [
     stock: 123,
     brand: 'OPPO',
     category: 'smartphones',
-    thumbnail: 'https://i.dummyjson.com/data/products/4/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/4/1.jpg',
-      'https://i.dummyjson.com/data/products/4/2.jpg',
-      'https://i.dummyjson.com/data/products/4/3.jpg',
-      'https://i.dummyjson.com/data/products/4/4.jpg',
-      'https://i.dummyjson.com/data/products/4/thumbnail.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 5,
@@ -80,12 +65,8 @@ export default [
     stock: 32,
     brand: 'Huawei',
     category: 'smartphones',
-    thumbnail: 'https://i.dummyjson.com/data/products/5/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/5/1.jpg',
-      'https://i.dummyjson.com/data/products/5/2.jpg',
-      'https://i.dummyjson.com/data/products/5/3.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder],
   },
   {
     id: 6,
@@ -97,13 +78,8 @@ export default [
     stock: 83,
     brand: 'APPle',
     category: 'laptops',
-    thumbnail: 'https://i.dummyjson.com/data/products/6/thumbnail.png',
-    images: [
-      'https://i.dummyjson.com/data/products/6/1.png',
-      'https://i.dummyjson.com/data/products/6/2.jpg',
-      'https://i.dummyjson.com/data/products/6/3.png',
-      'https://i.dummyjson.com/data/products/6/4.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 7,
@@ -115,13 +91,8 @@ export default [
     stock: 50,
     brand: 'Samsung',
     category: 'laptops',
-    thumbnail: 'https://i.dummyjson.com/data/products/7/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/7/1.jpg',
-      'https://i.dummyjson.com/data/products/7/2.jpg',
-      'https://i.dummyjson.com/data/products/7/3.jpg',
-      'https://i.dummyjson.com/data/products/7/thumbnail.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 8,
@@ -134,14 +105,8 @@ export default [
     stock: 68,
     brand: 'Microsoft Surface',
     category: 'laptops',
-    thumbnail: 'https://i.dummyjson.com/data/products/8/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/8/1.jpg',
-      'https://i.dummyjson.com/data/products/8/2.jpg',
-      'https://i.dummyjson.com/data/products/8/3.jpg',
-      'https://i.dummyjson.com/data/products/8/4.jpg',
-      'https://i.dummyjson.com/data/products/8/thumbnail.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 9,
@@ -153,14 +118,8 @@ export default [
     stock: 96,
     brand: 'Infinix',
     category: 'laptops',
-    thumbnail: 'https://i.dummyjson.com/data/products/9/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/9/1.jpg',
-      'https://i.dummyjson.com/data/products/9/2.png',
-      'https://i.dummyjson.com/data/products/9/3.png',
-      'https://i.dummyjson.com/data/products/9/4.jpg',
-      'https://i.dummyjson.com/data/products/9/thumbnail.jpg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
   {
     id: 10,
@@ -172,12 +131,7 @@ export default [
     stock: 89,
     brand: 'HP Pavilion',
     category: 'laptops',
-    thumbnail: 'https://i.dummyjson.com/data/products/10/thumbnail.jpeg',
-    images: [
-      'https://i.dummyjson.com/data/products/10/1.jpg',
-      'https://i.dummyjson.com/data/products/10/2.jpg',
-      'https://i.dummyjson.com/data/products/10/3.jpg',
-      'https://i.dummyjson.com/data/products/10/thumbnail.jpeg',
-    ],
+    thumbnail: placeholder,
+    images: [placeholder, placeholder, placeholder, placeholder],
   },
 ];
