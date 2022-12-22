@@ -14,13 +14,13 @@
   align-items: center;
 }
 
-@mixin icon($size, $offset) {
+@mixin icon($size, $offset: 0) {
   height: $size;
   width: $size;
   background-color: #fff;
   padding: 5px;
-  border: 1px solid v.$light-gray;
-  box-shadow: 1px 1px 3px v.$light-gray;
+  border: 1px solid v.$warm-gray-darker;
+  box-shadow: 1px 1px 3px v.$warm-gray-darker;
 
   &:hover {
     background-color: v.$light-gray;

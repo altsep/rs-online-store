@@ -6,18 +6,29 @@
 @use 'vars' as v;
 @use 'header';
 @use 'products';
+@use 'details';
 
-#root {
-  width: 100vw;
-  overflow-x: hidden; /*it is temporary solution to display the page correctly */
-}
 .wrapper {
   display: flex;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .main {
   position: relative;
-  top: 60px;
+  top: 80px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .main {
+    top: 100px;
+  }
 }

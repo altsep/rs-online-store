@@ -13,12 +13,13 @@ function renderDetails({ state, parentNodeName }: Props): void {
 
   const textNode = document.createElement('p');
   textNode.className = 'details-text';
+  textNode.style.whiteSpace = 'pre-wrap';
 
   if (matchArr) {
     const id = Number(matchArr[0]);
     const item = state.products.find((pr: Product) => pr.id === id);
     headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
-    textNode.textContent = `${item ? JSON.stringify(item) : ''}`;
+    textNode.textContent = `${item ? JSON.stringify(item, null, 4) : ''}`;
   }
 
   detailsNode.append(headingNode, textNode);

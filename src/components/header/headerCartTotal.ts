@@ -6,7 +6,9 @@ export default function initHeaderCartTotal(parentNodeName: string): void {
     cartTotalContainer.className = 'cart-total-container';
 
     const cartTolalTitle = cartTotalContainer.appendChild(document.createElement('span'));
+    cartTolalTitle.className = 'cart-total-text';
     cartTolalTitle.textContent = `Cart total: $`;
+
     const cartTotalSum = cartTotalContainer.appendChild(document.createElement('span'));
     cartTotalSum.className = 'cart-total';
   }

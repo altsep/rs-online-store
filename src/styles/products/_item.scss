@@ -2,17 +2,25 @@
 @use '../mixins' as mx;
 
 .products__item {
+  $rounded: 8px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
   max-width: 768px;
+  width: 100%;
   cursor: pointer;
   height: 100px;
   position: relative;
-  border-radius: 5px;
+  border-radius: $rounded;
+  margin: 40px auto;
+  font-size: 1.5rem;
+  border: 1px solid v.$warm-gray-darker;
 
   &:hover {
     background-color: v.$light-gray;
+  }
+
+  &:hover &-img {
+    opacity: 0.6;
   }
 
   &-text,
@@ -22,29 +30,50 @@
 
   &-text {
     padding: 10px;
-    max-width: 50%;
+    max-width: 55%;
   }
 
   &,
   &-img {
-    border-left: none;
-    border-radius: 5px;
+    border-start-end-radius: $rounded;
+    border-end-end-radius: $rounded;
   }
 
   &-img {
     height: 100%;
     width: 100%;
-    max-width: 30%;
+    max-width: 40%;
     object-fit: cover;
   }
 
   &-icon {
     $size: 30px;
-    $offset: 5px;
-    @include mx.icon($size, $offset);
+    $offset: 3px;
+    @include mx.icon($size);
     z-index: 5;
     position: absolute;
     border-radius: 50%;
+    right: 0;
+    bottom: calc($size / -1.5);
+
+    &:active {
+      $size: $size - $offset;
+      @include mx.icon($size, $offset);
+      right: 0;
+      bottom: calc($size / -1.4);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .products__item {
+    font-size: 1.2rem;
+  }
+
+  .products__item-icon {
+    $size: 20px;
+    $offset: 3px;
+    @include mx.icon($size);
     right: calc($size / -2);
     bottom: calc($size / -2);
 
@@ -54,5 +83,12 @@
       right: calc($size / -2);
       bottom: calc($size / -2);
     }
+  }
+}
+
+@media (min-width: 1024px) {
+  .products__item {
+    font-size: 1rem;
+    margin: 0 auto;
   }
 }
