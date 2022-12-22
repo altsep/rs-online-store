@@ -1,6 +1,7 @@
 import type { Product, State } from '../../constants';
 import onProductClick from './onProductClick';
 import addToCartBtn from './addToCartBtn';
+import { getCurrencyString } from '../../utility';
 
 export default function createListItem(state: State, item: Product): HTMLDivElement {
   const listItem = document.createElement('div');
@@ -13,7 +14,8 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
 
     const textNode = document.createElement('span');
     textNode.className = 'products__item-text';
-    textNode.textContent = `${brand} ${title} $${price}`;
+    const priceStr = getCurrencyString(price);
+    textNode.textContent = `${brand} ${title} ${priceStr}`;
 
     const thumbNode = document.createElement('img');
     thumbNode.className = 'products__item-img img';

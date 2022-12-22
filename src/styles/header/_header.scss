@@ -72,6 +72,10 @@
   text-transform: uppercase;
 }
 
+.cart-total-text {
+  display: none;
+}
+
 .cart-container {
   position: relative;
   width: 34px;
@@ -103,6 +107,12 @@
   margin: auto;
 }
 
+@media (min-width: 400px) {
+  .cart-total-text {
+    display: inline;
+  }
+}
+
 @media (min-width: 640px) {
   .burger-button {
     display: none;
@@ -119,6 +129,7 @@
   }
 
   .header_logo {
+
     a,
     a:hover,
     a:active {

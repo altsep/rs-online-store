@@ -1,4 +1,5 @@
 import { State } from '../../constants';
+import { getCurrencyString } from '../../utility';
 
 export default function updateCartCount(state: State): void {
   const { totalSum, itemsInCart } = state;
@@ -12,6 +13,7 @@ export default function updateCartCount(state: State): void {
   }
 
   if (cartTotalSum) {
-    cartTotalSum.textContent = String(totalSum);
+    const totalSumStr = getCurrencyString(totalSum);
+    cartTotalSum.textContent = totalSumStr;
   }
 }
