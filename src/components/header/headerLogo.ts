@@ -9,7 +9,7 @@ export default function initHeaderlogo(parentNodeName: string): void {
     logoContainer.className = 'header_logo';
 
     const logoImage = logoContainer.appendChild(document.createElement('img'));
-    logoImage.src = logoImg as string;
+    logoImage.src = logoImg;
     logoImage.alt = 'logo';
     const logoTitle = logoContainer.appendChild(document.createElement('h1'));
     logoTitle.textContent = 'OnlineStore';

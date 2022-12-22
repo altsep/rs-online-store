@@ -5,10 +5,10 @@ import updateCartCount from '../header/updateCartCount';
 export default function addToCartBtn(state: State, item: Product): HTMLImageElement {
   const { id, price } = item;
 
-  const icon = document.createElement<'img'>('img');
+  const icon = document.createElement('img');
   icon.className = 'products__item-icon icon';
   icon.title = 'Add to cart';
-  icon.src = plus as string;
+  icon.src = plus;
 
   const handleClick = (): void => {
     // https://eslint.org/docs/latest/rules/no-prototype-builtins
