@@ -17,10 +17,6 @@ function createFilters(state: State): HTMLDivElement {
   dropdownHeading.className = 'filters__dropdown-heading';
   dropdownHeading.textContent = 'Filters';
 
-  // const dropdownText = document.createElement('span');
-  // dropdownText.className = 'filters__dropdown-text';
-  // dropdownText.textContent = 'Hide';
-
   const icon = document.createElement('img');
   icon.className = 'filters__dropdown-img';
   icon.src = angleDown;
@@ -29,14 +25,14 @@ function createFilters(state: State): HTMLDivElement {
 
   const form = document.createElement('form');
   form.className = 'filters__form';
+  const textInput = createTextFilter(state, 'text');
+  const otherTextInput = createTextFilter(state, 'otherText');
 
-  const textInput = createTextFilter(state);
-
-  form.append(textInput);
+  form.append(textInput, otherTextInput);
 
   filters.append(dropdown, form);
 
-  dropdown.addEventListener('mousedown', () => {
+  icon.addEventListener('mousedown', () => {
     if (display) {
       dropdown.title = 'Show';
       form.classList.add('hidden');

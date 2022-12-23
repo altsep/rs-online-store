@@ -2,5 +2,6 @@
 // Create component-related functions in their respective directories
 import handleHistory from './handleHistory';
 import getCurrencyString from './getCurrencyString';
+import updateURL from './updateURL';
 
-export { handleHistory, getCurrencyString };
+export { handleHistory, getCurrencyString, updateURL };
