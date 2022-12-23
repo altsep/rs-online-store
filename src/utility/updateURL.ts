@@ -1,5 +1,5 @@
 const updateURL = (query: string, name: string): void => {
-  const { origin, pathname, search } = window.location;
+  const { pathname, search } = window.location;
   const searchParams = new URLSearchParams(search);
 
   if (!query) {
@@ -9,7 +9,7 @@ const updateURL = (query: string, name: string): void => {
   }
 
   const appendedSearch = searchParams.toString();
-  const url = `${origin}${pathname}?${appendedSearch}`;
+  const url = `${pathname}?${appendedSearch}`;
 
   window.history.replaceState({}, '', url);
 };
