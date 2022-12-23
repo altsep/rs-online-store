@@ -26,9 +26,8 @@ function createFilters(state: State): HTMLDivElement {
   const form = document.createElement('form');
   form.className = 'filters__form';
   const textInput = createTextFilter(state, 'text');
-  const otherTextInput = createTextFilter(state, 'otherText');
 
-  form.append(textInput, otherTextInput);
+  form.append(textInput);
 
   filters.append(dropdown, form);
 
