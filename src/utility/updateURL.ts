@@ -1,13 +1,13 @@
-const updateURL = (query: string, name: string): void => {
+const updateURL = (query: string, name: string): void | undefined => {
   const { origin, pathname, search } = window.location;
   const searchParams = new URLSearchParams(search);
 
   if (!query) {
     searchParams.delete(name);
-    return;
+  } else {
+    searchParams.set(name, query);
   }
 
-  searchParams.set(name, query);
   const appendedSearch = searchParams.toString();
   const url = `${origin}${pathname}?${appendedSearch}`;
 

@@ -12,9 +12,9 @@ function handleSearchParams(): void {
     }
 
     // Store search string on input
-    const onInput = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
+    const onChange = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
 
-    el.addEventListener('input', onInput);
+    el.addEventListener('change', onChange);
   });
 }
 
