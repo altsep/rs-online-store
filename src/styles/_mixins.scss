@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-@mixin icon($size, $offset: 0) {
+@mixin icon($size: 20px, $offset: 0) {
   height: $size;
   width: $size;
   background-color: #fff;
@@ -25,4 +25,9 @@
   &:hover {
     background-color: v.$light-gray;
   }
+}
+
+@mixin focus-ring {
+  border-color: rgb(165 180 252);
+  outline: 2px solid rgba(199, 210, 254, 0.5);
 }

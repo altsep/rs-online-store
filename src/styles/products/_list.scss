@@ -4,9 +4,11 @@
 
 @media (min-width: 1024px) {
   .products-list {
+    margin: unset;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1024px;
-    grid-gap: 25px 50px;
+    grid-gap: 25px;
   }
 }

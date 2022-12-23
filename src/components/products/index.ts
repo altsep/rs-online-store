@@ -1,5 +1,6 @@
 import { Props } from '../../constants';
 import createListItem from './createListItem';
+import createFilters from './filters';
 
 function renderProducts(props: Props): void {
   const {
@@ -25,7 +26,9 @@ function renderProducts(props: Props): void {
     listNode.append(listItem);
   });
 
-  productsNode.append(headingNode, listNode);
+  const filters = createFilters(state);
+
+  productsNode.append(headingNode, filters, listNode);
 
   if (parentNode instanceof HTMLElement) {
     parentNode.innerHTML = '';

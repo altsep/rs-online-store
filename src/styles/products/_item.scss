@@ -16,7 +16,7 @@
   border: 1px solid v.$warm-gray-darker;
 
   &:hover {
-    border-color: #333;
+    border-color: v.$dark-gray;
   }
 
   &:hover &-img {
@@ -63,10 +63,7 @@
     bottom: calc($size / -1.5);
 
     &:active {
-      $size: $size - $offset;
-      @include mx.icon($size, $offset);
-      right: 0;
-      bottom: calc($size / -1.4);
+      @include mx.focus-ring;
     }
   }
 }
@@ -82,13 +79,6 @@
     @include mx.icon($size);
     right: calc($size / -2);
     bottom: calc($size / -2);
-
-    &:active {
-      $size: $size - $offset;
-      @include mx.icon($size, $offset);
-      right: calc($size / -2);
-      bottom: calc($size / -2);
-    }
   }
 }
 
