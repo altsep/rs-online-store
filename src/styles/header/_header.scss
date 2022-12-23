@@ -8,11 +8,6 @@
   background-color: v.$warm-gray-darker;
   font-family: v.$font-header;
   z-index: 100;
-
-  &_logo {
-    font-size: 1.2rem;
-    font-style: italic;
-  }
 }
 
 .header .wrapper {
@@ -64,6 +59,12 @@
 
 .header_logo {
   display: none;
+  font-size: 1.2rem;
+
+  &-title {
+    font-family: v.$font-header-title;  
+    font-style: italic;
+  }
 }
 
 .cart-total-container {
@@ -124,7 +125,6 @@
   }
 
   .header_logo:hover {
-    scale: 1.05;
     cursor: pointer;
   }
 

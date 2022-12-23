@@ -1,3 +1,4 @@
+import randomColor from 'randomcolor';
 import { handleHistory } from '../../utility';
 import logoImg from './img/logo.svg';
 
@@ -16,6 +17,19 @@ export default function initHeaderlogo(parentNodeName: string): void {
     const logoTitle = logoContainer.appendChild(document.createElement('h1'));
     logoTitle.className = 'header_logo-title';
     logoTitle.textContent = 'OnlineStore';
+
+    const onMouseEnter = (): void => {
+      const color: string = randomColor({ luminosity: 'light', hue: 'blue' });
+      logoTitle.style.color = color;
+    };
+
+    logoTitle.addEventListener('mouseenter', onMouseEnter);
+
+    const onMouseLeave = (): void => {
+      logoTitle.style.color = '';
+    };
+
+    logoTitle.addEventListener('mouseleave', onMouseLeave);
 
     logoContainer.addEventListener('click', () => {
       handleHistory('/products');

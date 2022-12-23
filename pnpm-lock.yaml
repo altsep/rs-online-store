@@ -9,6 +9,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.5
   '@types/jest': ^29.2.4
   '@types/node': ^18.11.15
+  '@types/randomcolor': ^0.5.7
   '@types/testing-library__jest-dom': ^5.14.5
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
@@ -26,7 +27,6 @@ specifiers:
   eslint-plugin-jest-dom: ^4.0.3
   eslint-plugin-prettier: ^4.2.1
   eslint-webpack-plugin: ^3.2.0
-  file-loader: ^6.2.0
   fork-ts-checker-webpack-plugin: ^7.2.14
   html-loader: ^4.2.0
   html-webpack-plugin: ^5.5.0
@@ -37,6 +37,7 @@ specifiers:
   postcss-loader: ^7.0.2
   prettier: ^2.8.1
   prettier-eslint: ^15.0.1
+  randomcolor: ^0.6.2
   sass: ^1.56.2
   sass-loader: ^13.2.0
   style-loader: ^3.3.1
@@ -45,6 +46,9 @@ specifiers:
   webpack: ^5.75.0
   webpack-cli: ^4.10.0
   webpack-dev-server: ^4.11.1
+
+dependencies:
+  randomcolor: 0.6.2
 
 devDependencies:
   '@babel/core': 7.20.5
@@ -55,6 +59,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@types/jest': 29.2.4
   '@types/node': 18.11.15
+  '@types/randomcolor': 0.5.7
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.46.1_imrg37k3svwu377c6q7gkarwmi
   '@typescript-eslint/parser': 5.46.1_ha6vam6werchizxrnqvarmz2zu
@@ -72,7 +77,6 @@ devDependencies:
   eslint-plugin-jest-dom: 4.0.3_eslint@8.29.0
   eslint-plugin-prettier: 4.2.1_5dgjrgoi64tgrv3zzn3walur3u
   eslint-webpack-plugin: 3.2.0_2godrbid5dlikbzpspaxqblgd4
-  file-loader: 6.2.0_webpack@5.75.0
   fork-ts-checker-webpack-plugin: 7.2.14_3fkjkrd3audxnith3e7fo4fnxi
   html-loader: 4.2.0_webpack@5.75.0
   html-webpack-plugin: 5.5.0_webpack@5.75.0
@@ -2127,6 +2131,10 @@ packages:
 
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
+    dev: true
+
+  /@types/randomcolor/0.5.7:
+    resolution: {integrity: sha512-LPcG96dGYRCsXlk1fslUNIg6ebEi+bKNyn84uBL/pu2cRSf5i/djD3ArJZOyzszVMVV/DB87va6pMZP+tRSl/w==}
     dev: true
 
   /@types/range-parser/1.2.4:
@@ -5084,17 +5092,6 @@ packages:
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       flat-cache: 3.0.4
-    dev: true
-
-  /file-loader/6.2.0_webpack@5.75.0:
-    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
-    dependencies:
-      loader-utils: 2.0.4
-      schema-utils: 3.1.1
-      webpack: 5.75.0_webpack-cli@4.10.0
     dev: true
 
   /filelist/1.0.4:
@@ -8678,6 +8675,10 @@ packages:
     dependencies:
       safe-buffer: 5.2.1
     dev: true
+
+  /randomcolor/0.6.2:
+    resolution: {integrity: sha512-Mn6TbyYpFgwFuQ8KJKqf3bqqY9O1y37/0jgSK/61PUxV4QfIMv0+K2ioq8DfOjkBslcjwSzRfIDEXfzA9aCx7A==}
+    dev: false
 
   /range-parser/1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
