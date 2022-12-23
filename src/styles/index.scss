@@ -6,6 +6,7 @@
 @use 'vars' as v;
 @use 'header';
 @use 'products';
+@use 'checkout';
 
 #root {
   width: 100vw;

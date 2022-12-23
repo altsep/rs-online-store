@@ -1,0 +1,30 @@
+@use '../vars' as v;
+.checkout__pop-up {
+  position: absolute;
+  background-color: rgba(1, 1, 1, 0.7);
+  backdrop-filter: blur(2px);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.checkout__pop-up_content {
+  display: flex;
+  width: 50%;
+  // height: 50%;
+  background-color: v.$light-gray;
+  border: 1px solid v.$header-gray;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px;
+}
+.checkout__form {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
