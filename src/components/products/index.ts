@@ -20,12 +20,12 @@ function renderProducts(props: Props): void {
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
 
-  productsNode.append(headingNode, listNode);
-
   products.forEach((item) => {
     const listItem = createListItem(state, item);
     listNode.append(listItem);
   });
+
+  productsNode.append(headingNode, listNode);
 
   if (parentNode instanceof HTMLElement) {
     parentNode.innerHTML = '';

@@ -16,15 +16,17 @@
   border: 1px solid v.$warm-gray-darker;
 
   &:hover {
-    background-color: v.$light-gray;
+    border-color: #333;
   }
 
   &:hover &-img {
     opacity: 0.6;
+    transform: scale(1.2);
+    transition: transform 250ms;
   }
 
   &-text,
-  &-img {
+  &-img-container {
     pointer-events: none;
   }
 
@@ -39,10 +41,14 @@
     border-end-end-radius: $rounded;
   }
 
+  &-img-container {
+    overflow: hidden;
+    width: 40%;
+  }
+
   &-img {
     height: 100%;
     width: 100%;
-    max-width: 40%;
     object-fit: cover;
   }
 
