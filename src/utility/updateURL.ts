@@ -1,4 +1,4 @@
-const updateURL = (query: string, name: string): void => {
+const updateURL = (name: string, query: string): void => {
   const { pathname, search } = window.location;
   const searchParams = new URLSearchParams(search);
 

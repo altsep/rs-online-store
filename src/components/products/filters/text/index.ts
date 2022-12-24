@@ -17,9 +17,7 @@ function createTextInput(state: State, name: string): HTMLInputElement {
     const target = e.target as HTMLInputElement;
     const { value } = target;
 
-    updateURL(value, name);
-
-    console.log(state.products);
+    updateURL(name, value);
 
     state.products = products.filter((pr) => filterFn(pr, value));
 
