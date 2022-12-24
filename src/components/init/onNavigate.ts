@@ -11,8 +11,6 @@ function onNavigate(props: Props): void {
   const { pathname } = window.location;
   const { parentNodeName } = props;
 
-  handleSearchParams(pathname);
-
   const parentNode = document.querySelector<HTMLElement>(parentNodeName);
 
   if (parentNode) {
@@ -36,6 +34,8 @@ function onNavigate(props: Props): void {
     const { fn } = route;
     fn(props);
   }
+
+  handleSearchParams(pathname);
 }
 
 export default onNavigate;

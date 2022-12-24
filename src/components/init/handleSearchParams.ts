@@ -1,7 +1,7 @@
 function handleSearchParams(pathname: string): void {
   const searchStorageItem = localStorage.getItem('aahh-rs-os-search');
 
-  // Append the current href with the retrieved search query if the path leads to the page with filters
+  // Append the retrieved search query to the current href if the path leads to page with filters
   if (/\/products$/.test(pathname)) {
     window.history.replaceState({}, '', searchStorageItem);
   }
@@ -13,7 +13,8 @@ function handleSearchParams(pathname: string): void {
 
     // Set input value to search param under the corresponding name
     if (type === 'text') {
-      el.value = params.get(name) || '';
+      const value = params.get(name) || '';
+      el.value = value;
     }
 
     // Store search string on input
