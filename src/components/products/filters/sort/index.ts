@@ -8,43 +8,22 @@ function createSelect(props: Props, name: string): HTMLSelectElement {
 
   select.addEventListener('change', (e) => handleChange(e, props));
 
-  const optionPlaceholder = document.createElement('option');
-  optionPlaceholder.value = '';
-  optionPlaceholder.textContent = '--Sort--';
+  const optionValues = [
+    '--Sort--',
+    'price asc',
+    'price desc',
+    'rating asc',
+    'rating desc',
+    'discount asc',
+    'discount desc',
+  ];
 
-  const optionPriceAsc = document.createElement('option');
-  optionPriceAsc.value = 'price asc';
-  optionPriceAsc.textContent = 'price asc';
-
-  const optionPriceDesc = document.createElement('option');
-  optionPriceDesc.value = 'price desc';
-  optionPriceDesc.textContent = 'price desc';
-
-  const optionRatingAsc = document.createElement('option');
-  optionRatingAsc.value = 'rating asc';
-  optionRatingAsc.textContent = 'rating asc';
-
-  const optionRatingDesc = document.createElement('option');
-  optionRatingDesc.value = 'rating desc';
-  optionRatingDesc.textContent = 'rating desc';
-
-  const optionDiscountAsc = document.createElement('option');
-  optionDiscountAsc.value = 'discount asc';
-  optionDiscountAsc.textContent = 'discount asc';
-
-  const optionDiscountDesc = document.createElement('option');
-  optionDiscountDesc.value = 'discount desc';
-  optionDiscountDesc.textContent = 'discount desc';
-
-  select.append(
-    optionPlaceholder,
-    optionPriceAsc,
-    optionPriceDesc,
-    optionRatingAsc,
-    optionRatingDesc,
-    optionDiscountAsc,
-    optionDiscountDesc
-  );
+  optionValues.forEach((v) => {
+    const option = document.createElement('option');
+    option.value = v === '--Sort--' ? '' : v;
+    option.textContent = v;
+    select.append(option);
+  });
 
   return select;
 }
