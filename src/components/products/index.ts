@@ -17,9 +17,9 @@ function renderProducts(props: Props): void {
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
 
-  renderProductList(state, listNode);
+  renderProductList(state);
 
-  const filters = createFilters(state, listNode);
+  const filters = createFilters(state);
 
   productsNode.append(headingNode, filters, listNode);
 

@@ -35,3 +35,15 @@
   border-color: rgb(165 180 252);
   outline: 2px solid rgba(199, 210, 254, 0.5);
 }
+
+@mixin input-text {
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  &:focus {
+    @include focus-ring;
+  }
+}

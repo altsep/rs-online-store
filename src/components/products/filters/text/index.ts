@@ -3,12 +3,13 @@ import { updateURL } from '../../../../utility';
 import renderProductList from '../../renderProductList';
 import filter from './filter';
 
-function createTextInput(state: State, name: string, listNode: HTMLDivElement): HTMLInputElement {
-  const { products } = state;
+function createTextInput(state: State, name: string): HTMLInputElement {
   const input = document.createElement('input');
-  input.className = 'filters__form-input-text';
+  input.className = 'search input-text';
   input.name = name;
+  input.id = name;
   input.type = 'text';
+  input.placeholder = 'Search';
 
   const handleInput = (e: Event): void => {
     const target = e.target as HTMLInputElement;
@@ -16,9 +17,9 @@ function createTextInput(state: State, name: string, listNode: HTMLDivElement): 
 
     updateURL(value, name);
 
-    state.products = products.filter((pr) => filter(pr, value));
+    state.products = state.products.filter((pr) => filter(pr, value));
 
-    renderProductList(state, listNode);
+    renderProductList(state);
   };
 
   input.addEventListener('input', handleInput);

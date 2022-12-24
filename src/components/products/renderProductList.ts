@@ -1,15 +1,19 @@
 import type { State } from '../../constants';
 import createListItem from './createListItem';
 
-function renderProductList(state: State, parent: HTMLDivElement): void {
+function renderProductList(state: State): void {
   const { products } = state;
 
-  parent.innerHTML = '';
+  const parent = document.querySelector<HTMLDivElement>('.products-list');
 
-  products.forEach((item) => {
-    const listItem = createListItem(state, item);
-    parent.append(listItem);
-  });
+  if (parent) {
+    parent.innerHTML = '';
+
+    products.forEach((item) => {
+      const listItem = createListItem(state, item);
+      parent.append(listItem);
+    });
+  }
 }
 
 export default renderProductList;
