@@ -12,8 +12,8 @@
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "test": "jest",
-    "lint": "eslint src --ext .js,.ts",
-    "lint-fix": "tsc --noEmit && eslint src --ext .js,.ts --fix",
+    "lint": "tsc --noEmit && eslint src --ext .js,.ts",
+    "lint-fix": "tsc --noEmit && eslint src --ext .js,.ts --fix && prettier --write src",
     "format": "prettier --write src"
   },
   "browserslist": {
