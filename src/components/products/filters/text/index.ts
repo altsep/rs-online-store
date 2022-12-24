@@ -1,9 +1,11 @@
 import type { State } from '../../../../constants';
 import { updateURL } from '../../../../utility';
 import renderProductList from '../../renderProductList';
-import filter from './filter';
+import filterFn from './filterFn';
 
 function createTextInput(state: State, name: string): HTMLInputElement {
+  const { products } = state;
+
   const input = document.createElement('input');
   input.className = 'search input-text';
   input.name = name;
@@ -17,7 +19,9 @@ function createTextInput(state: State, name: string): HTMLInputElement {
 
     updateURL(value, name);
 
-    state.products = state.products.filter((pr) => filter(pr, value));
+    console.log(state.products);
+
+    state.products = products.filter((pr) => filterFn(pr, value));
 
     renderProductList(state);
   };
