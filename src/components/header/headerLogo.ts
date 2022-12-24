@@ -19,7 +19,7 @@ export default function initHeaderlogo(parentNodeName: string): void {
     logoTitle.textContent = 'OnlineStore';
 
     const onMouseEnter = (): void => {
-      const color: string = randomColor({ luminosity: 'light', hue: 'blue' });
+      const color: string = randomColor({ hue: 'blue' });
       logoTitle.style.color = color;
     };
 

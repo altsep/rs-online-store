@@ -47,9 +47,6 @@ specifiers:
   webpack-cli: ^4.10.0
   webpack-dev-server: ^4.11.1
 
-dependencies:
-  randomcolor: 0.6.2
-
 devDependencies:
   '@babel/core': 7.20.5
   '@babel/preset-env': 7.20.2_@babel+core@7.20.5
@@ -87,6 +84,7 @@ devDependencies:
   postcss-loader: 7.0.2_qxxfhhrl3yknjjmta266mo3u64
   prettier: 2.8.1
   prettier-eslint: 15.0.1
+  randomcolor: 0.6.2
   sass: 1.56.2
   sass-loader: 13.2.0_sass@1.56.2+webpack@5.75.0
   style-loader: 3.3.1_webpack@5.75.0
@@ -8678,7 +8676,7 @@ packages:
 
   /randomcolor/0.6.2:
     resolution: {integrity: sha512-Mn6TbyYpFgwFuQ8KJKqf3bqqY9O1y37/0jgSK/61PUxV4QfIMv0+K2ioq8DfOjkBslcjwSzRfIDEXfzA9aCx7A==}
-    dev: false
+    dev: true
 
   /range-parser/1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
