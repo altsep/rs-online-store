@@ -14,7 +14,7 @@
     "test": "jest",
     "lint": "tsc --noEmit && eslint src --ext .js,.ts",
     "lint-fix": "tsc --noEmit && eslint src --ext .js,.ts --fix && prettier --write src",
-    "format": "prettier --write src"
+    "format": "prettier --check --write src"
   },
   "browserslist": {
     "production": [
