@@ -25,9 +25,9 @@ function handleSearchParams(pathname: string): void {
     }
 
     // Store search string on input
-    const onChange = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
+    const handleChange = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
 
-    el.addEventListener('change', onChange);
+    el.addEventListener('change', handleChange);
   });
 }
 

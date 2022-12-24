@@ -8,8 +8,8 @@ const updateURL = (query: string, name: string): void => {
     searchParams.set(name, query);
   }
 
-  const appendedSearch = searchParams.toString();
-  const url = `${pathname}?${appendedSearch}`;
+  const updatedSearch = searchParams.toString();
+  const url = `${pathname}?${updatedSearch}`;
 
   window.history.replaceState({}, '', url);
 };
