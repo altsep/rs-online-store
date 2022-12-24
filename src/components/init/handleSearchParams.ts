@@ -21,6 +21,8 @@ function handleSearchParams(pathname: string): void {
     const onChange = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
 
     el.addEventListener('change', onChange);
+
+    el.dispatchEvent(new Event('input'));
   });
 }
 
