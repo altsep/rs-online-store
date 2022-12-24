@@ -1,9 +1,9 @@
 import { State } from '../../../constants';
 import angleDown from '../../../assets/icons/angle-down.svg';
 import angleUp from '../../../assets/icons/angle-up.svg';
-import createTextFilter from './inputText';
+import createTextInput from './text';
 
-function createFilters(state: State): HTMLDivElement {
+function createFilters(state: State, listNode: HTMLDivElement): HTMLDivElement {
   const filters = document.createElement('div');
   filters.className = 'filters';
 
@@ -25,7 +25,7 @@ function createFilters(state: State): HTMLDivElement {
 
   const form = document.createElement('form');
   form.className = 'filters__form';
-  const textInput = createTextFilter(state, 'text');
+  const textInput = createTextInput(state, 'text', listNode);
 
   form.append(textInput);
 

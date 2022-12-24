@@ -1,13 +1,9 @@
 import { Props } from '../../constants';
-import createListItem from './createListItem';
 import createFilters from './filters';
+import renderProductList from './renderProductList';
 
 function renderProducts(props: Props): void {
-  const {
-    state,
-    state: { products },
-    parentNodeName,
-  } = props;
+  const { state, parentNodeName } = props;
 
   const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
 
@@ -21,12 +17,9 @@ function renderProducts(props: Props): void {
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
 
-  products.forEach((item) => {
-    const listItem = createListItem(state, item);
-    listNode.append(listItem);
-  });
+  renderProductList(state, listNode);
 
-  const filters = createFilters(state);
+  const filters = createFilters(state, listNode);
 
   productsNode.append(headingNode, filters, listNode);
 
