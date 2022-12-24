@@ -1,7 +1,6 @@
 import { renderHeader } from '..';
 import type { Props } from '../../constants';
 import { handleHistory } from '../../utility';
-import handleSearchParams from './handleSearchParams';
 import onNavigate from './onNavigate';
 
 // Create main layout and append it to root
@@ -33,8 +32,6 @@ function init(props: Props /* pass props down to components */): void {
   onNavigate(props);
 
   window.addEventListener('popstate', () => onNavigate(props));
-
-  handleSearchParams();
 }
 
 export default init;

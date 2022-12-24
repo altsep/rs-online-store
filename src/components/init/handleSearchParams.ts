@@ -1,6 +1,11 @@
-function handleSearchParams(): void {
+function handleSearchParams(pathname: string): void {
   const searchStorageItem = localStorage.getItem('aahh-rs-os-search');
-  window.history.replaceState({}, '', searchStorageItem);
+
+  // Append the current href with the retrieved search query if the path leads to the page with filters
+  if (/\/products$/.test(pathname)) {
+    window.history.replaceState({}, '', searchStorageItem);
+  }
+
   const params = new URLSearchParams(searchStorageItem || '');
 
   document.querySelectorAll('input').forEach((el) => {

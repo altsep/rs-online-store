@@ -1,5 +1,6 @@
 import { renderProducts, renderCart, renderDetails, renderNotFound, renderCheckout } from '..';
 import type { Props } from '../../constants';
+import handleSearchParams from './handleSearchParams';
 
 interface Route {
   path: RegExp;
@@ -9,6 +10,8 @@ interface Route {
 function onNavigate(props: Props): void {
   const { pathname } = window.location;
   const { parentNodeName } = props;
+
+  handleSearchParams(pathname);
 
   const parentNode = document.querySelector<HTMLElement>(parentNodeName);
 
