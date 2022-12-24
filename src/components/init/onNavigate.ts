@@ -22,7 +22,7 @@ function onNavigate(props: Props): void {
     { path: /\/cart$/, fn: renderCart },
     { path: /\/checkout$/, fn: renderCheckout },
     { path: /\/products\/\d+$/, fn: renderDetails }, // Looking for elegant solution to match variable route
-    { path: /[^/]/, fn: renderNotFound }, // Match this route if nothing else does
+    { path: /./, fn: renderNotFound }, // Match this route if nothing else does
   ];
 
   const findRoute = ({ path }: Route): boolean => path.test(pathname);
