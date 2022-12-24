@@ -1,3 +1,5 @@
+import { storeSearchString } from '../../utility';
+
 function handleSearchParams(pathname: string): void {
   const searchStorageItem = localStorage.getItem('aahh-rs-os-search');
 
@@ -8,27 +10,30 @@ function handleSearchParams(pathname: string): void {
 
   const params = new URLSearchParams(searchStorageItem || '');
 
-  document.querySelectorAll('input').forEach((el) => {
-    const { name, type } = el;
+  const form = document.querySelector<HTMLFormElement>('.filters__form');
 
-    const paramsValue = params.get(name) || '';
+  if (form) {
+    [...form.elements].forEach((el) => {
+      const { id: type } = el;
 
-    // Process input elements according to their type
-    switch (type) {
-      // Set input value to search param under the corresponding name
-      case 'text':
+      const paramsValue = params.get(type) || '';
+
+      // Process input elements according to their type
+      if (el instanceof HTMLInputElement) {
         el.value = paramsValue;
         el.dispatchEvent(new Event('input'));
-        break;
-      default:
-        break;
-    }
+      }
 
-    // Store search string on input
-    const handleChange = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
+      if (el instanceof HTMLSelectElement) {
+        const option = el.querySelector(`option[value="${paramsValue}"]`);
+        option?.setAttribute('selected', '');
+        el.dispatchEvent(new Event('change'));
+      }
 
-    el.addEventListener('change', handleChange);
-  });
+      // Store search string in localStorage on change in any element in the list
+      el.addEventListener('change', storeSearchString);
+    });
+  }
 }
 
 export default handleSearchParams;

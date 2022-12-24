@@ -1,12 +1,12 @@
-import type { State } from '../../../../constants';
+import type { Props } from '../../../../constants';
 import handleChange from './handleChange';
 
-function createSortDataList(state: State, name: string): HTMLSelectElement {
+function createSelect(props: Props, name: string): HTMLSelectElement {
   const select = document.createElement('select');
   select.className = name;
   select.id = name;
 
-  select.addEventListener('change', (e) => handleChange(e, state));
+  select.addEventListener('change', (e) => handleChange(e, props));
 
   const optionPlaceholder = document.createElement('option');
   optionPlaceholder.value = '';
@@ -49,4 +49,4 @@ function createSortDataList(state: State, name: string): HTMLSelectElement {
   return select;
 }
 
-export default createSortDataList;
+export default createSelect;

@@ -1,10 +1,10 @@
-import { State } from '../../../constants';
+import type { Props } from '../../../constants';
 import angleDown from '../../../assets/icons/angle-down.svg';
 import angleUp from '../../../assets/icons/angle-up.svg';
 import createTextInput from './text';
 import createSelect from './sort';
 
-function createFilters(state: State): HTMLDivElement {
+function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');
   filters.className = 'filters';
 
@@ -27,9 +27,9 @@ function createFilters(state: State): HTMLDivElement {
   const form = document.createElement('form');
   form.className = 'filters__form';
 
-  const textInput = createTextInput(state, 'text');
+  const textInput = createTextInput(props.state, 'text');
 
-  const select = createSelect(state, 'sort');
+  const select = createSelect(props, 'sort');
 
   form.append(select, textInput);
 

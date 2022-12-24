@@ -17,17 +17,17 @@ function renderProducts(props: Props): void {
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
 
-  renderProductList(state);
-
-  const filters = createFilters(state);
+  const filters = createFilters(props);
 
   productsNode.append(headingNode, filters, listNode);
 
-  if (parentNode instanceof HTMLElement) {
+  if (parentNode) {
     parentNode.innerHTML = '';
 
     parentNode.append(productsNode);
   }
+
+  renderProductList(state);
 }
 
 export default renderProducts;

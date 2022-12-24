@@ -3,5 +3,6 @@
 import handleHistory from './handleHistory';
 import getCurrencyString from './getCurrencyString';
 import updateURL from './updateURL';
+import storeSearchString from './storeSearchString';
 
-export { handleHistory, getCurrencyString, updateURL };
+export { handleHistory, getCurrencyString, updateURL, storeSearchString };

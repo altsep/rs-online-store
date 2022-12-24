@@ -1,10 +1,8 @@
-import type { State } from '../../../../constants';
+import type { Props } from '../../../../constants';
 import { updateURL } from '../../../../utility';
 import renderProductList from '../../renderProductList';
 
-const handleChange = (e: Event, state: State): void => {
-  const { products } = state;
-
+const handleChange = (e: Event, { state, initialProducts }: Props): void => {
   const { selectedOptions } = e.target as HTMLSelectElement;
 
   const selected = selectedOptions[0];
@@ -13,25 +11,26 @@ const handleChange = (e: Event, state: State): void => {
 
   switch (value) {
     case 'price asc':
-      state.products = products.sort((a, b) => a.price - b.price);
+      state.products.sort((a, b) => a.price - b.price);
       break;
     case 'price desc':
-      state.products = products.sort((a, b) => b.price - a.price);
+      state.products.sort((a, b) => b.price - a.price);
       break;
     case 'rating asc':
-      state.products = products.sort((a, b) => a.rating - b.rating);
+      state.products.sort((a, b) => a.rating - b.rating);
       break;
     case 'rating desc':
-      state.products = products.sort((a, b) => b.rating - a.rating);
+      state.products.sort((a, b) => b.rating - a.rating);
       break;
     case 'discount asc':
-      state.products = products.sort((a, b) => a.discountPercentage - b.discountPercentage);
+      state.products.sort((a, b) => a.discountPercentage - b.discountPercentage);
       break;
     case 'discount desc':
-      state.products = products.sort((a, b) => b.discountPercentage - a.discountPercentage);
+      state.products.sort((a, b) => b.discountPercentage - a.discountPercentage);
       break;
     default:
-      state.products = products;
+      // Assigned array must be a copy, otherwise it will assign a link and modify the assigned array instead
+      state.products = initialProducts.slice();
       break;
   }
 
