@@ -15,14 +15,13 @@ function handleSearchParams(pathname: string): void {
     if (type === 'text') {
       const value = params.get(name) || '';
       el.value = value;
+      el.dispatchEvent(new Event('input'));
     }
 
     // Store search string on input
     const onChange = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
 
     el.addEventListener('change', onChange);
-
-    el.dispatchEvent(new Event('input'));
   });
 }
 
