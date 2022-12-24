@@ -2,7 +2,7 @@ import { State } from '../../../constants';
 import angleDown from '../../../assets/icons/angle-down.svg';
 import angleUp from '../../../assets/icons/angle-up.svg';
 import createTextInput from './text';
-import createSortDataList from './sort';
+import createSelect from './sort';
 
 function createFilters(state: State): HTMLDivElement {
   const filters = document.createElement('div');
@@ -29,9 +29,9 @@ function createFilters(state: State): HTMLDivElement {
 
   const textInput = createTextInput(state, 'text');
 
-  const sortDataList = createSortDataList(state, 'sort');
+  const select = createSelect(state, 'sort');
 
-  form.append(sortDataList, textInput);
+  form.append(select, textInput);
 
   filters.append(dropdown, form);
 

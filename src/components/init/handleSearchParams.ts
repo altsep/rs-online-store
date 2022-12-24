@@ -21,7 +21,7 @@ function handleSearchParams(pathname: string): void {
         el.dispatchEvent(new Event('input'));
         break;
       default:
-        return;
+        break;
     }
 
     // Store search string on input
