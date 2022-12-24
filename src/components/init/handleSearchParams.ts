@@ -11,15 +11,15 @@ function handleSearchParams(pathname: string): void {
   document.querySelectorAll('input').forEach((el) => {
     const { name, type } = el;
 
+    const paramsValue = params.get(name) || '';
+
     // Process input elements according to their type
     switch (type) {
       // Set input value to search param under the corresponding name
-      case 'text': {
-        const value = params.get(name) || '';
-        el.value = value;
+      case 'text':
+        el.value = paramsValue;
         el.dispatchEvent(new Event('input'));
         break;
-      }
       default:
         return;
     }
