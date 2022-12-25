@@ -1,6 +1,5 @@
 import { renderProducts, renderCart, renderDetails, renderNotFound, renderCheckout } from '..';
 import type { Props } from '../../constants';
-import handleSearchParams from './handleSearchParams';
 
 interface Route {
   path: RegExp;
@@ -34,8 +33,6 @@ function onNavigate(props: Props): void {
     const { fn } = route;
     fn(props);
   }
-
-  handleSearchParams(pathname);
 }
 
 export default onNavigate;

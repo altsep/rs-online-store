@@ -4,6 +4,8 @@ import angleUp from '../../../assets/icons/angle-up.svg';
 import createTextInput from './text';
 import createSelect from './sort';
 import createButtons from './buttons';
+import handleSearchParams from './handleSearchParams';
+import handleForm from './handleForm';
 
 function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');
@@ -51,6 +53,10 @@ function createFilters(props: Props): HTMLDivElement {
 
     display = !display;
   });
+
+  handleSearchParams(form);
+
+  handleForm(form);
 
   return filters;
 }
