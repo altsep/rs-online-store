@@ -1,6 +1,5 @@
 import type { State } from '../../../../constants';
 import { updateURL } from '../../../../utility';
-import renderProductList from '../../renderProductList';
 import filterFn from './filterFn';
 
 function createTextInput(state: State, name: string): HTMLInputElement {
@@ -20,8 +19,6 @@ function createTextInput(state: State, name: string): HTMLInputElement {
     updateURL(name, value);
 
     state.products = products.filter((pr) => filterFn(pr, value));
-
-    renderProductList(state);
   };
 
   input.addEventListener('input', handleInput);
