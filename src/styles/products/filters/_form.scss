@@ -1,0 +1,67 @@
+@use '../../mixins' as mx;
+@use '../../vars' as v;
+
+.filters__form {
+  $p: 20px;
+  $gap: 10px;
+  padding: $p;
+  background-color: v.$light-gray;
+  box-shadow: inset 1px 1px 5px v.$warm-gray-darker;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  font-size: 1.5rem;
+
+  &,
+  .btn-container {
+    gap: $gap;
+  }
+
+  .input-text,
+  .sort {
+    @include mx.input-text;
+  }
+
+  .input-text {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .filters__form {
+    $gap: 20px;
+    flex-direction: row;
+    font-size: 1.25rem;
+
+    &,
+    .btn-container {
+      gap: $gap;
+    }
+
+    .input-text {
+      max-width: 350px;
+    }
+
+    .search {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .filters__form {
+    $gap: 30px;
+    font-size: 1rem;
+
+    &,
+    .btn-container {
+      gap: $gap;
+    }
+  }
+}
