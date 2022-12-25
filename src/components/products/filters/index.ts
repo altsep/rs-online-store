@@ -24,6 +24,7 @@ function createFilters(props: Props): HTMLDivElement {
   const icon = document.createElement('img');
   icon.className = 'filters__dropdown-img';
   icon.src = angleDown;
+  icon.alt = '';
 
   dropdown.append(dropdownHeading, icon);
 
