@@ -6,6 +6,7 @@ import createSelect from './sort';
 import createButtons from './buttons';
 import handleSearchParams from './handleSearchParams';
 import handleForm from './handleForm';
+import createCheckboxes from './checkboxes';
 
 function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');
@@ -37,7 +38,21 @@ function createFilters(props: Props): HTMLDivElement {
 
   const buttons = createButtons();
 
-  form.append(select, textInput, buttons);
+  const controlsContainer = document.createElement('div');
+  controlsContainer.className = 'controls';
+
+  controlsContainer.append(select, textInput, buttons);
+
+  const categoryCheckboxes = createCheckboxes(props, 'category');
+
+  const brandCheckboxes = createCheckboxes(props, 'brand');
+
+  const categoriesContainer = document.createElement('div');
+  categoriesContainer.className = 'controls';
+
+  categoriesContainer.append(categoryCheckboxes, brandCheckboxes);
+
+  form.append(controlsContainer, categoriesContainer);
 
   filters.append(dropdown, form);
 
