@@ -6,7 +6,7 @@ function createSelect(props: Props, name: string): HTMLSelectElement {
   select.className = name;
   select.id = name;
 
-  select.addEventListener('change', (e) => handleChange(e, props));
+  select.addEventListener('input', (e) => handleChange(e, props));
 
   const optionValues = [
     '--Sort--',

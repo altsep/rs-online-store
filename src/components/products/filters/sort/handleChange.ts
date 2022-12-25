@@ -1,6 +1,5 @@
 import type { Props } from '../../../../constants';
 import { updateURL } from '../../../../utility';
-import renderProductList from '../../renderProductList';
 
 const handleChange = (e: Event, { state, initialProducts }: Props): void => {
   const { selectedOptions } = e.target as HTMLSelectElement;
@@ -35,8 +34,6 @@ const handleChange = (e: Event, { state, initialProducts }: Props): void => {
   }
 
   updateURL('sort', value);
-
-  renderProductList(state);
 };
 
 export default handleChange;

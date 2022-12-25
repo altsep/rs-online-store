@@ -1,0 +1,29 @@
+@use '../../mixins' as mx;
+@use '../../vars' as v;
+@use 'form';
+
+.filters {
+  position: relative;
+
+  &__dropdown {
+    min-height: 40px;
+
+    &-heading {
+      display: inline;
+    }
+
+    &-img {
+      justify-self: end;
+      @include mx.icon;
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .filters {
+    border-radius: 5px;
+  }
+}
