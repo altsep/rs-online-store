@@ -1,15 +1,10 @@
-export default function initHeadeBurger(parentNodeName: string): void {
-  const parentNode = document.querySelector(parentNodeName || '');
+export default function initHeadeBurger(parent: HTMLElement): void {
+  const burgerButton = parent.appendChild(document.createElement('div'));
+  burgerButton.className = 'burger-button';
 
-  if (parentNode) {
-    const burgerButton = parentNode.appendChild(document.createElement('div'));
-    burgerButton.className = 'burger-button';
+  burgerButton.appendChild(document.createElement('span'));
 
-    burgerButton.appendChild(document.createElement('span'));
-    const burgerMenu = document.createElement('div');
-    burgerButton.addEventListener('click', () => {
-      burgerMenu?.classList.toggle('active');
-      burgerButton.classList.toggle('active');
-    });
-  }
+  burgerButton.addEventListener('click', () => {
+    burgerButton.classList.toggle('active');
+  });
 }
