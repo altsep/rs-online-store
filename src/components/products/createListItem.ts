@@ -36,6 +36,7 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     const thumbNode = document.createElement('img');
     thumbNode.className = 'products__item-img img';
     thumbNode.src = thumbnail;
+    thumbNode.alt = '';
 
     thumbContainer.append(thumbNode);
 
