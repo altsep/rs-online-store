@@ -3,7 +3,7 @@ import { handleHistory } from '../../utility';
 import renderCheckout from '../checkout';
 import { popUpActive } from '../checkout/popUpToggle';
 
-function renderCart({ state: { cart }, parentNodeName }: Props): void {
+function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   const cartNode = document.createElement('div');
   cartNode.className = 'cart';
 
@@ -13,7 +13,7 @@ function renderCart({ state: { cart }, parentNodeName }: Props): void {
 
   const content = document.createElement('div');
   content.className = 'cart-content';
-  content.style.whiteSpace = 'pre-wrap';
+  Object.assign(content.style, styles.json);
   content.textContent = JSON.stringify(cart, null, 4);
 
   cartNode.append(headingNode, content);

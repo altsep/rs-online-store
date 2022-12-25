@@ -12,10 +12,10 @@ function renderHeader(state: State): void {
     const headerWrapper = parent.appendChild(document.createElement('div'));
     headerWrapper.className = 'wrapper';
 
-    initHeadeBurger('.wrapper');
-    initHeaderlogo('.wrapper');
-    initHeaderCartTotal('.wrapper');
-    initHeaderCart('.wrapper');
+    initHeadeBurger(headerWrapper);
+    initHeaderlogo(headerWrapper);
+    initHeaderCartTotal(headerWrapper);
+    initHeaderCart(headerWrapper);
     updateCartCount(state);
   }
 }

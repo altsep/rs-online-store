@@ -1,5 +1,6 @@
 import { renderProducts, renderCart, renderDetails, renderNotFound, renderCheckout } from '..';
 import type { Props } from '../../constants';
+import handleSearchParams from './handleSearchParams';
 
 interface Route {
   path: RegExp;
@@ -22,7 +23,7 @@ function onNavigate(props: Props): void {
     { path: /\/cart$/, fn: renderCart },
     { path: /\/checkout$/, fn: renderCheckout },
     { path: /\/products\/\d+$/, fn: renderDetails }, // Looking for elegant solution to match variable route
-    { path: /[^/]/, fn: renderNotFound }, // Match this route if nothing else does
+    { path: /./, fn: renderNotFound }, // Match this route if nothing else does
   ];
 
   const findRoute = ({ path }: Route): boolean => path.test(pathname);
@@ -33,6 +34,8 @@ function onNavigate(props: Props): void {
     const { fn } = route;
     fn(props);
   }
+
+  handleSearchParams(pathname);
 }
 
 export default onNavigate;

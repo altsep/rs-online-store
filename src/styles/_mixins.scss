@@ -14,15 +14,36 @@
   align-items: center;
 }
 
-@mixin icon($size, $offset) {
+@mixin icon($size: 20px, $offset: 0) {
   height: $size;
   width: $size;
   background-color: #fff;
   padding: 5px;
-  border: 1px solid v.$light-gray;
-  box-shadow: 1px 1px 3px v.$light-gray;
+  border: 1px solid v.$warm-gray-darker;
+  box-shadow: 1px 1px 3px v.$warm-gray-darker;
 
   &:hover {
     background-color: v.$light-gray;
+  }
+
+  &:active {
+    @include focus-ring;
+  }
+}
+
+@mixin focus-ring {
+  border-color: rgb(165 180 252);
+  outline: 2px solid rgba(199, 210, 254, 0.5);
+}
+
+@mixin input-text {
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  &:focus {
+    @include focus-ring;
   }
 }

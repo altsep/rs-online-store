@@ -4,25 +4,23 @@
   width: 100%;
   position: fixed;
   top: 0;
-  height: 60px;
-  background-color: v.$header-gray;
+  height: 80px;
+  background-color: v.$warm-gray-darker;
   font-family: v.$font-header;
   z-index: 100;
 }
 
-.header {
-  .wrapper {
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-  }
+.header .wrapper {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .burger-button {
   display: flex;
   position: relative;
-  height: 16px;
-  width: 24px;
+  height: 20px;
+  width: 30px;
 }
 
 .burger-button::before,
@@ -51,7 +49,7 @@
   height: 2px;
   border-radius: 2px;
   right: 0;
-  top: 7px;
+  top: 9px;
   transition: all 0s ease 0.1;
 }
 
@@ -61,17 +59,42 @@
 
 .header_logo {
   display: none;
+  font-size: 1.2rem;
+
+  &-title {
+    font-family: v.$font-header-title;
+    font-style: italic;
+  }
+
+  &-title:hover {
+    text-decoration: underline;
+  }
+}
+
+.cart-total-container {
+  font-size: 1.5rem;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.cart-total-text {
+  display: none;
 }
 
 .cart-container {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 34px;
+  height: 34px;
 }
 
 .cart-container:hover {
   cursor: pointer;
-  scale: 1.05;
+  scale: 1.1;
+}
+
+.cart-logo {
+  width: 100%;
+  height: 100%;
 }
 
 .cart-count {
@@ -89,6 +112,12 @@
   margin: auto;
 }
 
+@media (min-width: 400px) {
+  .cart-total-text {
+    display: inline;
+  }
+}
+
 @media (min-width: 640px) {
   .burger-button {
     display: none;
@@ -100,7 +129,6 @@
   }
 
   .header_logo:hover {
-    scale: 1.05;
     cursor: pointer;
   }
 
@@ -112,15 +140,33 @@
       color: black;
     }
 
-    img {
+    &-img {
       display: flex;
       width: 30px;
       margin-right: 15px;
     }
 
-    h1 {
+    &-title {
       font-weight: 300;
       margin: 0;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .cart-total-container {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cart-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+
+  .cart-total-container {
+    font-size: 1.1rem;
   }
 }
