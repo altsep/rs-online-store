@@ -1,6 +1,6 @@
 import type { Product } from '../../../../constants';
 
-const filter = (product: Product, query: string): boolean => {
+const filterFn = (product: Product, query: string): boolean => {
   const keysToExclude = ['thumbnail', 'images'];
   return Object.keys(product)
     .filter((key) => !keysToExclude.includes(key))
@@ -15,4 +15,4 @@ const filter = (product: Product, query: string): boolean => {
     });
 };
 
-export default filter;
+export default filterFn;

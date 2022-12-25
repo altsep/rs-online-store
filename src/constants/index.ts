@@ -32,6 +32,7 @@ interface Props {
   readonly styles: Styles;
   readonly parentNodeName: string;
   readonly rootPath: string;
+  readonly initialProducts: Product[];
 }
 
 export type { Product, State, Props };
@@ -41,7 +42,7 @@ const cart = JSON.parse(cartStr || '{}') as Cart;
 
 // Mutable properties go in state, it being the collection of initial values
 const state: State = {
-  products: tempProductsData || [], // When creating a new object from default properties, arrays are passed by link and have to be copied separately. This can cause unexpected results when modifying a "copy" while trying to use the initial array which ends up being modified
+  products: tempProductsData.slice(), // When creating a new object from default properties, arrays are passed by link and have to be copied separately. This can cause unexpected results when modifying a "copy" while trying to use the initial array which ends up being modified
   cart,
   itemsInCart: 0,
   totalSum: 0,
@@ -62,6 +63,7 @@ const defaults: Props = {
   styles,
   parentNodeName: 'main',
   rootPath: '/products',
+  initialProducts: tempProductsData.slice(),
 };
 
 export { defaults };

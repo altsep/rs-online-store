@@ -25,14 +25,23 @@
     transition: transform 250ms;
   }
 
-  &-text,
+  &-text-container,
   &-img-container {
     pointer-events: none;
   }
 
-  &-text {
+  &-text-container {
     padding: 10px;
     max-width: 55%;
+  }
+
+  &-title,
+  .desc {
+    margin: 0;
+  }
+
+  .desc {
+    margin-top: 5px;
   }
 
   &,
@@ -61,10 +70,6 @@
     border-radius: 50%;
     right: 0;
     bottom: calc($size / -1.5);
-
-    &:active {
-      @include mx.focus-ring;
-    }
   }
 }
 
