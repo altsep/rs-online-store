@@ -59,9 +59,8 @@
     $ring-color: rgba(56, 68, 94, $ring-opacity);
     $ring-offset-shadow: $ring-inset 0 0 $ring-offset-width $ring-offset-color;
     $ring-shadow: $ring-inset 0 0 calc(2px + $ring-offset-width) $ring-color;
-    $shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     $shadow-colored: 0 1px 2px 0;
-    box-shadow: $ring-offset-shadow, $ring-shadow, $shadow, 0 0 #0000;
+    box-shadow: $ring-offset-shadow, $ring-shadow;
   }
 }
 
