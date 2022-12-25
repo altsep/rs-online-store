@@ -1,4 +1,4 @@
-import { renderHeader } from '..';
+import { renderHeader, renderCheckout } from '..';
 import type { Props } from '../../constants';
 import { handleHistory } from '../../utility';
 import onNavigate from './onNavigate';
@@ -22,6 +22,7 @@ function init(props: Props /* pass props down to components */): void {
   }
 
   renderHeader(props.state);
+  renderCheckout(props);
 
   // Push default path to history if accessing root
   if (window.location.pathname === '/') {

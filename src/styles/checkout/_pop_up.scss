@@ -1,6 +1,6 @@
 @use '../vars' as v;
 .checkout__pop-up {
-  position: absolute;
+  position: fixed;
   background-color: rgba(1, 1, 1, 0.7);
   backdrop-filter: blur(2px);
   width: 100vw;
@@ -9,6 +9,12 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
+  top: -100%;
+  transition: all ease 0.2s;
+}
+.checkout__pop-up.active{
+  top: 0;
+  transition: all ease 0.2s;
 }
 .checkout__pop-up_content {
   display: flex;

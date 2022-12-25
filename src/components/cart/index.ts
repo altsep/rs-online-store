@@ -1,4 +1,7 @@
 import { Props } from '../../constants';
+import { handleHistory } from '../../utility';
+import renderCheckout from '../checkout';
+import { popUpActive } from '../checkout/popUpToggle';
 
 function renderCart({ state: { cart }, parentNodeName }: Props): void {
   const cartNode = document.createElement('div');
@@ -14,6 +17,16 @@ function renderCart({ state: { cart }, parentNodeName }: Props): void {
   content.textContent = JSON.stringify(cart, null, 4);
 
   cartNode.append(headingNode, content);
+
+  // temporary solution for checkout page testing
+  const button = document.createElement('button');
+  button.textContent = 'buy now';
+  cartNode.append(button);
+  button.addEventListener(('click'), () => {
+    popUpActive();
+  })
+
+// ---------
 
   const parentNode = document.querySelector(parentNodeName || '');
 

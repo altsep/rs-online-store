@@ -3,9 +3,9 @@ import initForm from './initForm';
 import initSubmitButton from './initSubmitButton';
 import isFormValid from './isFormValid';
 import onButtonClick from './onButtonClick';
+import { popUpActive, popUpRemove } from './popUpToggle';
 
 function renderCheckout(props: Props): void {
-  const state = props.state;
   const checkoutNode = document.createElement('div');
   checkoutNode.className = 'checkout__pop-up';
 
@@ -17,7 +17,14 @@ function renderCheckout(props: Props): void {
 
 
   checkoutNode.append(checkoutContent);
-  checkoutContent.append(checkoutForm, submitBtn);
+  checkoutContent.append(checkoutForm);
+  checkoutForm.append(submitBtn);
+
+  checkoutNode.addEventListener('click', (e) => {
+    if (e.target instanceof HTMLElement && e.target.classList.contains('checkout__pop-up')) {
+      popUpRemove();
+    }
+  })
 
   const parentNode = document.querySelector('#root');
 
@@ -27,7 +34,7 @@ function renderCheckout(props: Props): void {
 
   submitBtn.disabled = !isFormValid();
   submitBtn.addEventListener(('click'), () => {
-    onButtonClick(state);
+    onButtonClick(props.state);
   })
 }
 
