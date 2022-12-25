@@ -8,7 +8,7 @@ function handleSearchParams(pathname: string): void {
     window.history.replaceState({}, '', searchStorageItem);
   }
 
-  const params = new URLSearchParams(searchStorageItem || '');
+  const params = new URLSearchParams(searchStorageItem || window.location.search);
 
   const form = document.querySelector<HTMLFormElement>('.filters__form');
 
