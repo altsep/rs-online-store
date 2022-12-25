@@ -13,13 +13,14 @@ function handleSearchParams(pathname: string): void {
   const form = document.querySelector<HTMLFormElement>('.filters__form');
 
   if (form) {
+    // Create an array of form controls and iterate over it
     [...form.elements].forEach((el) => {
-      const { id: type } = el;
+      const { id } = el;
 
-      const paramsValue = params.get(type) || '';
+      const paramsValue = params.get(id) || '';
 
       // Process input elements according to their type
-      if (el instanceof HTMLInputElement) {
+      if (el instanceof HTMLInputElement && id === 'text') {
         el.value = paramsValue;
         el.dispatchEvent(new Event('input'));
       }
