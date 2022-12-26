@@ -28,8 +28,8 @@ const handleChange = (e: Event, { state, initialProducts }: Props): void => {
       state.products.sort((a, b) => b.discountPercentage - a.discountPercentage);
       break;
     default:
-      // Assigned array must be a copy, otherwise it will assign a link and modify the assigned array instead
-      state.products = initialProducts.slice();
+      // Sort in the initial order
+      state.products.sort((a, b) => a.id - b.id);
       break;
   }
 
