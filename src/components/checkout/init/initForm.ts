@@ -1,9 +1,9 @@
 import createCard from "./createCard";
 import createUser from "./createUser";
 
-export default function initForm(className: string): HTMLFormElement {
+export default function initForm(): HTMLFormElement {
   const checkoutForm = document.createElement('form');
-  checkoutForm.className = className;
+  checkoutForm.className = 'checkout__form';
 
   // title
   const personalDetails = document.createElement('h3');

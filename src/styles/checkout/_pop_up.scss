@@ -1,4 +1,7 @@
 @use '../vars' as v;
+.hidden {
+  display: none;
+}
 .checkout__pop-up {
   position: fixed;
   background-color: rgba(1, 1, 1, 0.7);
@@ -9,14 +12,15 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  top: -100%;
+  top: -110%;
   transition: all ease 0.2s;
 }
 .checkout__pop-up.active{
   top: 0;
   transition: all ease 0.2s;
 }
-.checkout__pop-up_content {
+.checkout__pop-up_content,
+.submit-message {
   display: flex;
   width: 50%;
   // height: 50%;
@@ -27,6 +31,9 @@
   align-items: flex-start;
   padding: 15px;
 }
+.submit-message {
+  display: block;
+}
 .checkout__form {
   display: flex;
   width: 90%;
@@ -34,3 +41,4 @@
   align-items: center;
   justify-content: space-between;
 }
+

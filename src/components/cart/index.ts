@@ -24,6 +24,7 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   cartNode.append(button);
   button.addEventListener(('click'), () => {
     popUpActive();
+    console.log(button);
   })
 
 // ---------
