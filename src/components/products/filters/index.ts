@@ -32,7 +32,7 @@ function createFilters(props: Props): HTMLDivElement {
   const form = document.createElement('form');
   form.className = 'filters__form';
 
-  const select = createSelect(props, 'sort');
+  const select = createSelect(props.state, 'sort');
 
   const textInput = createTextInput(props.state, 'text');
 

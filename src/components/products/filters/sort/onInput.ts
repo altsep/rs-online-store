@@ -1,7 +1,7 @@
-import type { Props } from '../../../../constants';
+import type { State } from '../../../../constants';
 import { updateURL } from '../../../../utility';
 
-const handleChange = (e: Event, { state, initialProducts }: Props): void => {
+const onInput = (e: Event, state: State): void => {
   const { selectedOptions } = e.target as HTMLSelectElement;
 
   const selected = selectedOptions[0];
@@ -36,4 +36,4 @@ const handleChange = (e: Event, { state, initialProducts }: Props): void => {
   updateURL('sort', value);
 };
 
-export default handleChange;
+export default onInput;
