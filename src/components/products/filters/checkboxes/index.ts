@@ -1,7 +1,8 @@
 import type { Product } from '../../../../constants';
 import { Props } from '../../../../constants';
+import { updateURL } from '../../../../utility';
 
-function createCheckboxes({ state: { products }, initialProducts }: Props, name: string): HTMLFieldSetElement {
+function createCheckboxes({ state, state: { products }, initialProducts }: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'categories';
 
@@ -13,6 +14,9 @@ function createCheckboxes({ state: { products }, initialProducts }: Props, name:
 
   // Create an array of unique checkbox options from the corresponding property name
   const values = [...new Set(initialProducts.map((p) => p[name as keyof Product]))];
+
+  const getProductsLen = (arr: Product[], category: string): number =>
+    arr.filter((p) => p[name as keyof Product] === category).length;
 
   values.forEach((v) => {
     const checkboxContainer = document.createElement('div');
@@ -32,16 +36,16 @@ function createCheckboxes({ state: { products }, initialProducts }: Props, name:
     const itemCount = document.createElement('span');
     itemCount.className = 'item-count';
 
-    const currentLen = products.filter((p) => p[name as keyof Product] === v).length;
-    const maxLen = initialProducts.filter((p) => p[name as keyof Product] === v).length;
-
-    itemCount.textContent = `${currentLen}/${maxLen}`;
-
     if (typeof v === 'string') {
       checkbox.id = v;
       checkbox.value = v;
       label.htmlFor = v;
       label.textContent = v;
+
+      itemCount.id = v;
+      const currentLen = getProductsLen(products, v);
+      const maxLen = getProductsLen(initialProducts, v);
+      itemCount.textContent = `${currentLen}/${maxLen}`;
     }
 
     checkboxControls.append(checkbox, label);
@@ -49,6 +53,30 @@ function createCheckboxes({ state: { products }, initialProducts }: Props, name:
     checkboxContainer.append(checkboxControls, itemCount);
 
     fieldset.append(checkboxContainer);
+  });
+
+  fieldset.addEventListener('input', (e) => {
+    if (e.target instanceof HTMLInputElement) {
+      const { checked, value } = e.target;
+
+      const query = checked ? value : '';
+
+      updateURL(name, query);
+
+      if (query) {
+        state.products = products.filter((p) => p[name as keyof Product] === value);
+      } else {
+        state.products = products.filter((p) => p[name as keyof Product]);
+      }
+
+      const itemCountElement = document.querySelector(`.item-count#${value}`);
+
+      if (itemCountElement) {
+        const currentLen = getProductsLen(products, value);
+        const maxLen = getProductsLen(initialProducts, value);
+        itemCountElement.textContent = `${currentLen}/${maxLen}`;
+      }
+    }
   });
 
   return fieldset;
