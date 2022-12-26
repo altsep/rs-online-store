@@ -1,7 +1,7 @@
-import type { Product } from '../../../../constants';
-import { Props } from '../../../../constants';
+import type { Product, Props } from '../../../../constants';
+import setItemCount from './setItemCount';
 
-function createCheckboxes({ state: { products }, initialProducts }: Props, name: string): HTMLFieldSetElement {
+function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'categories filter';
   fieldset.name = name;
@@ -13,10 +13,7 @@ function createCheckboxes({ state: { products }, initialProducts }: Props, name:
   fieldset.append(legend);
 
   // Create an array of unique checkbox options from the corresponding property name
-  const values = [...new Set(initialProducts.map((p) => p[name as keyof Product]))];
-
-  const getProductsLen = (arr: Product[], category: string): number =>
-    arr.filter((p) => p[name as keyof Product] === category).length;
+  const values = [...new Set(props.initialProducts.map((p) => p[name as keyof Product]))];
 
   values.forEach((v) => {
     const checkboxContainer = document.createElement('div');
@@ -39,13 +36,13 @@ function createCheckboxes({ state: { products }, initialProducts }: Props, name:
     if (typeof v === 'string') {
       checkbox.id = v;
       checkbox.value = v;
+
       label.htmlFor = v;
       label.textContent = v;
 
       itemCount.id = v;
-      const currentLen = getProductsLen(products, v);
-      const maxLen = getProductsLen(initialProducts, v);
-      itemCount.textContent = `${currentLen}/${maxLen}`;
+      const itemCountOptions = { name, value: v, itemCountNode: itemCount };
+      setItemCount(props, itemCountOptions);
     }
 
     checkboxControls.append(checkbox, label);

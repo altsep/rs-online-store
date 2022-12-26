@@ -7,6 +7,7 @@ import createButtons from './buttons';
 import handleSearchParams from './handleSearchParams';
 import handleForm from './handleForm';
 import createCheckboxes from './checkboxes';
+import handleItemCount from './handleItemCount';
 
 function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');

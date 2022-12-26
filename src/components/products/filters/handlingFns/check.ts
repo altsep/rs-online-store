@@ -1,8 +1,8 @@
-import { Product } from '../../../../constants';
+import type { Product } from '../../../../constants';
 import { updateURL } from '../../../../utility';
 
 export default (products: Product[], name: string): Product[] => {
-  const fieldset = document.querySelector<HTMLSelectElement>(`.filter[name="${name}"]`);
+  const fieldset = document.querySelector<HTMLFieldSetElement>(`.filter[name="${name}"]`);
 
   const checkboxes = fieldset?.querySelectorAll('.checkbox');
 

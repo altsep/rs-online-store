@@ -1,6 +1,7 @@
 import { defaults } from '../../../constants';
 import { storeSearchString } from '../../../utility';
 import renderProductList from '../renderProductList';
+import handleItemCount from './handleItemCount';
 import filterFn from './handlingFns';
 
 function handleForm(form: HTMLFormElement): void {
@@ -15,6 +16,7 @@ function handleForm(form: HTMLFormElement): void {
   const handleInput = (): void => {
     filterFn(state, initialProducts);
     renderProductList(state);
+    handleItemCount();
   };
 
   form.addEventListener('input', handleInput);
