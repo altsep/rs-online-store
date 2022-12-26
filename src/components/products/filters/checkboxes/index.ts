@@ -1,10 +1,10 @@
 import type { Product } from '../../../../constants';
 import { Props } from '../../../../constants';
-import { updateURL } from '../../../../utility';
 
-function createCheckboxes({ state, state: { products }, initialProducts }: Props, name: string): HTMLFieldSetElement {
+function createCheckboxes({ state: { products }, initialProducts }: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
-  fieldset.className = 'categories';
+  fieldset.className = 'categories filter';
+  fieldset.name = name;
 
   const legend = document.createElement('legend');
   legend.textContent = `${name[0].toUpperCase()}${name.slice(1)}`;
@@ -53,30 +53,6 @@ function createCheckboxes({ state, state: { products }, initialProducts }: Props
     checkboxContainer.append(checkboxControls, itemCount);
 
     fieldset.append(checkboxContainer);
-  });
-
-  fieldset.addEventListener('input', (e) => {
-    if (e.target instanceof HTMLInputElement) {
-      const { checked, value } = e.target;
-
-      const query = checked ? value : '';
-
-      updateURL(name, query);
-
-      if (query) {
-        state.products = products.filter((p) => p[name as keyof Product] === value);
-      } else {
-        state.products = products.filter((p) => p[name as keyof Product]);
-      }
-
-      const itemCountElement = document.querySelector(`.item-count#${value}`);
-
-      if (itemCountElement) {
-        const currentLen = getProductsLen(products, value);
-        const maxLen = getProductsLen(initialProducts, value);
-        itemCountElement.textContent = `${currentLen}/${maxLen}`;
-      }
-    }
   });
 
   return fieldset;

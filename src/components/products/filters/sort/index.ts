@@ -1,12 +1,8 @@
-import type { State } from '../../../../constants';
-import onInput from './onInput';
-
-function createSelect(state: State, name: string): HTMLSelectElement {
+function createSelect(name: string): HTMLSelectElement {
   const select = document.createElement('select');
-  select.className = name;
+  select.className = `${name} filter`;
   select.id = name;
-
-  select.addEventListener('input', (e) => onInput(e, state));
+  select.name = name;
 
   const optionValues = [
     '--Sort--',

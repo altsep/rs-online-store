@@ -1,3 +1,5 @@
+import type { FilterElement } from './handlingFns';
+
 function handleSearchParams(form: HTMLFormElement): void {
   const { pathname } = window.location;
   const searchStorageItem = localStorage.getItem('aahh-rs-os-search');
@@ -11,22 +13,29 @@ function handleSearchParams(form: HTMLFormElement): void {
 
   // Create an array of form controls and iterate over it
   [...form.elements].forEach((el) => {
-    const { id } = el;
+    const { name, type } = el as FilterElement;
 
-    const paramsValue = params.get(id) || '';
+    const paramsValue = params.get(name) || '';
 
     // Process input elements according to their type
-    if (el instanceof HTMLInputElement && id === 'text') {
+    if (el instanceof HTMLInputElement && type === 'text') {
       el.value = paramsValue;
-      el.dispatchEvent(new Event('input'));
+    }
+
+    if (el instanceof HTMLInputElement && type === 'checkbox') {
+      const checkedValues = paramsValue.split('|');
+      if (checkedValues.includes(el.value)) {
+        el.setAttribute('checked', '');
+      }
     }
 
     if (el instanceof HTMLSelectElement) {
       const option = el.querySelector(`option[value="${paramsValue}"]`);
       option?.setAttribute('selected', '');
-      el.dispatchEvent(new Event('change'));
     }
   });
+
+  form.dispatchEvent(new Event('input'));
 }
 
 export default handleSearchParams;

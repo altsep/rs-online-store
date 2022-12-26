@@ -1,6 +1,7 @@
 import { defaults } from '../../../constants';
 import { storeSearchString } from '../../../utility';
 import renderProductList from '../renderProductList';
+import filterFn from './handlingFns';
 
 function handleForm(form: HTMLFormElement): void {
   const { pathname } = window.location;
@@ -11,7 +12,10 @@ function handleForm(form: HTMLFormElement): void {
   const { state, initialProducts } = defaults; // Is the same as passing as props as its passed by link in the app entry point
 
   // Rerender cards on input registered in the form element
-  const handleInput = (): void => renderProductList(state);
+  const handleInput = (): void => {
+    filterFn(state, initialProducts);
+    renderProductList(state);
+  };
 
   form.addEventListener('input', handleInput);
 
@@ -19,6 +23,12 @@ function handleForm(form: HTMLFormElement): void {
   const handleReset = (): void => {
     state.products = initialProducts.slice();
     renderProductList(state);
+
+    const optionElements = document.querySelectorAll('.sort option');
+    optionElements.forEach((el) => el.removeAttribute('selected'));
+
+    const checkboxElements = document.querySelectorAll('.categories .checkbox');
+    checkboxElements.forEach((el) => el.removeAttribute('checked'));
 
     window.history.replaceState({}, '', pathname);
     storeSearchString();

@@ -1,9 +1,10 @@
 import { Props } from '../../constants';
 import createFilters from './filters';
+import filterFn from './filters/handlingFns';
 import renderProductList from './renderProductList';
 
 function renderProducts(props: Props): void {
-  const { state, parentNodeName } = props;
+  const { state, parentNodeName, initialProducts } = props;
 
   const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
 
@@ -27,6 +28,7 @@ function renderProducts(props: Props): void {
     parentNode.append(productsNode);
   }
 
+  filterFn(state, initialProducts);
   renderProductList(state);
 }
 

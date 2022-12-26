@@ -42,7 +42,7 @@ const cart = JSON.parse(cartStr || '{}') as Cart;
 
 // Mutable properties go in state, it being the collection of initial values
 const state: State = {
-  products: tempProductsData.slice(), // When creating a new object from default properties, arrays are passed by link and have to be copied separately. This can cause unexpected results when modifying a "copy" while trying to use the initial array which ends up being modified
+  products: tempProductsData.slice(), // When creating a new object from default properties, arrays are passed by link and have to be copied separately. This can cause unexpected results when modifying a "copy" while trying to use the initial array which ends up being modified in place of the array it replaced
   cart,
   itemsInCart: 0,
   totalSum: 0,
