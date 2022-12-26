@@ -1,12 +1,8 @@
-import type { Props } from '../../../../constants';
-import handleChange from './handleChange';
-
-function createSelect(props: Props, name: string): HTMLSelectElement {
+function createSelect(name: string): HTMLSelectElement {
   const select = document.createElement('select');
-  select.className = name;
+  select.className = `${name} filter`;
   select.id = name;
-
-  select.addEventListener('input', (e) => handleChange(e, props));
+  select.name = name;
 
   const optionValues = [
     '--Sort--',

@@ -17,8 +17,16 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
 
     const titleNode = document.createElement('h4');
     titleNode.className = 'products__item-title';
+    titleNode.textContent = title;
+
+    const priceNode = document.createElement('h4');
+    priceNode.className = 'products__item-price desc';
     const priceStr = getCurrencyString(price);
-    titleNode.textContent = `${brand} ${title} ${priceStr}`;
+    priceNode.textContent = priceStr;
+
+    const brandNode = document.createElement('p');
+    brandNode.className = 'products__item-brand desc';
+    brandNode.textContent = `Brand: ${brand}`;
 
     const ratingNode = document.createElement('p');
     ratingNode.className = 'products__item-rating desc';
@@ -28,7 +36,7 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     discountNode.className = 'products__item-discount desc';
     discountNode.textContent = `Discount: ${discountPercentage}%`;
 
-    textContainer.append(titleNode, ratingNode, discountNode);
+    textContainer.append(titleNode, priceNode, brandNode, ratingNode, discountNode);
 
     const thumbContainer = document.createElement('div');
     thumbContainer.className = 'products__item-img-container';
@@ -36,6 +44,7 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     const thumbNode = document.createElement('img');
     thumbNode.className = 'products__item-img img';
     thumbNode.src = thumbnail;
+    thumbNode.alt = '';
 
     thumbContainer.append(thumbNode);
 
@@ -47,7 +56,7 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
 
     const btn = addToCartBtn(state, item);
 
-    listItem.append(textContainer, thumbContainer, btn);
+    listItem.append(thumbContainer, textContainer, btn);
   }
 
   return listItem;

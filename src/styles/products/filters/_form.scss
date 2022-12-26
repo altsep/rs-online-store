@@ -1,5 +1,6 @@
 @use '../../mixins' as mx;
 @use '../../vars' as v;
+@use 'categories';
 
 .filters__form {
   $p: 20px;
@@ -7,10 +8,16 @@
   padding: $p;
   background-color: v.$light-gray;
   box-shadow: inset 1px 1px 5px v.$warm-gray-darker;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: $gap;
-  font-size: 1.5rem;
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+  }
 
   &,
   .btn-container {
@@ -31,15 +38,23 @@
     display: flex;
     justify-content: center;
   }
+
+  .item-count {
+    text-align: right;
+  }
 }
 
 @media (min-width: 768px) {
   .filters__form {
     $gap: 20px;
-    flex-direction: row;
     font-size: 1.25rem;
 
-    &,
+    .controls {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .controls,
     .btn-container {
       gap: $gap;
     }
@@ -56,12 +71,6 @@
 
 @media (min-width: 1024px) {
   .filters__form {
-    $gap: 30px;
     font-size: 1rem;
-
-    &,
-    .btn-container {
-      gap: $gap;
-    }
   }
 }

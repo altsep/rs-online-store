@@ -38,7 +38,7 @@
   $bgc--hover: v.$light-gray;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  border: 1px solid #d1d5db;
+  border: v.$controls-border;
 
   &:hover {
     background-color: $bgc--hover;
@@ -59,9 +59,12 @@
     $ring-color: rgba(56, 68, 94, $ring-opacity);
     $ring-offset-shadow: $ring-inset 0 0 $ring-offset-width $ring-offset-color;
     $ring-shadow: $ring-inset 0 0 calc(2px + $ring-offset-width) $ring-color;
-    $shadow-colored: 0 1px 2px 0;
     box-shadow: $ring-offset-shadow, $ring-shadow;
   }
+}
+
+.grayed-out {
+  color: #8e8e8e;
 }
 
 @media (min-width: 1024px) {

@@ -4,5 +4,6 @@ import handleHistory from './handleHistory';
 import getCurrencyString from './getCurrencyString';
 import updateURL from './updateURL';
 import storeSearchString from './storeSearchString';
+import getProductsLen from './getProductsLen';
 
-export { handleHistory, getCurrencyString, updateURL, storeSearchString };
+export { handleHistory, getCurrencyString, updateURL, storeSearchString, getProductsLen };
