@@ -7,6 +7,7 @@ import createButtons from './buttons';
 import handleSearchParams from './handleSearchParams';
 import handleForm from './handleForm';
 import createCheckboxes from './checkboxes';
+import createSlider from './slider';
 
 function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');
@@ -52,7 +53,16 @@ function createFilters(props: Props): HTMLDivElement {
 
   categoriesContainer.append(categoryCheckboxes, brandCheckboxes);
 
-  form.append(controlsContainer, categoriesContainer);
+  const priceSlider = createSlider(props, 'price');
+
+  const stockSlider = createSlider(props, 'stock');
+
+  const slidersContainer = document.createElement('div');
+  slidersContainer.className = 'controls';
+
+  slidersContainer.append(priceSlider, stockSlider);
+
+  form.append(controlsContainer, categoriesContainer, slidersContainer);
 
   filters.append(dropdown, form);
 
