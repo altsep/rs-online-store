@@ -35,6 +35,7 @@ function handleSearchParams(form: HTMLFormElement): void {
     }
   });
 
+  // Run filters and render cards by triggering a handling function in handleForm.ts
   form.dispatchEvent(new Event('input'));
 }
 

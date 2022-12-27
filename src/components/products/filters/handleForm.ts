@@ -26,10 +26,10 @@ function handleForm(form: HTMLFormElement): void {
     state.products = initialProducts.slice();
     renderProductList(state);
 
-    const optionElements = document.querySelectorAll('.sort option');
+    const optionElements = document.querySelectorAll<HTMLOptionElement>('.sort option');
     optionElements.forEach((el) => el.removeAttribute('selected'));
 
-    const checkboxElements = document.querySelectorAll('.categories .checkbox');
+    const checkboxElements = document.querySelectorAll<HTMLInputElement>('.categories .checkbox');
     checkboxElements.forEach((el) => el.removeAttribute('checked'));
 
     window.history.replaceState({}, '', pathname);
