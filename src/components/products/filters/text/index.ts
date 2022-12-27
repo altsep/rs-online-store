@@ -1,13 +1,8 @@
-import type { State } from '../../../../constants';
 import { updateURL } from '../../../../utility';
-import renderProductList from '../../renderProductList';
-import filterFn from './filterFn';
 
-function createTextInput(state: State, name: string): HTMLInputElement {
-  const { products } = state;
-
+function createTextInput(name: string): HTMLInputElement {
   const input = document.createElement('input');
-  input.className = 'search input-text';
+  input.className = 'search input-text filter';
   input.name = name;
   input.id = name;
   input.type = 'text';
@@ -18,10 +13,6 @@ function createTextInput(state: State, name: string): HTMLInputElement {
     const { value } = target;
 
     updateURL(name, value);
-
-    state.products = products.filter((pr) => filterFn(pr, value));
-
-    renderProductList(state);
   };
 
   input.addEventListener('input', handleInput);
