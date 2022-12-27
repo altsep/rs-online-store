@@ -25,6 +25,7 @@ function handleForm(form: HTMLFormElement): void {
   const handleReset = (): void => {
     state.products = initialProducts.slice();
     renderProductList(state);
+    handleItemCount();
 
     const optionElements = document.querySelectorAll<HTMLOptionElement>('.sort option');
     optionElements.forEach((el) => el.removeAttribute('selected'));
