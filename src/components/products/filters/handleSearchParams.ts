@@ -25,13 +25,15 @@ function handleSearchParams(form: HTMLFormElement): void {
     if (el instanceof HTMLInputElement && type === 'checkbox') {
       const checkedValues = paramsValue.split('|');
       if (checkedValues.includes(el.value)) {
-        el.setAttribute('checked', '');
+        el.checked = true;
       }
     }
 
     if (el instanceof HTMLSelectElement) {
-      const option = el.querySelector(`option[value="${paramsValue}"]`);
-      option?.setAttribute('selected', '');
+      const option = el.querySelector<HTMLOptionElement>(`option[value="${paramsValue}"]`);
+      if (option) {
+        option.selected = true;
+      }
     }
   });
 
