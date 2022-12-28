@@ -14,22 +14,24 @@ function createSlider({ state: { products } }: Props, name: string): HTMLFieldSe
   const info = document.createElement('div');
   info.className = 'slider-info';
 
-  const arr = products.map((p) => p[name as keyof Product]) as number[];
+  type NumKeys = 'price' | 'discountPercentage' | 'rating' | 'stock';
 
-  const minValue = Math.min(...arr);
-  const maxValue = Math.max(...arr);
-  const minValueStr = String(Math.min(...arr));
-  const maxValueStr = String(Math.max(...arr));
+  const numArr = products.map((p) => p[name as keyof Pick<Product, NumKeys>]);
 
-  const minTextNode = document.createElement('span');
-  minTextNode.className = 'slider-info-min';
-  minTextNode.textContent = name === 'price' ? getCurrencyString(minValue) : minValueStr;
+  const minValue = Math.min(...numArr);
+  const maxValue = Math.max(...numArr);
+  const minValueStr = String(minValue);
+  const maxValueStr = String(maxValue);
 
-  const maxTextNode = document.createElement('span');
-  maxTextNode.className = 'slider-info-max';
-  maxTextNode.textContent = name === 'price' ? getCurrencyString(maxValue) : maxValueStr;
+  const infoFirst = document.createElement('span');
+  infoFirst.className = 'slider-info first';
+  infoFirst.textContent = name === 'price' ? getCurrencyString(minValue) : minValueStr;
 
-  info.append(minTextNode, maxTextNode);
+  const infoSecond = document.createElement('span');
+  infoSecond.className = 'slider-info second';
+  infoSecond.textContent = name === 'price' ? getCurrencyString(maxValue) : maxValueStr;
+
+  info.append(infoFirst, infoSecond);
 
   const multiRange = document.createElement('div');
   multiRange.className = 'multi-range';
@@ -56,16 +58,28 @@ function createSlider({ state: { products } }: Props, name: string): HTMLFieldSe
 
   fieldset.append(legend, info, multiRange);
 
-  const handleChange = (): void => {
-    const min = Math.min(Number(rangeFirst.value), Number(rangeSecond.value));
-    const max = Math.max(Number(rangeFirst.value), Number(rangeSecond.value));
+  const getMinValue = (): number => Math.min(Number(rangeFirst.value), Number(rangeSecond.value));
+  const getMaxValue = (): number => Math.max(Number(rangeFirst.value), Number(rangeSecond.value));
 
+  const handleChange = (): void => {
+    const min = getMinValue();
+    const max = getMaxValue();
     const value = min === minValue && max === maxValue ? '' : `${min}-${max}`;
 
     updateURL(name, value);
   };
 
   fieldset.addEventListener('change', handleChange);
+
+  const handleInput = (): void => {
+    const min = getMinValue();
+    const max = getMaxValue();
+
+    infoFirst.textContent = name === 'price' ? getCurrencyString(min) : String(min);
+    infoSecond.textContent = name === 'price' ? getCurrencyString(max) : String(max);
+  };
+
+  fieldset.addEventListener('input', handleInput);
 
   return fieldset;
 }
