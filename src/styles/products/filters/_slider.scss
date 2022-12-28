@@ -10,6 +10,14 @@
     justify-content: space-between;
   }
 
+  .slider-info.equal {
+    justify-content: center;
+    
+    .second {
+      display: none;
+    }
+  }
+
   .multi-range {
     position: relative;
     height: 30px;

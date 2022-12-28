@@ -24,11 +24,11 @@ function createSlider({ state: { products } }: Props, name: string): HTMLFieldSe
   const maxValueStr = String(maxValue);
 
   const infoFirst = document.createElement('span');
-  infoFirst.className = 'slider-info first';
+  infoFirst.className = 'slider-info-text first';
   infoFirst.textContent = name === 'price' ? getCurrencyString(minValue) : minValueStr;
 
   const infoSecond = document.createElement('span');
-  infoSecond.className = 'slider-info second';
+  infoSecond.className = 'slider-info-text second';
   infoSecond.textContent = name === 'price' ? getCurrencyString(maxValue) : maxValueStr;
 
   info.append(infoFirst, infoSecond);
@@ -77,6 +77,12 @@ function createSlider({ state: { products } }: Props, name: string): HTMLFieldSe
 
     infoFirst.textContent = name === 'price' ? getCurrencyString(min) : String(min);
     infoSecond.textContent = name === 'price' ? getCurrencyString(max) : String(max);
+
+    if (min === max) {
+      info.classList.add('equal');
+    } else {
+      info.classList.remove('equal');
+    }
   };
 
   fieldset.addEventListener('input', handleInput);
