@@ -29,7 +29,7 @@ function handleForm(form: HTMLFormElement): void {
     state.products = initialProducts.slice();
     renderProductList(state);
     handleItemCount();
-
+    
     window.history.replaceState({}, '', pathname);
     storeSearchString();
   };
