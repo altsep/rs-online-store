@@ -40,7 +40,7 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
       label.htmlFor = v;
       label.textContent = v;
 
-      itemCount.id = v;
+      itemCount.dataset.value = v;
       const itemCountOptions = { name, value: v, itemCountNode: itemCount };
       setItemCount(props, itemCountOptions);
     }
