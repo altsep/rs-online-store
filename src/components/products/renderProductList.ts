@@ -4,14 +4,21 @@ import createListItem from './createListItem';
 function renderProductList(state: State): void {
   const { products } = state;
 
-  const parent = document.querySelector<HTMLDivElement>('.products-list');
+  const list = document.querySelector<HTMLDivElement>('.products-list');
+  const noProductsNode = list?.nextElementSibling;
 
-  if (parent) {
-    parent.innerHTML = '';
+  if (list) {
+    list.innerHTML = '';
+
+    if (products.length === 0) {
+      noProductsNode?.classList.remove('hidden');
+    } else {
+      noProductsNode?.classList.add('hidden');
+    }
 
     products.forEach((item) => {
       const listItem = createListItem(state, item);
-      parent.append(listItem);
+      list.append(listItem);
     });
   }
 }

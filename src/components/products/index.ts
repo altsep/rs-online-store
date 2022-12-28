@@ -19,9 +19,13 @@ function renderProducts(props: Props): void {
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
 
+  const noProductsNode = document.createElement('div');
+  noProductsNode.className = 'products-not-found hidden';
+  noProductsNode.textContent = 'No products found 🌚';
+
   const filters = createFilters(props);
 
-  productsNode.append(headingNode, filters, listNode);
+  productsNode.append(headingNode, filters, listNode, noProductsNode);
 
   if (parentNode) {
     parentNode.innerHTML = '';
