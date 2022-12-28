@@ -13,7 +13,7 @@
   .multi-range {
     position: relative;
     height: 30px;
-    width: 200px;
+    padding: 10px 0;
     @include mx.flex-center;
   }
 
@@ -33,18 +33,36 @@
     }
 
     &::-webkit-slider-thumb {
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background-color: #fff;
+      appearance: none;
       z-index: 1;
       position: relative;
-      margin: 5px 0;
-      /* Add some margin to ensure box shadow is shown */
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: #fff;
       cursor: pointer;
-      appearance: none;
       pointer-events: all;
-      box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .slider-container {
+    .multi-range {
+      width: 200px;
+      padding: 5px 0;
+    }
+
+    .slider-range::-webkit-slider-thumb {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .slider-container .multi-range {
+    padding: unset;
   }
 }
