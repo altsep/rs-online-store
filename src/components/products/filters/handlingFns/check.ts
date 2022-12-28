@@ -24,7 +24,9 @@ export default (products: Product[], name: string): Product[] => {
   updateURL(name, query);
 
   if (checkedValues.length) {
-    return products.filter((p) => checkedValues.some((v) => p[name as keyof Product] === v));
+    return products.filter((p) =>
+      checkedValues.some((v) => p[name as 'category' | 'brand'].toLowerCase() === v.toLowerCase())
+    );
   }
 
   return products;
