@@ -21,6 +21,9 @@ function handleForm(form: HTMLFormElement): void {
 
   form.addEventListener('input', handleInput);
 
+  // Some form controls such as range input could be made to update on change to avoid ipc flooding. Listening to change here allows to not dispatch the input event in separate components in order to call the filter and update the view
+  form.addEventListener('change', handleInput);
+
   // Rerender cards and empty search on reset
   const handleReset = (): void => {
     state.products = initialProducts.slice();

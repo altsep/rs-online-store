@@ -1,8 +1,10 @@
+import { updateURL } from '../../../../utility';
+
 function createSelect(name: string): HTMLSelectElement {
   const select = document.createElement('select');
   select.className = `${name} filter`;
-  select.id = name;
   select.name = name;
+  select.dataset.filterType = 'sort';
 
   const optionValues = [
     '--Sort--',
@@ -20,6 +22,15 @@ function createSelect(name: string): HTMLSelectElement {
     option.textContent = v;
     select.append(option);
   });
+
+  const handleInput = (e: Event): void => {
+    const { selectedOptions } = e.target as HTMLSelectElement;
+    const { value } = selectedOptions[0];
+
+    updateURL(name, value);
+  };
+
+  select.addEventListener('input', handleInput);
 
   return select;
 }

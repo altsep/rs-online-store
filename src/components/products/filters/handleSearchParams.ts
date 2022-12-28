@@ -18,14 +18,25 @@ function handleSearchParams(form: HTMLFormElement): void {
     const paramsValue = params.get(name) || '';
 
     // Process input elements according to their type
-    if (el instanceof HTMLInputElement && type === 'text') {
-      el.value = paramsValue;
-    }
+    if (el instanceof HTMLInputElement) {
+      if (type === 'text') {
+        el.value = paramsValue;
+      }
 
-    if (el instanceof HTMLInputElement && type === 'checkbox') {
-      const checkedValues = paramsValue.split('|');
-      if (checkedValues.includes(el.value)) {
-        el.checked = true;
+      if (type === 'checkbox') {
+        const checkedValues = paramsValue.split('|');
+        if (checkedValues.includes(el.value)) {
+          el.checked = true;
+        }
+      }
+
+      if (type === 'range' && paramsValue) {
+        const [min, max] = paramsValue.split('-');
+        if (el.classList.contains('first')) {
+          el.value = min;
+        } else {
+          el.value = max;
+        }
       }
     }
 

@@ -1,5 +1,4 @@
 import type { Product } from '../../../../constants';
-import { updateURL } from '../../../../utility';
 
 export default (products: Product[]): Product[] => {
   const select = document.querySelector<HTMLSelectElement>('.filter.sort');
@@ -35,8 +34,6 @@ export default (products: Product[]): Product[] => {
         products.sort((a, b) => a.id - b.id);
         break;
     }
-
-    updateURL('sort', value);
   }
 
   return products;

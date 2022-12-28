@@ -4,8 +4,8 @@ function createTextInput(name: string): HTMLInputElement {
   const input = document.createElement('input');
   input.className = 'search input-text filter';
   input.name = name;
-  input.id = name;
   input.type = 'text';
+  input.dataset.filterType = 'text';
   input.placeholder = 'Search';
 
   const handleInput = (e: Event): void => {

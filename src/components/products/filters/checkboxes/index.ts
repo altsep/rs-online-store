@@ -1,5 +1,7 @@
 import type { Props } from '../../../../constants';
 import setItemCount from './setItemCount';
+import getCheckedValues from './getCheckedValues';
+import { updateURL } from '../../../../utility';
 
 function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   const { initialProducts } = props;
@@ -7,6 +9,7 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'categories filter';
   fieldset.name = name;
+  fieldset.dataset.filterType = 'check';
 
   const legend = document.createElement('legend');
   legend.textContent = `${name[0].toUpperCase()}${name.slice(1)}`;
@@ -53,6 +56,14 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
 
     fieldset.append(checkboxContainer);
   });
+
+  const handleInput = (): void => {
+    const checkedValues = getCheckedValues(fieldset);
+    const query = checkedValues.join('|');
+    updateURL(name, query);
+  };
+
+  fieldset.addEventListener('input', handleInput);
 
   return fieldset;
 }
