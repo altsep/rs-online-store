@@ -1,4 +1,3 @@
-import { getCurrencyString } from '../../../utility';
 import type { FilterElement } from './handlingFns';
 
 function handleSearchParams(form: HTMLFormElement): void {
@@ -26,6 +25,7 @@ function handleSearchParams(form: HTMLFormElement): void {
 
       if (type === 'checkbox') {
         const checkedValues = paramsValue.split('|');
+
         if (checkedValues.includes(el.value)) {
           el.checked = true;
         }
@@ -38,22 +38,6 @@ function handleSearchParams(form: HTMLFormElement): void {
           el.value = min;
         } else {
           el.value = max;
-        }
-
-        const infoContainer = el.parentElement?.previousElementSibling;
-        const infoFirst = infoContainer?.firstElementChild;
-        const infoSecond = infoContainer?.lastElementChild;
-
-        if (infoFirst) {
-          infoFirst.textContent = name === 'price' ? getCurrencyString(Number(min)) : min;
-        }
-
-        if (infoSecond) {
-          infoSecond.textContent = name === 'price' ? getCurrencyString(Number(max)) : max;
-        }
-
-        if (min === max) {
-          infoContainer?.classList.add('equal');
         }
       }
     }

@@ -27,11 +27,15 @@ function handleForm(form: HTMLFormElement): void {
 
   // Rerender cards and empty search on reset
   const handleReset = (): void => {
+    // State
     state.products = initialProducts.slice();
+
+    // View
     renderProductList(state);
     handleItemCount();
-    setTimeout(handleSliderInfo); // Execute the next event cycle using the default values after the form controls gets reset to them
+    setTimeout(handleSliderInfo); // Execute the next event cycle using the default values after the form controls get reset to them
 
+    // Navigation
     window.history.replaceState({}, '', pathname);
     storeSearchString();
   };
