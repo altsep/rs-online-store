@@ -1,4 +1,5 @@
 import { updateURL } from '../../../../utility';
+import getSearchParamValue from '../../../../utility/getSearchParamValue';
 
 function createSelect(name: string): HTMLSelectElement {
   const select = document.createElement('select');
@@ -16,10 +17,17 @@ function createSelect(name: string): HTMLSelectElement {
     'discount desc',
   ];
 
+  const paramValue = getSearchParamValue(name);
+
   optionValues.forEach((v) => {
     const option = document.createElement('option');
     option.value = v === '--Sort--' ? '' : v;
     option.textContent = v;
+
+    if (v === paramValue) {
+      option.selected = true;
+    }
+
     select.append(option);
   });
 

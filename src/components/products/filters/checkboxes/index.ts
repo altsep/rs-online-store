@@ -2,6 +2,7 @@ import type { Product, Props } from '../../../../constants';
 import setItemCount from './setItemCount';
 import getCheckedValues from './getCheckedValues';
 import { updateURL } from '../../../../utility';
+import getSearchParamValue from '../../../../utility/getSearchParamValue';
 
 function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   const { initialProducts } = props;
@@ -22,6 +23,8 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
     ...new Set(initialProducts.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
   ];
 
+  const checkedParamValues = getSearchParamValue(name).split('|');
+
   uniques.forEach((v) => {
     const checkboxContainer = document.createElement('div');
     checkboxContainer.className = 'checkbox-container';
@@ -33,6 +36,10 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
     checkbox.type = 'checkbox';
     checkbox.name = name;
     checkbox.className = 'checkbox';
+
+    if (checkedParamValues.includes(v)) {
+      checkbox.checked = true;
+    }
 
     const label = document.createElement('label');
     label.className = 'label';

@@ -18,6 +18,7 @@ function handleForm(form: HTMLFormElement): void {
     filterFn(state, initialProducts);
     renderProductList(state);
     handleItemCount();
+    handleSliderInfo();
   };
 
   form.addEventListener('input', handleInput);
@@ -33,7 +34,7 @@ function handleForm(form: HTMLFormElement): void {
     // View
     renderProductList(state);
     handleItemCount();
-    setTimeout(handleSliderInfo); // Execute the next event cycle using the default values after the form controls get reset to them
+    setTimeout(handleSliderInfo); // Execute during the next event cycle using the default values set through reset
 
     // Navigation
     window.history.replaceState({}, '', pathname);

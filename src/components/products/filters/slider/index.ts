@@ -1,7 +1,7 @@
 import type { Product, Props } from '../../../../constants';
 import { getCurrencyString, updateURL } from '../../../../utility';
+import getSearchParamValue from '../../../../utility/getSearchParamValue';
 import getMinMax from './getMinMax';
-import setSliderInfo from './setSliderInfo';
 
 function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
@@ -39,11 +39,13 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
   const multiRange = document.createElement('div');
   multiRange.className = 'multi-range';
 
+  const [paramMin, paramMax] = getSearchParamValue(name).split('-');
+
   const rangeFirst = document.createElement('input');
   rangeFirst.type = 'range';
   rangeFirst.min = minValueStr;
   rangeFirst.max = maxValueStr;
-  rangeFirst.value = minValueStr;
+  rangeFirst.value = paramMin || minValueStr;
   rangeFirst.defaultValue = minValueStr; // Used by native form reset
   rangeFirst.className = 'slider-range first';
   rangeFirst.name = name;
@@ -52,7 +54,7 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
   rangeSecond.type = 'range';
   rangeSecond.min = minValueStr;
   rangeSecond.max = maxValueStr;
-  rangeSecond.value = maxValueStr;
+  rangeSecond.value = paramMax || maxValueStr;
   rangeSecond.defaultValue = maxValueStr; // Used by native form reset
   rangeSecond.className = 'slider-range second';
   rangeSecond.name = name;
@@ -69,8 +71,6 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
   };
 
   fieldset.addEventListener('change', handleChange);
-
-  fieldset.addEventListener('input', () => setSliderInfo(fieldset));
 
   return fieldset;
 }

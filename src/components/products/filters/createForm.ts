@@ -2,10 +2,9 @@ import type { Props } from '../../../constants';
 import createTextInput from './text';
 import createSelect from './sort';
 import createButtons from './buttons';
-import handleSearchParams from './handleSearchParams';
-import handleForm from './handleForm';
 import createCheckboxes from './checkboxes';
 import createSlider from './slider';
+import handleForm from './handleForm';
 
 function createForm(props: Props): HTMLFormElement {
   const form = document.createElement('form');
@@ -41,10 +40,7 @@ function createForm(props: Props): HTMLFormElement {
 
   form.append(controlsContainer, categoriesContainer, slidersContainer);
 
-  // Main form handling logic
-  handleSearchParams(form);
-
-  handleForm(form);
+  handleForm(form); // Subscribe form to handling functions, main form update logic gets called inside this method
 
   return form;
 }

@@ -3,10 +3,13 @@ import createFilters from './filters';
 import handleItemCount from './filters/handleItemCount';
 import handleSliderInfo from './filters/handleSliderInfo';
 import filterFn from './filters/handlingFns';
+import handleSearchParams from './handleSearchParams';
 import renderProductList from './renderProductList';
 
 function renderProducts(props: Props): void {
   const { state, parentNodeName, initialProducts } = props;
+
+  handleSearchParams(); // Set the search query on every render of this component
 
   const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
 
@@ -30,7 +33,6 @@ function renderProducts(props: Props): void {
 
   if (parentNode) {
     parentNode.innerHTML = '';
-
     parentNode.append(productsNode);
   }
 
