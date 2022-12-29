@@ -1,4 +1,4 @@
-import type { Props } from '../../../../constants';
+import type { Product, Props } from '../../../../constants';
 import setItemCount from './setItemCount';
 import getCheckedValues from './getCheckedValues';
 import { updateURL } from '../../../../utility';
@@ -18,7 +18,9 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   fieldset.append(legend);
 
   // Create an array of unique checkbox options from the corresponding property name
-  const uniques = [...new Set(initialProducts.map((p) => p[name as 'category' | 'brand'].toLowerCase()))];
+  const uniques = [
+    ...new Set(initialProducts.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
+  ];
 
   uniques.forEach((v) => {
     const checkboxContainer = document.createElement('div');
