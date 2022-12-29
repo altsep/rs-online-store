@@ -2,6 +2,7 @@ import { defaults } from '../../../constants';
 import { storeSearchString } from '../../../utility';
 import renderProductList from '../renderProductList';
 import handleItemCount from './handleItemCount';
+import handleSliderInfo from './handleSliderInfo';
 import filterFn from './handlingFns';
 
 function handleForm(form: HTMLFormElement): void {
@@ -29,6 +30,7 @@ function handleForm(form: HTMLFormElement): void {
     state.products = initialProducts.slice();
     renderProductList(state);
     handleItemCount();
+    setTimeout(handleSliderInfo); // Execute the next event cycle using the default values after the form controls gets reset to them
 
     window.history.replaceState({}, '', pathname);
     storeSearchString();

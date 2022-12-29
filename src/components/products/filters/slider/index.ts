@@ -1,9 +1,11 @@
 import type { Product, Props } from '../../../../constants';
 import { getCurrencyString, updateURL } from '../../../../utility';
+import getMinMax from './getMinMax';
+import setSliderInfo from './setSliderInfo';
 
 function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
-  fieldset.className = 'slider-container filter';
+  fieldset.className = 'slider filter';
   fieldset.name = name;
   fieldset.dataset.filterType = 'range';
 
@@ -11,8 +13,8 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
   legend.textContent = `${name[0].toUpperCase()}${name.slice(1)}`;
   legend.className = 'slider-legend';
 
-  const info = document.createElement('div');
-  info.className = 'slider-info';
+  const infoContainer = document.createElement('div');
+  infoContainer.className = 'slider-info';
 
   type NumKeys = 'price' | 'discountPercentage' | 'rating' | 'stock';
 
@@ -32,7 +34,7 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
   infoSecond.className = 'slider-info-text second';
   infoSecond.textContent = name === 'price' ? getCurrencyString(maxValue) : maxValueStr;
 
-  info.append(infoFirst, infoSecond);
+  infoContainer.append(infoFirst, infoSecond);
 
   const multiRange = document.createElement('div');
   multiRange.className = 'multi-range';
@@ -57,36 +59,18 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
 
   multiRange.append(rangeFirst, rangeSecond);
 
-  fieldset.append(legend, info, multiRange);
-
-  const getMinValue = (): number => Math.min(Number(rangeFirst.value), Number(rangeSecond.value));
-  const getMaxValue = (): number => Math.max(Number(rangeFirst.value), Number(rangeSecond.value));
+  fieldset.append(legend, infoContainer, multiRange);
 
   const handleChange = (): void => {
-    const min = getMinValue();
-    const max = getMaxValue();
-    const value = min === minValue && max === maxValue ? '' : `${min}-${max}`;
+    const { min, max } = getMinMax(fieldset);
+    const value = min === minValue && max === maxValue ? '' : `${min}-${max}`; // Remove search param if min and max are equal to their default values
 
     updateURL(name, value);
   };
 
   fieldset.addEventListener('change', handleChange);
 
-  const handleInput = (): void => {
-    const min = getMinValue();
-    const max = getMaxValue();
-
-    infoFirst.textContent = name === 'price' ? getCurrencyString(min) : String(min);
-    infoSecond.textContent = name === 'price' ? getCurrencyString(max) : String(max);
-
-    if (min === max) {
-      info.classList.add('equal');
-    } else {
-      info.classList.remove('equal');
-    }
-  };
-
-  fieldset.addEventListener('input', handleInput);
+  fieldset.addEventListener('input', () => setSliderInfo(fieldset));
 
   return fieldset;
 }
