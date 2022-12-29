@@ -1,7 +1,7 @@
 import type { Product, Props } from '../../../../constants';
 import { getCurrencyString, updateURL } from '../../../../utility';
 
-function createSlider({ state: { products } }: Props, name: string): HTMLFieldSetElement {
+function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'slider-container filter';
   fieldset.name = name;
@@ -16,10 +16,11 @@ function createSlider({ state: { products } }: Props, name: string): HTMLFieldSe
 
   type NumKeys = 'price' | 'discountPercentage' | 'rating' | 'stock';
 
-  const numArr = products.map((p) => p[name as keyof Pick<Product, NumKeys>]);
+  const numArr = initialProducts.map((p) => p[name as keyof Pick<Product, NumKeys>]);
 
   const minValue = Math.min(...numArr);
   const maxValue = Math.max(...numArr);
+
   const minValueStr = String(minValue);
   const maxValueStr = String(maxValue);
 
