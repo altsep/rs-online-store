@@ -21,7 +21,7 @@
   .multi-range {
     position: relative;
     height: 30px;
-    padding: 10px 0;
+    padding: 15px 0;
     @include mx.flex-center;
   }
 
@@ -59,7 +59,7 @@
   .slider {
     .multi-range {
       width: 200px;
-      padding: 5px 0;
+      padding: 10px 0;
     }
 
     .slider-range::-webkit-slider-thumb {
@@ -71,6 +71,6 @@
 
 @media (min-width: 1024px) {
   .slider .multi-range {
-    padding: unset;
+      padding: 5px 0;
   }
 }

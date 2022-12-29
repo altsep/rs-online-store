@@ -18,7 +18,10 @@
     display: flex;
     flex-direction: column;
     gap: $gap;
-    margin: 10px 0;
+  }
+
+  .controls > * {
+    margin: 5px 0;
   }
 
   .categories,
@@ -51,6 +54,11 @@
   .item-count {
     text-align: right;
   }
+
+  &-products-found {
+    @include mx.flex-center;
+    // font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -62,6 +70,10 @@
       display: flex;
       flex-direction: row;
       margin: 5px 0;
+    }
+
+    .controls > * {
+      margin: unset;
     }
 
     .controls,

@@ -10,7 +10,7 @@
   }
 
   .checkbox-container:not(:first-of-type) {
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .checkbox-controls {
@@ -47,6 +47,10 @@
   .filters__form {
     .categories {
       padding: 0.5rem 0.75rem;
+    }
+    
+    .checkbox-container:not(:first-of-type) {
+      margin-top: 5px;
     }
 
     .checkbox {

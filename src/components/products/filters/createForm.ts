@@ -10,15 +10,19 @@ function createForm(props: Props): HTMLFormElement {
   const form = document.createElement('form');
   form.className = 'filters__form';
 
-  // Text search and controls
+  // Text search, controls and items counter
   const select = createSelect('sort');
   const textInput = createTextInput('text');
   const buttons = createButtons();
 
+  const productsFoundNode = document.createElement('div');
+  productsFoundNode.className = 'filters__form-products-found';
+  productsFoundNode.textContent = `Found: ${props.state.products.length}`;
+
   const controlsContainer = document.createElement('div');
   controlsContainer.className = 'controls';
 
-  controlsContainer.append(select, textInput, buttons);
+  controlsContainer.append(select, textInput, buttons, productsFoundNode);
 
   // Categories
   const categoryCheckboxes = createCheckboxes(props, 'category');

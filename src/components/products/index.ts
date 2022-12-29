@@ -1,17 +1,12 @@
 import { Props } from '../../constants';
 import createFilters from './filters';
-import handleItemCount from './filters/handleItemCount';
-import handleSliderInfo from './filters/handleSliderInfo';
-import filterFn from './filters/handlingFns';
 import handleSearchParams from './handleSearchParams';
-import renderProductList from './renderProductList';
+import onInput from './filters/onInput';
 
 function renderProducts(props: Props): void {
-  const { state, parentNodeName, initialProducts } = props;
-
   handleSearchParams(); // Set the search query on every render of this component
 
-  const parentNode = document.querySelector<HTMLElement>(parentNodeName || '');
+  const main = document.querySelector<HTMLDivElement>('.main');
 
   const productsNode = document.createElement('div');
   productsNode.className = 'products';
@@ -31,18 +26,13 @@ function renderProducts(props: Props): void {
 
   productsNode.append(headingNode, filters, listNode, noProductsNode);
 
-  if (parentNode) {
-    parentNode.innerHTML = '';
-    parentNode.append(productsNode);
+  if (main) {
+    main.innerHTML = '';
+    main.append(productsNode);
   }
 
-  // Call these methods after rendering the filter block
-  filterFn(state, initialProducts);
-  handleItemCount();
-  handleSliderInfo();
-
-  // Render products after applying filters
-  renderProductList(state);
+  // Call the input methods after rendering the filter block
+  onInput();
 }
 
 export default renderProducts;
