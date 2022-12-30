@@ -1,4 +1,7 @@
+import { storeSearchString, updateURL } from '../../../../utility';
+import getSearchParamValue from '../../../../utility/getSearchParamValue';
 import copyUrl from './copyUrl';
+import setDisplayMode from './setDisplayMode';
 
 function createButtons(): HTMLDivElement {
   const btnContainer = document.createElement('div');
@@ -10,13 +13,22 @@ function createButtons(): HTMLDivElement {
   resetBtn.className = 'reset btn';
 
   const copyUrlBtn = document.createElement('input');
-  const copyUrlBtnInitialText = 'Copy url';
   copyUrlBtn.type = 'button';
-  copyUrlBtn.value = copyUrlBtnInitialText;
   copyUrlBtn.className = 'copy-url btn';
-  copyUrlBtn.addEventListener('click', () => copyUrl(copyUrlBtn, copyUrlBtnInitialText));
+  const copyUrlBtnValue = 'Copy url';
+  copyUrlBtn.value = copyUrlBtnValue;
 
-  btnContainer.append(resetBtn, copyUrlBtn);
+  copyUrlBtn.addEventListener('click', () => copyUrl(copyUrlBtn, copyUrlBtnValue));
+
+  const displayModeBtn = document.createElement('input');
+  displayModeBtn.type = 'button';
+  displayModeBtn.className = 'display-mode btn';
+  const displayModeValue = getSearchParamValue('display') || 'cards';
+  displayModeBtn.value = `Display: ${displayModeValue}`;
+
+  displayModeBtn.addEventListener('click', () => setDisplayMode());
+
+  btnContainer.append(resetBtn, copyUrlBtn, displayModeBtn);
 
   return btnContainer;
 }

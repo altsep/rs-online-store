@@ -13,16 +13,22 @@ function createForm(props: Props): HTMLFormElement {
   // Text search, controls and items counter
   const select = createSelect('sort');
   const textInput = createTextInput('text');
-  const buttons = createButtons();
+
+  const textSortContainer = document.createElement('div');
+  textSortContainer.className = 'controls';
 
   const productsFoundNode = document.createElement('div');
   productsFoundNode.className = 'filters__form-products-found';
   productsFoundNode.textContent = `Found: ${props.state.products.length}`;
 
-  const controlsContainer = document.createElement('div');
-  controlsContainer.className = 'controls';
+  const buttons = createButtons();
 
-  controlsContainer.append(select, textInput, buttons, productsFoundNode);
+  textSortContainer.append(select, textInput, productsFoundNode);
+
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.className = 'controls';
+
+  buttonsContainer.append(buttons);
 
   // Categories
   const categoryCheckboxes = createCheckboxes(props, 'category');
@@ -42,7 +48,7 @@ function createForm(props: Props): HTMLFormElement {
 
   slidersContainer.append(priceSlider, stockSlider);
 
-  form.append(controlsContainer, categoriesContainer, slidersContainer);
+  form.append(textSortContainer, buttonsContainer, categoriesContainer, slidersContainer);
 
   handleForm(form); // Subscribe form to handling functions, main form update logic gets called inside this method
 

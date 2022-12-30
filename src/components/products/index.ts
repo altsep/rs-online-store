@@ -4,7 +4,7 @@ import handleSearchParams from './handleSearchParams';
 import onInput from './filters/onInput';
 
 function renderProducts(props: Props): void {
-  handleSearchParams(); // Set the search query on every render of this component
+  handleSearchParams(); // Get the search query and update history on rendering this component
 
   const main = document.querySelector<HTMLDivElement>('.main');
 
