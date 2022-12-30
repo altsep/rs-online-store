@@ -1,4 +1,3 @@
-import { storeSearchString, updateURL } from '../../../../utility';
 import getSearchParamValue from '../../../../utility/getSearchParamValue';
 import copyUrl from './copyUrl';
 import setDisplayMode from './setDisplayMode';
