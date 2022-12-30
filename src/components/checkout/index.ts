@@ -19,31 +19,29 @@ function renderCheckout(props: Props): void {
   const checkoutForm = createForm(checkoutContent);
   const submitBtn = createSubmitButton(checkoutForm);
 
-
   checkoutNode.append(checkoutContent, submitMessage);
 
   checkoutNode.addEventListener('click', (e) => {
     if (e.target instanceof HTMLElement && e.target.classList.contains('checkout__pop-up')) {
       closePopUp();
     }
-  })
+  });
 
   if (parentNode) {
     parentNode.append(checkoutNode);
   }
-
 
   checkoutForm.addEventListener('change', (e) => {
     console.log(e.target);
     console.log(isFormValid());
 
     submitBtn.disabled = !isFormValid();
-  })
+  });
   submitBtn.disabled = !isFormValid();
   checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault();
     closeModal(props);
-  })
+  });
 }
 
 export default renderCheckout;

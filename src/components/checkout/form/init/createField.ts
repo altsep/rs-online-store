@@ -1,4 +1,4 @@
-export function createField(className: string, type: string, name: string ): HTMLInputElement {
+export function createField(className: string, type: string, name: string): HTMLInputElement {
   const field = document.createElement('input');
   field.className = className;
   field.name = className;
@@ -10,9 +10,9 @@ export function createField(className: string, type: string, name: string ): HTM
 
 export function errorField(input: HTMLInputElement): HTMLLabelElement {
   const fieldError = document.createElement('label');
-  fieldError.className = 'field__error'; ;
+  fieldError.className = 'field__error';
   fieldError.htmlFor = input.name;
-  fieldError.textContent = 'error'
+  fieldError.textContent = 'error';
 
   return fieldError;
 }

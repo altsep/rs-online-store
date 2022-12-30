@@ -1,0 +1,31 @@
+.checkout__form {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkout__user_container {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+.checkout__input {
+  display: flex;
+  width: 100%;
+  margin: 8px;
+  padding: 5px;
+  border-radius: 7px;
+  // border: 1px;
+}
+input.invalid{
+  border: solid 1px red;
+}
+input.valid {
+  border: solid 1px green;
+}
+
+.card__logo {
+  // width: 100px;
+  height: 30px;
+}

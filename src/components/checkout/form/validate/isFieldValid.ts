@@ -7,5 +7,5 @@ export function isfieldValid(field: HTMLInputElement, reg: RegExp): boolean {
 
 export const validatePattern = {
   name: /\w{3, }\s\w{3, }+/,
-  phone: /\+\d{9, }/
-}
+  phone: /\+\d{9, }/,
+};

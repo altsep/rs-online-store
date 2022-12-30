@@ -1,11 +1,11 @@
 export function isNameValid(input: HTMLInputElement): boolean {
   const name = input.value.split(' ');
-  return name.length > 1 && name.every(w => w.length > 2);
+  return name.length > 1 && name.every((w) => w.length > 2);
 }
 
 export function isAdressValid(input: HTMLInputElement): boolean {
   const adress = input.value.split(' ');
-  return adress.length > 2 && adress.every(w => w.length > 4);
+  return adress.length > 2 && adress.every((w) => w.length > 4);
 }
 
 export function isPhoneValid(input: HTMLInputElement): boolean {
@@ -24,5 +24,5 @@ export default {
   isNameValid,
   isAdressValid,
   isPhoneValid,
-  isEmailValid
-}
+  isEmailValid,
+};

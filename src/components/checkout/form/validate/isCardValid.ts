@@ -6,7 +6,7 @@ export function isCardNumberValid(input: HTMLInputElement): boolean {
 export function isExpirationDateValid(input: HTMLInputElement): boolean {
   const date = input.value;
   const month = date.length > 2 ? +date.split(' / ')[0] : +date;
-  const year = date.length > 2 ? +date.split(' / ')[1]: 0;
+  const year = date.length > 2 ? +date.split(' / ')[1] : 0;
   const currentYear = new Date().getFullYear() % 100;
   const currentMonth = new Date().getMonth() + 1;
 
@@ -27,9 +27,8 @@ export function isCardCodeValid(input: HTMLInputElement): boolean {
   return code.length === 3;
 }
 
-
 export default {
   isCardNumberValid,
   isExpirationDateValid,
-  isCardCodeValid
-}
+  isCardCodeValid,
+};

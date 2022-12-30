@@ -1,7 +1,7 @@
-import changeInputValidity from "../../validate/changeInputValidity";
-import { checkInputNumber } from "../../validate/checkInput";
-import { isCardCodeValid } from "../../validate/isCardValid";
-import { createField } from "../createField";
+import changeInputValidity from '../../validate/changeInputValidity';
+import { checkInputNumber } from '../../validate/checkInput';
+import { isCardCodeValid } from '../../validate/isCardValid';
+import { createField } from '../createField';
 
 export function createCardCode(): HTMLInputElement {
   const cardCode = createField('card__code', 'tel', 'CVV / CVC');

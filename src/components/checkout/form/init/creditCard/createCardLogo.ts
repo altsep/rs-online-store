@@ -3,7 +3,6 @@ import visaLogo from '../../../img/visaLogo.svg';
 import masterCardLogo from '../../../img/mastercardLogo.svg';
 import mirLogo from '../../../img/mirLogo.svg';
 
-
 export function createCardLogo(card: HTMLInputElement): HTMLImageElement {
   let sistemID = card.value[0];
   const logo = document.createElement('img');
@@ -17,19 +16,19 @@ export function createCardLogo(card: HTMLInputElement): HTMLImageElement {
       case '2': {
         logo.src = mirLogo;
         break;
-      };
+      }
       case '4': {
         logo.src = visaLogo;
         break;
-      };
+      }
       case '5': {
         logo.src = masterCardLogo;
         break;
-      };
+      }
       default: {
         logo.src = cardPlaceholder;
       }
     }
-  })
+  });
   return logo;
 }

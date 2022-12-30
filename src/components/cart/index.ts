@@ -20,11 +20,11 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   const button = document.createElement('button');
   button.textContent = 'buy now';
   cartNode.append(button);
-  button.addEventListener(('click'), () => {
+  button.addEventListener('click', () => {
     openPopUp();
-  })
+  });
 
-// ---------
+  // ---------
 
   const parentNode = document.querySelector(parentNodeName || '');
 

@@ -1,13 +1,12 @@
-import changeInputValidity from "../../validate/changeInputValidity";
-import { checkInputNumber } from "../../validate/checkInput";
-import { isCardNumberValid,  isCardCodeValid, isExpirationDateValid } from "../../validate/isCardValid";
-import { createField, errorField } from "../createField";
-import createFieldContainer from "../createFieldContainer";
-import { createCardCode } from "./createCardCode";
-import { createCardDate } from "./createCardDate";
-import { createCardLogo } from "./createCardLogo";
-import { createCardNumber } from "./createCardNumber";
-
+import changeInputValidity from '../../validate/changeInputValidity';
+import { checkInputNumber } from '../../validate/checkInput';
+import { isCardNumberValid, isCardCodeValid, isExpirationDateValid } from '../../validate/isCardValid';
+import { createField, errorField } from '../createField';
+import createFieldContainer from '../createFieldContainer';
+import { createCardCode } from './createCardCode';
+import { createCardDate } from './createCardDate';
+import { createCardLogo } from './createCardLogo';
+import { createCardNumber } from './createCardNumber';
 
 export default function createCard(parent: HTMLElement): HTMLDivElement {
   const cardContainer = document.createElement('div');
@@ -26,8 +25,6 @@ export default function createCard(parent: HTMLElement): HTMLDivElement {
 
   cardContainer.append(cardDetails);
 
-
-
   // card inputs
   const cardNumberContainer = document.createElement('div');
   cardNumberContainer.className = 'card-number__container';
@@ -43,8 +40,10 @@ export default function createCard(parent: HTMLElement): HTMLDivElement {
   const cardExpirationDate = createCardDate();
   const cardCode = createCardCode();
 
-  cardAddContainer.append(createFieldContainer(cardAddContainer, cardExpirationDate),
-                          createFieldContainer(cardAddContainer, cardCode));
+  cardAddContainer.append(
+    createFieldContainer(cardAddContainer, cardExpirationDate),
+    createFieldContainer(cardAddContainer, cardCode)
+  );
 
   cardDetails.append(cardNumberContainer, cardAddContainer);
 

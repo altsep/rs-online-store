@@ -6,7 +6,6 @@ export default function isFormValid(): boolean {
   inputs?.forEach((item) => {
     if (item.classList.contains('invalid') || !item.value) {
       result = false;
-      return;
     }
   });
   return result;

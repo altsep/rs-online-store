@@ -3,7 +3,6 @@ import { handleHistory } from '../../utility';
 import updateCartCount from '../header/updateCartCount';
 
 export default function clearCart({ state }: Props): void {
-
   for (const key in state.cart) {
     delete state.cart[key];
   }

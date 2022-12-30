@@ -1,12 +1,11 @@
-import changeInputValidity from "../../validate/changeInputValidity";
-import { checkInputTel } from "../../validate/checkInput";
-import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from "../../validate/isUserValid";
-import { createField } from "../createField";
+import changeInputValidity from '../validate/changeInputValidity';
+import { checkInputTel } from '../validate/checkInput';
+import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from '../validate/isUserValid';
+import { createField } from './createField';
 
-import createFieldContainer from "../createFieldContainer";
+import createFieldContainer from './createFieldContainer';
 
 export default function createUser(className: string): HTMLDivElement {
-
   const UserContainer = document.createElement('div');
   UserContainer.className = className;
 
