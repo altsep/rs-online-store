@@ -2,6 +2,7 @@ import type { Product, State } from '../../constants';
 import onProductClick from './onProductClick';
 import addToCartBtn from './addToCartBtn';
 import { getCurrencyString } from '../../utility';
+import removeFromCart from './removeFromCartBtn';
 
 export default function createListItem(state: State, item: Product): HTMLDivElement {
   const listItem = document.createElement('div');
@@ -54,9 +55,15 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
 
     listItem.addEventListener('click', onProductClick);
 
-    const btn = addToCartBtn(state, item);
+    const btnContainer = document.createElement('div');
+    btnContainer.className = 'products__item-btn-container';
 
-    listItem.append(thumbContainer, textContainer, btn);
+    const addBtn = addToCartBtn(state, item);
+    const removeBtn = removeFromCart(state, item);
+
+    btnContainer.append(removeBtn, addBtn);
+
+    listItem.append(thumbContainer, textContainer, btnContainer);
   }
 
   return listItem;
