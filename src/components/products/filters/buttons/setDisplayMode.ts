@@ -11,10 +11,10 @@ export default (isDefault = false): void => {
 
     if (btnValue === 'cards' && !isDefault) {
       query = 'list';
-      list?.classList.add('display-list');
+      list?.classList.add('display--list');
     } else {
       query = '';
-      list?.classList.remove('display-list');
+      list?.classList.remove('display--list');
     }
 
     btnValue = query || 'cards';

@@ -41,6 +41,10 @@
     @include mx.input-text;
   }
 
+  .sort-option {
+    height: 50px;
+  }
+
   .input-text {
     padding-left: 0.75rem;
     padding-right: 0.75rem;

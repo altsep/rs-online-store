@@ -2,6 +2,7 @@ import { Props } from '../../constants';
 import createFilters from './filters';
 import handleSearchParams from './handleSearchParams';
 import onInput from './filters/onInput';
+import getSearchParamValue from '../../utility/getSearchParamValue';
 
 function renderProducts(props: Props): void {
   handleSearchParams(); // Get the search query and update history on rendering this component
@@ -17,6 +18,12 @@ function renderProducts(props: Props): void {
 
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
+
+  const productsDisplayMode = getSearchParamValue('display');
+
+  if (productsDisplayMode === 'list') {
+    listNode.classList.add('display--list');
+  }
 
   const noProductsNode = document.createElement('div');
   noProductsNode.className = 'products-not-found hidden';

@@ -21,6 +21,7 @@ function createSelect(name: string): HTMLSelectElement {
 
   optionValues.forEach((v) => {
     const option = document.createElement('option');
+    option.className = 'sort-option option';
     option.value = v === '--Sort--' ? '' : v;
     option.textContent = v;
 
