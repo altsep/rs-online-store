@@ -1,9 +1,9 @@
 import { Props } from '../../constants';
 import isFormValid from './form/validate/isFormValid';
-import { popUpActive, popUpRemove } from './popUpToggle';
-import createSubmitMessage from './init/createSubmitMessage';
-import createForm from './init/createForm';
-import createSubmitButton from './init/createSubmitButton';
+import { closePopUp } from './popUpToggle';
+import createSubmitMessage from './form/init/createSubmitMessage';
+import createForm from './form/init/createForm';
+import createSubmitButton from './form/init/createSubmitButton';
 import closeModal from './closeModal';
 
 function renderCheckout(props: Props): void {
@@ -24,7 +24,7 @@ function renderCheckout(props: Props): void {
 
   checkoutNode.addEventListener('click', (e) => {
     if (e.target instanceof HTMLElement && e.target.classList.contains('checkout__pop-up')) {
-      popUpRemove();
+      closePopUp();
     }
   })
 

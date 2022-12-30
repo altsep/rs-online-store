@@ -1,5 +1,5 @@
-import createCard from "./createCard";
-import createUser from "./createUser";
+import createCard from "./creditCard/createCard";
+import createUser from "./userDetails/createUser";
 
 export default function createForm(parent: HTMLDivElement): HTMLFormElement {
   const checkoutForm = document.createElement('form');

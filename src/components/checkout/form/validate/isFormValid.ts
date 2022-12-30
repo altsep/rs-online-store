@@ -4,11 +4,8 @@ export default function isFormValid(): boolean {
   let result = true;
 
   inputs?.forEach((item) => {
-    // if (!item.checkValidity() || item.value == '') {
-    //   result = false;
-    //   return;
-    // };
-    if (item.classList.contains('invalid') || !item.value || !item.checkValidity()) {
+
+    if (item.classList.contains('invalid') || !item.value) {
       result = false;
       return;
     }

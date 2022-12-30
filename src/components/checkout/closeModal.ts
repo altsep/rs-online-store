@@ -1,7 +1,7 @@
 import { Props, State } from '../../constants';
 import { handleHistory } from '../../utility';
 import clearCart from './clearCart';
-import { popUpRemove } from './popUpToggle';
+import { closePopUp } from './popUpToggle';
 import timer from './timer';
 
 export default function closeModal(props: Props) {
@@ -15,7 +15,7 @@ export default function closeModal(props: Props) {
     clearCart(props);
     timer();
     setTimeout(() => {
-      popUpRemove();
+      closePopUp();
       handleHistory('/');
     }, 5000);
   }

@@ -1,5 +1,5 @@
 import { Props } from '../../constants';
-import { popUpActive } from '../checkout/popUpToggle';
+import { openPopUp } from '../checkout/popUpToggle';
 
 function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   const cartNode = document.createElement('div');
@@ -21,7 +21,7 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   button.textContent = 'buy now';
   cartNode.append(button);
   button.addEventListener(('click'), () => {
-    popUpActive();
+    openPopUp();
   })
 
 // ---------
