@@ -16,6 +16,7 @@ function renderHeader(state: State): void {
     initHeaderlogo(headerWrapper);
     initHeaderCartTotal(headerWrapper);
     initHeaderCart(headerWrapper);
+
     updateCartCount(state);
   }
 }

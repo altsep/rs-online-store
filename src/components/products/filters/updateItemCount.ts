@@ -9,10 +9,10 @@ export default (): void => {
     const itemCountNodes = f.querySelectorAll<HTMLSpanElement>('.item-count');
 
     itemCountNodes.forEach((itemCountNode) => {
-      const { id } = itemCountNode;
+      const { value } = itemCountNode.dataset;
 
-      if (itemCountNode) {
-        const itemCountOptions = { name, value: id, itemCountNode };
+      if (value) {
+        const itemCountOptions = { name, value, itemCountNode };
 
         setItemCount(defaults, itemCountOptions);
       }

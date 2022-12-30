@@ -1,10 +1,16 @@
 import type { Product, Props } from '../../../../constants';
 import setItemCount from './setItemCount';
+import getCheckedValues from './getCheckedValues';
+import { updateURL } from '../../../../utility';
+import getSearchParamValue from '../../../../utility/getSearchParamValue';
 
 function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
+  const { initialProducts } = props;
+
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'categories filter';
   fieldset.name = name;
+  fieldset.dataset.filterType = 'check';
 
   const legend = document.createElement('legend');
   legend.textContent = `${name[0].toUpperCase()}${name.slice(1)}`;
@@ -13,9 +19,13 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   fieldset.append(legend);
 
   // Create an array of unique checkbox options from the corresponding property name
-  const values = [...new Set(props.initialProducts.map((p) => p[name as keyof Product]))];
+  const uniques = [
+    ...new Set(initialProducts.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
+  ];
 
-  values.forEach((v) => {
+  const checkedParamValues = getSearchParamValue(name).split('|');
+
+  uniques.forEach((v) => {
     const checkboxContainer = document.createElement('div');
     checkboxContainer.className = 'checkbox-container';
 
@@ -27,6 +37,10 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
     checkbox.name = name;
     checkbox.className = 'checkbox';
 
+    if (checkedParamValues.includes(v)) {
+      checkbox.checked = true;
+    }
+
     const label = document.createElement('label');
     label.className = 'label';
 
@@ -34,13 +48,13 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
     itemCount.className = 'item-count';
 
     if (typeof v === 'string') {
-      checkbox.id = v;
+      checkbox.id = v.replace(' ', '_');
       checkbox.value = v;
 
-      label.htmlFor = v;
+      label.htmlFor = v.replace(' ', '_');
       label.textContent = v;
 
-      itemCount.id = v;
+      itemCount.dataset.value = v;
       const itemCountOptions = { name, value: v, itemCountNode: itemCount };
       setItemCount(props, itemCountOptions);
     }
@@ -51,6 +65,14 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
 
     fieldset.append(checkboxContainer);
   });
+
+  const handleInput = (): void => {
+    const checkedValues = getCheckedValues(fieldset);
+    const query = checkedValues.join('|');
+    updateURL(name, query);
+  };
+
+  fieldset.addEventListener('input', handleInput);
 
   return fieldset;
 }

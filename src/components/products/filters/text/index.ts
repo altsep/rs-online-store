@@ -1,12 +1,14 @@
 import { updateURL } from '../../../../utility';
+import getSearchParamValue from '../../../../utility/getSearchParamValue';
 
 function createTextInput(name: string): HTMLInputElement {
   const input = document.createElement('input');
   input.className = 'search input-text filter';
   input.name = name;
-  input.id = name;
   input.type = 'text';
+  input.dataset.filterType = 'text';
   input.placeholder = 'Search';
+  input.value = getSearchParamValue(name);
 
   const handleInput = (e: Event): void => {
     const target = e.target as HTMLInputElement;

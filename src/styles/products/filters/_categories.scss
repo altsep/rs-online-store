@@ -2,12 +2,6 @@
 @use '../../vars' as v;
 
 .filters__form {
-  .categories {
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    border: v.$controls-border;
-  }
-
   .checkbox-container {
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +10,7 @@
   }
 
   .checkbox-container:not(:first-of-type) {
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .checkbox-controls {
@@ -43,12 +37,20 @@
       @include mx.focus-ring;
     }
   }
+
+  .categories[name='brand'] {
+    text-transform: capitalize;
+  }
 }
 
 @media (min-width: 768px) {
   .filters__form {
     .categories {
       padding: 0.5rem 0.75rem;
+    }
+
+    .checkbox-container:not(:first-of-type) {
+      margin-top: 5px;
     }
 
     .checkbox {
