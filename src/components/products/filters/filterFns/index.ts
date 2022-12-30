@@ -2,6 +2,7 @@ import type { Product, State } from '../../../../constants';
 import text from './text';
 import sort from './sort';
 import check from './check';
+import range from './range';
 
 export type FilterElement = HTMLInputElement | HTMLFieldSetElement | HTMLSelectElement;
 
@@ -12,21 +13,24 @@ type FilterFns = Record<string, FilterFn>;
 const filterFns: FilterFns = {
   text,
   sort,
-  category: check,
-  brand: check,
+  check,
+  range,
 };
 
 const filterFn = (state: State, initialProducts: Product[]): void => {
   let products = initialProducts.slice();
   const params = new URLSearchParams(window.location.search);
   const filterElements = document.querySelectorAll<FilterElement>('.filter');
-  const filterNames = [...filterElements].map(({ name }) => name);
+  const filterNames = [...filterElements].map(({ name, dataset: { filterType } }) => ({
+    name,
+    filterType,
+  }));
 
-  filterNames.forEach((name) => {
-    const query = params.get(name) || '';
+  filterNames.forEach(({ name, filterType }) => {
+    if (filterType && filterType in filterFns) {
+      const query = params.get(name) || '';
 
-    if (name in filterFns) {
-      const fn = filterFns[name];
+      const fn = filterFns[filterType];
       products = fn(products, name, query);
     }
   });

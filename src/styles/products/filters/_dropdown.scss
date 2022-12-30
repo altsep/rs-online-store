@@ -1,0 +1,55 @@
+@use '../../mixins' as mx;
+
+.filters__dropdown {
+  min-height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &-heading {
+    margin: 0;
+    padding-left: 10px;
+    font-size: 1.5rem;
+  }
+
+  &-img {
+    justify-self: end;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    $size: 30px;
+    @include mx.icon($size);
+  }
+}
+
+@media (min-width: 768px) {
+  .filters__dropdown {
+    min-height: 45px;
+
+    &-heading {
+      font-size: 1.25rem;
+    }
+
+    &-img {
+      height: 25px;
+      width: 25px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .filters__dropdown {
+    min-height: 40px;
+
+    &-heading {
+      font-size: 1rem;
+      padding-left: unset;
+    }
+
+    &-img {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

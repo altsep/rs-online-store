@@ -37,7 +37,11 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     discountNode.className = 'products__item-discount desc';
     discountNode.textContent = `Discount: ${discountPercentage}%`;
 
-    textContainer.append(titleNode, priceNode, brandNode, ratingNode, discountNode);
+    const stockNode = document.createElement('p');
+    stockNode.className = 'products__item-stock desc';
+    stockNode.textContent = `Stock: ${stock}`;
+
+    textContainer.append(titleNode, priceNode, brandNode, ratingNode, discountNode, stockNode);
 
     const thumbContainer = document.createElement('div');
     thumbContainer.className = 'products__item-img-container';

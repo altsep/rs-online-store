@@ -8,6 +8,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 25px;
+
+    &.display--list {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
@@ -18,5 +22,9 @@
     grid-template-columns: repeat(6, 1fr);
     max-width: 1024px;
     grid-gap: 15px;
+
+    &.display--list {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }

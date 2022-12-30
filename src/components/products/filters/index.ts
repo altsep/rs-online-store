@@ -1,12 +1,7 @@
 import type { Props } from '../../../constants';
 import angleDown from '../../../assets/icons/angle-down.svg';
 import angleUp from '../../../assets/icons/angle-up.svg';
-import createTextInput from './text';
-import createSelect from './sort';
-import createButtons from './buttons';
-import handleSearchParams from './handleSearchParams';
-import handleForm from './handleForm';
-import createCheckboxes from './checkboxes';
+import createForm from './createForm';
 
 function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');
@@ -29,32 +24,7 @@ function createFilters(props: Props): HTMLDivElement {
 
   dropdown.append(dropdownHeading, icon);
 
-  const form = document.createElement('form');
-  form.className = 'filters__form';
-
-  const select = createSelect('sort');
-
-  const textInput = createTextInput('text');
-
-  const buttons = createButtons();
-
-  const controlsContainer = document.createElement('div');
-  controlsContainer.className = 'controls';
-
-  controlsContainer.append(select, textInput, buttons);
-
-  const categoryCheckboxes = createCheckboxes(props, 'category');
-
-  const brandCheckboxes = createCheckboxes(props, 'brand');
-
-  const categoriesContainer = document.createElement('div');
-  categoriesContainer.className = 'controls';
-
-  categoriesContainer.append(categoryCheckboxes, brandCheckboxes);
-
-  form.append(controlsContainer, categoriesContainer);
-
-  filters.append(dropdown, form);
+  const form = createForm(props);
 
   icon.addEventListener('mousedown', () => {
     if (display) {
@@ -70,9 +40,7 @@ function createFilters(props: Props): HTMLDivElement {
     display = !display;
   });
 
-  handleSearchParams(form);
-
-  handleForm(form);
+  filters.append(dropdown, form);
 
   return filters;
 }

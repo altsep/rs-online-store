@@ -22,6 +22,10 @@
   margin: 0 auto;
 }
 
+a {
+  text-decoration: none;
+}
+
 .heading {
   font-size: 2rem;
   text-align: center;
@@ -32,6 +36,7 @@
 }
 
 .btn {
+  cursor: pointer;
   color: #0f172a;
   font-weight: 600;
   $bgc: #f1f5f9;
