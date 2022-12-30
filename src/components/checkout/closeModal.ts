@@ -4,7 +4,7 @@ import clearCart from './clearCart';
 import { popUpRemove } from './popUpToggle';
 import timer from './timer';
 
-export default function onButtonClick(state: State) {
+export default function closeModal(props: Props) {
 
   const checkoutContent = document.querySelector<HTMLDivElement>('.checkout__pop-up_content');
   const submitMessage = document.querySelector<HTMLDivElement>('.submit-message');
@@ -12,10 +12,9 @@ export default function onButtonClick(state: State) {
   submitMessage?.classList.remove('hidden');
 
   if (checkoutContent) {
-
+    clearCart(props);
     timer();
     setTimeout(() => {
-      clearCart(state);
       popUpRemove();
       handleHistory('/');
     }, 5000);

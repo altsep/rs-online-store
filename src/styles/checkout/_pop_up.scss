@@ -2,7 +2,8 @@
 .hidden {
   display: none;
 }
-.checkout__pop-up {
+.checkout__pop-up,
+.submit-message__pop-up {
   position: fixed;
   background-color: rgba(1, 1, 1, 0.7);
   backdrop-filter: blur(2px);
@@ -15,21 +16,22 @@
   top: -110%;
   transition: all ease 0.2s;
 }
-.checkout__pop-up.active{
+.checkout__pop-up.active,
+.submit-message__pop-up.active{
   top: 0;
   transition: all ease 0.2s;
 }
 .checkout__pop-up_content,
 .submit-message {
   display: flex;
-  width: 50%;
-  // height: 50%;
+  width: 60%;
   background-color: v.$light-gray;
   border: 1px solid v.$header-gray;
   border-radius: 10px;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   padding: 15px;
+  flex-direction: column;
 }
 .submit-message {
   display: block;
@@ -41,4 +43,22 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.checkout__user_container {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
+.checkout__input {
+  display: flex;
+  width: 100%;
+  margin: 8px;
+  padding: 5px;
+  border-radius: 7px;
+  // border: 1px;
+}
+input.invalid{
+  border: solid 1px red;
+}
+input.valid {
+  border: solid 1px green;
+}

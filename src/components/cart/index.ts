@@ -1,6 +1,4 @@
 import { Props } from '../../constants';
-import { handleHistory } from '../../utility';
-import renderCheckout from '../checkout';
 import { popUpActive } from '../checkout/popUpToggle';
 
 function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
@@ -24,7 +22,6 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   cartNode.append(button);
   button.addEventListener(('click'), () => {
     popUpActive();
-    console.log(button);
   })
 
 // ---------
