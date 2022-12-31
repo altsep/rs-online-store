@@ -7,13 +7,13 @@ export default function removeFromCart(state: State, item: Product): HTMLImageEl
   const { id, price } = item;
 
   const icon = document.createElement('img');
-  icon.className = 'products__item-remove-icon icon hidden';
+  icon.className = 'products__item-remove-icon icon invisible';
   icon.title = 'Remove from cart';
   icon.src = minus;
 
   // https://eslint.org/docs/latest/rules/no-prototype-builtins
   if (Object.prototype.hasOwnProperty.call(state.cart, id)) {
-    icon.classList.remove('hidden');
+    icon.classList.remove('invisible');
   }
 
   const handleClick = (): void => {
@@ -26,7 +26,7 @@ export default function removeFromCart(state: State, item: Product): HTMLImageEl
 
       if (amount === 1) {
         delete state.cart[id];
-        icon.classList.add('hidden');
+        icon.classList.add('invisible');
       }
     }
 

@@ -60,7 +60,7 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     listItem.addEventListener('click', onProductClick);
 
     const btnContainer = document.createElement('div');
-    btnContainer.className = 'products__item-btn-container';
+    btnContainer.className = 'products__item-icon-container';
 
     const addBtn = addToCartBtn(state, item);
     const removeBtn = removeFromCart(state, item);

@@ -17,7 +17,7 @@ export default function addToCartBtn(state: State, item: Product): HTMLImageElem
       state.cart[id] = { ...item, amount: 0 }; // Add cart item under the specified id if it doesn't exist. Include counter for amount as its property
 
       const removeIcon = icon.previousElementSibling;
-      removeIcon?.classList.remove('hidden');
+      removeIcon?.classList.remove('invisible');
     }
 
     const { amount, stock } = state.cart[id];
