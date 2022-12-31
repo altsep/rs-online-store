@@ -1,12 +1,10 @@
-import type { Product, Props } from '../../../../constants';
-import setItemCount from './setItemCount';
-import getCheckedValues from './getCheckedValues';
+import { INITIAL_PRODUCTS, Product } from '../../../../constants';
+import { setItemCount } from './setItemCount';
+import { getCheckedValues } from './getCheckedValues';
 import { updateURL } from '../../../../utility';
-import getSearchParamValue from '../../../../utility/getSearchParamValue';
+import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
-function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
-  const { initialProducts } = props;
-
+function createCheckboxes(name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'categories filter';
   fieldset.name = name;
@@ -20,7 +18,7 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
 
   // Create an array of unique checkbox options from the corresponding property name
   const uniques = [
-    ...new Set(initialProducts.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
+    ...new Set(INITIAL_PRODUCTS.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
   ];
 
   const checkedParamValues = getSearchParamValue(name).split('|');
@@ -56,7 +54,7 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
 
       itemCount.dataset.value = v;
       const itemCountOptions = { name, value: v, itemCountNode: itemCount };
-      setItemCount(props, itemCountOptions);
+      setItemCount(itemCountOptions);
     }
 
     checkboxControls.append(checkbox, label);
@@ -77,4 +75,4 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   return fieldset;
 }
 
-export default createCheckboxes;
+export { createCheckboxes };

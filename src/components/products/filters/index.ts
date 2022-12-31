@@ -1,9 +1,8 @@
-import type { Props } from '../../../constants';
 import angleDown from '../../../assets/icons/angle-down.svg';
 import angleUp from '../../../assets/icons/angle-up.svg';
-import createForm from './createForm';
+import { createForm } from './createForm';
 
-function createFilters(props: Props): HTMLDivElement {
+function createFilters(): HTMLDivElement {
   const filters = document.createElement('div');
   filters.className = 'filters';
 
@@ -24,7 +23,7 @@ function createFilters(props: Props): HTMLDivElement {
 
   dropdown.append(dropdownHeading, icon);
 
-  const form = createForm(props);
+  const form = createForm();
 
   icon.addEventListener('mousedown', () => {
     if (display) {
@@ -45,4 +44,4 @@ function createFilters(props: Props): HTMLDivElement {
   return filters;
 }
 
-export default createFilters;
+export { createFilters };

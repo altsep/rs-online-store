@@ -1,7 +1,7 @@
-import { Props } from '../../constants';
+import { store, styles } from '../../constants';
 import { openPopUp } from '../checkout/popUpToggle';
 
-function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
+function renderCart(): void {
   const cartNode = document.createElement('div');
   cartNode.className = 'cart';
 
@@ -12,7 +12,7 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   const content = document.createElement('div');
   content.className = 'cart-content';
   Object.assign(content.style, styles.json);
-  content.textContent = JSON.stringify(cart, null, 4);
+  content.textContent = JSON.stringify(store.cart, null, 4);
 
   cartNode.append(headingNode, content);
 
@@ -26,11 +26,11 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
 
   // ---------
 
-  const parentNode = document.querySelector(parentNodeName || '');
+  const parentNode = document.querySelector<HTMLDivElement>('.main');
 
   if (parentNode) {
     parentNode.append(cartNode);
   }
 }
 
-export default renderCart;
+export { renderCart };

@@ -44,4 +44,4 @@ function renderCheckout(props: Props): void {
   });
 }
 
-export default renderCheckout;
+export { renderCheckout };

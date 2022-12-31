@@ -1,6 +1,6 @@
 import { storeSearchString } from '../../../utility';
-import onInput from './onInput';
-import onReset from './onReset';
+import { onInput } from './onInput';
+import { onReset } from './onReset';
 
 function handleForm(form: HTMLFormElement): void {
   // Store search string in localStorage on change in any element in the list
@@ -16,4 +16,4 @@ function handleForm(form: HTMLFormElement): void {
   form.addEventListener('reset', onReset);
 }
 
-export default handleForm;
+export { handleForm };

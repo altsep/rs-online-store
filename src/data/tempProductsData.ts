@@ -1,6 +1,6 @@
 import placeholder from '../assets/images/placeholder.png';
 
-export default [
+export const tempProductsData = [
   {
     id: 1,
     title: 'iPhone 9',

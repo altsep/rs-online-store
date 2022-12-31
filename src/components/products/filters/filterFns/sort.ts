@@ -1,6 +1,6 @@
 import type { Product } from '../../../../constants';
 
-export default (products: Product[]): Product[] => {
+export const sort = (products: Product[]): Product[] => {
   const select = document.querySelector<HTMLSelectElement>('.filter.sort');
 
   if (select) {

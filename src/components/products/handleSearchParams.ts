@@ -8,4 +8,4 @@ function handleSearchParams(): void {
   }
 }
 
-export default handleSearchParams;
+export { handleSearchParams };

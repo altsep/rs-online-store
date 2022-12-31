@@ -1,7 +1,6 @@
-import { defaults } from '../../../constants';
-import setItemCount from './checkboxes/setItemCount';
+import { setItemCount } from './checkboxes/setItemCount';
 
-export default (): void => {
+export const updateItemCount = (): void => {
   const fieldsets = document.querySelectorAll<HTMLFieldSetElement>('.filter.categories');
 
   fieldsets.forEach((f) => {
@@ -14,7 +13,7 @@ export default (): void => {
       if (value) {
         const itemCountOptions = { name, value, itemCountNode };
 
-        setItemCount(defaults, itemCountOptions);
+        setItemCount(itemCountOptions);
       }
     });
   });

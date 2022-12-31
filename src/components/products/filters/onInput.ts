@@ -1,15 +1,12 @@
-import renderProductList from '../renderProductList';
-import filterFn from './filterFns';
-import updateItemCount from './updateItemCount';
-import updateProductsFound from './updateProductsFound';
-import updateSliderInfo from './updateSliderInfo';
-import { defaults } from '../../../constants';
+import { renderProductList } from '../renderProductList';
+import { filterFn } from './filterFns';
+import { updateItemCount } from './updateItemCount';
+import { updateProductsFound } from './updateProductsFound';
+import { updateSliderInfo } from './updateSliderInfo';
 
-export default (): void => {
-  const { state, initialProducts } = defaults;
-
+export const onInput = (): void => {
   // Filter product list
-  filterFn(state, initialProducts);
+  filterFn();
 
   // Update various counters in view
   updateItemCount();
@@ -17,5 +14,5 @@ export default (): void => {
   updateProductsFound();
 
   // Render products after applying filters
-  renderProductList(state);
+  renderProductList();
 };

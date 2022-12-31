@@ -1,7 +1,7 @@
 import { handleHistory } from '../../utility';
 import cartLogoImg from './img/cart.svg';
 
-export default function initHeaderCart(parent: HTMLElement): void {
+export function initHeaderCart(parent: HTMLElement): void {
   const cartContainer = parent.appendChild(document.createElement('div'));
   cartContainer.className = 'cart-container';
 
