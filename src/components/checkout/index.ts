@@ -1,4 +1,4 @@
-import { Props } from '../../constants';
+// import { Props } from '../../constants';
 import isFormValid from './form/validate/isFormValid';
 import { closePopUp } from './popUpToggle';
 import createSubmitMessage from './form/init/createSubmitMessage';
@@ -6,7 +6,7 @@ import createForm from './form/init/createForm';
 import createSubmitButton from './form/init/createSubmitButton';
 import closeModal from './closeModal';
 
-function renderCheckout(props: Props): void {
+function renderCheckout(): void {
   const parentNode = document.querySelector('#root');
 
   const checkoutNode = document.createElement('div');
@@ -40,7 +40,7 @@ function renderCheckout(props: Props): void {
   submitBtn.disabled = !isFormValid();
   checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    closeModal(props);
+    closeModal();
   });
 }
 
