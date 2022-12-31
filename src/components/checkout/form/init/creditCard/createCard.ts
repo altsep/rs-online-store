@@ -1,14 +1,11 @@
-import changeInputValidity from '../../validate/changeInputValidity';
-import { checkInputNumber } from '../../validate/checkInput';
-import { isCardNumberValid, isCardCodeValid, isExpirationDateValid } from '../../validate/isCardValid';
-import { createField, errorField } from '../createField';
+import { errorField } from '../createField';
 import createFieldContainer from '../createFieldContainer';
-import { createCardCode } from './createCardCode';
-import { createCardDate } from './createCardDate';
-import { createCardLogo } from './createCardLogo';
-import { createCardNumber } from './createCardNumber';
+import createCardCode from './createCardCode';
+import createCardDate from './createCardDate';
+import createCardLogo from './createCardLogo';
+import createCardNumber from './createCardNumber';
 
-export default function createCard(parent: HTMLElement): HTMLDivElement {
+export default function createCard(parent: HTMLFormElement): void {
   const cardContainer = document.createElement('div');
   cardContainer.className = 'checkout__card_container';
 
@@ -48,6 +45,4 @@ export default function createCard(parent: HTMLElement): HTMLDivElement {
   cardDetails.append(cardNumberContainer, cardAddContainer);
 
   parent.append(cardContainer);
-
-  return cardDetails;
 }

@@ -3,7 +3,7 @@ import { checkInputNumber } from '../../validate/checkInput';
 import { isCardCodeValid } from '../../validate/isCardValid';
 import { createField } from '../createField';
 
-export function createCardCode(): HTMLInputElement {
+export default function createCardCode(): HTMLInputElement {
   const cardCode = createField('card__code', 'tel', 'CVV / CVC');
   cardCode.maxLength = 3;
   cardCode.minLength = 3;

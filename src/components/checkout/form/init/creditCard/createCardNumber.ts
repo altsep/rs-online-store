@@ -3,7 +3,7 @@ import { checkInputNumber } from '../../validate/checkInput';
 import { isCardNumberValid } from '../../validate/isCardValid';
 import { createField } from '../createField';
 
-export function createCardNumber(): HTMLInputElement {
+export default function createCardNumber(): HTMLInputElement {
   const cardNumber = createField('card__number', 'tel', 'Card number');
   cardNumber.onkeydown = checkInputNumber;
   cardNumber.maxLength = 19;

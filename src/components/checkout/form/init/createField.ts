@@ -10,14 +10,14 @@ export function createField(className: string, type: string, name: string): HTML
 
 export function errorField(input: HTMLInputElement): HTMLLabelElement {
   const fieldError = document.createElement('label');
-  fieldError.className = 'field__error';
+  fieldError.className = 'field__error hidden';
   fieldError.htmlFor = input.name;
   fieldError.textContent = 'error';
 
   return fieldError;
 }
 
-// export default{
-//   createField,
-//   errorField
-// }
+export default {
+  createField,
+  errorField,
+};

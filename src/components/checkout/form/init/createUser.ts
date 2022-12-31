@@ -5,9 +5,9 @@ import { createField } from './createField';
 
 import createFieldContainer from './createFieldContainer';
 
-export default function createUser(className: string): HTMLDivElement {
+export default function createUser(parent: HTMLFormElement): void {
   const UserContainer = document.createElement('div');
-  UserContainer.className = className;
+  UserContainer.className = 'checkout__user_container';
 
   const personalDetails = document.createElement('h3');
   personalDetails.className = 'checkout__personal-details';
@@ -31,5 +31,5 @@ export default function createUser(className: string): HTMLDivElement {
   changeInputValidity(userEmail, isEmailValid);
   createFieldContainer(UserContainer, userEmail);
 
-  return UserContainer;
+  parent.append(UserContainer);
 }

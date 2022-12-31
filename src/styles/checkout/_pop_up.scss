@@ -2,6 +2,9 @@
 .hidden {
   display: none;
 }
+.lock{
+  overflow: hidden;
+}
 .checkout__pop-up,
 .submit-message__pop-up {
   position: fixed;
@@ -11,7 +14,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 100;
   top: -110%;
   transition: all ease 0.2s;
@@ -32,6 +35,7 @@
   align-items: center;
   padding: 15px;
   flex-direction: column;
+  overflow: auto;
 }
 .submit-message {
   display: block;

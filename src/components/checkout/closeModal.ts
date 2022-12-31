@@ -1,4 +1,4 @@
-import { Props, State } from '../../constants';
+import { Props } from '../../constants';
 import { handleHistory } from '../../utility';
 import clearCart from './clearCart';
 import { closePopUp } from './popUpToggle';

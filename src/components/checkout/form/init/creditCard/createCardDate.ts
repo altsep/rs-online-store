@@ -3,7 +3,7 @@ import { checkInputNumber } from '../../validate/checkInput';
 import { isExpirationDateValid } from '../../validate/isCardValid';
 import { createField } from '../createField';
 
-export function createCardDate(): HTMLInputElement {
+export default function createCardDate(): HTMLInputElement {
   const cardExpirationDate = createField('card__valid', 'tel', 'MM / YY');
   cardExpirationDate.maxLength = 7;
   cardExpirationDate.onkeydown = checkInputNumber;
