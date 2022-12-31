@@ -1,4 +1,4 @@
-import { handleHistory } from '../../utility';
+import { handleHistory } from '../../../utility';
 
 export default (e: MouseEvent): void => {
   if (e.target instanceof HTMLElement && e.target.classList.contains('products__item')) {

@@ -1,4 +1,4 @@
-import { State } from '../../constants';
+import { State } from '../../../constants';
 
 export default (state: State): void => {
   localStorage.setItem('aahh-rs-os-cart', JSON.stringify(state.cart));

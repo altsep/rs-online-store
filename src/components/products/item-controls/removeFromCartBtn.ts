@@ -1,6 +1,6 @@
-import minus from '../../assets/icons/minus.svg';
-import type { Product, State } from '../../constants';
-import updateCartCount from '../header/updateCartCount';
+import minus from '../../../assets/icons/minus.svg';
+import type { Product, State } from '../../../constants';
+import updateCartCount from '../../header/updateCartCount';
 import storeCartProps from './storeCartProps';
 
 export default function removeFromCart(state: State, item: Product): HTMLImageElement {

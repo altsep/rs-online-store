@@ -1,6 +1,6 @@
-import plus from '../../assets/icons/plus.svg';
-import type { Product, State } from '../../constants';
-import updateCartCount from '../header/updateCartCount';
+import plus from '../../../assets/icons/plus.svg';
+import type { Product, State } from '../../../constants';
+import updateCartCount from '../../header/updateCartCount';
 import storeCartProps from './storeCartProps';
 
 export default function addToCartBtn(state: State, item: Product): HTMLImageElement {
