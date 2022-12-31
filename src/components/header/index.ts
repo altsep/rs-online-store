@@ -1,11 +1,10 @@
-import { State } from '../../constants';
 import { initHeadeBurger } from './headerBurger';
 import { initHeaderCart } from './headerCart';
 import { initHeaderCartTotal } from './headerCartTotal';
 import { initHeaderlogo } from './headerLogo';
 import { updateCartCount } from './updateCartCount';
 
-function renderHeader(state: State): void {
+function renderHeader(): void {
   const parent = document.querySelector<HTMLElement>('header');
 
   if (parent) {
@@ -17,7 +16,7 @@ function renderHeader(state: State): void {
     initHeaderCartTotal(headerWrapper);
     initHeaderCart(headerWrapper);
 
-    updateCartCount(state);
+    updateCartCount();
   }
 }
 

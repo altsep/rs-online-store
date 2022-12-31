@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 declare module '*.png' {
   const content: string;
   export default content;

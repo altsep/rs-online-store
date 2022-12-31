@@ -1,4 +1,4 @@
-import type { Product, State } from '../../../../constants';
+import { Product, INITIAL_PRODUCTS, store } from '../../../../constants';
 import { text } from './text';
 import { sort } from './sort';
 import { check } from './check';
@@ -17,8 +17,8 @@ const filterFns: FilterFns = {
   range,
 };
 
-export const filterFn = (state: State, initialProducts: Product[]): void => {
-  let products = initialProducts.slice();
+export const filterFn = (): void => {
+  let products = INITIAL_PRODUCTS.slice();
   const params = new URLSearchParams(window.location.search);
   const filterElements = document.querySelectorAll<FilterElement>('.filter');
   const filterNames = [...filterElements].map(({ name, dataset: { filterType } }) => ({
@@ -35,5 +35,5 @@ export const filterFn = (state: State, initialProducts: Product[]): void => {
     }
   });
 
-  state.products = products;
+  store.products = products;
 };

@@ -1,27 +1,27 @@
-import { Product, State } from '../../../../constants';
+import { Product, store } from '../../../../constants';
 import { updateCartCount } from '../../../header/updateCartCount';
 import { storeCartProps } from './storeCartProps';
 
-export const add = (state: State, item: Product, icon: HTMLImageElement): void => {
+export const add = (item: Product, icon: HTMLImageElement): void => {
   const { id, price } = item;
 
   // https://eslint.org/docs/latest/rules/no-prototype-builtins
-  if (!Object.prototype.hasOwnProperty.call(state.cart, id)) {
-    state.cart[id] = { ...item, amount: 0 }; // Add cart item under the specified id if it doesn't exist. Include counter for amount as its property
+  if (!Object.prototype.hasOwnProperty.call(store.cart, id)) {
+    store.cart[id] = { ...item, amount: 0 }; // Add cart item under the specified id if it doesn't exist. Include counter for amount as its property
 
     const removeIcon = icon.previousElementSibling;
     removeIcon?.classList.remove('invisible');
   }
 
-  const { amount, stock } = state.cart[id];
+  const { amount, stock } = store.cart[id];
 
   if (amount < stock) {
-    state.cart[id].amount += 1;
-    state.itemsInCart += 1;
-    state.totalSum += price;
+    store.cart[id].amount += 1;
+    store.itemsInCart += 1;
+    store.totalSum += price;
   }
 
-  storeCartProps(state);
+  storeCartProps();
 
-  updateCartCount(state);
+  updateCartCount();
 };

@@ -1,10 +1,9 @@
-import { Props } from '../../constants';
 import { createFilters } from './filters';
 import { handleSearchParams } from './handleSearchParams';
 import { onInput } from './filters/onInput';
 import { getSearchParamValue } from '../../utility/getSearchParamValue';
 
-function renderProducts(props: Props): void {
+function renderProducts(): void {
   handleSearchParams(); // Get the search query and update history on rendering this component
 
   const main = document.querySelector<HTMLDivElement>('.main');
@@ -29,7 +28,7 @@ function renderProducts(props: Props): void {
   noProductsNode.className = 'products-not-found hidden';
   noProductsNode.textContent = 'No products found 🌚';
 
-  const filters = createFilters(props);
+  const filters = createFilters();
 
   productsNode.append(headingNode, filters, listNode, noProductsNode);
 

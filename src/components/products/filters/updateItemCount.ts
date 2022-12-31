@@ -1,4 +1,3 @@
-import { defaults } from '../../../constants';
 import { setItemCount } from './checkboxes/setItemCount';
 
 export const updateItemCount = (): void => {
@@ -14,7 +13,7 @@ export const updateItemCount = (): void => {
       if (value) {
         const itemCountOptions = { name, value, itemCountNode };
 
-        setItemCount(defaults, itemCountOptions);
+        setItemCount(itemCountOptions);
       }
     });
   });

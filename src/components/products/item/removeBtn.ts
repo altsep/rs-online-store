@@ -1,8 +1,8 @@
-import type { Product, State } from '../../../constants';
+import { Product, store } from '../../../constants';
 import minus from '../../../assets/icons/minus.svg';
 import { remove } from './controls';
 
-export function createRemoveBtn(state: State, item: Product): HTMLImageElement {
+export function createRemoveBtn(item: Product): HTMLImageElement {
   const { id } = item;
 
   const icon = document.createElement('img');
@@ -11,11 +11,11 @@ export function createRemoveBtn(state: State, item: Product): HTMLImageElement {
   icon.src = minus;
 
   // https://eslint.org/docs/latest/rules/no-prototype-builtins
-  if (Object.prototype.hasOwnProperty.call(state.cart, id)) {
+  if (Object.prototype.hasOwnProperty.call(store.cart, id)) {
     icon.classList.remove('invisible');
   }
 
-  icon.addEventListener('click', () => remove(state, item, icon));
+  icon.addEventListener('click', () => remove(item, icon));
 
   return icon;
 }

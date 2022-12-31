@@ -1,8 +1,8 @@
-import type { State } from '../../constants';
+import { store } from '../../constants';
 import { createListItem } from './item';
 
-function renderProductList(state: State): void {
-  const { products } = state;
+function renderProductList(): void {
+  const { products } = store;
 
   const list = document.querySelector<HTMLDivElement>('.products-list');
   const noProductsNode = list?.nextElementSibling;
@@ -17,7 +17,7 @@ function renderProductList(state: State): void {
     }
 
     products.forEach((item) => {
-      const listItem = createListItem(state, item);
+      const listItem = createListItem(item);
       list.append(listItem);
     });
   }

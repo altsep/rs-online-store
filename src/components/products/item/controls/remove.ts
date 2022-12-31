@@ -1,24 +1,24 @@
-import { Product, State } from '../../../../constants';
+import { Product, store } from '../../../../constants';
 import { updateCartCount } from '../../../header/updateCartCount';
 import { storeCartProps } from './storeCartProps';
 
-export const remove = (state: State, item: Product, icon: HTMLImageElement): void => {
+export const remove = (item: Product, icon: HTMLImageElement): void => {
   const { price, id } = item;
 
-  if (Object.prototype.hasOwnProperty.call(state.cart, id)) {
-    const { amount } = state.cart[id];
+  if (Object.prototype.hasOwnProperty.call(store.cart, id)) {
+    const { amount } = store.cart[id];
 
-    state.cart[id].amount -= 1;
-    state.itemsInCart -= 1;
-    state.totalSum -= price;
+    store.cart[id].amount -= 1;
+    store.itemsInCart -= 1;
+    store.totalSum -= price;
 
     if (amount === 1) {
-      delete state.cart[id];
+      delete store.cart[id];
       icon.classList.add('invisible');
     }
   }
 
-  storeCartProps(state);
+  storeCartProps();
 
-  updateCartCount(state);
+  updateCartCount();
 };

@@ -1,4 +1,4 @@
-import { defaults } from '../../../constants';
+import { store, INITIAL_PRODUCTS } from '../../../constants';
 import { storeSearchString } from '../../../utility';
 import { renderProductList } from '../renderProductList';
 import { setDisplayMode } from './buttons/setDisplayMode';
@@ -8,13 +8,12 @@ import { updateSliderInfo } from './updateSliderInfo';
 
 export const onReset = (): void => {
   const { pathname } = window.location;
-  const { state, initialProducts } = defaults;
 
-  // State
-  state.products = initialProducts.slice();
+  // store
+  store.products = INITIAL_PRODUCTS.slice();
 
   // View
-  renderProductList(state);
+  renderProductList();
   updateItemCount();
   setTimeout(updateSliderInfo); // Execute during the next event cycle using the default values set through reset
   updateProductsFound();

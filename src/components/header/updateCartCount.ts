@@ -1,7 +1,8 @@
-import { State } from '../../constants';
+import { store } from '../../constants';
 import { getCurrencyString } from '../../utility';
 
-export function updateCartCount({ totalSum, itemsInCart }: State): void {
+export function updateCartCount(): void {
+  const { totalSum, itemsInCart } = store;
   const cartCount = document.querySelector<HTMLDivElement>('.cart-count');
   const cartTotalSum = document.querySelector<HTMLSpanElement>('.cart-total');
 

@@ -1,6 +1,4 @@
-import { Props } from '../../constants';
-
-function renderCheckout({ parentNodeName }: Props): void {
+function renderCheckout(): void {
   const checkoutNode = document.createElement('div');
   checkoutNode.className = 'checkout';
 
@@ -10,7 +8,7 @@ function renderCheckout({ parentNodeName }: Props): void {
 
   checkoutNode.append(headingNode);
 
-  const parentNode = document.querySelector(parentNodeName || '');
+  const parentNode = document.querySelector<HTMLDivElement>('.main');
 
   if (parentNode) {
     parentNode.append(checkoutNode);
