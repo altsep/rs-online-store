@@ -1,31 +1,132 @@
+@use '../mixins' as mx;
+@use '../vars' as v;
+
+@mixin error {
+  position: absolute;
+  color: #ff3333;
+  right: 10px;
+  top: 5px;
+  height: 100%;
+  text-align: center;
+}
+
 .checkout__form {
   display: flex;
   width: 90%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+  margin: 10px auto;
 }
-.checkout__user_container {
+
+.checkout__user_container,
+.checkout__card_container {
   display: flex;
   width: 90%;
   flex-direction: column;
+  gap: 10px;
+
+  .checkout__personal-details {
+    margin: 10px;
+    text-align: center;
+  }
 }
 .checkout__input {
+  @include mx.input-checkout;
   display: flex;
   width: 100%;
-  margin: 8px;
-  padding: 5px;
-  border-radius: 7px;
-  // border: 1px;
 }
-input.invalid{
-  border: solid 1px red;
+.field__container {
+  display: flex;
+  position: relative;
 }
-input.valid {
-  border: solid 1px green;
+.field__error {
+  @include error;
+}
+.card-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  gap: 10px;
+  background: linear-gradient(45deg, v.$dark-primary-color, v.$primary-color);
+  border: 1px solid v.$dark-primary-color;
+  border-radius: 0.5rem;
+  // padding: 10px;
+  margin: 0 auto;
+}
+.card__title {
+  margin: 10px;
+  text-align: center;
+}
+.card-number__container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+
+  & .card__logo {
+    display: flex;
+    width: 43px;
+    height: 27px;
+    border-radius: 5px;
+    border: 1px solid v.$dark-primary-color;
+    overflow: hidden;
+  }
+
+  & .card__number {
+    display: flex;
+    width: calc(100% - 80px);
+    @include mx.input-checkout;
+  }
+  & .field__error{
+    @include error;
+    right: 22px;
+    top: 7px;
+    font-size: 0.8rem;
+  }
+}
+.card-add_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+  margin: 10px;
+  // width: 100%;
 }
 
-.card__logo {
-  // width: 100px;
-  height: 30px;
+.card__valid,
+.card__code{
+  display: flex;
+  @include mx.input-checkout;
+  max-width: 100px;
+}
+
+.checkout__submit_btn {
+  width: 150px;
+  background: v.$accent-color;
+  color: v.$primary-text-color;
+  border-radius: 0.375rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px;
+  margin: 20px;
+
+  &:hover {
+    background-color: v.$accent-color;
+    color: v.$primary-text-color;
+    transform: scale(1.1);
+  }
+  &:active {
+    background-color: v.$primary-text-color;
+    color: v.$accent-color;
+    transform: scale(0.9);
+  }
+  &:disabled {
+    background-color: v.$primary-color;
+    color: v.$divider-color;
+  }
 }

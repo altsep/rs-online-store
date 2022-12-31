@@ -1,5 +1,5 @@
 export default function changeInputValidity(input: HTMLInputElement, callback: (e: HTMLInputElement) => boolean): void {
-  input.addEventListener('input', (e) => {
+  input.addEventListener('change', (e) => {
     const target = e.target as HTMLElement;
     const label = document.querySelector(`label[for="${input.name}"]`);
     console.log(label);

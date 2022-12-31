@@ -14,7 +14,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   z-index: 100;
   top: -110%;
   transition: all ease 0.2s;
@@ -28,16 +28,18 @@
 .submit-message {
   display: flex;
   width: 60%;
+  min-width: 300px;
   background-color: v.$light-gray;
-  border: 1px solid v.$header-gray;
+  // background: linear-gradient(45deg, v.$accent-color, v.$light-primary-color);
+  border: 1px solid v.$divider-color;
   border-radius: 10px;
   justify-content: flex-start;
   align-items: center;
-  padding: 15px;
   flex-direction: column;
-  overflow: auto;
 }
 .submit-message {
   display: block;
+  text-align: center;
+  padding: 20px;
 }
 
