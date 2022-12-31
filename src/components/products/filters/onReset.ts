@@ -9,7 +9,7 @@ import { updateSliderInfo } from './updateSliderInfo';
 export const onReset = (): void => {
   const { pathname } = window.location;
 
-  // store
+  // Store
   store.products = INITIAL_PRODUCTS.slice();
 
   // View
