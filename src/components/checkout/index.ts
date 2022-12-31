@@ -17,4 +17,4 @@ function renderCheckout({ parentNodeName }: Props): void {
   }
 }
 
-export default renderCheckout;
+export { renderCheckout };

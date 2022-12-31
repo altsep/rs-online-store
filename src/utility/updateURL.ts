@@ -1,4 +1,4 @@
-const updateURL = (name: string, query: string): void => {
+export const updateURL = (name: string, query: string): void => {
   const { pathname, search } = window.location;
   const searchParams = new URLSearchParams(search);
 
@@ -13,5 +13,3 @@ const updateURL = (name: string, query: string): void => {
 
   window.history.replaceState({}, '', url);
 };
-
-export default updateURL;

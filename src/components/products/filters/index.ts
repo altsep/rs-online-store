@@ -1,7 +1,7 @@
 import type { Props } from '../../../constants';
 import angleDown from '../../../assets/icons/angle-down.svg';
 import angleUp from '../../../assets/icons/angle-up.svg';
-import createForm from './createForm';
+import { createForm } from './createForm';
 
 function createFilters(props: Props): HTMLDivElement {
   const filters = document.createElement('div');
@@ -45,4 +45,4 @@ function createFilters(props: Props): HTMLDivElement {
   return filters;
 }
 
-export default createFilters;
+export { createFilters };

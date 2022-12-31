@@ -17,4 +17,4 @@ function renderNotFound({ parentNodeName }: Props): void {
   }
 }
 
-export default renderNotFound;
+export { renderNotFound };

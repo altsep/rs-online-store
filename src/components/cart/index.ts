@@ -22,4 +22,4 @@ function renderCart({ state: { cart }, styles, parentNodeName }: Props): void {
   }
 }
 
-export default renderCart;
+export { renderCart };

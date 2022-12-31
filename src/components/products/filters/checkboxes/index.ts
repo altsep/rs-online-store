@@ -1,8 +1,8 @@
 import type { Product, Props } from '../../../../constants';
-import setItemCount from './setItemCount';
-import getCheckedValues from './getCheckedValues';
+import { setItemCount } from './setItemCount';
+import { getCheckedValues } from './getCheckedValues';
 import { updateURL } from '../../../../utility';
-import getSearchParamValue from '../../../../utility/getSearchParamValue';
+import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
 function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   const { initialProducts } = props;
@@ -77,4 +77,4 @@ function createCheckboxes(props: Props, name: string): HTMLFieldSetElement {
   return fieldset;
 }
 
-export default createCheckboxes;
+export { createCheckboxes };

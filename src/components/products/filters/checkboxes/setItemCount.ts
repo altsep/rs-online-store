@@ -7,7 +7,10 @@ interface Options {
   itemCountNode: HTMLSpanElement;
 }
 
-export default ({ state: { products }, initialProducts }: Props, { name, value, itemCountNode }: Options): void => {
+export const setItemCount = (
+  { state: { products }, initialProducts }: Props,
+  { name, value, itemCountNode }: Options
+): void => {
   const currentLen = getProductsLen(products, name, value);
   const maxLen = getProductsLen(initialProducts, name, value);
 

@@ -1,7 +1,7 @@
 import type { Product } from '../../../../constants';
-import getCheckedValues from '../checkboxes/getCheckedValues';
+import { getCheckedValues } from '../checkboxes/getCheckedValues';
 
-export default (products: Product[], name: string): Product[] => {
+export const check = (products: Product[], name: string): Product[] => {
   const fieldset = document.querySelector<HTMLFieldSetElement>(`.filter[name="${name}"]`);
 
   const checkedValues = getCheckedValues(fieldset);

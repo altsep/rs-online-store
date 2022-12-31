@@ -18,4 +18,4 @@ function getCheckedValues(el: HTMLElement | null): string[] {
   return arr;
 }
 
-export default getCheckedValues;
+export { getCheckedValues };

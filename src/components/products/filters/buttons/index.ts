@@ -1,6 +1,6 @@
-import getSearchParamValue from '../../../../utility/getSearchParamValue';
-import copyUrl from './copyUrl';
-import setDisplayMode from './setDisplayMode';
+import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
+import { copyUrl } from './copyUrl';
+import { setDisplayMode } from './setDisplayMode';
 
 function createButtons(): HTMLDivElement {
   const btnContainer = document.createElement('div');
@@ -32,4 +32,4 @@ function createButtons(): HTMLDivElement {
   return btnContainer;
 }
 
-export default createButtons;
+export { createButtons };

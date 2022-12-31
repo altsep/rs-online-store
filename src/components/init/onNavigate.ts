@@ -35,4 +35,4 @@ function onNavigate(props: Props): void {
   }
 }
 
-export default onNavigate;
+export { onNavigate };

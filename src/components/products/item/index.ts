@@ -1,9 +1,11 @@
-import type { Product, State } from '../../constants';
-import { onProductClick, addToCart, removeFromCart } from './item-controls';
-import { getCurrencyString } from '../../utility';
+import type { Product, State } from '../../../constants';
+import { createAddBtn } from './addBtn';
+import { createRemoveBtn } from './removeBtn';
+import { onProductClick } from './controls';
+import { getCurrencyString } from '../../../utility';
 
-export default function createListItem(state: State, item: Product): HTMLDivElement {
-  const listItem = document.createElement('div'); 
+export function createListItem(state: State, item: Product): HTMLDivElement {
+  const listItem = document.createElement('div');
   listItem.className = 'products__item';
 
   if (item) {
@@ -60,8 +62,8 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     const btnContainer = document.createElement('div');
     btnContainer.className = 'products__item-icon-container';
 
-    const addBtn = addToCart(state, item);
-    const removeBtn = removeFromCart(state, item);
+    const addBtn = createAddBtn(state, item);
+    const removeBtn = createRemoveBtn(state, item);
 
     btnContainer.append(removeBtn, addBtn);
 

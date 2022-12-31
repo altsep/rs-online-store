@@ -1,4 +1,4 @@
-export default function initHeaderCartTotal(parent: HTMLElement): void {
+export function initHeaderCartTotal(parent: HTMLElement): void {
   const cartTotalContainer = parent.appendChild(document.createElement('div'));
   cartTotalContainer.className = 'cart-total-container';
 

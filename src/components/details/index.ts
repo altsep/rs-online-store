@@ -31,4 +31,4 @@ function renderDetails({ state, styles, parentNodeName }: Props): void {
   }
 }
 
-export default renderDetails;
+export { renderDetails };

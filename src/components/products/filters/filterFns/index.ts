@@ -1,8 +1,8 @@
 import type { Product, State } from '../../../../constants';
-import text from './text';
-import sort from './sort';
-import check from './check';
-import range from './range';
+import { text } from './text';
+import { sort } from './sort';
+import { check } from './check';
+import { range } from './range';
 
 export type FilterElement = HTMLInputElement | HTMLFieldSetElement | HTMLSelectElement;
 
@@ -17,7 +17,7 @@ const filterFns: FilterFns = {
   range,
 };
 
-const filterFn = (state: State, initialProducts: Product[]): void => {
+export const filterFn = (state: State, initialProducts: Product[]): void => {
   let products = initialProducts.slice();
   const params = new URLSearchParams(window.location.search);
   const filterElements = document.querySelectorAll<FilterElement>('.filter');
@@ -37,5 +37,3 @@ const filterFn = (state: State, initialProducts: Product[]): void => {
 
   state.products = products;
 };
-
-export default filterFn;

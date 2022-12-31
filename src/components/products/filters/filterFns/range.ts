@@ -1,6 +1,6 @@
 import { Product } from '../../../../constants';
 
-export default (products: Product[], name: string, query: string): Product[] => {
+export const range = (products: Product[], name: string, query: string): Product[] => {
   if (query) {
     const [min, max] = query.split('-');
 

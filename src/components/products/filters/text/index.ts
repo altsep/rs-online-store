@@ -1,5 +1,5 @@
 import { updateURL } from '../../../../utility';
-import getSearchParamValue from '../../../../utility/getSearchParamValue';
+import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
 function createTextInput(name: string): HTMLInputElement {
   const input = document.createElement('input');
@@ -22,4 +22,4 @@ function createTextInput(name: string): HTMLInputElement {
   return input;
 }
 
-export default createTextInput;
+export { createTextInput };

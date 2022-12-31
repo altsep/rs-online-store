@@ -1,5 +1,5 @@
 import type { State } from '../../constants';
-import createListItem from './createListItem';
+import { createListItem } from './item';
 
 function renderProductList(state: State): void {
   const { products } = state;
@@ -23,4 +23,4 @@ function renderProductList(state: State): void {
   }
 }
 
-export default renderProductList;
+export { renderProductList };

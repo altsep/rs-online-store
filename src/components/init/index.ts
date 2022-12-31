@@ -1,7 +1,7 @@
 import { renderHeader } from '..';
 import type { Props } from '../../constants';
 import { handleHistory } from '../../utility';
-import onNavigate from './onNavigate';
+import { onNavigate } from './onNavigate';
 
 // Create main layout and append it to root
 function init(props: Props /* pass props down to components */): void {
@@ -34,4 +34,4 @@ function init(props: Props /* pass props down to components */): void {
   window.addEventListener('popstate', () => onNavigate(props));
 }
 
-export default init;
+export { init };

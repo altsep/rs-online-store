@@ -1,7 +1,7 @@
 import type { Product, Props } from '../../../../constants';
 import { getCurrencyString, updateURL } from '../../../../utility';
-import getSearchParamValue from '../../../../utility/getSearchParamValue';
-import getMinMax from './getMinMax';
+import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
+import { getMinMax } from './getMinMax';
 
 function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
@@ -75,4 +75,4 @@ function createSlider({ initialProducts }: Props, name: string): HTMLFieldSetEle
   return fieldset;
 }
 
-export default createSlider;
+export { createSlider };
