@@ -1,20 +1,19 @@
-import { defaults } from '../../../constants';
+import { store, INITIAL_PRODUCTS } from '../../../constants';
 import { storeSearchString } from '../../../utility';
-import renderProductList from '../renderProductList';
-import setDisplayMode from './buttons/setDisplayMode';
-import updateItemCount from './updateItemCount';
-import updateProductsFound from './updateProductsFound';
-import updateSliderInfo from './updateSliderInfo';
+import { renderProductList } from '../renderProductList';
+import { setDisplayMode } from './buttons/setDisplayMode';
+import { updateItemCount } from './updateItemCount';
+import { updateProductsFound } from './updateProductsFound';
+import { updateSliderInfo } from './updateSliderInfo';
 
-export default (): void => {
+export const onReset = (): void => {
   const { pathname } = window.location;
-  const { state, initialProducts } = defaults;
 
-  // State
-  state.products = initialProducts.slice();
+  // Store
+  store.products = INITIAL_PRODUCTS.slice();
 
   // View
-  renderProductList(state);
+  renderProductList();
   updateItemCount();
   setTimeout(updateSliderInfo); // Execute during the next event cycle using the default values set through reset
   updateProductsFound();

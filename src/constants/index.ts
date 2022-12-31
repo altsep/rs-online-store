@@ -14,7 +14,7 @@ interface Product {
   images: string[];
 }
 
-interface State {
+interface Store {
   products: Product[];
   cart: Cart;
   itemsInCart: number;
@@ -27,24 +27,16 @@ type Cart = Record<string, CartItem>;
 
 type Styles = Record<string, Record<string, string>>;
 
-interface Props {
-  readonly state: State;
-  readonly styles: Styles;
-  readonly parentNodeName: string;
-  readonly rootPath: string;
-  readonly initialProducts: Product[];
-}
-
-export type { Product, State, Props };
+export type { Product, Store };
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
 const cart = JSON.parse(cartStr || '{}') as Cart;
-// The following get converted to 0 on null
+// The following get converted to 0 when null
 const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
 
 // Mutable properties go in state, it being the collection of initial values
-const state: State = {
+const store: Store = {
   products: tempProductsData.slice(), // When creating a new object from default properties, arrays are passed by link and have to be copied separately. This can cause unexpected results when modifying a "copy" while trying to use the initial array which ends up being modified in place of the array it replaced
   cart,
   itemsInCart,
@@ -60,13 +52,8 @@ const styles: Styles = {
   },
 };
 
-// Readonly props are placed at the top level
-const defaults: Props = {
-  state,
-  styles,
-  parentNodeName: 'main',
-  rootPath: '/products',
-  initialProducts: tempProductsData.slice(),
-};
+const ROOT_PATH = '/products';
 
-export { defaults };
+const INITIAL_PRODUCTS = Object.freeze(tempProductsData.slice());
+
+export { ROOT_PATH, INITIAL_PRODUCTS, store, styles };

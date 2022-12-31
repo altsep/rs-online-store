@@ -1,10 +1,10 @@
-import type { Product, State } from '../../constants';
-import onProductClick from './onProductClick';
-import addToCartBtn from './addToCartBtn';
-import { getCurrencyString } from '../../utility';
-import removeFromCart from './removeFromCartBtn';
+import { Product } from '../../../constants';
+import { createAddBtn } from './addBtn';
+import { createRemoveBtn } from './removeBtn';
+import { onProductClick } from './controls';
+import { getCurrencyString } from '../../../utility';
 
-export default function createListItem(state: State, item: Product): HTMLDivElement {
+export function createListItem(item: Product): HTMLDivElement {
   const listItem = document.createElement('div');
   listItem.className = 'products__item';
 
@@ -60,10 +60,10 @@ export default function createListItem(state: State, item: Product): HTMLDivElem
     listItem.addEventListener('click', onProductClick);
 
     const btnContainer = document.createElement('div');
-    btnContainer.className = 'products__item-btn-container';
+    btnContainer.className = 'products__item-icon-container';
 
-    const addBtn = addToCartBtn(state, item);
-    const removeBtn = removeFromCart(state, item);
+    const addBtn = createAddBtn(item);
+    const removeBtn = createRemoveBtn(item);
 
     btnContainer.append(removeBtn, addBtn);
 

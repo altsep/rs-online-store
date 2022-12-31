@@ -1,5 +1,5 @@
 import { updateURL } from '../../../../utility';
-import getSearchParamValue from '../../../../utility/getSearchParamValue';
+import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
 function createSelect(name: string): HTMLSelectElement {
   const select = document.createElement('select');
@@ -44,4 +44,4 @@ function createSelect(name: string): HTMLSelectElement {
   return select;
 }
 
-export default createSelect;
+export { createSelect };

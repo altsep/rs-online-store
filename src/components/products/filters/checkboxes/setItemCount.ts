@@ -1,4 +1,4 @@
-import type { Props } from '../../../../constants';
+import { store, INITIAL_PRODUCTS } from '../../../../constants';
 import { getProductsLen } from '../../../../utility';
 
 interface Options {
@@ -7,9 +7,9 @@ interface Options {
   itemCountNode: HTMLSpanElement;
 }
 
-export default ({ state: { products }, initialProducts }: Props, { name, value, itemCountNode }: Options): void => {
-  const currentLen = getProductsLen(products, name, value);
-  const maxLen = getProductsLen(initialProducts, name, value);
+export const setItemCount = ({ name, value, itemCountNode }: Options): void => {
+  const currentLen = getProductsLen(store.products, name, value);
+  const maxLen = getProductsLen(INITIAL_PRODUCTS, name, value);
 
   if (itemCountNode) {
     itemCountNode.textContent = `${currentLen}/${maxLen}`;

@@ -1,7 +1,7 @@
 import { getCurrencyString } from '../../../../utility';
-import getMinMax from './getMinMax';
+import { getMinMax } from './getMinMax';
 
-const setSliderInfo = (parent: HTMLFieldSetElement): void => {
+export const setSliderInfo = (parent: HTMLFieldSetElement): void => {
   const { name } = parent;
   const { min, max } = getMinMax(parent);
 
@@ -22,5 +22,3 @@ const setSliderInfo = (parent: HTMLFieldSetElement): void => {
     }
   }
 };
-
-export default setSliderInfo;

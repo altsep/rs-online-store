@@ -1,8 +1,6 @@
-import renderProducts from './products';
-import renderCart from './cart';
-import renderCheckout from './checkout';
-import renderDetails from './details';
-import renderHeader from './header';
-import renderNotFound from './notFound';
-
-export { renderProducts, renderCart, renderCheckout, renderDetails, renderHeader, renderNotFound };
+export { renderCart } from './cart';
+export { renderCheckout } from './checkout';
+export { renderDetails } from './details';
+export { renderHeader } from './header';
+export { renderNotFound } from './notFound';
+export { renderProducts } from './products';

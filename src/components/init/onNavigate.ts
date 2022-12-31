@@ -1,16 +1,14 @@
 import { renderProducts, renderCart, renderDetails, renderNotFound, renderCheckout } from '..';
-import type { Props } from '../../constants';
 
 interface Route {
   path: RegExp;
-  fn: (props: Props) => void;
+  fn: () => void;
 }
 
-function onNavigate(props: Props): void {
+function onNavigate(): void {
   const { pathname } = window.location;
-  const { parentNodeName } = props;
 
-  const parentNode = document.querySelector<HTMLElement>(parentNodeName);
+  const parentNode = document.querySelector<HTMLDivElement>('.main');
 
   if (parentNode) {
     parentNode.innerHTML = '';
@@ -31,8 +29,8 @@ function onNavigate(props: Props): void {
 
   if (route) {
     const { fn } = route;
-    fn(props);
+    fn();
   }
 }
 
-export default onNavigate;
+export { onNavigate };

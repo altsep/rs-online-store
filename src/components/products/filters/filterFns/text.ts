@@ -1,6 +1,6 @@
 import { Product } from '../../../../constants';
 
-export default (products: Product[], _name: string, query: string): Product[] => {
+export const text = (products: Product[], _name: string, query: string): Product[] => {
   return products.filter((p): boolean => {
     const keysToExclude = ['thumbnail', 'images'];
     return Object.keys(p)

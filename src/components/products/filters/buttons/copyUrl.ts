@@ -1,6 +1,6 @@
 let timeoutId: NodeJS.Timeout | undefined;
 
-const copyUrl = (btn: HTMLInputElement, initialText: string): void => {
+export const copyUrl = (btn: HTMLInputElement, initialText: string): void => {
   clearTimeout(timeoutId);
 
   const text = window.location.href;
@@ -19,5 +19,3 @@ const copyUrl = (btn: HTMLInputElement, initialText: string): void => {
     btn.value = initialText;
   }, 1000);
 };
-
-export default copyUrl;

@@ -1,9 +1,8 @@
-// Create utility functions as modules in this directory, then duplicate export in this file. It will allow to separate functions into separate modules while having ability to import them from './functions'. The folder name could be changed to utility or utilityFunctions
+// Create utility functions as modules in this directory, then duplicate export in this file. It will allow to separate functions into separate modules while having ability to import them from './utility'
 // Create component-related functions in their respective directories
-import handleHistory from './handleHistory';
-import getCurrencyString from './getCurrencyString';
-import updateURL from './updateURL';
-import storeSearchString from './storeSearchString';
-import getProductsLen from './getProductsLen';
-
-export { handleHistory, getCurrencyString, updateURL, storeSearchString, getProductsLen };
+export { handleHistory } from './handleHistory';
+export { getCurrencyString } from './getCurrencyString';
+export { updateURL } from './updateURL';
+export { storeSearchString } from './storeSearchString';
+export { getProductsLen } from './getProductsLen';
+export { getSearchParamValue } from './getSearchParamValue';

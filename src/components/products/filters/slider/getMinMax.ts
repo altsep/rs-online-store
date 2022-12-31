@@ -3,7 +3,7 @@ interface MinMax {
   max: number;
 }
 
-const getMinMax = (parent: HTMLFieldSetElement): MinMax => {
+export const getMinMax = (parent: HTMLFieldSetElement): MinMax => {
   const first = parent.querySelector<HTMLInputElement>('.slider-range.first');
   const second = parent.querySelector<HTMLInputElement>('.slider-range.second');
 
@@ -16,5 +16,3 @@ const getMinMax = (parent: HTMLFieldSetElement): MinMax => {
 
   return obj;
 };
-
-export default getMinMax;

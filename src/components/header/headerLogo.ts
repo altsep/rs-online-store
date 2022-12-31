@@ -2,7 +2,7 @@ import randomColor from 'randomcolor';
 import { handleHistory } from '../../utility';
 import logoImg from './img/logo.svg';
 
-export default function initHeaderlogo(parent: HTMLElement): void {
+export function initHeaderlogo(parent: HTMLElement): void {
   const logoContainer = parent.appendChild(document.createElement('div'));
   logoContainer.className = 'header_logo';
 

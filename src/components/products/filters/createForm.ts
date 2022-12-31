@@ -1,12 +1,12 @@
-import type { Props } from '../../../constants';
-import createTextInput from './text';
-import createSelect from './sort';
-import createButtons from './buttons';
-import createCheckboxes from './checkboxes';
-import createSlider from './slider';
-import handleForm from './handleForm';
+import { store } from '../../../constants';
+import { createTextInput } from './text';
+import { createSelect } from './sort';
+import { createButtons } from './buttons';
+import { createCheckboxes } from './checkboxes';
+import { createSlider } from './slider';
+import { handleForm } from './handleForm';
 
-function createForm(props: Props): HTMLFormElement {
+function createForm(): HTMLFormElement {
   const form = document.createElement('form');
   form.className = 'filters__form';
 
@@ -19,7 +19,7 @@ function createForm(props: Props): HTMLFormElement {
 
   const productsFoundNode = document.createElement('div');
   productsFoundNode.className = 'filters__form-products-found';
-  productsFoundNode.textContent = `Found: ${props.state.products.length}`;
+  productsFoundNode.textContent = `Found: ${store.products.length}`;
 
   const buttons = createButtons();
 
@@ -31,8 +31,8 @@ function createForm(props: Props): HTMLFormElement {
   buttonsContainer.append(buttons);
 
   // Categories
-  const categoryCheckboxes = createCheckboxes(props, 'category');
-  const brandCheckboxes = createCheckboxes(props, 'brand');
+  const categoryCheckboxes = createCheckboxes('category');
+  const brandCheckboxes = createCheckboxes('brand');
 
   const categoriesContainer = document.createElement('div');
   categoriesContainer.className = 'controls';
@@ -40,8 +40,8 @@ function createForm(props: Props): HTMLFormElement {
   categoriesContainer.append(categoryCheckboxes, brandCheckboxes);
 
   // Sliders
-  const priceSlider = createSlider(props, 'price');
-  const stockSlider = createSlider(props, 'stock');
+  const priceSlider = createSlider('price');
+  const stockSlider = createSlider('stock');
 
   const slidersContainer = document.createElement('div');
   slidersContainer.className = 'controls';
@@ -55,4 +55,4 @@ function createForm(props: Props): HTMLFormElement {
   return form;
 }
 
-export default createForm;
+export { createForm };

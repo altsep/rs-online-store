@@ -1,6 +1,6 @@
-import type { Product, Props } from '../../constants';
+import { store, styles, Product } from '../../constants';
 
-function renderDetails({ state, styles, parentNodeName }: Props): void {
+function renderDetails(): void {
   const detailsNode = document.createElement('div');
   detailsNode.className = 'details';
 
@@ -17,18 +17,18 @@ function renderDetails({ state, styles, parentNodeName }: Props): void {
 
   if (matchArr) {
     const id = Number(matchArr[0]);
-    const item = state.products.find((pr: Product) => pr.id === id);
+    const item = store.products.find((pr: Product) => pr.id === id);
     headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
     textNode.textContent = `${item ? JSON.stringify(item, null, 4) : ''}`;
   }
 
   detailsNode.append(headingNode, textNode);
 
-  const parentNode = document.querySelector(parentNodeName || '');
+  const parentNode = document.querySelector<HTMLDivElement>('.main');
 
   if (parentNode) {
     parentNode.append(detailsNode);
   }
 }
 
-export default renderDetails;
+export { renderDetails };
