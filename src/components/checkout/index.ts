@@ -10,7 +10,7 @@ function renderCheckout(): void {
   const parentNode = document.querySelector('#root');
 
   const checkoutNode = document.createElement('div');
-  checkoutNode.className = 'checkout__pop-up active';
+  checkoutNode.className = 'checkout__pop-up';
 
   const checkoutContent = document.createElement('div');
   checkoutContent.className = 'checkout__pop-up_content';
