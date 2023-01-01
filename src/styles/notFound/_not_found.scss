@@ -1,0 +1,49 @@
+@use '../vars' as v;
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+}
+.not-found__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .err-title {
+    margin: 0;
+  }
+  .err-message {
+    color: v.$secondary-text-color;
+    text-align: center;
+  }
+  .go-home__btn {
+    background-color: v.$accent-color;
+    margin: 10px auto;
+  }
+}
+.not-found__background {
+  display: flex;
+  height: 50vh;
+  width: 50vh;
+  margin: 20px auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .not-found {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .not-found__background {
+    display: flex;
+    height: 90%;
+    width: auto;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  .not-found__container {
+    gap: 20px;
+  }
+}
