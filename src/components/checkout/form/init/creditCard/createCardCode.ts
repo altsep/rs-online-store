@@ -1,9 +1,9 @@
-import changeInputValidity from '../../validate/changeInputValidity';
+import { changeInputValidity } from '../../validate/changeInputValidity';
 import { checkInputNumber } from '../../validate/checkInput';
 import { isCardCodeValid } from '../../validate/isCardValid';
 import { createField } from '../createField';
 
-export default function createCardCode(): HTMLInputElement {
+export function createCardCode(): HTMLInputElement {
   const cardCode = createField('card__code', 'tel', 'CVV / CVC');
   cardCode.maxLength = 3;
   cardCode.minLength = 3;

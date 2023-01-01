@@ -1,11 +1,11 @@
 import { errorField } from '../createField';
-import createFieldContainer from '../createFieldContainer';
-import createCardCode from './createCardCode';
-import createCardDate from './createCardDate';
-import createCardLogo from './createCardLogo';
-import createCardNumber from './createCardNumber';
+import { createFieldContainer } from '../createFieldContainer';
+import { createCardCode } from './createCardCode';
+import { createCardDate } from './createCardDate';
+import { createCardLogo } from './createCardLogo';
+import { createCardNumber } from './createCardNumber';
 
-export default function createCard(parent: HTMLFormElement): void {
+export function createCard(parent: HTMLFormElement): void {
   const cardContainer = document.createElement('div');
   cardContainer.className = 'checkout__card_container';
 

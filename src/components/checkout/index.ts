@@ -1,10 +1,10 @@
 // import { Props } from '../../constants';
-import isFormValid from './form/validate/isFormValid';
+import { isFormValid } from './form/validate/isFormValid';
 import { closePopUp } from './popUpToggle';
-import createSubmitMessage from './form/init/createSubmitMessage';
-import createForm from './form/init/createForm';
-import createSubmitButton from './form/init/createSubmitButton';
-import closeModal from './closeModal';
+import { createSubmitMessage } from './form/init/createSubmitMessage';
+import { createForm } from './form/init/createForm';
+import { createSubmitButton } from './form/init/createSubmitButton';
+import { closeModal } from './closeModal';
 
 function renderCheckout(): void {
   const parentNode = document.querySelector('#root');

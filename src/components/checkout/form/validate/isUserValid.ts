@@ -19,10 +19,3 @@ export function isEmailValid(input: HTMLInputElement): boolean {
 
   return reg.test(email);
 }
-
-export default {
-  isNameValid,
-  isAdressValid,
-  isPhoneValid,
-  isEmailValid,
-};

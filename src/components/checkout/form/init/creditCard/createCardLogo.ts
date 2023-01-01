@@ -3,7 +3,7 @@ import visaLogo from '../../../img/visaLogo.svg';
 import masterCardLogo from '../../../img/mastercardLogo.svg';
 import mirLogo from '../../../img/mirLogo.svg';
 
-export default function createCardLogo(card: HTMLInputElement): HTMLImageElement {
+export function createCardLogo(card: HTMLInputElement): HTMLImageElement {
   let sistemID = card.value[0];
   const logo = document.createElement('img');
   logo.alt = '';

@@ -12,5 +12,3 @@ export function closePopUp(): void {
   document.querySelector('#root')?.classList.remove('lock');
   popUp?.classList.remove('active');
 }
-
-export default { openPopUp, closePopUp };

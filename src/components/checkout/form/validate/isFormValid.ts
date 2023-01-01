@@ -1,4 +1,4 @@
-export default function isFormValid(): boolean {
+export function isFormValid(): boolean {
   const form = document.querySelector<HTMLFormElement>('.checkout__form');
   const inputs = form?.querySelectorAll('input');
   let result = true;

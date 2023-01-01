@@ -16,8 +16,3 @@ export function errorField(input: HTMLInputElement): HTMLLabelElement {
 
   return fieldError;
 }
-
-export default {
-  createField,
-  errorField,
-};

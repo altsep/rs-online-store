@@ -1,4 +1,4 @@
-export default function timer(): void {
+export function timer(): void {
   const timerContent = document.querySelector<HTMLSpanElement>('.submit-message__timer');
 
   if (timerContent) {

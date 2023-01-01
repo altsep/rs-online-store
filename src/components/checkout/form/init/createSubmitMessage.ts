@@ -1,4 +1,4 @@
-export default function createSubmitMessage(): HTMLDivElement {
+export function createSubmitMessage(): HTMLDivElement {
   const submitMessage = document.createElement('div');
   submitMessage.classList.add('submit-message', 'hidden');
   const submitMessageText = document.createElement('span');

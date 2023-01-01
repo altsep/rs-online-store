@@ -26,9 +26,3 @@ export function isCardCodeValid(input: HTMLInputElement): boolean {
   const code = input.value;
   return code.length === 3;
 }
-
-export default {
-  isCardNumberValid,
-  isExpirationDateValid,
-  isCardCodeValid,
-};
