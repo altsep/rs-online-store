@@ -8,6 +8,7 @@
 @use 'products';
 @use 'details';
 @use 'checkout';
+@use 'notFound';
 
 .wrapper {
   display: flex;
