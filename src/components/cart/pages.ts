@@ -1,7 +1,8 @@
 import { store, INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
-import { getSearchParamValue, storeSearchString, updateURL } from '../../utility';
+import { getSearchParamValue } from '../../utility';
 import { getStartingIndices } from './getStartingIndices';
 import { renderItems } from './items';
+import { onPageNumClick } from './onPageNumClick';
 
 function renderPageNumbers(parent: HTMLDivElement, itemsContainer: HTMLDivElement): void {
   const { cart } = store;
@@ -39,40 +40,7 @@ function renderPageNumbers(parent: HTMLDivElement, itemsContainer: HTMLDivElemen
 
   renderItems(itemsContainer, startingCardsArr);
 
-  const onClick = (e: MouseEvent): void => {
-    if (e.target instanceof HTMLDivElement && e.target.classList.contains('cart__page-numbers-item')) {
-      itemsContainer.innerHTML = '';
-
-      const {
-        textContent,
-        dataset: { v },
-      } = e.target;
-
-      const pageStartingIndex = Number(v);
-
-      const selectionArr = items
-        .slice(pageStartingIndex, pageStartingIndex + limit)
-        .map(({ id, title, amount }) => ({ id, title, amount }));
-
-      renderItems(itemsContainer, selectionArr);
-
-      const activePageNumberNode = document.querySelector('.cart__page-numbers-item.active');
-
-      if (activePageNumberNode) {
-        activePageNumberNode.classList.remove('active');
-      }
-
-      e.target.classList.add('active');
-
-      const query = textContent && textContent !== '1' ? textContent : '';
-
-      updateURL('page', query);
-
-      storeSearchString('cart');
-    }
-  };
-
-  container.addEventListener('click', onClick);
+  container.addEventListener('click', (e) => onPageNumClick(e, itemsContainer));
 
   parent.append(container);
 }
