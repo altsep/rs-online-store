@@ -19,7 +19,6 @@ interface Store {
   cart: Cart;
   itemsInCart: number;
   totalSum: number;
-  maxOnCartPage: number;
 }
 
 type CartItem = { amount: number } & Product;
@@ -35,7 +34,6 @@ const cart = JSON.parse(cartStr || '{}') as Cart;
 // The following get converted to 0 when null
 const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
-const maxOnCartPage = Number(localStorage.getItem('aahh-rs-os-max')) || 4;
 
 // Mutable properties go in state, it being the collection of initial values
 const store: Store = {
@@ -43,7 +41,6 @@ const store: Store = {
   cart,
   itemsInCart,
   totalSum,
-  maxOnCartPage,
 };
 
 // Add inline styles as properties of this object
@@ -59,4 +56,6 @@ const ROOT_PATH = '/products';
 
 const INITIAL_PRODUCTS = Object.freeze(tempProductsData.slice());
 
-export { ROOT_PATH, INITIAL_PRODUCTS, store, styles };
+const INITIAL_ON_CART_PAGE_LIMIT = 4;
+
+export { ROOT_PATH, INITIAL_PRODUCTS, INITIAL_ON_CART_PAGE_LIMIT, store, styles };

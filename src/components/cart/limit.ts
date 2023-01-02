@@ -1,7 +1,10 @@
-import { store } from '../../constants';
+import { INITIAL_ON_CART_PAGE_LIMIT, store } from '../../constants';
+import { getSearchParamValue, storeSearchString, updateURL } from '../../utility';
+import { getStartingIndices } from './getStartingIndices';
 
 function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
-  const { maxOnCartPage } = store;
+  const limit = getSearchParamValue('limit') || String(INITIAL_ON_CART_PAGE_LIMIT);
+  const itemsLen = Object.keys(store.cart).length;
 
   const container = document.createElement('div');
   container.className = 'cart__page-input-container';
@@ -14,7 +17,7 @@ function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
   const input = document.createElement('input');
   input.className = 'cart__page-input input-text';
   input.type = 'number';
-  input.value = String(maxOnCartPage);
+  input.value = limit;
   input.min = '1';
   input.max = '100';
   input.id = 'items-on-cart-page';
@@ -22,11 +25,23 @@ function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
   const handleChange = (e: Event): void => {
     const { value } = e.target as HTMLInputElement;
 
-    store.maxOnCartPage = Number(value);
+    updateURL('limit', value);
 
+    const page = getSearchParamValue('page');
+
+    const startingIndices = getStartingIndices(itemsLen, Number(value));
+
+    if (Number(page) > startingIndices.length) {
+      const query = startingIndices.length > 1 ? String(startingIndices.length) : '';
+      updateURL('page', query);
+    }
+
+    // Actions executed after navigation updates
+    // Store search params
+    storeSearchString('cart');
+
+    // Recursively rerender
     renderParent();
-
-    localStorage.setItem('aahh-rs-os-max', JSON.stringify(store.maxOnCartPage));
   };
 
   input.addEventListener('change', handleChange);

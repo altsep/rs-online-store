@@ -1,5 +1,5 @@
-import { store } from '../../constants';
-import { handleSearchParams } from '../../utility';
+import { store, INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
+import { getSearchParamValue, handleSearchParams } from '../../utility';
 import { createEmptyCartBtn } from './emptyCart';
 import { renderItems } from './items';
 import { createLimitItemAmountInput } from './limit';
@@ -12,8 +12,9 @@ import { renderPageNumbers } from './pages';
 function renderCart(): void {
   handleSearchParams('cart'); // Get the search query and update history on rendering this component
 
-  const { cart, maxOnCartPage } = store;
+  const { cart } = store;
   const items = Object.values(cart);
+  const limit = Number(getSearchParamValue('limit')) || INITIAL_ON_CART_PAGE_LIMIT;
 
   const cartNode = document.createElement('div');
   cartNode.className = 'cart';
@@ -39,13 +40,9 @@ function renderCart(): void {
 
   cartNode.append(content);
 
-  const startingCardsArr = items.map(({ id, title, amount }) => ({ id, title, amount })).slice(0, maxOnCartPage);
-
   if (items.length) {
     headingNode.after(controls);
   }
-
-  renderItems(content, startingCardsArr);
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');
 
