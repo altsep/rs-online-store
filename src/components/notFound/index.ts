@@ -1,9 +1,9 @@
-import { handleHistory } from "../../utility";
+import { handleHistory } from '../../utility';
 import errorImage from '../../assets/images/404.png';
 
 function renderNotFound(): void {
   const notFoundNode = document.createElement('div');
-  notFoundNode.className = 'wrapper not-found' ;
+  notFoundNode.className = 'wrapper not-found';
 
   const notFoundContainer = document.createElement('div');
   notFoundContainer.className = 'not-found__container';
@@ -20,16 +20,16 @@ function renderNotFound(): void {
   goHomebtn.className = 'btn go-home__btn';
   goHomebtn.textContent = 'Click here to go back to the HomePage';
 
-  notFoundContainer.append(errTitle, errMessage,  goHomebtn);
+  notFoundContainer.append(errTitle, errMessage, goHomebtn);
 
   const notFoundImage = document.createElement('img');
   notFoundImage.className = 'not-found__background';
   notFoundImage.src = errorImage;
   notFoundImage.alt = 'Not Found';
 
-  goHomebtn.onclick = () => {
+  goHomebtn.addEventListener('click', () => {
     handleHistory('/');
-  }
+  });
 
   notFoundNode.append(notFoundImage, notFoundContainer);
 

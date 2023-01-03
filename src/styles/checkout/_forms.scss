@@ -82,7 +82,7 @@
     width: calc(100% - 80px);
     @include mx.input-checkout;
   }
-  .field__error{
+  .field__error {
     @include error;
     right: 22px;
     top: 7px;
@@ -98,14 +98,12 @@
   margin: 10px;
 
   .card__valid,
-  .card__code{
+  .card__code {
     display: flex;
     @include mx.input-checkout;
     max-width: 100px;
   }
 }
-
-
 
 .checkout__submit_btn {
   width: 150px;
@@ -130,6 +128,5 @@
   &:disabled {
     background-color: v.$primary-color;
     color: v.$divider-color;
-
   }
 }

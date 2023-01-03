@@ -14,7 +14,7 @@ export function isPhoneValid(input: HTMLInputElement): boolean {
 }
 
 export function isEmailValid(input: HTMLInputElement): boolean {
-  const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]*)$/;
+  const reg = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+.([A-Za-z]*)$/;
   const email = input.value;
 
   return reg.test(email);

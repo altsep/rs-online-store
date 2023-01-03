@@ -11,7 +11,7 @@
 .hidden {
   display: none;
 }
-.lock{
+.lock {
   overflow: hidden;
 }
 .checkout__pop-up,
@@ -28,7 +28,7 @@
   top: -100%;
 }
 .checkout__pop-up.active,
-.submit-message__pop-up.active{
+.submit-message__pop-up.active {
   top: 0;
 }
 .checkout__pop-up_content {
@@ -46,9 +46,8 @@
   padding: 20px 0;
 }
 
-@media ( max-height: 485px) {
+@media (max-height: 485px) {
   .checkout__pop-up_content {
     height: 90vh;
   }
 }
-

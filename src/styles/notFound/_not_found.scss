@@ -14,19 +14,22 @@
   .err-title {
     margin: 0;
   }
+
   .err-message {
     color: v.$secondary-text-color;
     text-align: center;
   }
+
   .go-home__btn {
     background-color: v.$accent-color;
     margin: 10px auto;
   }
 }
+
 .not-found__background {
   display: flex;
-  height: 50vh;
-  width: 50vh;
+  width: 100%;
+  max-height: 50vh;
   margin: 20px auto;
   object-fit: contain;
 }
@@ -36,13 +39,15 @@
     display: flex;
     flex-direction: row-reverse;
   }
+
   .not-found__background {
     display: flex;
-    height: 90%;
+    max-height: 90%;
     width: auto;
     max-width: 50%;
     margin: 0 auto;
   }
+
   .not-found__container {
     gap: 20px;
   }
