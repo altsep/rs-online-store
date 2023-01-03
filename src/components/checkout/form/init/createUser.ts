@@ -1,6 +1,4 @@
-import { changeInputValidity } from '../validate/changeInputValidity';
 import { checkInputTel } from '../validate/checkInput';
-import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from '../validate/isUserValid';
 import { createField } from './createField';
 
 import { createFieldContainer } from './createFieldContainer';
@@ -15,20 +13,16 @@ export function createUser(parent: HTMLFormElement): void {
   UserContainer.append(personalDetails);
 
   const userName = createField('user-name', 'text', 'Name');
-  changeInputValidity(userName, isNameValid);
   createFieldContainer(UserContainer, userName);
 
   const userPhoneNumber = createField('phone-number', 'tel', 'Phone number');
   userPhoneNumber.onkeydown = checkInputTel;
-  changeInputValidity(userPhoneNumber, isPhoneValid);
   createFieldContainer(UserContainer, userPhoneNumber);
 
   const userAdress = createField('adress', 'text', 'Delivery adress');
-  changeInputValidity(userAdress, isAdressValid);
   createFieldContainer(UserContainer, userAdress);
 
   const userEmail = createField('email', 'email', 'E-mail');
-  changeInputValidity(userEmail, isEmailValid);
   createFieldContainer(UserContainer, userEmail);
 
   parent.append(UserContainer);

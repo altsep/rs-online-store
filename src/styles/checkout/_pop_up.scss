@@ -8,12 +8,15 @@
   border: 1px solid v.$divider-color;
   border-radius: 10px;
 }
+
 .hidden {
   display: none;
 }
-.lock{
+
+.lock {
   overflow: hidden;
 }
+
 .checkout__pop-up,
 .submit-message__pop-up {
   position: fixed;
@@ -27,10 +30,12 @@
   z-index: 100;
   top: -100%;
 }
+
 .checkout__pop-up.active,
-.submit-message__pop-up.active{
+.submit-message__pop-up.active {
   top: 0;
 }
+
 .checkout__pop-up_content {
   @include content;
   display: flex;
@@ -39,6 +44,7 @@
   flex-direction: column;
   overflow: auto;
 }
+
 .submit-message {
   @include content;
   display: block;
@@ -46,9 +52,8 @@
   padding: 20px 0;
 }
 
-@media ( max-height: 485px) {
+@media (max-height: 485px) {
   .checkout__pop-up_content {
     height: 90vh;
   }
 }
-

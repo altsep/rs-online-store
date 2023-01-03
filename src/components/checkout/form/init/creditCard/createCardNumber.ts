@@ -1,6 +1,4 @@
-import { changeInputValidity } from '../../validate/changeInputValidity';
 import { checkInputNumber } from '../../validate/checkInput';
-import { isCardNumberValid } from '../../validate/isCardValid';
 import { createField } from '../createField';
 
 export function createCardNumber(): HTMLInputElement {
@@ -15,8 +13,6 @@ export function createCardNumber(): HTMLInputElement {
     }
     cardNumber.value = val.join('');
   });
-
-  changeInputValidity(cardNumber, isCardNumberValid);
 
   return cardNumber;
 }

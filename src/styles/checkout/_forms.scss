@@ -88,7 +88,6 @@
   display: flex;
   width: calc(100% - 80px);
   font-size: 0.9rem;
-
 }
 
 .card__number.field__error {
@@ -96,13 +95,16 @@
   right: 25px;
 }
 
-
 .card-add_container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   gap: 10px;
   margin: 10px;
+}
+.card__valid,
+.card__code {
+  font-size: 0.8rem;
 }
 
 .checkout__submit_btn {
@@ -128,7 +130,6 @@
   &:disabled {
     background-color: v.$primary-color;
     color: v.$divider-color;
-
   }
 }
 
@@ -140,5 +141,10 @@
   .card__number.field__error {
     font-size: 1rem;
     right: 25px;
+  }
+
+  .card__valid,
+  .card__code {
+    font-size: 1rem;
   }
 }

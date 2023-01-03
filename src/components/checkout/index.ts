@@ -17,7 +17,7 @@ function renderCheckout(): void {
 
   const submitMessage = createSubmitMessage();
   const checkoutForm = createForm(checkoutContent);
-  const submitBtn = createSubmitButton(checkoutForm);
+  createSubmitButton(checkoutForm);
 
   checkoutNode.append(checkoutContent, submitMessage);
 
@@ -31,13 +31,11 @@ function renderCheckout(): void {
     parentNode.append(checkoutNode);
   }
 
-  // checkoutForm.addEventListener('change', (e) => {
-  //   submitBtn.disabled = !isFormValid();
-  // });
-  // submitBtn.disabled = !isFormValid();
   checkoutForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    closeModal();
+    if (isFormValid()) {
+      closeModal();
+    }
   });
 }
 

@@ -1,7 +1,7 @@
 import cardPlaceholder from '../../../img/cardPlaceholder.svg';
 import visaLogo from '../../../img/visaLogo.svg';
 import masterCardLogo from '../../../img/mastercardLogo.svg';
-import mirLogo from '../../../img/mirLogo.svg';
+import amExpressLogo from '../../../img/americanExpress.svg';
 
 export function createCardLogo(card: HTMLInputElement): HTMLImageElement {
   let sistemID = card.value[0];
@@ -13,8 +13,8 @@ export function createCardLogo(card: HTMLInputElement): HTMLImageElement {
     const target = e.target as HTMLInputElement;
     sistemID = target?.value[0];
     switch (sistemID) {
-      case '2': {
-        logo.src = mirLogo;
+      case '3': {
+        logo.src = amExpressLogo;
         break;
       }
       case '4': {

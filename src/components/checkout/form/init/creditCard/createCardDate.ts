@@ -1,6 +1,4 @@
-import { changeInputValidity } from '../../validate/changeInputValidity';
 import { checkInputNumber } from '../../validate/checkInput';
-import { isExpirationDateValid } from '../../validate/isCardValid';
 import { createField } from '../createField';
 
 export function createCardDate(): HTMLInputElement {
@@ -14,8 +12,6 @@ export function createCardDate(): HTMLInputElement {
     }
     cardExpirationDate.value = val.join('');
   });
-
-  changeInputValidity(cardExpirationDate, isExpirationDateValid);
 
   return cardExpirationDate;
 }

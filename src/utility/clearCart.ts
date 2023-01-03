@@ -1,5 +1,4 @@
 import { store } from '../constants';
-import { handleHistory } from '.';
 import { updateCartCount } from '../components/header/updateCartCount';
 import { storeCartProps } from '../components/products/item/controls';
 
