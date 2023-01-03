@@ -1,5 +1,5 @@
 import { handleHistory } from '../../utility';
-import { clearCart } from '../../utility/clearCart';
+import { clearCart } from './clearCart';
 import { closePopUp } from './popUpToggle';
 import { timer } from './timer';
 
