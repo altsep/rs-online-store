@@ -2,16 +2,23 @@ import { checkInputNumber } from '../../validate/checkInput';
 import { createField } from '../createField';
 
 export function createCardDate(): HTMLInputElement {
-  const cardExpirationDate = createField('card__valid', 'tel', 'MM / YY');
-  cardExpirationDate.maxLength = 7;
-  cardExpirationDate.onkeydown = checkInputNumber;
-  cardExpirationDate.addEventListener('keydown', (e: KeyboardEvent) => {
-    const val = cardExpirationDate.value.split('');
-    if (val.length === 2 && e.key !== 'Backspace') {
-      val.push(' / ');
+  const cardExpirationDate = createField('card__valid', 'text', 'MM / YY');
+
+  const onKeyDown = (e: KeyboardEvent): void => {
+    const { value } = e.target as HTMLInputElement;
+    const isAlphanumericKey = /^\w$/.test(e.key);
+
+    if (!checkInputNumber(e) || (value.replace(/\D/g, '').length > 3 && isAlphanumericKey)) {
+      e.preventDefault();
     }
-    cardExpirationDate.value = val.join('');
-  });
+
+    if (value.length === 2 && isAlphanumericKey) {
+      const separator = ' / ';
+      cardExpirationDate.value += separator;
+    }
+  };
+
+  cardExpirationDate.addEventListener('keydown', onKeyDown);
 
   return cardExpirationDate;
 }
