@@ -1,6 +1,5 @@
-// import { Props } from '../../constants';
 import { handleHistory } from '../../utility';
-import { clearCart } from './clearCart';
+import { clearCart } from '../../utility/clearCart';
 import { closePopUp } from './popUpToggle';
 import { timer } from './timer';
 
@@ -12,6 +11,7 @@ export function closeModal(): void {
 
   if (checkoutContent) {
     clearCart();
+    handleHistory('/cart');
     timer();
     setTimeout(() => {
       closePopUp();

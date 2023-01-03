@@ -14,20 +14,20 @@ export function createUser(parent: HTMLFormElement): void {
   personalDetails.textContent = 'Personal details';
   UserContainer.append(personalDetails);
 
-  const userName = createField('checkout__input user-name', 'text', 'Name');
+  const userName = createField('user-name', 'text', 'Name');
   changeInputValidity(userName, isNameValid);
   createFieldContainer(UserContainer, userName);
 
-  const userPhoneNumber = createField('checkout__input phone-number', 'tel', 'Phone number');
+  const userPhoneNumber = createField('phone-number', 'tel', 'Phone number');
   userPhoneNumber.onkeydown = checkInputTel;
   changeInputValidity(userPhoneNumber, isPhoneValid);
   createFieldContainer(UserContainer, userPhoneNumber);
 
-  const userAdress = createField('checkout__input adress', 'text', 'Delivery adress');
+  const userAdress = createField('adress', 'text', 'Delivery adress');
   changeInputValidity(userAdress, isAdressValid);
   createFieldContainer(UserContainer, userAdress);
 
-  const userEmail = createField('checkout__input email', 'email', 'E-mail');
+  const userEmail = createField('email', 'email', 'E-mail');
   changeInputValidity(userEmail, isEmailValid);
   createFieldContainer(UserContainer, userEmail);
 

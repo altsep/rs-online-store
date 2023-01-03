@@ -13,7 +13,6 @@ export function createCardNumber(): HTMLInputElement {
     if ((val.length === 4 || val.length === 9 || val.length === 14) && e.key !== 'Backspace') {
       val.push(' ');
     }
-    console.log(cardNumber.value.length);
     cardNumber.value = val.join('');
   });
 

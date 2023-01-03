@@ -1,6 +1,7 @@
-import { store } from '../../constants';
-import { handleHistory } from '../../utility';
-import { updateCartCount } from '../header/updateCartCount';
+import { store } from '../constants';
+import { handleHistory } from '.';
+import { updateCartCount } from '../components/header/updateCartCount';
+import { storeCartProps } from '../components/products/item/controls';
 
 export function clearCart(): void {
   const { cart } = store;
@@ -11,6 +12,6 @@ export function clearCart(): void {
 
   store.itemsInCart = 0;
   store.totalSum = 0;
-  handleHistory('/cart');
   updateCartCount();
+  storeCartProps();
 }
