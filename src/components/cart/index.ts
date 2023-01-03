@@ -5,10 +5,6 @@ import { renderItems } from './items';
 import { createLimitItemAmountInput } from './limit';
 import { renderPageNumbers } from './pages';
 
-// TODO
-// store max items setting and page number in url
-// make font size adaptive
-
 function renderCart(): void {
   handleSearchParams('cart'); // Get the search query and update history on rendering this component
 
