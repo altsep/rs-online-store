@@ -4,9 +4,10 @@ import { storeCartProps } from '../products/item/controls';
 
 export function clearCart(): void {
   const { cart } = store;
-  const props = Object.getOwnPropertyNames(cart);
-  props.forEach((pr) => {
-    delete cart[pr];
+  const propNames = Object.getOwnPropertyNames(cart);
+
+  propNames.forEach((name) => {
+    delete cart[name];
   });
 
   store.itemsInCart = 0;
