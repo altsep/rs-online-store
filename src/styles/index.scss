@@ -80,6 +80,8 @@ a {
 
 input[type='text'],
 input[type='number'],
+input[type='tel'],
+input[type='email'],
 select {
   @include mx.input-text;
 }
