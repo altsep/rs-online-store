@@ -1,28 +1,45 @@
 import { store, styles, Product } from '../../constants';
+import { breadCrumbs } from './breadCrumbs';
+import { getProductId } from './getProductId';
+import { createProduct } from './product';
 
 function renderDetails(): void {
   const detailsNode = document.createElement('div');
   detailsNode.className = 'details';
 
-  const { pathname } = window.location;
+  const id = getProductId();
 
-  const matchArr = pathname.match(/\d+$/);
+  const navigateNode = breadCrumbs(id);
+  // navigateNode.className = 'prod__navigate';
 
-  const headingNode = document.createElement('h2');
-  headingNode.className = 'details-heading heading';
+  const productNode = createProduct(id);
+  productNode.className = 'prod__product';
 
-  const textNode = document.createElement('p');
-  textNode.className = 'details-text';
-  Object.assign(textNode.style, styles.json);
+  // Object.assign(textNode.style, styles.json);
+  // if (matchArr) {
+  //   const id = Number(matchArr[0]);
+  //   const item = store.products.find((pr: Product) => pr.id === id);
+  //   headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
+  //   textNode.textContent = `${item ? JSON.stringify(item, null, 4) : ''}`;
+  //   breadCrumbs(id);
+  //   createProduct(id);
+  // }
 
-  if (matchArr) {
-    const id = Number(matchArr[0]);
-    const item = store.products.find((pr: Product) => pr.id === id);
-    headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
-    textNode.textContent = `${item ? JSON.stringify(item, null, 4) : ''}`;
-  }
+  // interface Product {
+  //   id: number;
+  //   title: string;
+  //   description: string;
+  //   price: number;
+  //   discountPercentage: number;
+  //   rating: number;
+  //   stock: number;
+  //   brand: string;
+  //   category: string;
+  //   thumbnail: string;
+  //   images: string[];
+  // }
 
-  detailsNode.append(headingNode, textNode);
+  detailsNode.append(navigateNode, productNode);
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');
 
