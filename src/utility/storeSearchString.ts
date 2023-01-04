@@ -1,1 +1,2 @@
-export const storeSearchString = (): void => localStorage.setItem('aahh-rs-os-search', window.location.search);
+export const storeSearchString = (name: string): void =>
+  localStorage.setItem(`aahh-rs-os-search-${name}`, window.location.search);

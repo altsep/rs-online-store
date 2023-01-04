@@ -4,7 +4,7 @@ import { onReset } from './onReset';
 
 function handleForm(form: HTMLFormElement): void {
   // Store search string in localStorage on change in any element in the list
-  form.addEventListener('change', storeSearchString);
+  form.addEventListener('change', () => storeSearchString('products'));
 
   // Rerender cards on input registered in the form element
   form.addEventListener('input', onInput);

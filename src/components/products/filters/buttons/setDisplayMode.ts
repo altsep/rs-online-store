@@ -20,6 +20,6 @@ export const setDisplayMode = (isDefault = false): void => {
     target.value = `Display: ${btnValue}`;
 
     updateURL('display', query);
-    storeSearchString();
+    storeSearchString('products');
   }
 };
