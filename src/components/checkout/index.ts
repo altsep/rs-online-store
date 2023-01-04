@@ -37,6 +37,8 @@ function renderCheckout(): void {
       closeModal();
     }
   });
+
+  checkoutForm.querySelectorAll<HTMLInputElement>('input').forEach((el) => el.classList.add('input-text'));
 }
 
 export { renderCheckout };

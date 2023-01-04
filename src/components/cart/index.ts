@@ -41,7 +41,7 @@ function renderCart(): void {
 
   // temporary solution for checkout page testing
   const buyNowBtn = document.createElement('button');
-  buyNowBtn.textContent = 'Buy Now';
+  buyNowBtn.textContent = 'Buy now';
   buyNowBtn.className = 'btn';
   buyNowBtn.style.marginTop = '20px';
 

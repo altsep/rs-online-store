@@ -11,6 +11,10 @@
 @use 'checkout';
 @use 'notFound';
 
+#root {
+  font-size: 1.5rem;
+}
+
 .wrapper {
   display: flex;
   width: 90%;
@@ -23,7 +27,6 @@
   top: 80px;
   max-width: 1024px;
   margin: 0 auto;
-  font-size: 1.5rem;
 }
 
 a {
@@ -82,12 +85,10 @@ a {
   color: #8e8e8e;
 }
 
-input[type='text'],
-input[type='number'],
-input[type='tel'],
-input[type='email'],
-select {
+.input-text {
   @include mx.input-text;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -98,6 +99,11 @@ select {
 
   .btn {
     padding: 0.75rem 1.25rem;
+  }
+
+  .input-text {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 
