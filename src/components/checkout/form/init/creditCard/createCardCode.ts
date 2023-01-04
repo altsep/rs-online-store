@@ -5,7 +5,14 @@ export function createCardCode(): HTMLInputElement {
   const cardCode = createField('card__code', 'tel', 'CVV / CVC');
   cardCode.maxLength = 3;
   cardCode.minLength = 3;
-  cardCode.addEventListener('keydown', checkInputNumber);
+
+  const onKeyDown = (e: KeyboardEvent): void => {
+    if (!checkInputNumber(e)) {
+      e.preventDefault();
+    }
+  };
+
+  cardCode.addEventListener('keydown', onKeyDown);
 
   return cardCode;
 }
