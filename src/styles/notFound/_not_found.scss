@@ -5,6 +5,7 @@
   flex-direction: column;
   height: calc(100vh - 100px);
 }
+
 .not-found__container {
   display: flex;
   flex-direction: column;
@@ -21,7 +22,6 @@
   }
 
   .go-home__btn {
-    background-color: v.$accent-color;
     margin: 10px auto;
   }
 }
