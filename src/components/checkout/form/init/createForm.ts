@@ -11,13 +11,19 @@ export function createForm(parent: HTMLDivElement): HTMLFormElement {
 
   parent.append(checkoutForm);
 
-  const inputs = checkoutForm.querySelectorAll('input');
+  const handleChange = (e: Event): void => {
+    if (e.target instanceof HTMLInputElement) {
+      const { value, type } = e.target;
 
-  inputs?.forEach((input) => {
-    input.addEventListener('change', () => {
-      changeInputValidity(input);
-    });
-  });
+      if (type === 'text') {
+        e.target.value = value.trim();
+      }
+
+      changeInputValidity(e.target);
+    }
+  };
+
+  checkoutForm.addEventListener('change', handleChange);
 
   return checkoutForm;
 }
