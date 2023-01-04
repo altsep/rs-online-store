@@ -40,12 +40,14 @@ function renderCart(): void {
   }
 
   // temporary solution for checkout page testing
-  const button = document.createElement('button');
-  button.textContent = 'buy now';
-  cartNode.append(button);
-  button.addEventListener('click', () => {
-    openPopUp();
-  });
+  const buyNowBtn = document.createElement('button');
+  buyNowBtn.textContent = 'Buy Now';
+  buyNowBtn.className = 'btn';
+  buyNowBtn.style.marginTop = '20px';
+
+  cartNode.append(buyNowBtn);
+
+  buyNowBtn.addEventListener('click', openPopUp);
 
   // ---------
 

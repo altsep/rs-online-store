@@ -122,11 +122,11 @@
     background-color: v.$accent-color;
     color: v.$primary-text-color;
   }
+
   &:active {
     background-color: v.$primary-text-color;
-    color: v.$accent-color;
-    transform: scale(0.9);
   }
+
   &:disabled {
     background-color: v.$primary-color;
     color: v.$divider-color;

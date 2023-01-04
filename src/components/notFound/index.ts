@@ -17,8 +17,8 @@ function renderNotFound(): void {
   errMessage.textContent = 'The page you are looking for is unavailable';
 
   const goHomebtn = document.createElement('button');
-  goHomebtn.className = 'btn go-home__btn';
-  goHomebtn.textContent = 'Click here to go back to the HomePage';
+  goHomebtn.className = 'btn go-home__btn btn accented';
+  goHomebtn.textContent = 'Home';
 
   notFoundContainer.append(errTitle, errMessage, goHomebtn);
 
@@ -27,9 +27,7 @@ function renderNotFound(): void {
   notFoundImage.src = errorImage;
   notFoundImage.alt = 'Not Found';
 
-  goHomebtn.addEventListener('click', () => {
-    handleHistory('/');
-  });
+  goHomebtn.addEventListener('click', () => handleHistory('/'));
 
   notFoundNode.append(notFoundImage, notFoundContainer);
 
