@@ -8,7 +8,9 @@ export function createCardDate(): HTMLInputElement {
     const { value } = e.target as HTMLInputElement;
     const isAlphanumChar = (key: string): boolean => /^\w$/.test(key);
 
-    if (!checkInputNumber(e) || (value.replace(/\D/g, '').length > 3 && isAlphanumChar(e.key))) {
+    const selected = getSelection()?.toString().length;
+
+    if (!checkInputNumber(e) || (value.replace(/\D/g, '').length > 3 && isAlphanumChar(e.key) && !selected)) {
       e.preventDefault();
     }
 
