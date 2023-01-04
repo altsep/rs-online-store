@@ -10,7 +10,7 @@ export function createCardDate(): HTMLInputElement {
 
     const selected = getSelection()?.toString().length;
 
-    if (!checkInputNumber(e) || (value.replace(/\D/g, '').length > 3 && isAlphanumChar(e.key) && !selected)) {
+    if (!checkInputNumber(e.key) || (value.replace(/\D/g, '').length > 3 && isAlphanumChar(e.key) && !selected)) {
       e.preventDefault();
     }
 

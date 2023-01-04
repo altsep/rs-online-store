@@ -7,7 +7,7 @@ export function createCardCode(): HTMLInputElement {
   cardCode.minLength = 3;
 
   const onKeyDown = (e: KeyboardEvent): void => {
-    if (!checkInputNumber(e)) {
+    if (!checkInputNumber(e.key)) {
       e.preventDefault();
     }
   };
