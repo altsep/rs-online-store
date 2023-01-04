@@ -9,6 +9,7 @@
 @use 'details';
 @use 'cart';
 @use 'checkout';
+@use 'notFound';
 
 .wrapper {
   display: flex;
@@ -60,17 +61,19 @@ a {
   }
 
   &:focus {
-    /* Offsetted ring style composition taken from
-     * https://tailwindcss.com/docs/ring-width#adding-a-ring
-     * */
-    $ring-inset: 0;
-    $ring-offset-width: 2px;
-    $ring-offset-color: #f8fafc;
-    $ring-opacity: 0.3;
-    $ring-color: rgba(56, 68, 94, $ring-opacity);
-    $ring-offset-shadow: $ring-inset 0 0 $ring-offset-width $ring-offset-color;
-    $ring-shadow: $ring-inset 0 0 calc(2px + $ring-offset-width) $ring-color;
-    box-shadow: $ring-offset-shadow, $ring-shadow;
+    @include mx.ring-offset;
+  }
+}
+
+.btn.accented {
+  background-color: v.$accent-color;
+
+  &:hover {
+    background-color: v.$accent-color-transparent;
+  }
+
+  &:active {
+    background-color: v.$accent-color;
   }
 }
 

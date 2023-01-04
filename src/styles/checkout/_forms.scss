@@ -109,8 +109,6 @@
 
 .checkout__submit_btn {
   width: 150px;
-  background: v.$accent-color;
-  color: v.$primary-text-color;
   border-radius: 0.5rem;
   border: 1px solid v.$primary-text-color;
   text-transform: uppercase;
@@ -118,15 +116,6 @@
   padding: 5px;
   margin: 10px;
 
-  &:hover {
-    background-color: v.$accent-color;
-    color: v.$primary-text-color;
-  }
-  &:active {
-    background-color: v.$primary-text-color;
-    color: v.$accent-color;
-    transform: scale(0.9);
-  }
   &:disabled {
     background-color: v.$primary-color;
     color: v.$divider-color;
