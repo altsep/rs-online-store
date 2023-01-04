@@ -1,6 +1,4 @@
-import { changeInputValidity } from '../validate/changeInputValidity';
-import { checkInputTel } from '../validate/checkInput';
-import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from '../validate/isUserValid';
+import { checkInputNumber } from '../validate/checkInput';
 import { createField } from './createField';
 
 import { createFieldContainer } from './createFieldContainer';
@@ -14,21 +12,22 @@ export function createUser(parent: HTMLFormElement): void {
   personalDetails.textContent = 'Personal details';
   UserContainer.append(personalDetails);
 
-  const userName = createField('checkout__input user-name', 'text', 'Name');
-  changeInputValidity(userName, isNameValid);
+  const userName = createField('user-name', 'text', 'Name');
   createFieldContainer(UserContainer, userName);
 
-  const userPhoneNumber = createField('checkout__input phone-number', 'tel', 'Phone number');
-  userPhoneNumber.onkeydown = checkInputTel;
-  changeInputValidity(userPhoneNumber, isPhoneValid);
+  const userPhoneNumber = createField('phone-number', 'tel', 'Phone number');
+  userPhoneNumber.addEventListener('keydown', (e: KeyboardEvent) => {
+    const { value } = e.target as HTMLInputElement;
+    if (!checkInputNumber(e.key, '+') || (value.length && e.key === '+')) {
+      e.preventDefault();
+    }
+  });
   createFieldContainer(UserContainer, userPhoneNumber);
 
-  const userAdress = createField('checkout__input adress', 'text', 'Delivery adress');
-  changeInputValidity(userAdress, isAdressValid);
+  const userAdress = createField('adress', 'text', 'Delivery adress');
   createFieldContainer(UserContainer, userAdress);
 
-  const userEmail = createField('checkout__input email', 'email', 'E-mail');
-  changeInputValidity(userEmail, isEmailValid);
+  const userEmail = createField('email', 'email', 'E-mail');
   createFieldContainer(UserContainer, userEmail);
 
   parent.append(UserContainer);

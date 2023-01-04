@@ -7,6 +7,7 @@ export function openPopUp(): void {
   const submitMessage = document.querySelector<HTMLDivElement>('.submit-message');
   submitMessage?.classList.add('hidden');
 }
+
 export function closePopUp(): void {
   const popUp = document.querySelector<HTMLDivElement>('.checkout__pop-up');
   document.querySelector('#root')?.classList.remove('lock');

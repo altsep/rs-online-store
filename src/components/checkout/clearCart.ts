@@ -1,16 +1,17 @@
 import { store } from '../../constants';
-import { handleHistory } from '../../utility';
 import { updateCartCount } from '../header/updateCartCount';
+import { storeCartProps } from '../products/item/controls';
 
 export function clearCart(): void {
   const { cart } = store;
-  const props = Object.getOwnPropertyNames(cart);
-  props.forEach((pr) => {
-    delete cart[pr];
+  const propNames = Object.getOwnPropertyNames(cart);
+
+  propNames.forEach((name) => {
+    delete cart[name];
   });
 
   store.itemsInCart = 0;
   store.totalSum = 0;
-  handleHistory('/cart');
   updateCartCount();
+  storeCartProps();
 }

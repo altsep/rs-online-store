@@ -32,18 +32,22 @@
     text-align: center;
   }
 }
+
 .checkout__input {
   @include mx.input-checkout;
   display: flex;
   width: 100%;
 }
+
 .field__container {
   display: flex;
   position: relative;
 }
+
 .field__error {
   @include error;
 }
+
 .card-details {
   display: flex;
   flex-direction: column;
@@ -56,10 +60,12 @@
   padding: 10px 0;
   margin: 0 auto;
 }
+
 .card__title {
   margin: 10px;
   text-align: center;
 }
+
 .card-number__container {
   display: flex;
   width: 100%;
@@ -76,18 +82,17 @@
     border: 1px solid v.$dark-primary-color;
     overflow: hidden;
   }
+}
 
-  .card__number {
-    display: flex;
-    width: calc(100% - 80px);
-    @include mx.input-checkout;
-  }
-  .field__error {
-    @include error;
-    right: 22px;
-    top: 7px;
-    font-size: 0.8rem;
-  }
+.checkout__input.card__number {
+  display: flex;
+  width: calc(100% - 80px);
+  font-size: 0.9rem;
+}
+
+.card__number.field__error {
+  font-size: 0.8rem;
+  right: 25px;
 }
 
 .card-add_container {
@@ -96,13 +101,10 @@
   justify-content: space-around;
   gap: 10px;
   margin: 10px;
-
-  .card__valid,
-  .card__code {
-    display: flex;
-    @include mx.input-checkout;
-    max-width: 100px;
-  }
+}
+.card__valid,
+.card__code {
+  font-size: 0.8rem;
 }
 
 .checkout__submit_btn {
@@ -128,5 +130,21 @@
   &:disabled {
     background-color: v.$primary-color;
     color: v.$divider-color;
+  }
+}
+
+@media (min-width: 600px) {
+  .checkout__input.card__number {
+    font-size: 1rem;
+  }
+
+  .card__number.field__error {
+    font-size: 1rem;
+    right: 25px;
+  }
+
+  .card__valid,
+  .card__code {
+    font-size: 1rem;
   }
 }

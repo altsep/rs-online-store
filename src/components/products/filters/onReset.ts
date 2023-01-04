@@ -21,5 +21,5 @@ export const onReset = (): void => {
 
   // Navigation
   window.history.replaceState({}, '', pathname);
-  storeSearchString();
+  storeSearchString('products');
 };

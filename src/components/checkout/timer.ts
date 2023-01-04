@@ -7,7 +7,6 @@ export function timer(): void {
     const timerId = setInterval(() => {
       timerContent.textContent = `${i.toString()} s.`;
       i -= 1;
-      console.log(i);
     }, 1000);
     setTimeout(() => {
       clearInterval(timerId);

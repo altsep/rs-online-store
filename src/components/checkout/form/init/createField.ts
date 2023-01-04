@@ -1,6 +1,7 @@
 export function createField(className: string, type: string, name: string): HTMLInputElement {
   const field = document.createElement('input');
-  field.className = className;
+  field.className = 'checkout__input';
+  field.classList.add(className);
   field.name = className;
   field.type = type;
   field.placeholder = name;
@@ -8,10 +9,10 @@ export function createField(className: string, type: string, name: string): HTML
   return field;
 }
 
-export function errorField(input: HTMLInputElement): HTMLLabelElement {
-  const fieldError = document.createElement('label');
-  fieldError.className = 'field__error hidden';
-  fieldError.htmlFor = input.name;
+export function errorField(input: HTMLInputElement): HTMLSpanElement {
+  const fieldError = document.createElement('span');
+  fieldError.className = input.name;
+  fieldError.classList.add('field__error', 'hidden');
   fieldError.textContent = 'error';
 
   return fieldError;

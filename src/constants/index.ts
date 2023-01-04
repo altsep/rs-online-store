@@ -56,4 +56,6 @@ const ROOT_PATH = '/products';
 
 const INITIAL_PRODUCTS = Object.freeze(tempProductsData.slice());
 
-export { ROOT_PATH, INITIAL_PRODUCTS, store, styles };
+const INITIAL_ON_CART_PAGE_LIMIT = 4;
+
+export { ROOT_PATH, INITIAL_PRODUCTS, INITIAL_ON_CART_PAGE_LIMIT, store, styles };
