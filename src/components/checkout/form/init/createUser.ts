@@ -17,7 +17,7 @@ export function createUser(parent: HTMLFormElement): void {
 
   const userPhoneNumber = createField('phone-number', 'tel', 'Phone number');
   userPhoneNumber.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (!checkInputTel) {
+    if (!checkInputTel(e)) {
       e.preventDefault();
     }
   });
