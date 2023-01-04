@@ -1,20 +1,15 @@
-import { store, INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
-import { getSearchParamValue, handleSearchParams } from '../../utility';
+import { store } from '../../constants';
+import { handleSearchParams } from '../../utility';
 import { createEmptyCartBtn } from './emptyCart';
-import { renderItems } from './items';
 import { createLimitItemAmountInput } from './limit';
 import { renderPageNumbers } from './pages';
-
-// TODO
-// store max items setting and page number in url
-// make font size adaptive
+import { openPopUp } from '../checkout/popUpToggle';
 
 function renderCart(): void {
   handleSearchParams('cart'); // Get the search query and update history on rendering this component
 
   const { cart } = store;
   const items = Object.values(cart);
-  const limit = Number(getSearchParamValue('limit')) || INITIAL_ON_CART_PAGE_LIMIT;
 
   const cartNode = document.createElement('div');
   cartNode.className = 'cart';
@@ -43,6 +38,16 @@ function renderCart(): void {
   if (items.length) {
     headingNode.after(controls);
   }
+
+  // temporary solution for checkout page testing
+  const button = document.createElement('button');
+  button.textContent = 'buy now';
+  cartNode.append(button);
+  button.addEventListener('click', () => {
+    openPopUp();
+  });
+
+  // ---------
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');
 

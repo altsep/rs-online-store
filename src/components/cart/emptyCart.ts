@@ -1,6 +1,4 @@
-import { store } from '../../constants';
-import { updateCartCount } from '../header/updateCartCount';
-import { storeCartProps } from '../products/item/controls';
+import { clearCart } from '../checkout/clearCart';
 
 function createEmptyCartBtn(renderParent: () => void): HTMLInputElement {
   const emptyCartBtn = document.createElement('input');
@@ -9,11 +7,7 @@ function createEmptyCartBtn(renderParent: () => void): HTMLInputElement {
   emptyCartBtn.value = 'Empty cart';
 
   emptyCartBtn.addEventListener('click', () => {
-    store.cart = {};
-    store.itemsInCart = 0;
-    store.totalSum = 0;
-    updateCartCount();
-    storeCartProps();
+    clearCart();
     renderParent();
   });
 
