@@ -1,0 +1,59 @@
+@use '../vars' as v;
+
+@mixin content {
+  width: 60%;
+  min-width: 290px;
+  max-width: 700px;
+  background-color: v.$light-gray;
+  border: 1px solid v.$divider-color;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.lock {
+  overflow: hidden;
+}
+
+.checkout__pop-up,
+.submit-message__pop-up {
+  position: fixed;
+  background-color: rgba(1, 1, 1, 0.7);
+  backdrop-filter: blur(2px);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  top: -100%;
+}
+
+.checkout__pop-up.active,
+.submit-message__pop-up.active {
+  top: 0;
+}
+
+.checkout__pop-up_content {
+  @include content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.submit-message {
+  @include content;
+  display: block;
+  text-align: center;
+  padding: 20px 0;
+}
+
+@media (max-height: 485px) {
+  .checkout__pop-up_content {
+    height: 90vh;
+  }
+}

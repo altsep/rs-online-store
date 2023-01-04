@@ -1,16 +1,15 @@
-import { store, INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
-import { getSearchParamValue, handleSearchParams } from '../../utility';
+import { store } from '../../constants';
+import { handleSearchParams } from '../../utility';
 import { createEmptyCartBtn } from './emptyCart';
-import { renderItems } from './items';
 import { createLimitItemAmountInput } from './limit';
 import { renderPageNumbers } from './pages';
+import { openPopUp } from '../checkout/popUpToggle';
 
 function renderCart(): void {
   handleSearchParams('cart'); // Get the search query and update history on rendering this component
 
   const { cart } = store;
   const items = Object.values(cart);
-  const limit = Number(getSearchParamValue('limit')) || INITIAL_ON_CART_PAGE_LIMIT;
 
   const cartNode = document.createElement('div');
   cartNode.className = 'cart';
@@ -39,6 +38,18 @@ function renderCart(): void {
   if (items.length) {
     headingNode.after(controls);
   }
+
+  // temporary solution for checkout page testing
+  const buyNowBtn = document.createElement('button');
+  buyNowBtn.textContent = 'Buy Now';
+  buyNowBtn.className = 'btn';
+  buyNowBtn.style.marginTop = '20px';
+
+  cartNode.append(buyNowBtn);
+
+  buyNowBtn.addEventListener('click', openPopUp);
+
+  // ---------
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');
 
