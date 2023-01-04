@@ -1,23 +1,13 @@
-export const checkInputNumber = (e: KeyboardEvent): boolean => {
-  const { key } = e;
-  return (
-    (key >= '0' && key <= '9') ||
-    key === 'ArrowLeft' ||
-    key === 'ArrowRight' ||
-    key === 'Delete' ||
-    key === 'Backspace' ||
-    key === 'Tab'
-  );
-};
-export const checkInputTel = (e: KeyboardEvent): boolean => {
-  const { key } = e;
-  return (
-    (key >= '0' && key <= '9') ||
-    key === 'ArrowLeft' ||
-    key === '+' ||
-    key === 'ArrowRight' ||
-    key === 'Delete' ||
-    key === 'Backspace' ||
-    key === 'Tab'
-  );
+export const checkInputNumber = (key: string, ...exceptionArgs: string[]): boolean => {
+  const keys = ['ArrowLeft', 'ArrowRight', 'Delete', 'Backspace', 'Tab'];
+
+  for (let i = 0; i < 10; i += 1) {
+    keys.push(String(i));
+  }
+
+  if (exceptionArgs.length) {
+    keys.push(...exceptionArgs);
+  }
+
+  return keys.includes(key);
 };

@@ -6,7 +6,7 @@ export function createCardNumber(): HTMLInputElement {
   cardNumber.maxLength = 19;
 
   cardNumber.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (!checkInputNumber(e)) {
+    if (!checkInputNumber(e.key)) {
       e.preventDefault();
     }
 

@@ -1,4 +1,4 @@
-import { checkInputTel } from '../validate/checkInput';
+import { checkInputNumber } from '../validate/checkInput';
 import { createField } from './createField';
 
 import { createFieldContainer } from './createFieldContainer';
@@ -17,7 +17,8 @@ export function createUser(parent: HTMLFormElement): void {
 
   const userPhoneNumber = createField('phone-number', 'tel', 'Phone number');
   userPhoneNumber.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (!checkInputTel(e)) {
+    const { value } = e.target as HTMLInputElement;
+    if (!checkInputNumber(e.key, '+') || (value.length && e.key === '+')) {
       e.preventDefault();
     }
   });
