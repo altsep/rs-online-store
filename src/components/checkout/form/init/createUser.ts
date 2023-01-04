@@ -16,7 +16,11 @@ export function createUser(parent: HTMLFormElement): void {
   createFieldContainer(UserContainer, userName);
 
   const userPhoneNumber = createField('phone-number', 'tel', 'Phone number');
-  userPhoneNumber.onkeydown = checkInputTel;
+  userPhoneNumber.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (!checkInputTel) {
+      e.preventDefault();
+    }
+  });
   createFieldContainer(UserContainer, userPhoneNumber);
 
   const userAdress = createField('adress', 'text', 'Delivery adress');
