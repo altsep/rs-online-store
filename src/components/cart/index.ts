@@ -1,4 +1,5 @@
 import { store, styles } from '../../constants';
+import { openPopUp } from '../checkout/popUpToggle';
 
 function renderCart(): void {
   const cartNode = document.createElement('div');
@@ -14,6 +15,16 @@ function renderCart(): void {
   content.textContent = JSON.stringify(store.cart, null, 4);
 
   cartNode.append(headingNode, content);
+
+  // temporary solution for checkout page testing
+  const button = document.createElement('button');
+  button.textContent = 'buy now';
+  cartNode.append(button);
+  button.addEventListener('click', () => {
+    openPopUp();
+  });
+
+  // ---------
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');
 
