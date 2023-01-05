@@ -35,21 +35,20 @@ function renderCart(): void {
 
   cartNode.append(content);
 
-  if (items.length) {
-    headingNode.after(controls);
-  }
-
   // temporary solution for checkout page testing
   const buyNowBtn = document.createElement('button');
   buyNowBtn.textContent = 'Buy now';
   buyNowBtn.className = 'btn';
   buyNowBtn.style.marginTop = '20px';
 
-  cartNode.append(buyNowBtn);
-
   buyNowBtn.addEventListener('click', openPopUp);
 
   // ---------
+
+  if (items.length) {
+    headingNode.after(controls);
+    cartNode.append(buyNowBtn);
+  }
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');
 

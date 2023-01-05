@@ -24,7 +24,7 @@ type CartItem = ProductExtension<CartProductProperties>;
 
 type ProductListItem = ProductExtension<{ amount?: number }>;
 
-type Cart = Record<string, CartItem>;
+type Cart = CartItem[];
 
 interface Store {
   products: Product[];
@@ -38,7 +38,7 @@ type Styles = Record<string, Record<string, string>>;
 export type { Product, Store, ProductExtension, CartItem, ProductListItem };
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
-const cart = JSON.parse(cartStr || '{}') as Cart;
+const cart = JSON.parse(cartStr || '[]') as Cart;
 // The following get converted to 0 when null
 const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));

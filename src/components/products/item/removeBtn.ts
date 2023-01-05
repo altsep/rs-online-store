@@ -3,6 +3,7 @@ import minus from '../../../assets/icons/minus.svg';
 import { remove } from './controls';
 
 export function createRemoveBtn(item: Product): HTMLImageElement {
+  const { cart } = store;
   const { id } = item;
 
   const icon = document.createElement('img');
@@ -11,7 +12,7 @@ export function createRemoveBtn(item: Product): HTMLImageElement {
   icon.src = minus;
 
   // https://eslint.org/docs/latest/rules/no-prototype-builtins
-  if (Object.prototype.hasOwnProperty.call(store.cart, id)) {
+  if (cart.findIndex((el) => el.id === id) !== -1) {
     icon.classList.remove('invisible');
   }
 
