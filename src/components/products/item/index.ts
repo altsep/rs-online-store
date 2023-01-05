@@ -1,15 +1,15 @@
-import { Product } from '../../../constants';
+import { ProductExtension } from '../../../constants';
 import { createAddBtn } from './addBtn';
 import { createRemoveBtn } from './removeBtn';
 import { onProductClick } from './controls';
 import { getCurrencyString } from '../../../utility';
 
-export function createListItem(item: Product): HTMLDivElement {
+export function createListItem(item: ProductExtension<{ amount?: number }>): HTMLDivElement {
   const listItem = document.createElement('div');
   listItem.className = 'products__item';
 
   if (item) {
-    const { id, title, price, discountPercentage, rating, stock, brand, thumbnail } = item;
+    const { id, title, price, discountPercentage, rating, stock, brand, thumbnail, amount } = item;
 
     listItem.dataset.id = String(id);
 

@@ -14,6 +14,14 @@ interface Product {
   images: string[];
 }
 
+type ProductExtension<T> = Product & T;
+
+interface CartProductProperties {
+  amount: number;
+}
+
+type Cart = Record<string, ProductExtension<CartProductProperties>>;
+
 interface Store {
   products: Product[];
   cart: Cart;
@@ -21,13 +29,9 @@ interface Store {
   totalSum: number;
 }
 
-type CartItem = { amount: number } & Product;
-
-type Cart = Record<string, CartItem>;
-
 type Styles = Record<string, Record<string, string>>;
 
-export type { Product, Store };
+export type { Product, Store, ProductExtension };
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
 const cart = JSON.parse(cartStr || '{}') as Cart;
