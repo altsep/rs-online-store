@@ -1,5 +1,5 @@
 import { Product, store } from '../../../../constants';
-import { storeSearchString } from '../../../../utility';
+import { getCurrencyString, storeSearchString } from '../../../../utility';
 import { renderCart } from '../../../cart';
 import { updatePageParam } from '../../../cart/updatePageParam';
 import { updateCartCount } from '../../../header/updateCartCount';
@@ -33,10 +33,15 @@ export const remove = (item: Product, icon: HTMLImageElement): void => {
       }
     }
 
-    const amountNode = document.querySelector(`.products__item[data-id="${id}"] .products__item-amount`);
+    const itemNode = document.querySelector<HTMLDivElement>(`.products__item[data-id="${id}"]`);
+    const amountNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-amount');
+    const priceNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-price');
 
-    if (amountNode) {
-      amountNode.textContent = `Amount: ${amount - 1}`;
+    const onCartPage = window.location.pathname.includes('cart');
+
+    if (onCartPage && amountNode && priceNode) {
+      amountNode.textContent = `Amount: ${cartItem.amount}`;
+      priceNode.textContent = getCurrencyString(price * cartItem.amount);
     }
   }
 

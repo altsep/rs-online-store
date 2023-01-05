@@ -1,4 +1,3 @@
-// import { Props } from '../../constants';
 import { isFormValid } from './form/validate/isFormValid';
 import { closePopUp } from './popUpToggle';
 import { createSubmitMessage } from './form/init/createSubmitMessage';

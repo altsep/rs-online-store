@@ -37,7 +37,6 @@ function renderProducts(): void {
     main.append(productsNode);
   }
 
-  // Call the input methods after rendering the filter block
   onInput();
 }
 

@@ -11,7 +11,6 @@ export function createRemoveBtn(item: Product): HTMLImageElement {
   icon.title = 'Remove from cart';
   icon.src = minus;
 
-  // https://eslint.org/docs/latest/rules/no-prototype-builtins
   if (cart.findIndex((el) => el.id === id) !== -1) {
     icon.classList.remove('invisible');
   }

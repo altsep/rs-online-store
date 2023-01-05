@@ -1,4 +1,5 @@
 import { Product, store } from '../../../../constants';
+import { getCurrencyString } from '../../../../utility';
 import { updateCartCount } from '../../../header/updateCartCount';
 import { storeCartProps } from './storeCartProps';
 
@@ -23,10 +24,15 @@ export const add = (item: Product, icon: HTMLImageElement): void => {
     store.itemsInCart += 1;
     store.totalSum += price;
 
-    const amountNode = document.querySelector(`.products__item[data-id="${id}"] .products__item-amount`);
+    const itemNode = document.querySelector<HTMLDivElement>(`.products__item[data-id="${id}"]`);
+    const amountNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-amount');
+    const priceNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-price');
 
-    if (amountNode) {
-      amountNode.textContent = `Amount: ${amount + 1}`;
+    const onCartPage = window.location.pathname.includes('cart');
+
+    if (onCartPage && amountNode && priceNode) {
+      amountNode.textContent = `Amount: ${cartItem.amount}`;
+      priceNode.textContent = getCurrencyString(price * cartItem.amount);
     }
   }
 
