@@ -1,10 +1,10 @@
-import { ProductExtension } from '../../../constants';
+import { ProductListItem } from '../../../constants';
 import { createAddBtn } from './addBtn';
 import { createRemoveBtn } from './removeBtn';
 import { onProductClick } from './controls';
 import { getCurrencyString } from '../../../utility';
 
-export function createListItem(item: ProductExtension<{ amount?: number }>): HTMLDivElement {
+export function createListItem(item: ProductListItem): HTMLDivElement {
   const listItem = document.createElement('div');
   listItem.className = 'products__item';
 
@@ -42,6 +42,13 @@ export function createListItem(item: ProductExtension<{ amount?: number }>): HTM
     stockNode.textContent = `Stock: ${stock}`;
 
     textContainer.append(titleNode, priceNode, brandNode, ratingNode, discountNode, stockNode);
+
+    if (amount) {
+      const amountNode = document.createElement('p');
+      amountNode.className = 'products__item-amount desc';
+      amountNode.textContent = `Amount: ${amount}`;
+      textContainer.append(amountNode);
+    }
 
     const thumbContainer = document.createElement('div');
     thumbContainer.className = 'products__item-img-container';

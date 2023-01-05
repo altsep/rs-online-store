@@ -34,9 +34,7 @@ function renderPageNumbers(parent: HTMLDivElement, itemsContainer: HTMLDivElemen
 
   const startingIndex = startingIndices[pageNumIndex];
 
-  const startingCardsArr = items
-    .map(({ id, title, amount }) => ({ id, title, amount }))
-    .slice(startingIndex, startingIndex + limit);
+  const startingCardsArr = items.slice(startingIndex, startingIndex + limit);
 
   renderItems(itemsContainer, startingCardsArr);
 

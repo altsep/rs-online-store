@@ -19,6 +19,12 @@ export const add = (item: Product, icon: HTMLImageElement): void => {
     store.cart[id].amount += 1;
     store.itemsInCart += 1;
     store.totalSum += price;
+
+    const amountNode = document.querySelector(`.products__item[data-id="${id}"] .products__item-amount`);
+
+    if (amountNode) {
+      amountNode.textContent = `Amount: ${amount + 1}`;
+    }
   }
 
   storeCartProps();

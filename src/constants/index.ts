@@ -20,7 +20,11 @@ interface CartProductProperties {
   amount: number;
 }
 
-type Cart = Record<string, ProductExtension<CartProductProperties>>;
+type CartItem = ProductExtension<CartProductProperties>;
+
+type ProductListItem = ProductExtension<{ amount?: number }>;
+
+type Cart = Record<string, CartItem>;
 
 interface Store {
   products: Product[];
@@ -31,7 +35,7 @@ interface Store {
 
 type Styles = Record<string, Record<string, string>>;
 
-export type { Product, Store, ProductExtension };
+export type { Product, Store, ProductExtension, CartItem, ProductListItem };
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
 const cart = JSON.parse(cartStr || '{}') as Cart;
