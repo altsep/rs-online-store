@@ -1,6 +1,7 @@
-import { Product, store } from '../../../constants';
+import { Product } from '../../../constants';
 import minus from '../../../assets/icons/minus.svg';
 import { remove } from './controls';
+import { isItemInCart } from '../../details/buyNow/isItemInCart';
 
 export function createRemoveBtn(item: Product): HTMLImageElement {
   const { id } = item;
@@ -10,8 +11,7 @@ export function createRemoveBtn(item: Product): HTMLImageElement {
   icon.title = 'Remove from cart';
   icon.src = minus;
 
-  // https://eslint.org/docs/latest/rules/no-prototype-builtins
-  if (Object.prototype.hasOwnProperty.call(store.cart, id)) {
+  if (isItemInCart(item)) {
     icon.classList.remove('invisible');
   }
 

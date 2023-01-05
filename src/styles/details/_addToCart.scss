@@ -1,0 +1,16 @@
+@use '../vars' as v;
+
+.product__add-to-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.product__price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50%;
+
+  font-size: 1.5rem;
+}

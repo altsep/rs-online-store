@@ -1,7 +1,6 @@
-import { store, styles, Product } from '../../constants';
 import { breadCrumbs } from './breadCrumbs';
 import { getProductId } from './getProductId';
-import { createProduct } from './product';
+import { createProduct } from './product/createProduct';
 
 function renderDetails(): void {
   const detailsNode = document.createElement('div');
@@ -10,10 +9,9 @@ function renderDetails(): void {
   const id = getProductId();
 
   const navigateNode = breadCrumbs(id);
-  // navigateNode.className = 'prod__navigate';
 
   const productNode = createProduct(id);
-  productNode.className = 'prod__product';
+  productNode.className = 'product__info';
 
   // Object.assign(textNode.style, styles.json);
   // if (matchArr) {
@@ -25,19 +23,6 @@ function renderDetails(): void {
   //   createProduct(id);
   // }
 
-  // interface Product {
-  //   id: number;
-  //   title: string;
-  //   description: string;
-  //   price: number;
-  //   discountPercentage: number;
-  //   rating: number;
-  //   stock: number;
-  //   brand: string;
-  //   category: string;
-  //   thumbnail: string;
-  //   images: string[];
-  // }
 
   detailsNode.append(navigateNode, productNode);
 

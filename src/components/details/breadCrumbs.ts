@@ -3,10 +3,10 @@ import { handleHistory } from '../../utility';
 
 export function breadCrumbs(id: number): HTMLDivElement {
   const nav = document.createElement('div');
-  nav.className = 'prod__navigate';
+  nav.className = 'product__navigate';
 
   if (!id) {
-    nav.innerHTML = `Product not found`;
+    nav.innerHTML = ``;
     return nav;
   }
 
