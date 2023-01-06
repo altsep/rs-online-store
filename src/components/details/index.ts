@@ -11,7 +11,7 @@ function renderDetails(): void {
   const navigateNode = breadCrumbs(id);
 
   const productNode = createProduct(id);
-  productNode.className = 'product__info';
+  productNode.className = 'product__info wrapper';
 
   // Object.assign(textNode.style, styles.json);
   // if (matchArr) {

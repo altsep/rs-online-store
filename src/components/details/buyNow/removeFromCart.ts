@@ -7,16 +7,12 @@ import { storeCartProps } from "../../products/item/controls";
 export function removeFromCart(product: Product): void {
   const { price, id } = product;
 
-  console.log(product, store.cart);
-
   const { amount } = store.cart[id];
 
   store.cart[id].amount = 0;
   store.itemsInCart -= amount;
   store.totalSum -= price * amount;
   delete store.cart[id];
-
-  console.log(store.cart);
 
   storeCartProps();
   updateCartCount();

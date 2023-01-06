@@ -4,7 +4,6 @@ export function getProductId(): number {
   const { pathname } = window.location;
 
   const matchArr = pathname.match(/\d+$/);
-  console.log(matchArr);
 
   if (matchArr) {
     const id = Number(matchArr[0]);

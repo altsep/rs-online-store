@@ -1,4 +1,6 @@
-export function createPhoto(id: number): HTMLDivElement {
+import { Product } from "../../../constants";
+
+export function createPhoto(product: Product): HTMLDivElement {
   return document.createElement('div');
 }
 

@@ -22,9 +22,9 @@ export function createProduct(id: number): HTMLDivElement {
   const productContainer = document.createElement('div');
   productContainer.className = 'product__container';
 
-  const photoContainer = createPhoto(id);
-  const description = createDescription(id);
-  const buyContainer = createAddToCart(id);
+  const photoContainer = createPhoto(product);
+  const description = createDescription(product);
+  const buyContainer = createAddToCart(product);
 
   productContainer.append(photoContainer, description, buyContainer);
   productNode.append(productContainer);

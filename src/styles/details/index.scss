@@ -1,5 +1,6 @@
 @use './breadCrumbs';
 @use './addToCart';
+@use './product';
 
 .product__info {
   display: flex;
@@ -11,11 +12,18 @@
   font-size: 1rem;
 }
 .product__container {
-  display: flex;
+  flex-flow: row wrap;
+  // display: flex;
+  // flex-direction: column;
 }
 
 @media (min-width: 475px) {
   .product__title {
     font-size: 1.2rem;
+  }
+}
+@media (min-width: 638px) {
+  .product__container {
+    flex-direction: row;
   }
 }
