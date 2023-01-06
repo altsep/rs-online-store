@@ -3,7 +3,7 @@ import { handleSearchParams } from '../../utility';
 import { createEmptyCartBtn } from './emptyCart';
 import { createLimitItemAmountInput } from './limit';
 import { renderPageNumbers } from './pages';
-import { openPopUp } from '../checkout/popUpToggle';
+import { renderSummary } from './summary';
 
 function renderCart(): void {
   handleSearchParams('cart'); // Get the search query and update history on rendering this component
@@ -21,10 +21,16 @@ function renderCart(): void {
   const controls = document.createElement('div');
   controls.className = 'cart__controls';
 
+  const limitContainer = document.createElement('div');
+  limitContainer.className = 'cart__limit';
+
   const emptyCartBtn = createEmptyCartBtn(renderCart);
   const limitItemAmountInput = createLimitItemAmountInput(renderCart);
 
-  controls.append(limitItemAmountInput, emptyCartBtn);
+  limitContainer.append(limitItemAmountInput, emptyCartBtn);
+  controls.append(limitContainer);
+
+  renderSummary(controls);
 
   const content = document.createElement('div');
   content.className = 'cart__content';
@@ -35,19 +41,8 @@ function renderCart(): void {
 
   cartNode.append(content);
 
-  // temporary solution for checkout page testing
-  const buyNowBtn = document.createElement('button');
-  buyNowBtn.textContent = 'Buy now';
-  buyNowBtn.className = 'btn';
-  buyNowBtn.style.marginTop = '20px';
-
-  buyNowBtn.addEventListener('click', openPopUp);
-
-  // ---------
-
   if (items.length) {
     headingNode.after(controls);
-    cartNode.append(buyNowBtn);
   }
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');

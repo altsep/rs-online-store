@@ -1,16 +1,12 @@
 @use '../vars' as v;
 @use '../mixins' as mx;
+@use 'controls';
+@use 'summary';
 @use 'item';
 
-.cart__controls,
 .cart__page-numbers {
   display: flex;
   justify-content: center;
-}
-
-.cart__controls {
-  align-items: end;
-  gap: 20px;
 }
 
 .cart__page-numbers {
@@ -53,11 +49,6 @@
 }
 
 @media (min-width: 768px) {
-  .cart__controls {
-    align-items: center;
-    gap: 12.5px;
-  }
-
   .cart__page-numbers {
     gap: 10px;
   }

@@ -1,9 +1,11 @@
 import { Product, store } from '../../../../constants';
-import { getCurrencyString, storeSearchString } from '../../../../utility';
+import { storeSearchString } from '../../../../utility';
 import { renderCart } from '../../../cart';
 import { updatePageParam } from '../../../cart/updatePageParam';
 import { updateCartCount } from '../../../header/updateCartCount';
 import { storeCartProps } from './storeCartProps';
+import { updateCartItemNode } from './updateCartItemNode';
+import { updateSummary } from './updateSummary';
 
 export const remove = (item: Product, icon: HTMLImageElement): void => {
   const { cart } = store;
@@ -18,30 +20,24 @@ export const remove = (item: Product, icon: HTMLImageElement): void => {
     store.itemsInCart -= 1;
     store.totalSum -= price;
 
+    const onCartPage = window.location.pathname.includes('cart');
+
     if (amount === 1) {
       const i = cart.indexOf(cartItem);
       cart.splice(i, 1);
 
       icon.classList.add('invisible');
-
-      const { pathname } = window.location;
-
-      if (pathname.includes('cart')) {
-        updatePageParam();
-        storeSearchString('cart');
-        renderCart();
-      }
     }
 
-    const itemNode = document.querySelector<HTMLDivElement>(`.products__item[data-id="${id}"]`);
-    const amountNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-amount');
-    const priceNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-price');
+    if (onCartPage && amount === 1) {
+      updatePageParam();
+      storeSearchString('cart');
+      renderCart();
+    }
 
-    const onCartPage = window.location.pathname.includes('cart');
-
-    if (onCartPage && amountNode && priceNode) {
-      amountNode.textContent = `Amount: ${cartItem.amount}`;
-      priceNode.textContent = getCurrencyString(price * cartItem.amount);
+    if (onCartPage) {
+      updateCartItemNode(cartItem);
+      updateSummary();
     }
   }
 

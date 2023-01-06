@@ -1,0 +1,17 @@
+.cart__summary {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+
+  &-promo-codes {
+    @extend .cart__summary;
+  }
+
+  &-promo-code {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}

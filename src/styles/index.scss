@@ -91,6 +91,15 @@ a {
   padding-right: 1rem;
 }
 
+.line-through {
+  text-decoration-line: line-through;
+}
+
+.mono {
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
 @media (min-width: 768px) {
   #root {
     font-size: 1.25rem;
