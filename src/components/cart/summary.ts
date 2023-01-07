@@ -1,6 +1,7 @@
 import { Promo, promoCodes, store } from '../../constants';
 import { getCurrencyString } from '../../utility';
 import { openPopUp } from '../checkout/popUpToggle';
+import { getDiscountedSum } from './getDiscountedSum';
 
 function renderSummary(parent: HTMLDivElement): void {
   const { itemsInCart, totalSum } = store;
@@ -32,18 +33,6 @@ function renderSummary(parent: HTMLDivElement): void {
 
   const initialActivePromo = getActivePromo();
 
-  const getDiscountedSum = (): number => {
-    const activePromo = getActivePromo();
-
-    const totalDiscount: number = activePromo.reduce((a, b) => a + b.discountPercentage, 0);
-
-    const getSumDecrease = (sum: number, discount: number): number => (discount / 100) * sum;
-
-    const discountedSum = store.totalSum - getSumDecrease(store.totalSum, totalDiscount);
-
-    return discountedSum;
-  };
-
   const handlePromoClick = (e: MouseEvent, promo: Promo, promoContainer: HTMLDivElement): void => {
     const target = e.target as HTMLInputElement;
 
@@ -61,7 +50,7 @@ function renderSummary(parent: HTMLDivElement): void {
       promoContainer.remove();
     }
 
-    totalDiscountedNode.textContent = getCurrencyString(getDiscountedSum());
+    totalDiscountedNode.textContent = `Total: ${getCurrencyString(getDiscountedSum(store.totalSum))}`;
 
     const activePromoCodes = getActivePromo();
 
@@ -100,7 +89,7 @@ function renderSummary(parent: HTMLDivElement): void {
 
   if (initialActivePromo.length) {
     totalNode.classList.add('line-through');
-    totalDiscountedNode.textContent = getCurrencyString(getDiscountedSum());
+    totalDiscountedNode.textContent = `Total: ${getCurrencyString(getDiscountedSum(store.totalSum))}`;
     totalDiscountedNode.classList.remove('hidden');
     initialActivePromo.forEach((p) => renderPromo(p, promoCodesNode));
   }
