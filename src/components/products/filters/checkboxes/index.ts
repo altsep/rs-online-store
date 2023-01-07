@@ -16,7 +16,6 @@ function createCheckboxes(name: string): HTMLFieldSetElement {
 
   fieldset.append(legend);
 
-  // Create an array of unique checkbox options from the corresponding property name
   const uniques = [
     ...new Set(INITIAL_PRODUCTS.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
   ];

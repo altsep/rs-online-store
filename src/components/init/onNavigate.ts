@@ -15,12 +15,12 @@ function onNavigate(): void {
   }
 
   const routes: Route[] = [
-    { path: /\/$/, fn: renderProducts }, // Add home page?
+    { path: /\/$/, fn: renderProducts },
     { path: /\/products$/, fn: renderProducts },
     { path: /\/cart$/, fn: renderCart },
     { path: /\/checkout$/, fn: renderCheckout },
-    { path: /\/products\/\d+$/, fn: renderDetails }, // Looking for elegant solution to match variable route
-    { path: /./, fn: renderNotFound }, // Match this route if nothing else does
+    { path: /\/products\/\d+$/, fn: renderDetails },
+    { path: /./, fn: renderNotFound },
   ];
 
   const findRoute = ({ path }: Route): boolean => path.test(pathname);

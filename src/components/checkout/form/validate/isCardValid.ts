@@ -6,7 +6,6 @@ export function isCardNumberValid(input: HTMLInputElement): boolean {
 export function isExpirationDateValid(input: HTMLInputElement): boolean {
   const date = input.value;
 
-  // get expiration card date from user input, because deta is separated with '/'
   const m = Number(date.split(' / ')[0]);
   const y = Number(date.split(' / ')[1]);
 

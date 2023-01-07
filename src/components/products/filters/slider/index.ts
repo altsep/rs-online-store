@@ -46,7 +46,7 @@ function createSlider(name: string): HTMLFieldSetElement {
   rangeFirst.min = minValueStr;
   rangeFirst.max = maxValueStr;
   rangeFirst.value = paramMin || minValueStr;
-  rangeFirst.defaultValue = minValueStr; // Used by native form reset
+  rangeFirst.defaultValue = minValueStr;
   rangeFirst.className = 'slider-range first';
   rangeFirst.name = name;
 
@@ -55,7 +55,7 @@ function createSlider(name: string): HTMLFieldSetElement {
   rangeSecond.min = minValueStr;
   rangeSecond.max = maxValueStr;
   rangeSecond.value = paramMax || maxValueStr;
-  rangeSecond.defaultValue = maxValueStr; // Used by native form reset
+  rangeSecond.defaultValue = maxValueStr;
   rangeSecond.className = 'slider-range second';
   rangeSecond.name = name;
 
@@ -65,8 +65,7 @@ function createSlider(name: string): HTMLFieldSetElement {
 
   const handleChange = (): void => {
     const { min, max } = getMinMax(fieldset);
-    const value = min === minValue && max === maxValue ? '' : `${min}-${max}`; // Remove search param if min and max are equal to their default values
-
+    const value = min === minValue && max === maxValue ? '' : `${min}-${max}`;
     updateURL(name, value);
   };
 

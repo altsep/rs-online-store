@@ -9,17 +9,14 @@ import { updateSliderInfo } from './updateSliderInfo';
 export const onReset = (): void => {
   const { pathname } = window.location;
 
-  // Store
   store.products = INITIAL_PRODUCTS.slice();
 
-  // View
   renderProductList();
   updateItemCount();
-  setTimeout(updateSliderInfo); // Execute during the next event cycle using the default values set through reset
+  setTimeout(updateSliderInfo);
   updateProductsFound();
   setDisplayMode(true);
 
-  // Navigation
   window.history.replaceState({}, '', pathname);
   storeSearchString('products');
 };

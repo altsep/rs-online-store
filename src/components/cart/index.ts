@@ -6,7 +6,7 @@ import { renderPageNumbers } from './pages';
 import { renderSummary } from './summary';
 
 function renderCart(): void {
-  handleSearchParams('cart'); // Get the search query and update history on rendering this component
+  handleSearchParams('cart');
 
   const { cart } = store;
   const items = Object.values(cart);

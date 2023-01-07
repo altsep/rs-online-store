@@ -3,7 +3,6 @@ import { ROOT_PATH } from '../../constants';
 import { handleHistory } from '../../utility';
 import { onNavigate } from './onNavigate';
 
-// Create main layout and append it to root
 function init(): void {
   const root = document.querySelector<HTMLDivElement>('#root');
 
@@ -24,12 +23,10 @@ function init(): void {
   renderHeader();
   renderCheckout();
 
-  // Push default path to history if accessing root
   if (window.location.pathname === '/') {
     handleHistory(ROOT_PATH, true);
   }
 
-  // Render page matching the current path
   onNavigate();
 
   window.addEventListener('popstate', onNavigate);
