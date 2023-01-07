@@ -35,6 +35,7 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 0,
     'import/prefer-default-export': 0,
     'import/no-default-export': 2,
+    'import/no-cycle': [2, { maxDepth: 1 }],
   },
   ignorePatterns: ['dist', '*.cjs', '*.config.js', '*setup.js'],
   settings: {

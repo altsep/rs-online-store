@@ -1,12 +1,21 @@
 @use '../vars' as v;
 @use '../mixins' as mx;
+@use 'controls';
+@use 'summary';
+@use 'item';
 
-.cart__controls,
 .cart__page-numbers {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+}
+
+.cart__page-numbers {
+  gap: 15px;
+}
+
+.cart__page-input-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .cart__page-numbers {
@@ -40,12 +49,12 @@
 }
 
 @media (min-width: 768px) {
-  .cart__controls,
   .cart__page-numbers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
+  }
+
+  .cart__page-input-container {
+    all: unset;
   }
 
   .cart__page-numbers-item {
@@ -55,11 +64,7 @@
 }
 
 @media (min-width: 1024px) {
-  .cart__controls,
   .cart__page-numbers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 5px;
   }
 

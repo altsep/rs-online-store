@@ -4,14 +4,14 @@ import { getStartingIndices } from './getStartingIndices';
 import { renderItems } from './items';
 import { onPageNumClick } from './onPageNumClick';
 
-function renderPageNumbers(parent: HTMLDivElement, itemsContainer: HTMLDivElement): void {
+function renderPageNumbers(parent: HTMLDivElement, contentNode: HTMLDivElement): void {
   const { cart } = store;
   const limit = Number(getSearchParamValue('limit')) || INITIAL_ON_CART_PAGE_LIMIT;
   const pageNum = Number(getSearchParamValue('page'));
   const pageNumIndex = pageNum ? pageNum - 1 : 0;
 
-  const container = document.createElement('div');
-  container.className = 'cart__page-numbers';
+  const numbersNode = document.createElement('div');
+  numbersNode.className = 'cart__page-numbers';
 
   const items = Object.values(cart);
 
@@ -28,21 +28,24 @@ function renderPageNumbers(parent: HTMLDivElement, itemsContainer: HTMLDivElemen
     }
 
     if (startingIndices.length > 1) {
-      container.append(item);
+      numbersNode.append(item);
     }
   });
 
   const startingIndex = startingIndices[pageNumIndex];
 
-  const startingCardsArr = items
-    .map(({ id, title, amount }) => ({ id, title, amount }))
-    .slice(startingIndex, startingIndex + limit);
+  const startingCardsArr = items.slice(startingIndex, startingIndex + limit);
+
+  const itemsContainer = document.createElement('div');
+  itemsContainer.className = 'cart__items';
+
+  contentNode.append(itemsContainer);
 
   renderItems(itemsContainer, startingCardsArr);
 
-  container.addEventListener('click', (e) => onPageNumClick(e, itemsContainer));
+  numbersNode.addEventListener('click', (e) => onPageNumClick(e, itemsContainer));
 
-  parent.append(container);
+  parent.append(numbersNode);
 }
 
 export { renderPageNumbers };

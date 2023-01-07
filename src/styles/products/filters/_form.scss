@@ -9,7 +9,6 @@
   padding: $p;
   background-color: v.$light-gray;
   box-shadow: inset 1px 1px 5px v.$warm-gray-darker;
-  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: $gap;
@@ -36,13 +35,12 @@
     gap: $gap;
   }
 
-  .sort-option {
-    height: 50px;
+  .sort {
+    @include mx.input-text;
   }
 
-  .input-text {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  .sort-option {
+    height: 50px;
   }
 
   .btn-container {
@@ -63,7 +61,6 @@
 @media (min-width: 768px) {
   .filters__form {
     $gap: 20px;
-    font-size: 1.25rem;
 
     .controls {
       display: flex;
@@ -87,11 +84,5 @@
     .search {
       width: 100%;
     }
-  }
-}
-
-@media (min-width: 1024px) {
-  .filters__form {
-    font-size: 1rem;
   }
 }

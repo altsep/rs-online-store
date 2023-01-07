@@ -7,18 +7,18 @@ import { onNavigate } from './onNavigate';
 function init(): void {
   const root = document.querySelector<HTMLDivElement>('#root');
 
-  const headerNode = document.createElement('header');
-  headerNode.className = 'header';
+  const header = document.createElement('header');
+  header.className = 'header';
 
-  const mainNode = document.createElement('main');
-  mainNode.className = 'main';
+  const main = document.createElement('main');
+  main.className = 'main';
 
-  const footerNode = document.createElement('footer');
-  footerNode.className = 'footer';
+  const footer = document.createElement('footer');
+  footer.className = 'footer';
 
   if (root) {
     root.innerHTML = '';
-    root.append(headerNode, mainNode, footerNode);
+    root.append(header, main, footer);
   }
 
   renderHeader();
@@ -32,7 +32,7 @@ function init(): void {
   // Render page matching the current path
   onNavigate();
 
-  window.addEventListener('popstate', () => onNavigate());
+  window.addEventListener('popstate', onNavigate);
 }
 
 export { init };

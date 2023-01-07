@@ -3,13 +3,7 @@ import { updateCartCount } from '../header/updateCartCount';
 import { storeCartProps } from '../products/item/controls';
 
 export function clearCart(): void {
-  const { cart } = store;
-  const propNames = Object.getOwnPropertyNames(cart);
-
-  propNames.forEach((name) => {
-    delete cart[name];
-  });
-
+  store.cart = [];
   store.itemsInCart = 0;
   store.totalSum = 0;
   updateCartCount();

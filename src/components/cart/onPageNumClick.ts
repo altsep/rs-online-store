@@ -16,9 +16,7 @@ export const onPageNumClick = (e: MouseEvent, itemsContainer: HTMLDivElement): v
 
     const pageStartingIndex = Number(v);
 
-    const selectionArr = items
-      .slice(pageStartingIndex, pageStartingIndex + limit)
-      .map(({ id, title, amount }) => ({ id, title, amount }));
+    const selectionArr = items.slice(pageStartingIndex, pageStartingIndex + limit);
 
     renderItems(itemsContainer, selectionArr);
 

@@ -1,4 +1,3 @@
-// import { Props } from '../../constants';
 import { isFormValid } from './form/validate/isFormValid';
 import { closePopUp } from './popUpToggle';
 import { createSubmitMessage } from './form/init/createSubmitMessage';
@@ -37,6 +36,8 @@ function renderCheckout(): void {
       closeModal();
     }
   });
+
+  checkoutForm.querySelectorAll<HTMLInputElement>('input').forEach((el) => el.classList.add('input-text'));
 }
 
 export { renderCheckout };
