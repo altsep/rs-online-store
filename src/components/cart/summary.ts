@@ -30,16 +30,16 @@ function renderSummary(parent: HTMLDivElement): void {
 
   const getActivePromo = (): Promo[] => promoCodes.filter((c) => c.active);
 
-  const activePromo = getActivePromo();
+  const initialActivePromo = getActivePromo();
 
   const getDiscountedSum = (): number => {
-    const activePromoCodes = getActivePromo();
+    const activePromo = getActivePromo();
 
-    const totalDiscount: number = activePromoCodes.reduce((a, b) => a + b.discountPercentage, 0);
+    const totalDiscount: number = activePromo.reduce((a, b) => a + b.discountPercentage, 0);
 
-    const getSumDecrease = (sum: number, discount: number): number => (discount / 100) * totalSum;
+    const getSumDecrease = (sum: number, discount: number): number => (discount / 100) * sum;
 
-    const discountedSum = totalSum - getSumDecrease(totalSum, totalDiscount);
+    const discountedSum = store.totalSum - getSumDecrease(store.totalSum, totalDiscount);
 
     return discountedSum;
   };
@@ -98,11 +98,11 @@ function renderSummary(parent: HTMLDivElement): void {
     container.append(promoCodeNode);
   }
 
-  if (activePromo.length) {
+  if (initialActivePromo.length) {
     totalNode.classList.add('line-through');
     totalDiscountedNode.textContent = getCurrencyString(getDiscountedSum());
     totalDiscountedNode.classList.remove('hidden');
-    activePromo.forEach((c) => renderPromo(c, promoCodesNode));
+    initialActivePromo.forEach((p) => renderPromo(p, promoCodesNode));
   }
 
   const handleInput = (e: Event): void => {
@@ -117,10 +117,9 @@ function renderSummary(parent: HTMLDivElement): void {
     const promoChildArr = [...promoCodesNode.children] as HTMLDivElement[];
 
     promoChildArr.forEach((child) => {
-      const activeStr = child.dataset.active || 'false';
-      const active = JSON.parse(activeStr) as boolean;
+      const inactive = child.dataset.active !== 'true';
 
-      if (!active) {
+      if (inactive) {
         child.remove();
       }
     });
