@@ -1,2 +1,4 @@
-export const getCurrencyString = (v: string | number): string =>
-  v.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+export const getCurrencyString = (v: string | number, currency = 'USD'): string => {
+  const locale = navigator.language || 'en-US';
+  return v.toLocaleString(locale, { style: 'currency', currency });
+};
