@@ -1,7 +1,6 @@
 import { Product, store } from '../../../constants';
 import minus from '../../../assets/icons/minus.svg';
 import { remove } from './controls';
-import { isItemInCart } from '../../details/buyNow/isItemInCart';
 
 export function createRemoveBtn(item: Product): HTMLImageElement {
   const { cart } = store;

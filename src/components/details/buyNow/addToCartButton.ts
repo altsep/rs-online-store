@@ -1,5 +1,5 @@
 import { Product } from "../../../constants";
-import { addToCart } from "./addToCart";
+import { add } from "../../products/item/controls";
 import { isItemInCart } from "./isItemInCart";
 import { removeFromCart } from "./removeFromCart";
 
@@ -23,7 +23,7 @@ export function addToCartButton(product: Product): HTMLButtonElement {
 
   addToCartBtn.addEventListener('click', () => {
     if (!isItemInCart(product)) {
-      addToCart(product);
+      add(product);
       toggleBtnContent();
     } else {
       removeFromCart(product);
