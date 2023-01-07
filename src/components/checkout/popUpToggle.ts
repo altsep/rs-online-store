@@ -10,6 +10,6 @@ export function openPopUp(): void {
 
 export function closePopUp(): void {
   const popUp = document.querySelector<HTMLDivElement>('.checkout__pop-up');
-  document.querySelector('#root')?.classList.remove('lock');
+  document.querySelector('#root')?.removeAttribute('class');
   popUp?.classList.remove('active');
 }

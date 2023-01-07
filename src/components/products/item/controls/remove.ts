@@ -1,20 +1,43 @@
 import { Product, store } from '../../../../constants';
+import { storeSearchString } from '../../../../utility';
+import { renderCart } from '../../../cart';
+import { updatePageParam } from '../../../cart/updatePageParam';
 import { updateCartCount } from '../../../header/updateCartCount';
 import { storeCartProps } from './storeCartProps';
+import { updateCartItemNode } from './updateCartItemNode';
+import { updateSummary } from './updateSummary';
 
 export const remove = (item: Product, icon: HTMLImageElement): void => {
+  const { cart } = store;
   const { price, id } = item;
 
-  if (Object.prototype.hasOwnProperty.call(store.cart, id)) {
-    const { amount } = store.cart[id];
+  const cartItem = cart.find((el) => el.id === id);
 
-    store.cart[id].amount -= 1;
+  if (cartItem) {
+    const { amount } = cartItem;
+
+    cartItem.amount -= 1;
     store.itemsInCart -= 1;
     store.totalSum -= price;
 
+    const onCartPage = window.location.pathname.includes('cart');
+
     if (amount === 1) {
-      delete store.cart[id];
+      const i = cart.indexOf(cartItem);
+      cart.splice(i, 1);
+
       icon.classList.add('invisible');
+    }
+
+    if (onCartPage && amount === 1) {
+      updatePageParam();
+      storeSearchString('cart');
+      renderCart();
+    }
+
+    if (onCartPage) {
+      updateCartItemNode(cartItem);
+      updateSummary();
     }
   }
 

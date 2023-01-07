@@ -1,9 +1,9 @@
 @use '../vars' as v;
 
 @mixin content {
-  width: 60%;
   min-width: 290px;
   max-width: 700px;
+  width: 100%;
   background-color: v.$light-gray;
   border: 1px solid v.$divider-color;
   border-radius: 10px;

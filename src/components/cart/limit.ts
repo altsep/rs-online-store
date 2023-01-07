@@ -1,10 +1,9 @@
-import { INITIAL_ON_CART_PAGE_LIMIT, store } from '../../constants';
+import { INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
 import { getSearchParamValue, storeSearchString, updateURL } from '../../utility';
-import { getStartingIndices } from './getStartingIndices';
+import { updatePageParam } from './updatePageParam';
 
 function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
-  const limit = getSearchParamValue('limit') || String(INITIAL_ON_CART_PAGE_LIMIT);
-  const itemsLen = Object.keys(store.cart).length;
+  const limitStr = getSearchParamValue('limit') || String(INITIAL_ON_CART_PAGE_LIMIT);
 
   const container = document.createElement('div');
   container.className = 'cart__page-input-container';
@@ -17,7 +16,7 @@ function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
   const input = document.createElement('input');
   input.className = 'cart__page-input input-text';
   input.type = 'number';
-  input.value = limit;
+  input.value = limitStr;
   input.min = '1';
   input.max = '100';
   input.id = 'items-on-cart-page';
@@ -27,14 +26,7 @@ function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
 
     updateURL('limit', value);
 
-    const page = getSearchParamValue('page');
-
-    const startingIndices = getStartingIndices(itemsLen, Number(value));
-
-    if (Number(page) > startingIndices.length) {
-      const query = startingIndices.length > 1 ? String(startingIndices.length) : '';
-      updateURL('page', query);
-    }
+    updatePageParam();
 
     // Actions executed after navigation updates
     // Store search params
