@@ -10,8 +10,7 @@
   .cart__limit {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 20px;
   }
 }
