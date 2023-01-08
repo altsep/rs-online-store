@@ -1,7 +1,7 @@
 import { store } from '../../../constants';
 import { createAddToCart } from '../buyNow/createAddToCart';
 import { createDescription } from './createDescription';
-import { createPhoto } from './createPhoto';
+import { createPhoto } from './photo/createPhoto';
 
 export function createProduct(id: number): HTMLDivElement {
   const productNode = document.createElement('div');

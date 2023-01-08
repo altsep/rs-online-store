@@ -1,0 +1,57 @@
+@use '../vars' as v;
+
+.product__photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-photo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25vh;
+}
+
+.main-photo {
+  display: flex;
+  width: 80%;
+  border-radius: 15px;
+}
+
+.photo__slides {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  object-fit: cover;
+}
+
+.slide {
+  width: 15%;
+  height: auto;
+  border: 1px solid v.$dark-primary-color;
+  border-radius: 10px;
+
+  &.active {
+    border: 2px solid v.$accent-color;
+  }
+}
+
+
+
+@media (min-width: 678px) {
+  .main-photo__container {
+    min-height: 35vh;
+    .product__photo {
+      width: 60%;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  
+}
