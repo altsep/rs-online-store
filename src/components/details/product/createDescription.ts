@@ -1,18 +1,11 @@
-import { Product } from "../../../constants";
-import { createDescriptionItem } from "./createDescriptionItem";
+import { Product } from '../../../constants';
+import { createDescriptionItem } from './createDescriptionItem';
 
 export function createDescription(product: Product): HTMLDivElement {
   const container = document.createElement('div');
   container.className = 'product__info_container';
 
-  const {
-    description,
-    discountPercentage,
-    rating,
-    stock,
-    brand,
-    category
-  } = product;
+  const { description, discountPercentage, rating, stock, brand, category } = product;
 
   createDescriptionItem(container, 'Description:', description);
   createDescriptionItem(container, 'Discount percentage:', discountPercentage);
@@ -23,16 +16,3 @@ export function createDescription(product: Product): HTMLDivElement {
 
   return container;
 }
-
-//   id: number;
-  //   title: string;
-  //   description: string;
-  //   price: number;
-  //   discountPercentage: number;
-  //   rating: number;
-  //   stock: number;
-  //   brand: string;
-  //   category: string;
-  //   thumbnail: string;
-  //   images: string[];
-  // }

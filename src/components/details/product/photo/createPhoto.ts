@@ -1,13 +1,13 @@
-import { Product } from "../../../../constants";
-import { createSlides } from "./createSlides";
-import placeholder  from '../../../../assets/images/placeholder.png'
-import { ChangeMainPhoto } from "./changeMainPhoto";
+import { Product } from '../../../../constants';
+import { createSlides } from './createSlides';
+import placeholder from '../../../../assets/images/placeholder.png';
+import { ChangeMainPhoto } from './changeMainPhoto';
 
 export function createPhoto(product: Product): HTMLDivElement {
   const productPhoto = document.createElement('div');
   productPhoto.className = 'product__photo';
 
-  const { images, thumbnail } = product;
+  const { images } = product;
   console.log(product, images);
 
   const mainPhotoContainer = document.createElement('div');
@@ -25,16 +25,3 @@ export function createPhoto(product: Product): HTMLDivElement {
 
   return productPhoto;
 }
-
-//   id: number;
-  //   title: string;
-  //   description: string;
-  //   price: number;
-  //   discountPercentage: number;
-  //   rating: number;
-  //   stock: number;
-  //   brand: string;
-  //   category: string;
-  //   thumbnail: string;
-  //   images: string[];
-  // }

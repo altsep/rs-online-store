@@ -13,17 +13,6 @@ function renderDetails(): void {
   const productNode = createProduct(id);
   productNode.className = 'product__info wrapper';
 
-  // Object.assign(textNode.style, styles.json);
-  // if (matchArr) {
-  //   const id = Number(matchArr[0]);
-  //   const item = store.products.find((pr: Product) => pr.id === id);
-  //   headingNode.textContent = item ? `Details for item ${id}` : 'No product found under such id';
-  //   textNode.textContent = `${item ? JSON.stringify(item, null, 4) : ''}`;
-  //   breadCrumbs(id);
-  //   createProduct(id);
-  // }
-
-
   detailsNode.append(navigateNode, productNode);
 
   const parentNode = document.querySelector<HTMLDivElement>('.main');

@@ -1,7 +1,7 @@
-import { Product, store } from "../../../constants";
-import { getCurrencyString } from "../../../utility";
-import { addToCartButton } from "./addToCartButton";
-import { buyNow } from "./buyNow";
+import { Product } from '../../../constants';
+import { getCurrencyString } from '../../../utility';
+import { addToCartButton } from './addToCartButton';
+import { buyNow } from './buyNow';
 
 export function createAddToCart(product: Product): HTMLDivElement {
   const addToCartContainer = document.createElement('div');

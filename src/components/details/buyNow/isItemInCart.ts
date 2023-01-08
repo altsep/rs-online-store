@@ -1,4 +1,4 @@
-import { Product, store } from "../../../constants";
+import { Product, store } from '../../../constants';
 
 export function isItemInCart(product: Product): boolean {
   const { id } = product;

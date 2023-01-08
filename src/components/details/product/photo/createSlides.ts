@@ -1,5 +1,4 @@
-import { Product } from "../../../../constants";
-import { ChangeMainPhoto } from "./changeMainPhoto";
+import { Product } from '../../../../constants';
 
 export function createSlides(product: Product): HTMLDivElement {
   const slides = document.createElement('div');
@@ -7,21 +6,20 @@ export function createSlides(product: Product): HTMLDivElement {
 
   const { images } = product;
 
-  const createSlide = (img: string) => {
+  const createSlide = (img: string): HTMLImageElement => {
     const slide = document.createElement('img');
     slide.className = 'slide';
     slide.alt = 'Product preview';
     slide.src = img;
 
     return slide;
-  }
-
+  };
 
   images.forEach((img) => {
     const slide = createSlide(img);
 
     slides.append(slide);
-  })
+  });
 
   return slides;
 }

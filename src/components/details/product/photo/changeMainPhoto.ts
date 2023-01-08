@@ -12,5 +12,5 @@ export function ChangeMainPhoto(e: MouseEvent): void {
     } else {
       slide.classList.remove('active');
     }
-  })
+  });
 }
