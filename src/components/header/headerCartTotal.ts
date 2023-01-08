@@ -1,11 +1,14 @@
 export function initHeaderCartTotal(parent: HTMLElement): void {
-  const cartTotalContainer = parent.appendChild(document.createElement('div'));
+  const cartTotalContainer = document.createElement('div');
   cartTotalContainer.className = 'cart-total-container';
 
-  const cartTotalTitle = cartTotalContainer.appendChild(document.createElement('span'));
+  const cartTotalTitle = document.createElement('span');
   cartTotalTitle.className = 'cart-total-text';
   cartTotalTitle.textContent = 'Cart total: ';
 
-  const cartTotalSum = cartTotalContainer.appendChild(document.createElement('span'));
+  const cartTotalSum = document.createElement('span');
   cartTotalSum.className = 'cart-total';
+
+  cartTotalContainer.append(cartTotalTitle, cartTotalSum);
+  parent.append(cartTotalContainer);
 }
