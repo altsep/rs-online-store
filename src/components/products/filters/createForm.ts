@@ -10,7 +10,6 @@ function createForm(): HTMLFormElement {
   const form = document.createElement('form');
   form.className = 'filters__form';
 
-  // Text search, controls and items counter
   const select = createSelect('sort');
   const textInput = createTextInput('text');
 
@@ -30,7 +29,6 @@ function createForm(): HTMLFormElement {
 
   buttonsContainer.append(buttons);
 
-  // Categories
   const categoryCheckboxes = createCheckboxes('category');
   const brandCheckboxes = createCheckboxes('brand');
 
@@ -39,7 +37,6 @@ function createForm(): HTMLFormElement {
 
   categoriesContainer.append(categoryCheckboxes, brandCheckboxes);
 
-  // Sliders
   const priceSlider = createSlider('price');
   const stockSlider = createSlider('stock');
 
@@ -50,7 +47,7 @@ function createForm(): HTMLFormElement {
 
   form.append(textSortContainer, buttonsContainer, categoriesContainer, slidersContainer);
 
-  handleForm(form); // Subscribe form to handling functions, main form update logic gets called inside this method
+  handleForm(form);
 
   return form;
 }

@@ -4,7 +4,7 @@ import { onInput } from './filters/onInput';
 import { getSearchParamValue } from '../../utility/getSearchParamValue';
 
 function renderProducts(): void {
-  handleSearchParams('products'); // Get the search query and update history on rendering this component
+  handleSearchParams('products');
 
   const main = document.querySelector<HTMLDivElement>('.main');
 

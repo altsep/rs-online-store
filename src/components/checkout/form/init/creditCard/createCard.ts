@@ -9,20 +9,17 @@ export function createCard(parent: HTMLFormElement): void {
   const cardContainer = document.createElement('div');
   cardContainer.className = 'checkout__card_container';
 
-  // title
   const cardTitle = document.createElement('h3');
   cardTitle.className = 'card__title';
   cardTitle.textContent = 'Card details';
 
   cardContainer.append(cardTitle);
 
-  // cardFields
   const cardDetails = document.createElement('div');
   cardDetails.className = 'card-details';
 
   cardContainer.append(cardDetails);
 
-  // card inputs
   const cardNumberContainer = document.createElement('div');
   cardNumberContainer.className = 'card-number__container';
 
@@ -33,7 +30,6 @@ export function createCard(parent: HTMLFormElement): void {
   const cardAddContainer = document.createElement('div');
   cardAddContainer.className = 'card-add_container';
 
-  // date & CVC/CCV
   const cardExpirationDate = createCardDate();
   const cardCode = createCardCode();
 

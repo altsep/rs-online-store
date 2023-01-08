@@ -50,15 +50,13 @@ const cart = JSON.parse(cartStr || '[]') as Cart;
 const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
 
-// Mutable properties go in state, it being the collection of initial values
 const store: Store = {
-  products: tempProductsData.slice(), // When creating a new object from default properties, arrays are passed by link and have to be copied separately. This can cause unexpected results when modifying a "copy" while trying to use the initial array which ends up being modified in place of the array it replaced
+  products: tempProductsData.slice(),
   cart,
   itemsInCart,
   totalSum,
 };
 
-// Add inline styles as properties of this object
 const styles: Styles = {
   json: {
     whiteSpace: 'pre-wrap',

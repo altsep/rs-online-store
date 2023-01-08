@@ -30,7 +30,6 @@ export const sort = (products: Product[]): Product[] => {
         products.sort((a, b) => b.discountPercentage - a.discountPercentage);
         break;
       default:
-        // Restore the initial order
         products.sort((a, b) => a.id - b.id);
         break;
     }

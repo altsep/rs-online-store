@@ -7,7 +7,7 @@ function createButtons(): HTMLDivElement {
   btnContainer.className = 'btn-container';
 
   const resetBtn = document.createElement('input');
-  resetBtn.type = 'reset'; // The event is handled in handleForm
+  resetBtn.type = 'reset';
   resetBtn.value = 'Reset';
   resetBtn.className = 'reset btn';
 
