@@ -28,11 +28,8 @@ function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
 
     updatePageParam();
 
-    // Actions executed after navigation updates
-    // Store search params
     storeSearchString('cart');
 
-    // Recursively rerender
     renderParent();
   };
 

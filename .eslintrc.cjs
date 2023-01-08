@@ -53,7 +53,10 @@ module.exports = {
       files: ['*.ts', '*.mts', '*.cts', '*.tsx'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 2,
-        '@typescript-eslint/explicit-member-accessibility': 2,
+        '@typescript-eslint/explicit-member-accessibility': [
+          2,
+          { accessibility: 'explicit', overrides: { constructors: 'no-public' } },
+        ],
       },
     },
   ],

@@ -1,5 +1,3 @@
-// Create utility functions as modules in this directory, then duplicate export in this file. It will allow to separate functions into separate modules while having ability to import them from './utility'
-// Create component-related functions in their respective directories
 export { handleHistory } from './handleHistory';
 export { getCurrencyString } from './getCurrencyString';
 export { updateURL } from './updateURL';
