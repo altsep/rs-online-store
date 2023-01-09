@@ -23,8 +23,7 @@
     transition: transform 250ms;
   }
 
-  &-text-container,
-  &-img-container {
+  & > *:not(&-icon-container) {
     pointer-events: none;
   }
 
