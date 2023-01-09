@@ -1,2 +1,2 @@
 export { tempProductsData } from './tempProductsData';
-export { productsData } from './productsData'
+export { productsData } from './productsData';
