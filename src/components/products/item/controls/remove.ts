@@ -36,9 +36,10 @@ export const remove = (item: Product, icon: HTMLImageElement): void => {
     }
 
     if (onCartPage) {
-      updateCartItemNode(cartItem);
       updateSummary();
     }
+
+    updateCartItemNode(cartItem);
   }
 
   storeCartProps();

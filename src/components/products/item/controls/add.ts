@@ -31,9 +31,10 @@ export const add = (item: Product, icon?: HTMLImageElement): void => {
   const onCartPage = window.location.pathname.includes('cart');
 
   if (onCartPage) {
-    updateCartItemNode(cartItem);
     updateSummary();
   }
+
+  updateCartItemNode(cartItem);
 
   updateCartCount();
 };

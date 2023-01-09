@@ -11,7 +11,7 @@ export function initHeaderCart(parent: HTMLElement): void {
   cartLogo.alt = '';
 
   const cartCount = document.createElement('div');
-  cartCount.className = 'cart-count';
+  cartCount.className = 'cart-count hidden';
 
   cartContainer.append(cartLogo, cartCount);
   parent.append(cartContainer);

@@ -1,4 +1,4 @@
-import { ProductListItem } from '../../../constants';
+import { ProductListItem, store } from '../../../constants';
 import { createAddBtn } from './addBtn';
 import { createRemoveBtn } from './removeBtn';
 import { onProductClick } from './controls';
@@ -72,6 +72,14 @@ export function createListItem(item: ProductListItem, i?: number): HTMLDivElemen
 
   if (stock === 0) {
     listItem.classList.add('out-of-stock');
+  }
+
+  const { cart } = store;
+
+  const inCart = cart.findIndex((el) => el.id === id) !== -1;
+
+  if (inCart) {
+    listItem.classList.add('accented');
   }
 
   listItem.addEventListener('click', onProductClick);

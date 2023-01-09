@@ -8,7 +8,7 @@ export function createDescription(product: Product): HTMLDivElement {
   const { description, discountPercentage, rating, stock, brand, category } = product;
 
   createDescriptionItem(container, 'Description:', description);
-  createDescriptionItem(container, 'Discount percentage:', discountPercentage);
+  createDescriptionItem(container, 'Discount:', `${discountPercentage}%`);
   createDescriptionItem(container, 'Rating:', rating);
   createDescriptionItem(container, 'Stock:', stock);
   createDescriptionItem(container, 'Brand:', brand);
