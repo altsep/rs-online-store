@@ -13,11 +13,15 @@ $separator: 1px solid v.$divider-color;
   gap: $gap;
 
   &-img-container {
-    max-height: 200px;
-    max-width: 200px;
-    border-radius: 50%;
-    margin-top: $gap;
+    max-height: unset;
+    height: 250px;
+    width: 100%;
     justify-self: center;
+  }
+
+  &-img {
+    height: 100%;
+    width: 100%;
   }
 
   &-cart-num {
@@ -79,7 +83,8 @@ $separator: 1px solid v.$divider-color;
 @media (min-width: 768px) {
   .cart__content .products__item {
     margin-top: 20px;
-    gap: 20px;
+    $gap: 20px;
+    gap: $gap;
 
     & > * {
       grid-row: 1 / 2;
@@ -89,6 +94,10 @@ $separator: 1px solid v.$divider-color;
       margin: 10px;
       margin-right: unset;
       align-self: center;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      margin-top: $gap;
     }
 
     &-text-container {
@@ -135,6 +144,11 @@ $separator: 1px solid v.$divider-color;
     &-price {
       font-size: 1.2rem;
       grid-column: 1 / 3;
+    }
+
+    &-img-container {
+      height: 150px;
+      width: 150px;
     }
 
     &-text-container {
