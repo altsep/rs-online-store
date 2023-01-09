@@ -37,6 +37,10 @@
       @include mx.focus-ring;
     }
   }
+  .categories {
+    max-height: 200px;
+    overflow-y: auto;
+  }
 
   .categories[name='brand'] {
     text-transform: capitalize;

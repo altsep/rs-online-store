@@ -2,6 +2,11 @@
 @use 'list';
 @use 'item';
 
+.products {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .products-not-found {
   font-size: 2rem;
   text-align: center;
