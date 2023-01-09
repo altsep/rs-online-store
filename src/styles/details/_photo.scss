@@ -13,28 +13,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 25vh;
+  height: 40vh;
 }
 
 .main-photo {
   display: flex;
   width: 80%;
   border-radius: 15px;
+  max-height: 35vh;
 }
 
 .photo__slides {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: center;
   gap: 10px;
-  object-fit: cover;
 }
 
 .slide {
-  width: 15%;
-  height: auto;
+  height: 7vh;
+  width: 20%;
   border: 1px solid v.$dark-primary-color;
   border-radius: 10px;
+  object-fit: cover;
 
   &.active {
     border: 2px solid v.$accent-color;
@@ -44,9 +45,10 @@
 @media (min-width: 678px) {
   .main-photo__container {
     min-height: 35vh;
-    .product__photo {
-      width: 60%;
-    }
+  }
+
+  .product__photo {
+    width: 60%;
   }
 }
 

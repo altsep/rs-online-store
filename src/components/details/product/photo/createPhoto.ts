@@ -8,7 +8,6 @@ export function createPhoto(product: Product): HTMLDivElement {
   productPhoto.className = 'product__photo';
 
   const { images } = product;
-  console.log(product, images);
 
   const mainPhotoContainer = document.createElement('div');
   mainPhotoContainer.className = 'main-photo__container';
