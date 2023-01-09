@@ -1,4 +1,4 @@
-import { tempProductsData } from '../data';
+import { productsData } from '../data';
 
 interface Product {
   id: number;
@@ -50,7 +50,7 @@ const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
 
 const store: Store = {
-  products: tempProductsData.slice(),
+  products: productsData.slice(0, 40),
   cart,
   itemsInCart,
   totalSum,
@@ -85,7 +85,7 @@ const promoCodes = promoCodesStorageItem ? (JSON.parse(promoCodesStorageItem) as
 
 const ROOT_PATH = '/products';
 
-const INITIAL_PRODUCTS = Object.freeze(tempProductsData.slice());
+const INITIAL_PRODUCTS = Object.freeze(productsData.slice(0, 40));
 
 const INITIAL_ON_CART_PAGE_LIMIT = 4;
 
