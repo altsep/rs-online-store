@@ -3,17 +3,20 @@ import { handleHistory } from '../../utility';
 import logoImg from './img/logo.svg';
 
 export function initHeaderlogo(parent: HTMLElement): void {
-  const logoContainer = parent.appendChild(document.createElement('div'));
+  const logoContainer = document.createElement('div');
   logoContainer.className = 'header_logo';
 
-  const logoImage = logoContainer.appendChild(document.createElement('img'));
+  const logoImage = document.createElement('img');
   logoImage.className = 'header_logo-img';
   logoImage.src = logoImg;
   logoImage.alt = 'logo';
 
-  const logoTitle = logoContainer.appendChild(document.createElement('h1'));
+  const logoTitle = document.createElement('h1');
   logoTitle.className = 'header_logo-title';
   logoTitle.textContent = 'OnlineStore';
+
+  logoContainer.append(logoImage, logoTitle);
+  parent.append(logoContainer);
 
   const onMouseEnter = (): void => {
     const color: string = randomColor({ hue: 'blue' });
