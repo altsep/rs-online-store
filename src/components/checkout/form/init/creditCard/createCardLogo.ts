@@ -1,4 +1,4 @@
-import cardPlaceholder from '../../../img/cardPlaceholder.svg';
+import cardPlaceholder from '../../../img/cardPlaceholder.webp';
 import visaLogo from '../../../img/visaLogo.svg';
 import masterCardLogo from '../../../img/mastercardLogo.svg';
 import amExpressLogo from '../../../img/americanExpress.svg';
