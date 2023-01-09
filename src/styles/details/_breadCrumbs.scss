@@ -1,0 +1,45 @@
+@use '../vars' as v;
+
+.product__navigate {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.bread-crumbs__list {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 0.7rem;
+  padding: 0;
+  margin: 0 auto;
+
+  & li {
+    text-transform: uppercase;
+
+    &::marker {
+      content: '';
+    }
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: v.$secondary-text-color;
+    }
+
+    &:last-child:hover {
+      cursor: auto;
+      text-decoration: none;
+      color: v.$text-icons-color;
+    }
+  }
+}
+
+@media (min-width: 475px) {
+  .bread-crumbs__list {
+    font-size: 1rem;
+  }
+}

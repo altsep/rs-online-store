@@ -4,7 +4,7 @@ import { storeCartProps } from './storeCartProps';
 import { updateCartItemNode } from './updateCartItemNode';
 import { updateSummary } from './updateSummary';
 
-export const add = (item: Product, icon: HTMLImageElement): void => {
+export const add = (item: Product, icon?: HTMLImageElement): void => {
   const { id, price } = item;
   const { cart } = store;
 
@@ -14,7 +14,7 @@ export const add = (item: Product, icon: HTMLImageElement): void => {
     cartItem = { ...item, amount: 0 };
     cart.push(cartItem);
 
-    const removeIcon = icon.previousElementSibling;
+    const removeIcon = icon?.previousElementSibling;
     removeIcon?.classList.remove('invisible');
   }
 

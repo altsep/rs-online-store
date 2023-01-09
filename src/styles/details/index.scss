@@ -1,0 +1,39 @@
+@use './breadCrumbs';
+@use './addToCart';
+@use './product';
+@use './photo';
+
+.product__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product__title {
+  font-size: 1rem;
+}
+
+.product__container {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 475px) {
+  .product__title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 638px) {
+  .product__container {
+    flex-flow: row wrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product__container {
+    flex-flow: row nowrap;
+  }
+}
