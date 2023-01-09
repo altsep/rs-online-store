@@ -17,7 +17,7 @@ export function createAddToCart(product: Product): HTMLDivElement {
 
   const buyNowBtn = document.createElement('button');
   buyNowBtn.className = 'btn accented';
-  buyNowBtn.textContent = 'buy Now';
+  buyNowBtn.textContent = 'Buy now';
 
   buyNowBtn.addEventListener('click', () => buyNow(product));
 

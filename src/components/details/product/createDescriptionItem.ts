@@ -7,7 +7,7 @@ export function createDescriptionItem(parentNode: HTMLDivElement, name: string, 
 
   const itemContent = document.createElement('div');
   itemContent.className = 'description__item_content';
-  itemContent.textContent = content.toString();
+  itemContent.textContent = String(content);
 
   item.append(itemTitle, itemContent);
 
