@@ -1,4 +1,4 @@
-import { handleHistory } from "../../utility";
+import { handleHistory } from '../../utility';
 
 export function initHeadeBurger(parent: HTMLElement): void {
   const burgerButton = parent.appendChild(document.createElement('div'));
