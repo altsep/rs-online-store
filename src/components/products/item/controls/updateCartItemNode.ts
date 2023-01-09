@@ -8,10 +8,16 @@ export function updateCartItemNode(cartItem: CartItem): void {
   const amountNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-amount');
   const priceNode = itemNode?.querySelector<HTMLParagraphElement>('.products__item-price');
 
-  const onCartPage = window.location.pathname.includes('cart');
+  const onCartPage = amountNode && priceNode;
 
-  if (onCartPage && amountNode && priceNode) {
+  if (onCartPage) {
     amountNode.textContent = `Amount: ${amount}`;
     priceNode.textContent = getCurrencyString(price * amount);
+  }
+
+  if (amount < 1) {
+    itemNode?.classList.remove('accented');
+  } else {
+    itemNode?.classList.add('accented');
   }
 }

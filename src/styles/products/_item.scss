@@ -1,6 +1,10 @@
 @use '../vars' as v;
 @use '../mixins' as mx;
 
+.products-list .products__item.accented {
+  outline: 2px solid v.$accent-color-alternative-transparent;
+}
+
 .products__item {
   $rounded: 8px;
   display: flex;
@@ -12,6 +16,7 @@
   font-size: 1.5rem;
   border: 1px solid v.$warm-gray-darker;
   overflow: hidden;
+  box-shadow: 2px 2px 6px v.$warm-gray-darker;
 
   &:hover {
     border-color: v.$dark-gray;
