@@ -6,7 +6,7 @@
   .products-list {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 25px;
 
     &.display--list {
@@ -19,7 +19,7 @@
   .products-list {
     margin-left: unset;
     margin-right: unset;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     max-width: 1024px;
     grid-gap: 15px;
   }
