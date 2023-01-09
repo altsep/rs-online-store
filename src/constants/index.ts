@@ -46,7 +46,6 @@ export type { Product, Store, ProductExtension, CartItem, ProductListItem, Promo
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
 const cart = JSON.parse(cartStr || '[]') as Cart;
-// The following get converted to 0 when null
 const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
 
