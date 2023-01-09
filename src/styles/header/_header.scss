@@ -28,7 +28,7 @@
 .burger-button::before,
 .burger-button::after {
   content: '';
-  background-color: black;
+  background-color: #000;
   border-radius: 2px;
   position: absolute;
   width: 100%;
@@ -45,7 +45,7 @@
 }
 
 .burger-button span {
-  background-color: black;
+  background-color: #000;
   position: absolute;
   width: 100%;
   height: 2px;
@@ -86,7 +86,6 @@
 
 .cart-container:hover {
   cursor: pointer;
-  scale: 1.1;
 }
 
 $cart-child-size: 45px;
@@ -132,7 +131,7 @@ $cart-child-size: 45px;
     a:hover,
     a:active {
       text-decoration: none;
-      color: black;
+      color: #000;
     }
 
     &-img {
@@ -194,7 +193,7 @@ $cart-child-size: 45px;
     font-size: 12px;
     line-height: 16px;
     border-radius: 50%;
-    color: white;
+    color: #fff;
     z-index: 5;
     top: -12px;
     right: -12px;
