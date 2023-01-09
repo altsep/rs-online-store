@@ -91,13 +91,12 @@ $separator: 1px solid v.$divider-color;
     }
 
     &-img-container {
-      margin: 10px;
+      margin: $gap;
       margin-right: unset;
       align-self: center;
       height: 200px;
       width: 200px;
       border-radius: 50%;
-      margin-top: $gap;
     }
 
     &-text-container {
@@ -147,6 +146,7 @@ $separator: 1px solid v.$divider-color;
     }
 
     &-img-container {
+      margin: 10px;
       height: 150px;
       width: 150px;
     }
