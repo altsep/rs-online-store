@@ -69,7 +69,7 @@ const config = {
   },
 };
 
-module.exports = (env, argv) => {
+module.exports = (_env, argv) => {
   const isProduction = argv.mode === 'production';
 
   const filename = (ext) => (isProduction ? `[name].[fullhash].${ext}` : `[name].${ext}`);
