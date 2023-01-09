@@ -67,6 +67,7 @@ export function createListItem(item: ProductListItem, i?: number): HTMLDivElemen
   thumbNode.className = 'products__item-img img';
   thumbNode.src = thumbnail;
   thumbNode.alt = '';
+  thumbNode.loading = 'lazy';
 
   thumbContainer.append(thumbNode);
 

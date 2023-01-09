@@ -15,8 +15,12 @@ export function createSlides(product: Product): HTMLDivElement {
     return slide;
   };
 
-  images.forEach((img) => {
+  images.forEach((img, i) => {
     const slide = createSlide(img);
+
+    if (i === 0) {
+      slide.classList.add('active');
+    }
 
     slides.append(slide);
   });
