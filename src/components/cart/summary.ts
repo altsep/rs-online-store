@@ -42,29 +42,34 @@ function renderSummary(parent: HTMLDivElement): void {
 
     if (promo.active) {
       target.value = 'Drop';
-      totalNode.classList.add('line-through');
-      totalDiscountedNode.classList.remove('hidden');
     } else if (promoInputNode.value.toLowerCase() === promo.name.toLowerCase()) {
       target.value = 'Add';
     } else {
       promoContainer.remove();
     }
 
-    totalDiscountedNode.textContent = `Total: ${getCurrencyString(getDiscountedSum(store.totalSum))}`;
+    const total = document.querySelector<HTMLDivElement>('.cart__summary-total');
+    const totalDiscounted = document.querySelector<HTMLDivElement>('.cart__summary-total-discount');
+
+    if (totalDiscounted) {
+      const discountedSum = getDiscountedSum(store.totalSum);
+      totalDiscounted.textContent = `Total: ${getCurrencyString(discountedSum)}`;
+    }
 
     const activePromoCodes = getActivePromo();
 
-    if (!activePromoCodes.length) {
-      totalDiscountedNode.classList.add('hidden');
-      totalNode.classList.remove('line-through');
+    if (activePromoCodes.length) {
+      total?.classList.add('line-through');
+      totalDiscounted?.classList.remove('hidden');
+    } else {
+      total?.classList.remove('line-through');
+      totalDiscounted?.classList.add('hidden');
     }
 
     localStorage.setItem('aahh-rs-os-promo', JSON.stringify(promoCodes));
   };
 
   function renderPromo(promo: Promo, container: HTMLDivElement): void {
-    promoCodesNode.classList.remove('hidden');
-
     const { description, discountPercentage, active } = promo;
 
     const promoCodeNode = document.createElement('div');
@@ -85,6 +90,7 @@ function renderSummary(parent: HTMLDivElement): void {
     promoCodeNode.append(descriptionNode, btn);
 
     container.append(promoCodeNode);
+    container.classList.remove('hidden');
   }
 
   if (initialActivePromo.length) {

@@ -9,11 +9,11 @@ export function addToCartButton(product: Product): HTMLButtonElement {
 
   const toggleBtnContent = (): void => {
     if (!isItemInCart(product)) {
-      addToCartBtn.textContent = 'Add to Cart';
+      addToCartBtn.textContent = 'Add';
       addToCartBtn.classList.add('add');
       addToCartBtn.classList.remove('remove');
     } else {
-      addToCartBtn.textContent = 'Drop from cart';
+      addToCartBtn.textContent = 'Drop';
       addToCartBtn.classList.remove('add');
       addToCartBtn.classList.add('remove');
     }

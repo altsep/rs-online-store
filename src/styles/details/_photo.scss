@@ -13,7 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
 }
 
 .main-photo {
@@ -25,9 +24,9 @@
 
 .photo__slides {
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
   gap: 10px;
+  padding: 20px 0;
 }
 
 .slide {
@@ -36,21 +35,28 @@
   border: 1px solid v.$dark-primary-color;
   border-radius: 10px;
   object-fit: cover;
+  cursor: pointer;
 
   &.active {
-    border: 2px solid v.$accent-color;
+    border: 1px solid v.$accent-color;
+    outline: 1px solid v.$accent-color;
   }
 }
 
-@media (min-width: 678px) {
-  .main-photo__container {
-    min-height: 35vh;
-  }
-
+@media (min-width: 768px) {
   .product__photo {
-    width: 60%;
+    margin-bottom: 20px;
   }
 }
 
 @media (min-width: 1024px) {
+  .main-photo__container {
+    align-items: flex-start;
+    min-height: unset;
+    height: unset;
+  }
+
+  .product__photo {
+    gap: 30px;
+  }
 }
