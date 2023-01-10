@@ -19,6 +19,7 @@
 
 .checkout__pop-up,
 .submit-message__pop-up {
+  display: none;
   position: fixed;
   background-color: rgba(1, 1, 1, 0.7);
   backdrop-filter: blur(2px);
@@ -28,7 +29,7 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  top: -100%;
+  top: -9999%;
 }
 
 .checkout__pop-up.active,
