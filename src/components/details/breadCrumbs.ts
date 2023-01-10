@@ -1,5 +1,5 @@
 import { INITIAL_PRODUCTS } from '../../constants';
-import { handleHistory } from '../../utility';
+import { handleHistory, removeSearchString } from '../../utility';
 
 export function breadCrumbs(id: number): HTMLDivElement {
   const nav = document.createElement('div');
@@ -28,6 +28,8 @@ export function breadCrumbs(id: number): HTMLDivElement {
     categoryLink.textContent = category;
     brandLink.textContent = brand;
     titleLink.textContent = title;
+
+    removeSearchString('products');
 
     storeLink.addEventListener('click', () => handleHistory('/'));
     categoryLink.addEventListener('click', () => handleHistory(`/products?category=${category.toLowerCase()}`));
