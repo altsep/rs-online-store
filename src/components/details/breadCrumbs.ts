@@ -1,4 +1,4 @@
-import { store } from '../../constants';
+import { INITIAL_PRODUCTS } from '../../constants';
 import { handleHistory } from '../../utility';
 
 export function breadCrumbs(id: number): HTMLDivElement {
@@ -10,28 +10,32 @@ export function breadCrumbs(id: number): HTMLDivElement {
     return nav;
   }
 
-  const { category, brand, title } = store.products[id - 1];
+  const product = INITIAL_PRODUCTS.find((pr) => pr.id === id);
 
-  const list = document.createElement('ul');
-  list.className = 'bread-crumbs__list';
+  if (product) {
+    const { category, brand, title } = product;
 
-  const storeLink = document.createElement('li');
-  const separator = '>';
-  const categoryLink = document.createElement('li');
-  const brandLink = document.createElement('li');
-  const titleLink = document.createElement('li');
+    const list = document.createElement('ul');
+    list.className = 'bread-crumbs__list';
 
-  storeLink.textContent = 'Store';
-  categoryLink.textContent = category;
-  brandLink.textContent = brand;
-  titleLink.textContent = title;
+    const storeLink = document.createElement('li');
+    const separator = '>';
+    const categoryLink = document.createElement('li');
+    const brandLink = document.createElement('li');
+    const titleLink = document.createElement('li');
 
-  storeLink.addEventListener('click', () => handleHistory('/'));
-  categoryLink.addEventListener('click', () => handleHistory(`/products?category=${category.toLowerCase()}`));
-  brandLink.addEventListener('click', () => handleHistory(`/products?brand=${brand.toLowerCase()}`));
+    storeLink.textContent = 'Store';
+    categoryLink.textContent = category;
+    brandLink.textContent = brand;
+    titleLink.textContent = title;
 
-  list.append(storeLink, separator, categoryLink, separator, brandLink, separator, titleLink);
-  nav.append(list);
+    storeLink.addEventListener('click', () => handleHistory('/'));
+    categoryLink.addEventListener('click', () => handleHistory(`/products?category=${category.toLowerCase()}`));
+    brandLink.addEventListener('click', () => handleHistory(`/products?brand=${brand.toLowerCase()}`));
+
+    list.append(storeLink, separator, categoryLink, separator, brandLink, separator, titleLink);
+    nav.append(list);
+  }
 
   return nav;
 }

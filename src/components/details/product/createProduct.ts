@@ -1,4 +1,4 @@
-import { store } from '../../../constants';
+import { INITIAL_PRODUCTS } from '../../../constants';
 import { createAddToCart } from '../buyNow/createAddToCart';
 import { createDescription } from './createDescription';
 import { createPhoto } from './photo/createPhoto';
@@ -16,18 +16,21 @@ export function createProduct(id: number): HTMLDivElement {
     return productNode;
   }
 
-  const product = store.products[id - 1];
-  prodTitle.textContent = product.title;
+  const product = INITIAL_PRODUCTS.find((pr) => pr.id === id);
 
-  const productContainer = document.createElement('div');
-  productContainer.className = 'product__container';
+  if (product) {
+    prodTitle.textContent = product.title;
 
-  const photoContainer = createPhoto(product);
-  const description = createDescription(product);
-  const buyContainer = createAddToCart(product);
+    const productContainer = document.createElement('div');
+    productContainer.className = 'product__container';
 
-  productContainer.append(photoContainer, description, buyContainer);
-  productNode.append(productContainer);
+    const photoContainer = createPhoto(product);
+    const description = createDescription(product);
+    const buyContainer = createAddToCart(product);
+
+    productContainer.append(photoContainer, description, buyContainer);
+    productNode.append(productContainer);
+  }
 
   return productNode;
 }
