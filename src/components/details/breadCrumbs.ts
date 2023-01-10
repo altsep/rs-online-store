@@ -36,9 +36,11 @@ export function breadCrumbs(id: number): HTMLDivElement {
     categoryLink.addEventListener('click', () => handleHistory(`/products?category=${category.toLowerCase()}`));
     brandLink.addEventListener('click', () => handleHistory(`/products?brand=${brand.toLowerCase()}`));
 
-    list.append(storeLink, categoryLink, brandLink, titleLink);
+    const listItemsArr = [storeLink, categoryLink, brandLink, titleLink];
 
-    [storeLink, categoryLink, brandLink, titleLink].forEach((el, i, arr) => {
+    list.append(...listItemsArr);
+
+    listItemsArr.forEach((el, i, arr) => {
       el.className = 'bread-crumbs__list-item';
 
       if (i !== arr.length - 1) {
@@ -49,6 +51,7 @@ export function breadCrumbs(id: number): HTMLDivElement {
         el.after(separator);
       }
     });
+
     nav.append(list);
   }
 
