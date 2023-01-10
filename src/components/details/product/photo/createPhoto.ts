@@ -9,12 +9,18 @@ export function createPhoto(product: Product): HTMLDivElement {
 
   const { images } = product;
 
-  const mainPhotoContainer = document.createElement('div');
+  const imgUrl = images.length ? images[0] : placeholder;
+
+  const mainPhotoContainer = document.createElement('a');
   mainPhotoContainer.className = 'main-photo__container';
+  mainPhotoContainer.href = imgUrl;
+  mainPhotoContainer.target = '_blank';
+  mainPhotoContainer.rel = 'noreferrer';
 
   const mainPhoto = document.createElement('img');
   mainPhoto.className = 'main-photo';
-  mainPhoto.src = images.length ? images[0] : placeholder;
+  mainPhoto.src = imgUrl;
+  mainPhoto.alt = '';
 
   mainPhotoContainer.append(mainPhoto);
   const slides = createSlides(product);

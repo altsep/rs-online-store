@@ -15,18 +15,19 @@ export function breadCrumbs(id: number): HTMLDivElement {
   if (product) {
     const { category, brand, title } = product;
 
-    const list = document.createElement('ul');
+    const list = document.createElement('div');
     list.className = 'bread-crumbs__list';
 
-    const storeLink = document.createElement('li');
-    const separator = '>';
-    const categoryLink = document.createElement('li');
-    const brandLink = document.createElement('li');
-    const titleLink = document.createElement('li');
-
+    const storeLink = document.createElement('span');
     storeLink.textContent = 'Store';
+
+    const categoryLink = document.createElement('span');
     categoryLink.textContent = category;
+
+    const brandLink = document.createElement('span');
     brandLink.textContent = brand;
+
+    const titleLink = document.createElement('span');
     titleLink.textContent = title;
 
     removeSearchString('products');
@@ -35,7 +36,19 @@ export function breadCrumbs(id: number): HTMLDivElement {
     categoryLink.addEventListener('click', () => handleHistory(`/products?category=${category.toLowerCase()}`));
     brandLink.addEventListener('click', () => handleHistory(`/products?brand=${brand.toLowerCase()}`));
 
-    list.append(storeLink, separator, categoryLink, separator, brandLink, separator, titleLink);
+    list.append(storeLink, categoryLink, brandLink, titleLink);
+
+    [storeLink, categoryLink, brandLink, titleLink].forEach((el, i, arr) => {
+      el.className = 'bread-crumbs__list-item';
+
+      if (i !== arr.length - 1) {
+        const separator = document.createElement('span');
+        separator.className = 'bread-crumbs__list-item-separator';
+        separator.textContent = '>';
+
+        el.after(separator);
+      }
+    });
     nav.append(list);
   }
 
