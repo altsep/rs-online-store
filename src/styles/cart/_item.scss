@@ -5,6 +5,7 @@ $separator: 1px solid v.$divider-color;
 .cart__content .products__item {
   $icon-h: 60px;
   $gap: 30px;
+  width: unset;
   height: unset;
   margin-top: 30px;
   position: relative;
