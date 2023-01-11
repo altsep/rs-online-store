@@ -7,13 +7,13 @@ export function ChangeMainPhoto(e: MouseEvent): void {
   if (mainPhotoContainer && mainPhoto && target.classList.contains('slide')) {
     mainPhotoContainer.href = target.src;
     mainPhoto.src = target.src;
-  }
 
-  slides.forEach((slide) => {
-    if (slide === target) {
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active');
-    }
-  });
+    slides.forEach((slide) => {
+      if (slide === target) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+  }
 }
