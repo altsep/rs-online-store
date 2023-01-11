@@ -4,7 +4,7 @@ import { renderProductList } from '../renderProductList';
 import { setDisplayMode } from './buttons/setDisplayMode';
 import { updateItemCount } from './updateItemCount';
 import { updateProductsFound } from './updateProductsFound';
-import { updateSliderInfo } from './updateSliderInfo';
+import { updateSlider } from './updateSlider';
 
 export const onReset = (): void => {
   const { pathname } = window.location;
@@ -13,7 +13,9 @@ export const onReset = (): void => {
 
   renderProductList();
   updateItemCount();
-  setTimeout(updateSliderInfo);
+  setTimeout(() => {
+    updateSlider('info');
+  });
   updateProductsFound();
   setDisplayMode(true);
 

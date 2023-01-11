@@ -2,6 +2,7 @@ import { createFilters } from './filters';
 import { handleSearchParams } from '../../utility/handleSearchParams';
 import { onInput } from './filters/onInput';
 import { getSearchParamValue } from '../../utility/getSearchParamValue';
+import { updateSlider } from './filters/updateSlider';
 
 function renderProducts(): void {
   handleSearchParams('products');
@@ -38,6 +39,7 @@ function renderProducts(): void {
   }
 
   onInput();
+  updateSlider('value');
 }
 
 export { renderProducts };
