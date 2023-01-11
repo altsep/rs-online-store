@@ -1,4 +1,8 @@
 import './index.scss';
-import { init } from './components/init';
+import { App } from './components/init';
 
-init();
+const root = document.getElementById('root');
+
+const app = new App(root);
+
+app.render();
