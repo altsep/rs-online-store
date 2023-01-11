@@ -16,9 +16,7 @@ function createCheckboxes(name: string): HTMLFieldSetElement {
 
   fieldset.append(legend);
 
-  const uniques = [
-    ...new Set(INITIAL_PRODUCTS.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>].toLowerCase())),
-  ];
+  const uniques = [...new Set(INITIAL_PRODUCTS.map((p) => p[name as keyof Pick<Product, 'category' | 'brand'>]))];
 
   const checkedParamValues = getSearchParamValue(name).split('|');
 

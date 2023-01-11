@@ -1,5 +1,5 @@
 import { store, INITIAL_PRODUCTS } from '../../../../constants';
-import { getProductsLen } from '../../../../utility';
+import { getColKeyValueLen } from './getColKeyValueLen';
 
 interface Options {
   name: string;
@@ -8,8 +8,8 @@ interface Options {
 }
 
 export const setItemCount = ({ name, value, itemCountNode }: Options): void => {
-  const currentLen = getProductsLen(store.products, name, value);
-  const maxLen = getProductsLen(INITIAL_PRODUCTS, name, value);
+  const currentLen = getColKeyValueLen(store.products, name, value);
+  const maxLen = getColKeyValueLen(INITIAL_PRODUCTS, name, value);
 
   if (itemCountNode) {
     itemCountNode.textContent = `${currentLen}/${maxLen}`;
