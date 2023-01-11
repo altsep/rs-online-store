@@ -19,13 +19,12 @@
 
 .checkout__pop-up,
 .submit-message__pop-up {
-  display: none;
+  display: flex;
   position: fixed;
   background-color: rgba(1, 1, 1, 0.7);
   backdrop-filter: blur(2px);
   width: 100vw;
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
