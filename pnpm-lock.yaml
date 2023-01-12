@@ -10,6 +10,7 @@ specifiers:
   '@types/jest': ^29.2.4
   '@types/node': ^18.11.15
   '@types/randomcolor': ^0.5.7
+  '@types/testing-library__dom': ^7.5.0
   '@types/testing-library__jest-dom': ^5.14.5
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
@@ -59,6 +60,7 @@ devDependencies:
   '@types/jest': 29.2.4
   '@types/node': 18.11.15
   '@types/randomcolor': 0.5.7
+  '@types/testing-library__dom': 7.5.0
   '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.46.1_imrg37k3svwu377c6q7gkarwmi
   '@typescript-eslint/parser': 5.46.1_ha6vam6werchizxrnqvarmz2zu
@@ -2174,6 +2176,13 @@ packages:
 
   /@types/stack-utils/2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
+    dev: true
+
+  /@types/testing-library__dom/7.5.0:
+    resolution: {integrity: sha512-mj1aH4cj3XUpMEgVpognma5kHVtbm6U6cHZmEFzCRiXPvKkuHrFr3+yXdGLXvfFRBaQIVshPGHI+hGTOJlhS/g==}
+    deprecated: This is a stub types definition. testing-library__dom provides its own type definitions, so you do not need this installed.
+    dependencies:
+      '@testing-library/dom': 8.19.0
     dev: true
 
   /@types/testing-library__jest-dom/5.14.5:
