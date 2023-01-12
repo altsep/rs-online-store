@@ -7,6 +7,7 @@ function createTextInput(name: string): HTMLInputElement {
   input.name = name;
   input.type = 'text';
   input.dataset.filterType = 'text';
+  input.dataset.testid = 'text-search';
   input.placeholder = 'Search';
   input.value = getSearchParamValue(name);
 

@@ -1,15 +1,8 @@
 import { getByTestId } from '@testing-library/dom';
-import '@testing-library/jest-dom';
-import { App } from '../src/components/init';
 import { handleHistory } from '../src/utility';
+import { createApp } from './createApp';
 
-const root = document.createElement('div');
-root.id = 'root';
-
-document.body.append(root);
-
-const app = new App(root);
-app.render();
+const { root } = createApp();
 
 describe('App', () => {
   it('renders main', () => {
