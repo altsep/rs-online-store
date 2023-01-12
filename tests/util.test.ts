@@ -1,25 +1,31 @@
-import { getCurrencyString, storeSearchString, handleHistory, handleSearchParams } from '../src/utility';
+import {
+  getCurrencyString,
+  storeSearchString,
+  handleHistory,
+  retrieveSearchParams,
+  updateSearchParams,
+} from '../src/utility';
 import { getColKeyValueLen } from '../src/components/products/filters/checkboxes/getColKeyValueLen';
 import { testProductsData } from './data/testProductsData';
 import { Product } from '../src/constants';
 
 const searchItemNamePrefix = 'aahh-rs-os-search-';
 
-describe('handleSearchParams', () => {
+describe('retrieveSearchParams', () => {
   const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
   const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
   const testCases = ['products', 'cart', 'details'];
 
   it('does not make a call if pathname does not match the name', () => {
     testCases.forEach((name) => {
-      handleSearchParams(name);
+      retrieveSearchParams(name);
       expect(replaceStateSpy).not.toHaveBeenCalled();
     });
   });
 
   it('calls getItem with proper name', () => {
     testCases.forEach((name) => {
-      handleSearchParams(name);
+      retrieveSearchParams(name);
       const fullName = `${searchItemNamePrefix}${name}`;
       expect(getItemSpy).toHaveBeenCalledWith(fullName);
     });
@@ -28,7 +34,7 @@ describe('handleSearchParams', () => {
   it('makes a call to replaceState if pathname matches name with the retrieved value', () => {
     testCases.forEach((name) => {
       window.history.replaceState({}, '', `/${name}`);
-      handleSearchParams(name);
+      retrieveSearchParams(name);
       expect(replaceStateSpy).toHaveBeenCalledWith({}, '', null);
     });
   });
@@ -179,5 +185,60 @@ describe('handleHistory', () => {
       expect(pathname).toEqual(caseUrl);
       expect(length).toEqual(initialLength);
     });
+  });
+});
+
+describe('updateSearchParams', () => {
+  const replaceStateSpy: jest.SpyInstance = jest.spyOn(window.history, 'replaceState');
+
+  beforeEach(() => {
+    window.history.replaceState({}, '', '/');
+  });
+
+  it('to call replaceState', () => {
+    updateSearchParams('', '');
+    expect(replaceStateSpy).toHaveBeenCalledTimes(2);
+  });
+
+  it('to set the correct url', () => {
+    const testCases = [
+      { key: '', value: '' },
+      { key: 'emptyParam', value: '' },
+      { key: 'name', value: 'value' },
+      { key: 'range', value: '1-6000' },
+    ];
+
+    testCases.forEach(({ key, value }) => {
+      updateSearchParams(key, value);
+      const { search } = window.location;
+
+      if (value) {
+        const mockQuery = `${key}=${value}`;
+        expect(search).toEqual(expect.stringContaining(mockQuery));
+      } else {
+        expect(search).toEqual('');
+      }
+    });
+
+    expect(replaceStateSpy).toHaveBeenCalledTimes(testCases.length + 1);
+  });
+
+  it('removes param if value is empty', () => {
+    const testCases = [
+      { key: 'test', value: 'value' },
+      { key: 'test', value: '' },
+    ];
+
+    const [caseHasValue, caseMissingValue] = testCases;
+
+    updateSearchParams(caseHasValue.key, caseHasValue.value);
+
+    const mockQuery = `?${caseHasValue.key}=${caseHasValue.value}`;
+
+    expect(window.location.search).toEqual(mockQuery);
+
+    updateSearchParams(caseMissingValue.key, caseMissingValue.value);
+
+    expect(window.location.search).toEqual('');
   });
 });

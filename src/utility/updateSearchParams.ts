@@ -1,4 +1,4 @@
-export const updateURL = (name: string, query: string): void => {
+export const updateSearchParams = (name: string, query: string): void => {
   const { pathname, search } = window.location;
   const searchParams = new URLSearchParams(search);
 

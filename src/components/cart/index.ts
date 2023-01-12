@@ -1,12 +1,12 @@
 import { store } from '../../constants';
-import { handleSearchParams } from '../../utility';
+import { retrieveSearchParams } from '../../utility';
 import { createEmptyCartBtn } from './emptyCart';
 import { createLimitItemAmountInput } from './limit';
 import { renderPageNumbers } from './pages';
 import { renderSummary } from './summary';
 
 function renderCart(): void {
-  handleSearchParams('cart');
+  retrieveSearchParams('cart');
 
   const { cart } = store;
   const items = Object.values(cart);

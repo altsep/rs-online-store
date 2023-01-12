@@ -1,5 +1,5 @@
 import { INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
-import { getSearchParamValue, storeSearchString, updateURL } from '../../utility';
+import { getSearchParamValue, storeSearchString, updateSearchParams } from '../../utility';
 import { updatePageParam } from './updatePageParam';
 
 function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
@@ -24,7 +24,7 @@ function createLimitItemAmountInput(renderParent: () => void): HTMLDivElement {
   const handleChange = (e: Event): void => {
     const { value } = e.target as HTMLInputElement;
 
-    updateURL('limit', value);
+    updateSearchParams('limit', value);
 
     updatePageParam();
 

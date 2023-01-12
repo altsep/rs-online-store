@@ -1,7 +1,7 @@
 export { handleHistory } from './handleHistory';
 export { getCurrencyString } from './getCurrencyString';
-export { updateURL } from './updateURL';
+export { updateSearchParams } from './updateSearchParams';
 export { storeSearchString } from './storeSearchString';
 export { removeSearchString } from './storeSearchString';
 export { getSearchParamValue } from './getSearchParamValue';
-export { handleSearchParams } from './handleSearchParams';
+export { retrieveSearchParams } from './retrieveSearchParams';

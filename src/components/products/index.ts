@@ -1,11 +1,11 @@
 import { createFilters } from './filters';
-import { handleSearchParams } from '../../utility/handleSearchParams';
+import { retrieveSearchParams } from '../../utility/retrieveSearchParams';
 import { onInput } from './filters/onInput';
 import { getSearchParamValue } from '../../utility/getSearchParamValue';
 import { updateSlider } from './filters/updateSlider';
 
 function renderProducts(): void {
-  handleSearchParams('products');
+  retrieveSearchParams('products');
 
   const main = document.querySelector<HTMLDivElement>('.main');
 

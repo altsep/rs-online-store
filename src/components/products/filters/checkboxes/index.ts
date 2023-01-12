@@ -1,7 +1,7 @@
 import { INITIAL_PRODUCTS, Product } from '../../../../constants';
 import { setItemCount } from './setItemCount';
 import { getCheckedValues } from './getCheckedValues';
-import { updateURL } from '../../../../utility';
+import { updateSearchParams } from '../../../../utility';
 import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
 function createCheckboxes(name: string): HTMLFieldSetElement {
@@ -64,7 +64,7 @@ function createCheckboxes(name: string): HTMLFieldSetElement {
   const handleInput = (): void => {
     const checkedValues = getCheckedValues(fieldset);
     const query = checkedValues.join('|');
-    updateURL(name, query);
+    updateSearchParams(name, query);
   };
 
   fieldset.addEventListener('input', handleInput);
