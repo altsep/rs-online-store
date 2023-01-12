@@ -4,6 +4,7 @@ import {
   handleHistory,
   retrieveSearchParams,
   updateSearchParams,
+  getSearchParamValue,
 } from '../src/utility';
 import { getColKeyValueLen } from '../src/components/products/filters/checkboxes/getColKeyValueLen';
 import { testProductsData } from './data/testProductsData';
@@ -240,5 +241,25 @@ describe('updateSearchParams', () => {
     updateSearchParams(caseMissingValue.key, caseMissingValue.value);
 
     expect(window.location.search).toEqual('');
+  });
+});
+
+describe('getSearchParamValue', () => {
+  it('able to retrieve param value from search', () => {
+    const testCases = [
+      { key: '', value: '' },
+      { key: 'emptyParam', value: '' },
+      { key: 'name', value: 'value' },
+      { key: 'range', value: '1-6000' },
+    ];
+
+    testCases.forEach(({ key, value }) => {
+      updateSearchParams(key, value);
+    });
+
+    testCases.forEach(({ key, value }) => {
+      const result = getSearchParamValue(key);
+      expect(result).toEqual(value);
+    });
   });
 });
