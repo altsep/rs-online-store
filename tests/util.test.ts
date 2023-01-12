@@ -1,7 +1,96 @@
-import { getCurrencyString } from '../src/utility';
+import { getCurrencyString, storeSearchString, handleHistory } from '../src/utility';
 import { getColKeyValueLen } from '../src/components/products/filters/checkboxes/getColKeyValueLen';
 import { testProductsData } from './data/testProductsData';
 import { Product } from '../src/constants';
+
+describe('handleHistory', () => {
+  const dispatchEventSpy = jest.spyOn(window, 'dispatchEvent');
+  const pushStateSpy = jest.spyOn(window.history, 'pushState');
+  const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
+  const url = '/products';
+  const testCases = ['/', '/products', '/cart', '/details'];
+
+  it('dispatches an event to window', () => {
+    handleHistory(url);
+
+    expect(dispatchEventSpy).toHaveBeenCalled();
+    expect(dispatchEventSpy).toHaveBeenCalledWith(new Event(''));
+
+    const { pathname } = window.location;
+    expect(pathname).toEqual(url);
+  });
+
+  it('proper event type is received', () => {
+    const handler = jest.fn();
+
+    window.addEventListener('popstate', handler);
+
+    handleHistory(url);
+
+    expect(handler).toHaveBeenCalled();
+    expect(handler).toHaveBeenCalledWith(new Event(''));
+  });
+
+  it('pushState is called', () => {
+    testCases.forEach((caseUrl) => handleHistory(caseUrl));
+    expect(pushStateSpy).toHaveBeenCalledTimes(testCases.length);
+  });
+
+  it('pushState updates the url', () => {
+    testCases.forEach((caseUrl) => {
+      handleHistory(caseUrl);
+      const { pathname } = window.location;
+      expect(pathname).toEqual(caseUrl);
+    });
+  });
+
+  it('replaceState is not called when the second argument is false', () => {
+    handleHistory(url, false);
+    expect(replaceStateSpy).not.toHaveBeenCalled();
+  });
+
+  it('replaceState is called when the second argument has been passed and when it equals true', () => {
+    handleHistory(url, true);
+    expect(replaceStateSpy).toHaveBeenCalled();
+  });
+
+  it('replaceState updates the url', () => {
+    const { length: initialLength } = window.history;
+
+    testCases.forEach((caseUrl) => {
+      handleHistory(caseUrl, true);
+      const { pathname } = window.location;
+      const { length } = window.history;
+      expect(pathname).toEqual(caseUrl);
+      expect(length).toEqual(initialLength);
+    });
+  });
+});
+
+describe('storeSearchString', () => {
+  it('writes search string to the specified storage key', () => {
+    const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
+    const namePrefix = 'aahh-rs-os-search-';
+
+    const testCases = [
+      {
+        name: 'products',
+        search: '?category=smartphones%7Claptops%7Cfragrances&brand=Apple%7CSamsung%7COPPO&text=12&sort=price+asc',
+      },
+      {
+        name: 'cart',
+        search: '?limit=4&page=2',
+      },
+    ];
+
+    testCases.forEach(({ name, search }) => {
+      window.history.pushState({}, '', search);
+      storeSearchString(name);
+      const fullName = `${namePrefix}${name}`;
+      expect(setItemSpy).toHaveBeenCalledWith(fullName, search);
+    });
+  });
+});
 
 describe('getCurrencyString', () => {
   let amount: string | number;
@@ -31,7 +120,7 @@ describe('getCurrencyString', () => {
     expect(result).toStrictEqual(expected);
   });
 
-  it('throws an error if does not match the value format', () => {
+  it('throws an error if the first argument does not match the value format', () => {
     const incorrectValue = '12zxc3';
     const attempt = (): string => getCurrencyString(incorrectValue);
     expect(attempt).toThrow('Invalid value format');
