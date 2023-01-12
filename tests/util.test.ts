@@ -1,68 +1,35 @@
-import { getCurrencyString, storeSearchString, handleHistory } from '../src/utility';
+import { getCurrencyString, storeSearchString, handleHistory, handleSearchParams } from '../src/utility';
 import { getColKeyValueLen } from '../src/components/products/filters/checkboxes/getColKeyValueLen';
 import { testProductsData } from './data/testProductsData';
 import { Product } from '../src/constants';
 
-describe('handleHistory', () => {
-  const dispatchEventSpy = jest.spyOn(window, 'dispatchEvent');
-  const pushStateSpy = jest.spyOn(window.history, 'pushState');
+const searchItemNamePrefix = 'aahh-rs-os-search-';
+
+describe('handleSearchParams', () => {
+  const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
   const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
-  const url = '/products';
-  const testCases = ['/', '/products', '/cart', '/details'];
+  const testCases = ['products', 'cart', 'details'];
 
-  it('dispatches an event to window', () => {
-    handleHistory(url);
-
-    expect(dispatchEventSpy).toHaveBeenCalled();
-    expect(dispatchEventSpy).toHaveBeenCalledWith(new Event(''));
-
-    const { pathname } = window.location;
-    expect(pathname).toEqual(url);
-  });
-
-  it('proper event type is received', () => {
-    const handler = jest.fn();
-
-    window.addEventListener('popstate', handler);
-
-    handleHistory(url);
-
-    expect(handler).toHaveBeenCalled();
-    expect(handler).toHaveBeenCalledWith(new Event(''));
-  });
-
-  it('pushState is called', () => {
-    testCases.forEach((caseUrl) => handleHistory(caseUrl));
-    expect(pushStateSpy).toHaveBeenCalledTimes(testCases.length);
-  });
-
-  it('pushState updates the url', () => {
-    testCases.forEach((caseUrl) => {
-      handleHistory(caseUrl);
-      const { pathname } = window.location;
-      expect(pathname).toEqual(caseUrl);
+  it('does not make a call if pathname does not match the name', () => {
+    testCases.forEach((name) => {
+      handleSearchParams(name);
+      expect(replaceStateSpy).not.toHaveBeenCalled();
     });
   });
 
-  it('replaceState is not called when the second argument is false', () => {
-    handleHistory(url, false);
-    expect(replaceStateSpy).not.toHaveBeenCalled();
+  it('calls getItem with proper name', () => {
+    testCases.forEach((name) => {
+      handleSearchParams(name);
+      const fullName = `${searchItemNamePrefix}${name}`;
+      expect(getItemSpy).toHaveBeenCalledWith(fullName);
+    });
   });
 
-  it('replaceState is called when the second argument has been passed and when it equals true', () => {
-    handleHistory(url, true);
-    expect(replaceStateSpy).toHaveBeenCalled();
-  });
-
-  it('replaceState updates the url', () => {
-    const { length: initialLength } = window.history;
-
-    testCases.forEach((caseUrl) => {
-      handleHistory(caseUrl, true);
-      const { pathname } = window.location;
-      const { length } = window.history;
-      expect(pathname).toEqual(caseUrl);
-      expect(length).toEqual(initialLength);
+  it('makes a call to replaceState if pathname matches name with the retrieved value', () => {
+    testCases.forEach((name) => {
+      window.history.replaceState({}, '', `/${name}`);
+      handleSearchParams(name);
+      expect(replaceStateSpy).toHaveBeenCalledWith({}, '', null);
     });
   });
 });
@@ -70,7 +37,6 @@ describe('handleHistory', () => {
 describe('storeSearchString', () => {
   it('writes search string to the specified storage key', () => {
     const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
-    const namePrefix = 'aahh-rs-os-search-';
 
     const testCases = [
       {
@@ -86,7 +52,7 @@ describe('storeSearchString', () => {
     testCases.forEach(({ name, search }) => {
       window.history.pushState({}, '', search);
       storeSearchString(name);
-      const fullName = `${namePrefix}${name}`;
+      const fullName = `${searchItemNamePrefix}${name}`;
       expect(setItemSpy).toHaveBeenCalledWith(fullName, search);
     });
   });
@@ -148,6 +114,70 @@ describe('getProductsLen', () => {
     testCases.forEach(({ arr, key, value, expected }) => {
       const result = getColKeyValueLen(arr, key, value);
       expect(result).toEqual(expected);
+    });
+  });
+});
+
+describe('handleHistory', () => {
+  const dispatchEventSpy = jest.spyOn(window, 'dispatchEvent');
+  const pushStateSpy = jest.spyOn(window.history, 'pushState');
+  const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
+  const url = '/products';
+  const testCases = ['/', '/products', '/cart', '/details'];
+
+  it('dispatches an event to window', () => {
+    handleHistory(url);
+
+    expect(dispatchEventSpy).toHaveBeenCalled();
+    expect(dispatchEventSpy).toHaveBeenCalledWith(new Event(''));
+
+    const { pathname } = window.location;
+    expect(pathname).toEqual(url);
+  });
+
+  it('proper event type is received', () => {
+    const handler = jest.fn();
+
+    window.addEventListener('popstate', handler);
+
+    handleHistory(url);
+
+    expect(handler).toHaveBeenCalled();
+    expect(handler).toHaveBeenCalledWith(new Event(''));
+  });
+
+  it('pushState is called', () => {
+    testCases.forEach((caseUrl) => handleHistory(caseUrl));
+    expect(pushStateSpy).toHaveBeenCalledTimes(testCases.length);
+  });
+
+  it('pushState updates the url', () => {
+    testCases.forEach((caseUrl) => {
+      handleHistory(caseUrl);
+      const { pathname } = window.location;
+      expect(pathname).toEqual(caseUrl);
+    });
+  });
+
+  it('replaceState is not called when the second argument is false', () => {
+    handleHistory(url, false);
+    expect(replaceStateSpy).not.toHaveBeenCalled();
+  });
+
+  it('replaceState is called when the second argument has been passed and when it equals true', () => {
+    handleHistory(url, true);
+    expect(replaceStateSpy).toHaveBeenCalled();
+  });
+
+  it('replaceState updates the url', () => {
+    const { length: initialLength } = window.history;
+
+    testCases.forEach((caseUrl) => {
+      handleHistory(caseUrl, true);
+      const { pathname } = window.location;
+      const { length } = window.history;
+      expect(pathname).toEqual(caseUrl);
+      expect(length).toEqual(initialLength);
     });
   });
 });
