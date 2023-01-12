@@ -13,6 +13,7 @@ function renderCart(): void {
 
   const cartNode = document.createElement('div');
   cartNode.className = 'cart';
+  cartNode.dataset.testid = 'cart';
 
   const headingNode = document.createElement('h2');
   headingNode.className = 'cart-heading heading';

@@ -5,6 +5,7 @@ import { createProduct } from './product/createProduct';
 function renderDetails(): void {
   const detailsNode = document.createElement('div');
   detailsNode.className = 'details';
+  detailsNode.dataset.testid = 'details';
 
   const id = getProductId();
 

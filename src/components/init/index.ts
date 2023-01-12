@@ -22,6 +22,7 @@ class App {
 
     const main = document.createElement('main');
     main.className = 'main';
+    main.dataset.testid = 'main';
     this.main = main;
 
     const footer = document.createElement('footer');

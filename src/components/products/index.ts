@@ -11,10 +11,12 @@ function renderProducts(): void {
 
   const productsNode = document.createElement('div');
   productsNode.className = 'products';
+  productsNode.dataset.testid = 'products';
 
   const headingNode = document.createElement('h2');
   headingNode.className = 'products-heading heading';
   headingNode.textContent = 'Products';
+  headingNode.dataset.testid = 'products-heading';
 
   const listNode = document.createElement('div');
   listNode.className = 'products-list';
