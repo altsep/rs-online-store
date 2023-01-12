@@ -2,6 +2,7 @@ import { renderCheckout, renderHeader } from '..';
 import { ROOT_PATH } from '../../constants';
 import { handleHistory } from '../../utility';
 import { onNavigate } from './onNavigate';
+import { printSelfAssessment } from './printSelfAssessment';
 
 class App {
   private root;
@@ -51,12 +52,7 @@ class App {
 
     window.addEventListener('popstate', onNavigate);
 
-    console.log('store-page: 120');
-    console.log('cart-page: 60');
-    console.log('purchase-modal: 50');
-    console.log('product-details-page: 40');
-    console.log('header-module: 20');
-    console.log('404-page: 10');
+    printSelfAssessment();
   }
 }
 
