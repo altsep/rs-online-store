@@ -1,41 +1,42 @@
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
-import { createApp } from './createApp';
-import { INITIAL_PRODUCTS, MAX_CARDS } from '../src/constants';
+import { createApp } from '../createApp';
+import { INITIAL_PRODUCTS, MAX_CARDS } from '../../src/constants';
 
 const { render } = createApp();
 
 describe('text search field', () => {
-  let input: HTMLInputElement;
-  let str: string;
-
-  beforeEach(() => {
-    str = 'asd';
-    input = screen.getByTestId<HTMLInputElement>('text-search');
-  });
+  const setup = (str = 'asd'): { str: string; input: HTMLInputElement } => {
+    const input = screen.getByTestId<HTMLInputElement>('text-search');
+    return { str, input };
+  };
 
   it('renders with value set to empty string', () => {
+    const { input } = setup();
     expect(input).toBeInTheDocument();
     expect(input).toHaveValue('');
   });
 
   it('accepts text input', async () => {
+    const { input, str } = setup();
     await userEvent.type(input, str);
     expect(input).toHaveValue(str);
   });
 
   it('on reload restores previously set text', () => {
+    const { input, str } = setup();
     render();
     expect(input).toHaveValue(str);
   });
 
   it('updates search query with entered text', () => {
+    const { input, str } = setup();
     const params = new URLSearchParams(window.location.search);
     expect(params.get(input.name)).toEqual(str);
   });
 
   it('filters cards', async () => {
-    str = 'oppo';
+    const { input, str } = setup('oppo');
 
     await userEvent.clear(input);
     await userEvent.type(input, str);
