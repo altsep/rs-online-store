@@ -1,12 +1,11 @@
-import { store } from '../../constants';
-import { getCurrencyString } from '../../utility';
+import { getCurrencyString, getSumAndItemCount } from '../../utility';
 
 export function updateCartCount(): void {
-  const { totalSum, itemsInCart } = store;
   const cartCount = document.querySelector<HTMLDivElement>('.cart-count');
   const cartTotalSum = document.querySelector<HTMLSpanElement>('.cart-total');
 
   const defaultCartCountBgColor = 'rgb(192, 31, 58)';
+  const { totalSum, itemsInCart } = getSumAndItemCount();
 
   if (cartCount) {
     if (itemsInCart > 0) {

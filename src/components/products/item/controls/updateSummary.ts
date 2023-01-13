@@ -1,9 +1,8 @@
-import { store } from '../../../../constants';
-import { getCurrencyString } from '../../../../utility';
+import { getCurrencyString, getSumAndItemCount } from '../../../../utility';
 import { getDiscountedSum } from '../../../cart/getDiscountedSum';
 
 export function updateSummary(): void {
-  const { itemsInCart, totalSum } = store;
+  const { itemsInCart, totalSum } = getSumAndItemCount();
 
   const productsNode = document.querySelector<HTMLDivElement>('.cart__summary-products');
   const totalNode = document.querySelector<HTMLDivElement>('.cart__summary-total');
@@ -18,7 +17,7 @@ export function updateSummary(): void {
   }
 
   if (totalDiscountedNode) {
-    const discountedSum = getDiscountedSum(store.totalSum);
+    const discountedSum = getDiscountedSum(totalSum);
     totalDiscountedNode.textContent = `Total: ${getCurrencyString(discountedSum)}`;
   }
 }

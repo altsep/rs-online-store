@@ -9,7 +9,7 @@ import { updateSummary } from './updateSummary';
 
 export const remove = (item: Product, icon: HTMLImageElement): void => {
   const { cart } = store;
-  const { price, id } = item;
+  const { id } = item;
 
   const cartItem = cart.find((el) => el.id === id);
 
@@ -17,8 +17,6 @@ export const remove = (item: Product, icon: HTMLImageElement): void => {
     const { amount } = cartItem;
 
     cartItem.amount -= 1;
-    store.itemsInCart -= 1;
-    store.totalSum -= price;
 
     const onCartPage = window.location.pathname.includes('cart');
 
