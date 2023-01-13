@@ -9,6 +9,7 @@ import {
 import { getColKeyValueLen } from '../src/components/products/filters/checkboxes/getColKeyValueLen';
 import { testProductsData } from './data/testProductsData';
 import { Product } from '../src/constants';
+import { getByTitle } from '@testing-library/dom';
 
 const searchItemNamePrefix = 'aahh-rs-os-search-';
 

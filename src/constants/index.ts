@@ -49,8 +49,10 @@ const cart = JSON.parse(cartStr || '[]') as Cart;
 const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
 const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
 
+const MAX_CARDS = 40;
+
 const store: Store = {
-  products: productsData.slice(0, 40),
+  products: productsData.slice(0, MAX_CARDS),
   cart,
   itemsInCart,
   totalSum,
@@ -85,8 +87,8 @@ const promoCodes = promoCodesStorageItem ? (JSON.parse(promoCodesStorageItem) as
 
 const ROOT_PATH = '/products';
 
-const INITIAL_PRODUCTS = Object.freeze(productsData.slice(0, 40));
+const INITIAL_PRODUCTS = Object.freeze(productsData.slice(0, MAX_CARDS));
 
 const INITIAL_ON_CART_PAGE_LIMIT = 4;
 
-export { ROOT_PATH, INITIAL_PRODUCTS, INITIAL_ON_CART_PAGE_LIMIT, store, styles, promoCodes };
+export { ROOT_PATH, INITIAL_PRODUCTS, MAX_CARDS, INITIAL_ON_CART_PAGE_LIMIT, store, styles, promoCodes };
