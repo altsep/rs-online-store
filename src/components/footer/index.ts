@@ -14,6 +14,7 @@ function renderFooter(): void {
     const logoImg = document.createElement('img');
     logoImg.src = rsLogo;
     logoImg.className = 'rs-logo-img';
+    logoImg.alt = '';
 
     logoAnchor.append(logoImg);
 
@@ -47,6 +48,7 @@ function renderFooter(): void {
     author2.text = 'annafeona';
     author2.href = 'https://github.com/annafeona';
     author2.target = '_blank';
+    author1.rel = 'noreferrer';
     author2.className = 'author';
 
     authors.append(author1, author2);
