@@ -1,5 +1,5 @@
 import { INITIAL_PRODUCTS } from '../../../../constants';
-import { getCurrencyString, updateURL } from '../../../../utility';
+import { getCurrencyString, updateSearchParams } from '../../../../utility';
 import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 import { getMinMaxProducts, getMinMaxRangeValues } from './getMinMax';
 
@@ -61,7 +61,7 @@ function createSlider(name: string): HTMLFieldSetElement {
   const handleChange = (): void => {
     const { min, max } = getMinMaxRangeValues(fieldset);
     const value = min === initialMin && max === initialMax ? '' : `${min}-${max}`;
-    updateURL(name, value);
+    updateSearchParams(name, value);
   };
 
   fieldset.addEventListener('change', handleChange);

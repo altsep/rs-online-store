@@ -1,5 +1,5 @@
 import { store, INITIAL_ON_CART_PAGE_LIMIT } from '../../constants';
-import { getSearchParamValue, storeSearchString, updateURL } from '../../utility';
+import { getSearchParamValue, storeSearchString, updateSearchParams } from '../../utility';
 import { renderItems } from './items';
 
 export const onPageNumClick = (e: MouseEvent, itemsContainer: HTMLDivElement): void => {
@@ -30,7 +30,7 @@ export const onPageNumClick = (e: MouseEvent, itemsContainer: HTMLDivElement): v
 
     const query = textContent && textContent !== '1' ? textContent : '';
 
-    updateURL('page', query);
+    updateSearchParams('page', query);
 
     storeSearchString('cart');
   }

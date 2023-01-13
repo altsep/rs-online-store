@@ -4,6 +4,7 @@ import errorImage from '../../assets/images/404.png';
 function renderNotFound(): void {
   const notFoundNode = document.createElement('div');
   notFoundNode.className = 'wrapper not-found';
+  notFoundNode.dataset.testid = 'not-found';
 
   const notFoundContainer = document.createElement('div');
   notFoundContainer.className = 'not-found__container';

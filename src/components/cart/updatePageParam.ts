@@ -1,5 +1,5 @@
 import { INITIAL_ON_CART_PAGE_LIMIT, store } from '../../constants';
-import { getSearchParamValue, updateURL } from '../../utility';
+import { getSearchParamValue, updateSearchParams } from '../../utility';
 import { getStartingIndices } from './getStartingIndices';
 
 function updatePageParam(): void {
@@ -12,7 +12,7 @@ function updatePageParam(): void {
 
   if (pageNum > startingIndices.length) {
     const query = startingIndices.length > 1 ? String(startingIndices.length) : '';
-    updateURL('page', query);
+    updateSearchParams('page', query);
   }
 }
 

@@ -1,4 +1,4 @@
-function handleSearchParams(name: string): void {
+function retrieveSearchParams(name: string): void {
   const { pathname } = window.location;
   const searchStorageItem = localStorage.getItem(`aahh-rs-os-search-${name}`);
   const regexp = new RegExp(`/${name}$`);
@@ -8,4 +8,4 @@ function handleSearchParams(name: string): void {
   }
 }
 
-export { handleSearchParams };
+export { retrieveSearchParams };

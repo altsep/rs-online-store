@@ -1,4 +1,4 @@
-import { updateURL } from '../../../../utility';
+import { updateSearchParams } from '../../../../utility';
 import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
 function createTextInput(name: string): HTMLInputElement {
@@ -7,6 +7,7 @@ function createTextInput(name: string): HTMLInputElement {
   input.name = name;
   input.type = 'text';
   input.dataset.filterType = 'text';
+  input.dataset.testid = 'text-search';
   input.placeholder = 'Search';
   input.value = getSearchParamValue(name);
 
@@ -14,7 +15,7 @@ function createTextInput(name: string): HTMLInputElement {
     const target = e.target as HTMLInputElement;
     const { value } = target;
 
-    updateURL(name, value);
+    updateSearchParams(name, value);
   };
 
   input.addEventListener('input', handleInput);

@@ -1,4 +1,4 @@
-import { storeSearchString, updateURL, getSearchParamValue } from '../../../../utility';
+import { storeSearchString, updateSearchParams, getSearchParamValue } from '../../../../utility';
 
 let btnValue = getSearchParamValue('display') || 'cards';
 
@@ -19,7 +19,7 @@ export const setDisplayMode = (isDefault = false): void => {
     btnValue = query || 'cards';
     target.value = `Display: ${btnValue}`;
 
-    updateURL('display', query);
+    updateSearchParams('display', query);
     storeSearchString('products');
   }
 };

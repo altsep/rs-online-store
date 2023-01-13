@@ -1,4 +1,4 @@
-import { updateURL } from '../../../../utility';
+import { updateSearchParams } from '../../../../utility';
 import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
 function createSelect(name: string): HTMLSelectElement {
@@ -36,7 +36,7 @@ function createSelect(name: string): HTMLSelectElement {
     const { selectedOptions } = e.target as HTMLSelectElement;
     const { value } = selectedOptions[0];
 
-    updateURL(name, value);
+    updateSearchParams(name, value);
   };
 
   select.addEventListener('input', handleInput);

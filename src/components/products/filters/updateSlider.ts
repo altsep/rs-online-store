@@ -1,7 +1,9 @@
 import { setSliderInfo } from './slider/setSliderInfo';
 import { setSliderValue } from './slider/setSliderValue';
 
-const fns: Record<string, (parent: HTMLFieldSetElement) => void> = {
+type Fns = Record<string, (parent: HTMLFieldSetElement) => void>;
+
+const fns: Fns = {
   info: setSliderInfo,
   value: setSliderValue,
 };
