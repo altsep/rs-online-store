@@ -18,7 +18,7 @@ describe('input text field', () => {
     expect(input).toHaveValue(str);
   });
 
-  it('restores previously set text on reload', () => {
+  it('on reload restores previously set text', () => {
     render();
     const newInput = getByTestId<HTMLInputElement>(root, 'text-search');
     expect(newInput).toHaveValue(str);
