@@ -1,6 +1,7 @@
 import { renderCheckout, renderHeader } from '..';
 import { ROOT_PATH } from '../../constants';
 import { handleHistory } from '../../utility';
+import { renderFooter } from '../footer';
 import { onNavigate } from './onNavigate';
 import { printSelfAssessment } from './printSelfAssessment';
 
@@ -44,6 +45,7 @@ class App {
 
     renderHeader();
     renderCheckout();
+    renderFooter();
 
     if (window.location.pathname === '/') {
       handleHistory(ROOT_PATH, true);
