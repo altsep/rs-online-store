@@ -1,0 +1,62 @@
+@use '../vars' as v;
+
+.footer {
+  background-color: #fff;
+  margin-top: auto;
+
+  &-content {
+    $p: 30px;
+    $w: 320px;
+    margin: $p auto 0;
+    padding: $p 0 10px;
+    max-width: $w;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid v.$warm-gray-darker;
+  }
+
+  .rs-logo {
+    width: 175px;
+  }
+
+  .rs-logo-img {
+    height: 100%;
+  }
+
+  .credits {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .credits * {
+    color: v.$dark-gray;
+  }
+
+  .copyright-text:first-child::after {
+    content: ' ';
+  }
+
+  .author {
+    text-decoration: underline;
+  }
+
+  .author:hover {
+    text-decoration: none;
+  }
+
+  .author:first-child {
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    padding-bottom: 5px;
+  }
+}

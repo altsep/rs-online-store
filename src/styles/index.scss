@@ -7,9 +7,12 @@
 @use 'cart';
 @use 'checkout';
 @use 'not-found';
+@use 'footer';
 
 #root {
   font-size: 1.5rem;
+  top: 80px;
+  position: relative;
 }
 
 .wrapper {
@@ -21,7 +24,6 @@
 
 .main {
   position: relative;
-  top: 80px;
   max-width: 1024px;
   margin: 0 auto;
 }
@@ -100,9 +102,6 @@ a {
 @media (min-width: 768px) {
   #root {
     font-size: 1.25rem;
-  }
-
-  .main {
     top: 70px;
   }
 
@@ -119,9 +118,6 @@ a {
 @media (min-width: 1024px) {
   #root {
     font-size: 1rem;
-  }
-
-  .main {
     top: 60px;
   }
 
