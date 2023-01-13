@@ -23,4 +23,10 @@ describe('input text field', () => {
     const newInput = getByTestId<HTMLInputElement>(root, 'text-search');
     expect(newInput).toHaveValue(str);
   });
+
+  it('updates search query with entered text', () => {
+    const params = new URLSearchParams(window.location.search);
+    expect(params.has(input.name)).toEqual(true);
+    expect(params.get(input.name)).toEqual(str);
+  });
 });

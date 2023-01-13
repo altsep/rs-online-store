@@ -211,13 +211,14 @@ describe('updateSearchParams', () => {
 
     testCases.forEach(({ key, value }) => {
       updateSearchParams(key, value);
-      const { search } = window.location;
+
+      const params = new URLSearchParams(window.location.search);
 
       if (value) {
-        const mockQuery = `${key}=${value}`;
-        expect(search).toEqual(expect.stringContaining(mockQuery));
+        expect(params.has(key)).toEqual(true);
+        expect(params.get(key)).toEqual(value);
       } else {
-        expect(search).toEqual('');
+        expect(params.has(key)).toEqual(false);
       }
     });
 
