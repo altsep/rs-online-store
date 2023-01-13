@@ -26,7 +26,6 @@ describe('input text field', () => {
 
   it('updates search query with entered text', () => {
     const params = new URLSearchParams(window.location.search);
-    expect(params.has(input.name)).toEqual(true);
     expect(params.get(input.name)).toEqual(str);
   });
 });

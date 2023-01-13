@@ -215,7 +215,6 @@ describe('updateSearchParams', () => {
       const params = new URLSearchParams(window.location.search);
 
       if (value) {
-        expect(params.has(key)).toEqual(true);
         expect(params.get(key)).toEqual(value);
       } else {
         expect(params.has(key)).toEqual(false);
