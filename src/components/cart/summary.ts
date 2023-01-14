@@ -1,10 +1,10 @@
-import { Promo, promoCodes, store } from '../../constants';
-import { getCurrencyString } from '../../utility';
+import { Promo, promoCodes } from '../../constants';
+import { getCurrencyString, getSumAndItemCount } from '../../utility';
 import { openPopUp } from '../checkout/popUpToggle';
 import { getDiscountedSum } from './getDiscountedSum';
 
 function renderSummary(parent: HTMLDivElement): void {
-  const { itemsInCart, totalSum } = store;
+  const { totalSum, itemsInCart } = getSumAndItemCount();
 
   const summaryNode = document.createElement('div');
   summaryNode.className = 'cart__summary';
@@ -52,7 +52,8 @@ function renderSummary(parent: HTMLDivElement): void {
     const totalDiscounted = document.querySelector<HTMLDivElement>('.cart__summary-total-discount');
 
     if (totalDiscounted) {
-      const discountedSum = getDiscountedSum(store.totalSum);
+      const { totalSum: promoClickTotalSum } = getSumAndItemCount();
+      const discountedSum = getDiscountedSum(promoClickTotalSum);
       totalDiscounted.textContent = `Total: ${getCurrencyString(discountedSum)}`;
     }
 
@@ -94,8 +95,9 @@ function renderSummary(parent: HTMLDivElement): void {
   }
 
   if (initialActivePromo.length) {
+    const { totalSum: renderPromoTotalSum } = getSumAndItemCount();
     totalNode.classList.add('line-through');
-    totalDiscountedNode.textContent = `Total: ${getCurrencyString(getDiscountedSum(store.totalSum))}`;
+    totalDiscountedNode.textContent = `Total: ${getCurrencyString(getDiscountedSum(renderPromoTotalSum))}`;
     totalDiscountedNode.classList.remove('hidden');
     initialActivePromo.forEach((p) => renderPromo(p, promoCodesNode));
   }
