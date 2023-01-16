@@ -6,7 +6,12 @@ import { INITIAL_PRODUCTS, MAX_CARDS } from '../../src/constants';
 const { render } = createApp();
 
 describe('text search field', () => {
-  const setup = (str = 'asd'): { str: string; input: HTMLInputElement } => {
+  interface Mocks {
+    str: string;
+    input: HTMLInputElement;
+  }
+
+  const setup = (str = 'asd'): Mocks => {
     const input = screen.getByTestId<HTMLInputElement>('text-search');
     return { str, input };
   };
