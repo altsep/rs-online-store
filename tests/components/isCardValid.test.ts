@@ -1,4 +1,4 @@
-import { isCardCodeValid, isCardNumberValid, isExpirationDateValid } from "../src/components/checkout/form/validate/isCardValid";
+import { isCardCodeValid, isCardNumberValid, isExpirationDateValid } from "../../src/components/checkout/form/validate/isCardValid";
 
 describe('isCardNumberVaid', () => {
   const input = document.createElement('input');

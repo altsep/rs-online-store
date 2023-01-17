@@ -1,7 +1,6 @@
 import { fireEvent, getByTestId } from "@testing-library/dom";
-import { closePopUp, openPopUp } from "../src/components/checkout/popUpToggle";
-import { handleHistory } from "../src/utility";
-import { createApp } from "./createApp";
+import { openPopUp } from "../../src/components/checkout/popUpToggle";
+import { createApp } from "../createApp";
 
 const { root, render } = createApp();
 

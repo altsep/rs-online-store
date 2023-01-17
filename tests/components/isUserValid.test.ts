@@ -1,4 +1,4 @@
-import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from "../src/components/checkout/form/validate/isUserValid";
+import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from "../../src/components/checkout/form/validate/isUserValid";
 
 describe('isNameValid', () => {
   const input = document.createElement('input');
