@@ -10,6 +10,7 @@ function renderCheckout(): void {
 
   const checkoutNode = document.createElement('div');
   checkoutNode.className = 'checkout__pop-up';
+  checkoutNode.dataset.testid = 'checkout__pop-up';
 
   const checkoutContent = document.createElement('div');
   checkoutContent.className = 'checkout__pop-up_content';
