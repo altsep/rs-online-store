@@ -2,10 +2,9 @@ import { fireEvent, getByTestId } from '@testing-library/dom';
 import { openPopUp } from '../../src/components/checkout/popUpToggle';
 import { createApp } from '../createApp';
 
-const { root, render } = createApp();
+const { root } = createApp();
 
 describe('openPopUp', () => {
-  render();
   const popUp = getByTestId<HTMLDivElement>(root, 'checkout__pop-up');
 
   openPopUp();
@@ -15,7 +14,6 @@ describe('openPopUp', () => {
 });
 
 describe('closePopUp', () => {
-  render();
   const popUp = getByTestId<HTMLDivElement>(root, 'checkout__pop-up');
   popUp.classList.add('active');
 
