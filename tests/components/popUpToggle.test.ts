@@ -1,6 +1,6 @@
-import { fireEvent, getByTestId } from "@testing-library/dom";
-import { openPopUp } from "../../src/components/checkout/popUpToggle";
-import { createApp } from "../createApp";
+import { fireEvent, getByTestId } from '@testing-library/dom';
+import { openPopUp } from '../../src/components/checkout/popUpToggle';
+import { createApp } from '../createApp';
 
 const { root, render } = createApp();
 
@@ -10,9 +10,9 @@ describe('openPopUp', () => {
 
   openPopUp();
   it('expected popUp to be active', () => {
-    expect(popUp.classList.contains('active')).toBe(true);
-  })
-})
+    expect(popUp).toHaveClass('active');
+  });
+});
 
 describe('closePopUp', () => {
   render();
@@ -21,6 +21,6 @@ describe('closePopUp', () => {
 
   it('expected popUp to be closed by click', () => {
     fireEvent.click(popUp);
-    expect(popUp.classList.contains('active')).toBe(false);
-  })
+    expect(popUp).not.toHaveClass('active');
+  });
 });
