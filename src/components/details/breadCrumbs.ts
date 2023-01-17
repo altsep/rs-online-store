@@ -34,7 +34,7 @@ export function breadCrumbs(id: number): HTMLDivElement {
 
     storeLink.addEventListener('click', () => handleHistory('/'));
     categoryLink.addEventListener('click', () => handleHistory(`/products?category=${category.toLowerCase()}`));
-    brandLink.addEventListener('click', () => handleHistory(`/products?brand=${brand.toLowerCase()}`));
+    brandLink.addEventListener('click', () => handleHistory(`/products?brand=${brand}`));
 
     const listItemsArr = [storeLink, categoryLink, brandLink, titleLink];
 

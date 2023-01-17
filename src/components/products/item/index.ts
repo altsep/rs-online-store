@@ -7,6 +7,7 @@ import { getCurrencyString } from '../../../utility';
 export function createListItem(item: ProductListItem, i?: number): HTMLDivElement {
   const listItem = document.createElement('div');
   listItem.className = 'products__item';
+  listItem.dataset.testid = 'card';
 
   if (i !== undefined) {
     const cartNumber = document.createElement('h4');

@@ -29,8 +29,6 @@ type Cart = CartItem[];
 interface Store {
   products: Product[];
   cart: Cart;
-  itemsInCart: number;
-  totalSum: number;
 }
 
 type Styles = Record<string, Record<string, string>>;
@@ -46,14 +44,12 @@ export type { Product, Store, ProductExtension, CartItem, ProductListItem, Promo
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
 const cart = JSON.parse(cartStr || '[]') as Cart;
-const totalSum = Number(localStorage.getItem('aahh-rs-os-sum'));
-const itemsInCart = Number(localStorage.getItem('aahh-rs-os-num'));
+
+const MAX_CARDS = 40;
 
 const store: Store = {
-  products: productsData.slice(0, 40),
+  products: productsData.slice(0, MAX_CARDS),
   cart,
-  itemsInCart,
-  totalSum,
 };
 
 const styles: Styles = {
@@ -85,8 +81,8 @@ const promoCodes = promoCodesStorageItem ? (JSON.parse(promoCodesStorageItem) as
 
 const ROOT_PATH = '/products';
 
-const INITIAL_PRODUCTS = Object.freeze(productsData.slice(0, 40));
+const INITIAL_PRODUCTS = Object.freeze(productsData.slice(0, MAX_CARDS));
 
 const INITIAL_ON_CART_PAGE_LIMIT = 4;
 
-export { ROOT_PATH, INITIAL_PRODUCTS, INITIAL_ON_CART_PAGE_LIMIT, store, styles, promoCodes };
+export { ROOT_PATH, INITIAL_PRODUCTS, MAX_CARDS, INITIAL_ON_CART_PAGE_LIMIT, store, styles, promoCodes };
