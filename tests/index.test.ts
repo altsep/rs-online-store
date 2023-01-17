@@ -1,10 +1,6 @@
 import { screen } from '@testing-library/dom';
-import { createRoot } from './createApp';
 
-const root = createRoot();
-document.body.append(root);
-
-expect(root).toBeInTheDocument();
+document.body.id = 'root';
 
 describe('entry point', () => {
   it('renders app', async () => {
