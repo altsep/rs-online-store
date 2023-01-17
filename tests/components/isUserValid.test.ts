@@ -1,4 +1,9 @@
-import { isAdressValid, isEmailValid, isNameValid, isPhoneValid } from "../../src/components/checkout/form/validate/isUserValid";
+import {
+  isAdressValid,
+  isEmailValid,
+  isNameValid,
+  isPhoneValid,
+} from '../../src/components/checkout/form/validate/isUserValid';
 
 describe('isNameValid', () => {
   const input = document.createElement('input');
@@ -16,7 +21,7 @@ describe('isNameValid', () => {
     invalidName.forEach((val) => {
       input.value = val;
       expect(isNameValid(input)).toBe(false);
-    })
+    });
   });
 });
 
@@ -36,7 +41,7 @@ describe('isAdressValid', () => {
     invalidAdress.forEach((val) => {
       input.value = val;
       expect(isAdressValid(input)).toBe(false);
-    })
+    });
   });
 });
 
@@ -51,12 +56,12 @@ describe('isPhoneValid', () => {
     validPhone.forEach((val) => {
       input.value = val;
       expect(isPhoneValid(input)).toBe(true);
-    })
+    });
 
     invalidPhone.forEach((val) => {
       input.value = val;
       expect(isPhoneValid(input)).toBe(false);
-    })
+    });
   });
 });
 
@@ -79,4 +84,3 @@ describe('isEmailValid', () => {
     });
   });
 });
-
