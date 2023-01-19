@@ -1,4 +1,5 @@
 import type { Product } from '../../../../constants';
+import type { SortOptions } from '../sort';
 
 export const sort = (products: Product[]): Product[] => {
   const select = document.querySelector<HTMLSelectElement>('.filter.sort');
@@ -10,7 +11,7 @@ export const sort = (products: Product[]): Product[] => {
 
     const { value } = selected;
 
-    switch (value) {
+    switch (value as SortOptions) {
       case 'price asc':
         products.sort((a, b) => a.price - b.price);
         break;
