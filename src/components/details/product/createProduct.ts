@@ -11,26 +11,24 @@ export function createProduct(id: number): HTMLDivElement {
 
   productNode.append(prodTitle);
 
-  if (!id) {
+  const product = INITIAL_PRODUCTS.find((pr) => pr.id === id);
+
+  if (!product) {
     prodTitle.textContent = 'Product not found';
     return productNode;
   }
 
-  const product = INITIAL_PRODUCTS.find((pr) => pr.id === id);
+  prodTitle.textContent = product.title;
 
-  if (product) {
-    prodTitle.textContent = product.title;
+  const productContainer = document.createElement('div');
+  productContainer.className = 'product__container';
 
-    const productContainer = document.createElement('div');
-    productContainer.className = 'product__container';
+  const photoContainer = createPhoto(product);
+  const description = createDescription(product);
+  const buyContainer = createAddToCart(product);
 
-    const photoContainer = createPhoto(product);
-    const description = createDescription(product);
-    const buyContainer = createAddToCart(product);
-
-    productContainer.append(photoContainer, description, buyContainer);
-    productNode.append(productContainer);
-  }
+  productContainer.append(photoContainer, description, buyContainer);
+  productNode.append(productContainer);
 
   return productNode;
 }
