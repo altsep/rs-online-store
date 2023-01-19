@@ -1,10 +1,7 @@
-import type { Product } from '../../../../constants';
+import type { KeyOfType, Product } from '../../../../constants';
 
-export const getColKeyValueLen = (arr: Product[] | Readonly<Product[]>, key: string, value: string): number =>
-  arr.filter((p) => {
-    const v = p[key as keyof Product];
-    if (typeof v === 'string' && v === value) {
-      return true;
-    }
-    return false;
-  }).length;
+export const getColKeyValueLen = (
+  arr: Product[] | Readonly<Product[]>,
+  key: KeyOfType<Product, string>,
+  value: string
+): number => arr.filter((el) => el[key] === value).length;

@@ -1,8 +1,8 @@
-import { store, INITIAL_PRODUCTS } from '../../../../constants';
+import { store, INITIAL_PRODUCTS, KeyOfType, Product } from '../../../../constants';
 import { getColKeyValueLen } from './getColKeyValueLen';
 
 interface Options {
-  name: string;
+  name: KeyOfType<Product, string>;
   value: string;
   itemCountNode: HTMLSpanElement;
 }

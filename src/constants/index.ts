@@ -40,7 +40,9 @@ interface Promo {
   active: boolean;
 }
 
-export type { Product, Store, ProductExtension, CartItem, ProductListItem, Promo };
+type KeyOfType<T, TProp> = { [P in keyof T]: T[P] extends TProp ? P : never }[keyof T];
+
+export type { Product, Store, ProductExtension, CartItem, ProductListItem, Promo, KeyOfType };
 
 const cartStr = localStorage.getItem('aahh-rs-os-cart');
 const cart = JSON.parse(cartStr || '[]') as Cart;

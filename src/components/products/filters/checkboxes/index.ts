@@ -1,10 +1,10 @@
-import { INITIAL_PRODUCTS, Product } from '../../../../constants';
+import { INITIAL_PRODUCTS, KeyOfType, Product } from '../../../../constants';
 import { setItemCount } from './setItemCount';
 import { getCheckedValues } from './getCheckedValues';
 import { updateSearchParams } from '../../../../utility';
 import { getSearchParamValue } from '../../../../utility/getSearchParamValue';
 
-function createCheckboxes(name: string): HTMLFieldSetElement {
+function createCheckboxes(name: KeyOfType<Product, string>): HTMLFieldSetElement {
   const fieldset = document.createElement('fieldset');
   fieldset.className = 'categories filter';
   fieldset.name = name;
