@@ -37,19 +37,18 @@ function renderFooter(): void {
     const authors = document.createElement('div');
     authors.className = 'authors';
 
-    const author1 = document.createElement('a');
-    author1.text = 'altsep';
-    author1.href = 'https://github.com/altsep';
-    author1.target = '_blank';
-    author1.rel = 'noreferrer';
-    author1.className = 'author';
+    const getAuthor = (name: string): HTMLAnchorElement => {
+      const author = document.createElement('a');
+      author.text = name;
+      author.href = `https://github.com/${name}`;
+      author.target = '_blank';
+      author.rel = 'noreferrer';
+      author.className = 'author';
+      return author;
+    };
 
-    const author2 = document.createElement('a');
-    author2.text = 'annafeona';
-    author2.href = 'https://github.com/annafeona';
-    author2.target = '_blank';
-    author1.rel = 'noreferrer';
-    author2.className = 'author';
+    const author1 = getAuthor('altsep');
+    const author2 = getAuthor('annafeona');
 
     authors.append(author1, author2);
 
