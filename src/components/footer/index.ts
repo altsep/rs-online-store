@@ -37,7 +37,7 @@ function renderFooter(): void {
     const authors = document.createElement('div');
     authors.className = 'authors';
 
-    const getAuthor = (name: string): HTMLAnchorElement => {
+    const createAuthor = (name: string): HTMLAnchorElement => {
       const author = document.createElement('a');
       author.text = name;
       author.href = `https://github.com/${name}`;
@@ -47,8 +47,8 @@ function renderFooter(): void {
       return author;
     };
 
-    const author1 = getAuthor('altsep');
-    const author2 = getAuthor('annafeona');
+    const author1 = createAuthor('altsep');
+    const author2 = createAuthor('annafeona');
 
     authors.append(author1, author2);
 

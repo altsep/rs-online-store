@@ -36,25 +36,22 @@ function createSlider(name: string): HTMLFieldSetElement {
   const multiRange = document.createElement('div');
   multiRange.className = 'multi-range';
 
-  const rangeFirst = document.createElement('input');
-  rangeFirst.type = 'range';
-  rangeFirst.min = initialMinValueStr;
-  rangeFirst.max = initialMaxValueStr;
-  rangeFirst.value = paramMin || initialMinValueStr;
-  rangeFirst.defaultValue = initialMinValueStr;
-  rangeFirst.className = 'slider-range first';
-  rangeFirst.name = name;
+  const createRange = (rangeName: string, value: string, defaultValue: string): HTMLInputElement => {
+    const range = document.createElement('input');
+    range.type = 'range';
+    range.min = initialMinValueStr;
+    range.max = initialMaxValueStr;
+    range.value = value;
+    range.defaultValue = defaultValue;
+    range.className = `slider-range ${rangeName}`;
+    range.name = rangeName;
+    return range;
+  };
 
-  const rangeSecond = document.createElement('input');
-  rangeSecond.type = 'range';
-  rangeSecond.min = initialMinValueStr;
-  rangeSecond.max = initialMaxValueStr;
-  rangeSecond.value = paramMax || initialMaxValueStr;
-  rangeSecond.defaultValue = initialMaxValueStr;
-  rangeSecond.className = 'slider-range second';
-  rangeSecond.name = name;
+  const range1 = createRange('first', paramMin || initialMinValueStr, initialMinValueStr);
+  const range2 = createRange('second', paramMax || initialMaxValueStr, initialMaxValueStr);
 
-  multiRange.append(rangeFirst, rangeSecond);
+  multiRange.append(range1, range2);
 
   fieldset.append(legend, infoContainer, multiRange);
 
