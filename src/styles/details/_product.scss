@@ -1,0 +1,53 @@
+@use '../vars' as v;
+
+.product__info_container {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  gap: 20px;
+}
+
+.description__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px v.$divider-color;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.description__item_title {
+  margin: 0;
+  padding: 5px;
+}
+
+.description__item_content {
+  text-align: justify;
+  padding: 5px;
+}
+
+@media (min-width: 768px) {
+  .details .product__container {
+    width: 100%;
+  }
+
+  .product__info_container {
+    width: 50%;
+    gap: 10px;
+  }
+
+  .description__item {
+    padding: 5px 10px;
+  }
+
+  .description__item_content {
+    text-align: unset;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product__info_container {
+    width: 30%;
+  }
+}

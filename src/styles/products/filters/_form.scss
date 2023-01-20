@@ -1,0 +1,88 @@
+@use '../../mixins' as mx;
+@use '../../vars' as v;
+@use 'categories';
+@use 'slider';
+
+.filters__form {
+  $p: 20px;
+  $gap: 10px;
+  padding: $p;
+  background-color: v.$light-gray;
+  box-shadow: inset 1px 1px 5px v.$warm-gray-darker;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+  }
+
+  .controls > * {
+    margin: 5px 0;
+  }
+
+  .categories,
+  .slider {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: v.$controls-border;
+  }
+
+  &,
+  .btn-container {
+    gap: $gap;
+  }
+
+  .sort {
+    @include mx.input-text;
+  }
+
+  .sort-option {
+    height: 50px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .item-count {
+    text-align: right;
+  }
+
+  &-products-found {
+    @include mx.flex-center;
+  }
+}
+
+@media (min-width: 768px) {
+  .filters__form {
+    $gap: 20px;
+
+    .controls {
+      display: flex;
+      flex-direction: row;
+      margin: 5px 0;
+    }
+
+    .controls > * {
+      margin: unset;
+    }
+
+    .controls,
+    .btn-container {
+      gap: $gap;
+    }
+
+    .input-text {
+      max-width: 350px;
+    }
+
+    .search {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@use 'normalize';
+@use 'mixins' as mx;
+@use 'vars' as v;
+@use 'header';
+@use 'products';
+@use 'details';
+@use 'cart';
+@use 'checkout';
+@use 'not-found';
+@use 'footer';
+
+#root {
+  font-size: 1.5rem;
+  top: 80px;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.btn {
+  cursor: pointer;
+  color: #0f172a;
+  font-weight: 600;
+  $bgc: #f1f5f9;
+  $bgc--hover: v.$light-gray;
+  padding: 1rem 1.5rem;
+  border-radius: 0.375rem;
+  border: v.$controls-border;
+
+  &:hover {
+    background-color: $bgc--hover;
+  }
+
+  &:active {
+    background-color: revert;
+  }
+
+  &:focus {
+    @include mx.ring-offset;
+  }
+}
+
+.btn.accented {
+  background-color: v.$accent-color;
+
+  &:hover {
+    background-color: v.$accent-color-alternative;
+  }
+
+  &:active {
+    background-color: v.$accent-color;
+  }
+}
+
+.grayed-out {
+  color: #8e8e8e;
+}
+
+.input-text {
+  @include mx.input-text;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.line-through {
+  text-decoration-line: line-through;
+}
+
+.mono {
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  #root {
+    font-size: 1.25rem;
+    top: 70px;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .input-text {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #root {
+    font-size: 1rem;
+    top: 60px;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+}

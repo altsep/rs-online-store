@@ -1,0 +1,67 @@
+@use '../../mixins' as mx;
+@use '../../vars' as v;
+
+.filters__form {
+  .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .checkbox-container:not(:first-of-type) {
+    margin-top: 10px;
+  }
+
+  .checkbox-controls {
+    display: flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  .checkbox {
+    margin-right: 10px;
+    appearance: none;
+    background-color: #fff;
+    height: 1.3rem;
+    width: 1.3rem;
+    border: v.$controls-border;
+    border-radius: 0.25rem;
+
+    &:checked {
+      background-image: url('/src/assets/icons/checkmark.svg');
+      background-color: #c178be;
+    }
+
+    &:focus {
+      @include mx.focus-ring;
+    }
+  }
+
+  .categories {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .categories[name='brand'] {
+    text-transform: capitalize;
+  }
+}
+
+@media (min-width: 768px) {
+  .filters__form {
+    .categories {
+      padding: 0.5rem 0.75rem;
+    }
+
+    .checkbox-container:not(:first-of-type) {
+      margin-top: 5px;
+    }
+
+    .checkbox {
+      margin-right: 5px;
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+}

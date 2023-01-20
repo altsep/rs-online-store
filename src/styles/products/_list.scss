@@ -1,0 +1,26 @@
+.products-list {
+  margin: 5px;
+}
+
+@media (min-width: 768px) {
+  .products-list {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+
+    &.display--list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-list {
+    margin-left: unset;
+    margin-right: unset;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1024px;
+    grid-gap: 15px;
+  }
+}

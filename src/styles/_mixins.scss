@@ -1,0 +1,81 @@
+@use 'vars' as v;
+
+@mixin inset-center($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin icon($size: 20px, $offset: 0) {
+  height: $size;
+  width: $size;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid v.$warm-gray-darker;
+  box-shadow: 1px 1px 3px v.$warm-gray-darker;
+
+  &:hover {
+    background-color: v.$light-gray;
+  }
+
+  &:active {
+    @include focus-ring;
+  }
+}
+
+@mixin focus-ring {
+  border-color: rgb(165 180 252);
+  outline: 2px solid rgba(199, 210, 254, 0.5);
+}
+
+@mixin ring-offset($color: rgba(56, 68, 94, 0.3), $offset: 2px) {
+  $ring-inset: 0;
+  $ring-offset-width: $offset;
+  $ring-offset-color: #f8fafc;
+  $ring-color: $color;
+  $ring-offset-shadow: $ring-inset 0 0 $ring-offset-width $ring-offset-color;
+  $ring-shadow: $ring-inset 0 0 calc(2px + $ring-offset-width) $ring-color;
+  box-shadow: $ring-offset-shadow, $ring-shadow;
+}
+
+@mixin input-text {
+  background-color: #fff;
+  padding: 1rem 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  &:focus {
+    @include focus-ring;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.75rem 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0.5rem;
+  }
+}
+
+@mixin input-checkout {
+  background-color: v.$light-primary-color;
+  border: 1px solid v.$divider-color;
+  padding: 5px;
+  border-radius: 0.375rem;
+
+  &:focus {
+    @include focus-ring;
+  }
+
+  &.invalid {
+    border-color: #ff3333;
+  }
+}
